@@ -1,25 +1,11 @@
 import React from "react";
-import handleResponse from "./utils";
+import handlerResponse from "./utils";
 
 class Api extends React.Component {
   constructor({ address, headers }) {
     super();
     this.address = address;
     this.headers = headers;
-  }
-
-  signIn(data) {
-    // console.log(data)
-    return fetch(`${this.address}/signin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        password: data.password,
-        email: data.email,
-      }),
-    }).then(handleResponse);
   }
 
   createWorker(data) {    
@@ -29,7 +15,7 @@ class Api extends React.Component {
       headers: this.headers,
       body: data,
 
-    }).then(handleResponse);
+    }).then(handlerResponse);
   }
 
   getWorkers() {
@@ -37,7 +23,7 @@ class Api extends React.Component {
       method: "GET",
       headers: this.headers,
     }
-    ).then(handleResponse);
+    ).then(handlerResponse);
   }
 
   rmWorker(_id) {

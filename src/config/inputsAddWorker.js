@@ -1,0 +1,57 @@
+const inputs = [
+  {
+    id: 1,
+    name: "firstName",
+    type: "text",
+    required: true,
+    autocomplete: "off",
+    label: "Имя сотрудника",
+    placeholder: "Кирилл",
+    minlengths: 2,
+    maxlength: 20,
+  },
+  {
+    id: 2,
+    name: "lastName",
+    type: "text",
+    required: true,
+    autocomplete: "off",
+    label: "Фамилия",
+    placeholder: "Мухин",
+    minlengths: 2,
+    maxlength: 20,
+  },
+  {
+    id: 3,
+    name: "middleName",
+    type: "text",
+    required: true,
+    autocomplete: "off",
+    label: "Отчество",
+    placeholder: "Витальевич",
+    minlengths: 2,
+    maxlength: 20,
+  },
+  {
+    id: 4,
+    name: "position",
+    type: "text",
+    required: true,
+    autocomplete: "off",
+    label: "Должность",
+    placeholder: "Директор, возможно...)",
+    minlengths: 2,
+    maxlength: 20,
+  },
+  {
+    id: 5,
+    name: "image",
+    type: "file",
+    required: true,
+    autocomplete: "off",
+    label: "Фотография",
+    placeholder: "Директор",
+  }
+]
+
+export default inputs

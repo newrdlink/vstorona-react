@@ -1,0 +1,44 @@
+.popup {
+  background-color: #974269;
+  opacity: .7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.popup_opened {
+  visibility: visible;
+  opacity: 0.7;
+  transition: opacity 0.3s linear;
+}
+
+.popup_func_add-worker {
+
+}
+
+.popup__container {
+  position: relative;
+  background-color: cornsilk;
+  max-width: 430px;
+
+}
+
+.popup__title {
+
+}
+
+.popup__form {
+
+}
+
+.popup__submit {
+
+}
