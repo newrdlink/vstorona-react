@@ -1,23 +1,41 @@
 import { React, useState } from 'react'
 import './App.css'
+
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import AddWorker from '../AddWorker/AddWorker'
+import api from '../../utils/ApiWorker'
+
 
 const App = () => {
   const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
+  const [errorAddWorker, setErrorAddWorker] = useState("")
+
+  const onSubmitHandlerAddWorker = (workerData) => {
+    api.createWorker(workerData)
+      .then(() => setIsPopupAddWorkerOpen(false))
+      .catch((e) => setErrorAddWorker(e))
+    // .catch((e) => console.log(e))
+  }
 
   return (
     <div className="app">
-      <p className="app__title">администрация</p>
-      <footer>
 
-      </footer>
+      <Header />
+      <p className="app__title">администрация</p>
+      <Footer />
+
+
       <button type="button" onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button>
+
       <AddWorker
         title="Новый сотрудник"
         submitBtnName="Добавить работника"
         onClickBtnClose={() => setIsPopupAddWorkerOpen(false)}
         isOpen={isPopupAddWorkerOpen}
-        onClose={() => setIsPopupAddWorkerOpen(false)} />
+        onSubmitHandlerAddWorker={onSubmitHandlerAddWorker}
+        onClose={() => setIsPopupAddWorkerOpen(false)}
+        errorMessage={errorAddWorker} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import handlerResponse from "./utils";
+import handlerResponse from "./handlerRes";
 
 class Api extends React.Component {
   constructor({ address, headers }) {
@@ -44,4 +44,5 @@ const api = new Api({
     // "Content-Type": "application/json",
   },
 });
+
 export default api;

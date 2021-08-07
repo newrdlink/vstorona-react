@@ -1,18 +1,21 @@
 import React from 'react'
 
-const Input = ({ name, type, required, autocomplete, label, placeholder, minlengths, maxlength }) => {
+const Input = ({ name,
+  type, required, autocomplete, label, placeholder, maxlength, minlength, onChange, imageFile }) => {
 
   return (
     <label>
       {label}
       <input
+        ref={imageFile}
         name={name}
         type={type}
         required={required}
-        autocomplete={autocomplete}
+        autoComplete={autocomplete}
         placeholder={placeholder}
-        minLengths={minlengths}
+        minLength={minlength}
         maxLength={maxlength}
+        onChange={onChange}
       />
     </label>
   )

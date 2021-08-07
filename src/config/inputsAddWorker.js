@@ -7,7 +7,7 @@ const inputs = [
     autocomplete: "off",
     label: "Имя сотрудника",
     placeholder: "Кирилл",
-    minlengths: 2,
+    minlength: 2,
     maxlength: 20,
   },
   {
@@ -18,7 +18,7 @@ const inputs = [
     autocomplete: "off",
     label: "Фамилия",
     placeholder: "Мухин",
-    minlengths: 2,
+    minlength: 2,
     maxlength: 20,
   },
   {
@@ -29,7 +29,7 @@ const inputs = [
     autocomplete: "off",
     label: "Отчество",
     placeholder: "Витальевич",
-    minlengths: 2,
+    minlength: 2,
     maxlength: 20,
   },
   {
@@ -40,7 +40,7 @@ const inputs = [
     autocomplete: "off",
     label: "Должность",
     placeholder: "Директор, возможно...)",
-    minlengths: 2,
+    minlength: 2,
     maxlength: 20,
   },
   {
