@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import LogoHeader from '../Logo/Logo'
+import Logo from '../Logo/Logo'
 import ContactsHeader from '../ContactsHeader/ContactsHeader'
 import ModVersion from '../Buttons/ModVersion/ModVersion'
 import Nav from '../NavHeader/NavHeader'
@@ -13,14 +13,14 @@ import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
 const Header = () => {
   return (
     <header className="header">
-      <LogoHeader />
+      <Logo place="header" />
       <ContactsHeader />
       <ModVersion />
       <Nav />
       <СollectivesButton />
       <SignInButton />
       <SearchButton />
-      <RightMenuButton/>
+      <RightMenuButton />
     </header>
   )
 }

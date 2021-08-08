@@ -1,4 +1,5 @@
 import React from 'react'
+import './About.css'
 import { Switch, Route, useRouteMatch, useLocation } from 'react-router-dom'
 import CardsBox from '../../CardsBox/CardsBox'
 import { aboutItems } from '../../../config/aboutItems'
@@ -16,8 +17,9 @@ const About = () => {
 
   // const { path, url } = useRouteMatch();
   return (
-    <div>
+    <div className="about">
       <NavPage />
+      <h2 className="about__title">о нас</h2>
       <Switch>
         <Route exact path="/about">
           <CardsBox arrayCards={aboutItems} />

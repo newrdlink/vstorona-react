@@ -36,7 +36,8 @@ const App = () => {
       <Footer />
 
 
-      <button type="button" onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button>
+      {/* <button type="button" 
+      onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button> */}
 
       <AddWorker
         title="Новый сотрудник"

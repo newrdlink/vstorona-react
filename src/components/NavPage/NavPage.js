@@ -15,14 +15,14 @@ const NavPage = () => {
       case '':
         let a = {}
         a.id = 1
-        a.name = 'главная'
+        a.name = 'главная '
         a.path = '/'
         obj.push(a)
         break
       case 'about':
         let b = {}
         b.id = 2
-        b.name = 'о нас'
+        b.name = 'о нас '
         b.path = '/about'
         obj.push(b)
         break
@@ -36,21 +36,21 @@ const NavPage = () => {
       case 'history':
         let d = {}
         d.id = 4
-        d.name = 'история'
+        d.name = 'история '
         d.path = '/about/history'
         obj.push(d)
         break
       case 'achievements':
         let e = {}
         e.id = 5
-        e.name = 'достижения'
+        e.name = 'достижения '
         e.path = '/about/achievements'
         obj.push(e)
         break
       case 'questionnaire':
         let f = {}
         f.id = 6
-        f.name = 'анкета'
+        f.name = 'анкета '
         f.path = '/about/questionnaire'
         obj.push(f)
         break

@@ -1,7 +1,14 @@
 import React from 'react'
-import LogoImage from '../../images/logo-header.png'
 import './Logo.css'
+import LogoHeader from '../../images/logo-header.png'
+import LogoFooter from '../../images/logo-footer.png'
 
-const LogoHeader = () => <img src={LogoImage} alt="Логотип" className="logo-header" />
 
-export default LogoHeader
+const Logo = ({ place }) =>
+  <img
+    src={place === "header" ? LogoHeader : LogoFooter}
+    alt="Логотип"
+    className={`logo logo_place_${place}`}
+  />
+
+export default Logo
