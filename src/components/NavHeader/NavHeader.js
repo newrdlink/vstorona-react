@@ -1,5 +1,5 @@
 import React from 'react'
-import './Nav.css'
+import './NavHeader.css'
 import NavItem from '../NavItem/NavItem'
 import { navItems } from '../../config/navItems'
 

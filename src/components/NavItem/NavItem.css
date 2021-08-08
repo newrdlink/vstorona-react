@@ -12,3 +12,7 @@
   text-decoration: none;
   color: #FFF;
 }
+
+.item__link_active {
+  text-decoration-line: underline;
+} 

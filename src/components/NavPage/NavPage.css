@@ -1,0 +1,23 @@
+.nav-page {
+  list-style: none;
+  display: flex;
+}
+
+.nav-page__item {
+  margin-right: 15px;
+}
+
+.nav-page__link {
+  color: rgba(68, 40, 54, 0.6);
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+.nav-page__link_active {
+  color: #442836;
+}

@@ -32,7 +32,7 @@ const App = () => {
         </Route>
       </Switch>
 
-      <p className="app__title">администрация</p>
+      {/* <p className="app__title">администрация</p> */}
       <Footer />
 
 
