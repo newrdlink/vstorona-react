@@ -1,11 +1,12 @@
 import React from 'react'
 import NumPhone from '../NumPhone/NumPhone'
+import './ContactsHeader.css'
 
 const ContactsHeader = ()=> {
   return (
-    <div>
+    <div className="contacts">
       <NumPhone/>
-      <p>Смолячкова 13</p>
+      <p className="contacts__address">ул. Смолячкова 13</p>
     </div>
   )
 }

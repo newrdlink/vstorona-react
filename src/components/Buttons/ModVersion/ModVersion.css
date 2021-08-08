@@ -1,0 +1,15 @@
+.modversion {
+  padding: 0;
+  margin-right: 158px;
+  background-color: transparent;
+  border: none;
+  font-family: Montserrat;
+  max-width: 110px;
+  text-align: start;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: underline;
+  color: white;
+}

@@ -1,10 +1,13 @@
 import { React, useState } from 'react'
+import { Route, Switch } from 'react-router-dom';
 import './App.css'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import AddWorker from '../AddWorker/AddWorker'
 import api from '../../utils/ApiWorker'
+
+import About from '../Pages/About/About'
 
 
 const App = () => {
@@ -22,6 +25,13 @@ const App = () => {
     <div className="app">
 
       <Header />
+
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+      </Switch>
+
       <p className="app__title">администрация</p>
       <Footer />
 

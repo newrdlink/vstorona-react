@@ -50,3 +50,10 @@
        url('./fonts/montserrat-v15-latin_cyrillic-900.ttf') format('truetype'), /* Safari, Android, iOS */
        url('./fonts/montserrat-v15-latin_cyrillic-900.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/RalewayRegular.woff') format('woff')
+}

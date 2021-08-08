@@ -1,0 +1,8 @@
+.search-button {
+  width: 20px;
+  height: 20px;
+  margin: 0 38px 0 36px;
+  background-color:transparent;
+  border: none;
+  background-image: url('../../../images/search-button.png');
+}

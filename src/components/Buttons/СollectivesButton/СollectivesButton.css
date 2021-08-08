@@ -1,0 +1,16 @@
+.collectives {
+  width: 190px;
+  padding: 0;
+  /* margin-top: 2px; */
+  margin-right: auto;
+  font-family: Montserrat;
+  background-color: transparent;
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: #FFF;
+}
