@@ -54,6 +54,13 @@ const NavPage = () => {
         f.path = '/about/questionnaire'
         obj.push(f)
         break
+      case 'documents':
+        let g = {}
+        g.id = 7
+        g.name = 'документы '
+        g.path = '/about/documents'
+        obj.push(g)
+        break
       default:
       // alert('fjhrioehgf')
     }

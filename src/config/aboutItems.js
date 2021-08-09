@@ -1,4 +1,4 @@
-import i1 from '../images/About/1.png'
+// import i1 from '../images/About/1.png'
 import i2 from '../images/About/2.png'
 
 export const aboutItems = [
