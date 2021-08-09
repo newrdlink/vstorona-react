@@ -1,0 +1,17 @@
+.title-shadow {
+  position: absolute;
+  top: -275px;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 144px;
+  line-height: 176px;  
+  text-transform: uppercase;
+  box-sizing: border-box;
+  text-overflow: ellipsis;  
+  white-space: nowrap;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(151, 66, 105, 0.3);
+}

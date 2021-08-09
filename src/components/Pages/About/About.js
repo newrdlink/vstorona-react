@@ -32,7 +32,9 @@ const About = () => {
           <CardsBox arrayCards={aboutItems} />
         </Route>
         <Route path="/about/history">
-          <History />
+          <History
+            pageInfo={pageInfo}
+          />
         </Route>
         <Route path="/about/collective">
           <Collective />

@@ -10,7 +10,6 @@ import api from '../../utils/ApiWorker'
 
 import About from '../Pages/About/About'
 
-
 const App = () => {
   const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
   const [errorAddWorker, setErrorAddWorker] = useState("")
@@ -36,10 +35,7 @@ const App = () => {
           <About />
         </Route>
       </Switch>
-
-      {/* <p className="app__title">администрация</p> */}
       <Footer />
-
 
       {/* <button type="button" 
       onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button> */}
