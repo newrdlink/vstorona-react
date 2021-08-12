@@ -1,5 +1,8 @@
 .history {
  position: relative;
+ width: 100%;
+ 
+ /* overflow: hidden; */
 }
 
 .history__intro {
@@ -42,7 +45,7 @@
   top: -50px;
   content: "";
   height: 1px;
-  width: 330px;
+  width: 352px;
   background:#868686;
 }
 

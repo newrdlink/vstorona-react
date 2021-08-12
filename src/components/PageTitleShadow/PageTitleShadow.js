@@ -30,10 +30,13 @@ const PageTitleShadow = ({ pageInfo }) => {
   }, [])
 
   return (
-    <h3 className="title-shadow"
-      style={{ left: `${positionScroll}px` }}>
-      {pageInfo.name}
-    </h3>
+    
+      <h3 className="title-shadow"
+        style={{ left: `${positionScroll}px` }}>
+        {pageInfo.name}
+      </h3>
+    
+
   )
 }
 
