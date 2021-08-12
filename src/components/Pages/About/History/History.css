@@ -5,6 +5,7 @@
 .history__intro {
   display: flex;
   align-items: flex-start;
+  margin-bottom: 150px;
 }
 
 .history__intro-img {
@@ -63,7 +64,9 @@
 }
 
 .history__text-span_place_intro {
-
+  display: block;
+  margin-bottom: 48px;
+  padding-right: 70px;
 }
 
 .history__text-span_place_content {
@@ -80,7 +83,7 @@
   top: -50px;
   content: "";
   height: 1px;
-  width: 330px;
+  width: 352px;
   background:#868686;
 }
 
@@ -88,8 +91,7 @@
 .history__intro-text-container {
   max-width: 352px;
   padding-top: 50px;
-  padding-right: 50px;
-  box-sizing: border-box;
+  padding-right: 50px;  
 }
 
 .history__about {
@@ -108,7 +110,7 @@
 
 .history__about::after {
   position: absolute;  
-  top: 0;
+  top: -50px;
   left: 376px;
   content: "";
   height: 1px;

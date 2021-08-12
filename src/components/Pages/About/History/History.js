@@ -19,7 +19,7 @@ const History = ({ pageInfo }) => {
       <div className="history__intro">
         <img alt="" src={i1} className="history__intro-img" />
         <div className="history__intro-text-container">
-          <span className="history__text-span">
+          <span className="history__text-span history__text-span_place_intro">
             Клуб был основан в 1962 году
           </span>
           <p className="history__text">
