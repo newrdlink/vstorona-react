@@ -3,11 +3,11 @@ import './PageTitleShadow.css'
 
 const PageTitleShadow = ({ pageInfo }) => {
 
-  const [positionScroll, setPositionScroll] = useState(0)
+  const [positionScroll, setPositionScroll] = useState(-44)
 
   useEffect(() => {
     function handleScroll(event) {
-      let scroll = this.scrollY;
+      let scroll = this.scrollY - 44;
       setPositionScroll(scroll)
     }
 
@@ -17,6 +17,17 @@ const PageTitleShadow = ({ pageInfo }) => {
       window.removeEventListener("scroll", handleScroll)
     };
   });
+  // if pageYOffset is not 0 (page up max)
+  const handleScrollFix = () => {
+    let position = window.pageYOffset;
+    if (position > 0) {
+      setPositionScroll(position - 44);
+    }
+  };
+
+  useEffect(() => {
+    handleScrollFix()
+  }, [])
 
   return (
     <h3 className="title-shadow"

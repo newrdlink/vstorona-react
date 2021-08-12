@@ -33,13 +33,11 @@ const History = ({ pageInfo }) => {
 
 
 
-
-
       <div className="history__about">
-        <div className="history__about-content">
+        <div className="history__about-container">
           <p className="history__text">Клуб является подведомственным учреждением отдела культуры Администрации Выборгского района Санкт-Петербурга и ведет свою историю с 1962 года.
           </p>
-          <p className="history__text">Он был создан как центр досуга для работников производственного объединения по переработке пластмасс имени «Комсомольской правды».
+          <p className="history__text history__text_place_about">Он был создан как центр досуга для работников производственного объединения по переработке пластмасс имени «Комсомольской правды».
           </p>
         </div>
         <p className="history__text">На первые годы существования Клуба пришелся расцвет художественной самодеятельности и любительского творчества рабочих и жителей Выборгского района, многие из которых спустя годы привели сюда своих детей, а некоторые – стали руководителями творческих коллективов.
@@ -60,7 +58,7 @@ const History = ({ pageInfo }) => {
         </p>
         <p className="history__text history__text_place_content">
           История Клуба тесно переплетена с историей и жизнью как жителей района и города, так и с творческой биографией известных деятелей культуры.
-          <span className="history__text-span history__text-span_place_content">Он был создан как центр досуга для работников производственного объединения по переработке пластмасс имени «Комсомольской правды».
+          <span className="history__text history__text_place_content-span">Он был создан как центр досуга для работников производственного объединения по переработке пластмасс имени «Комсомольской правды».
           </span>
         </p>
         <p className="history__text history__text_place_content">
@@ -72,7 +70,7 @@ const History = ({ pageInfo }) => {
       <div className="history__end">
         <img alt="" src={i4} className="history__end-img" />
         <img alt="" src={i5} className="history__end-img" />
-        <div className="history__end-content">
+        <div className="history__end-container">
           <span className="history__text-span history__text-span_place_end">
             Клуб «Выборгская сторона» - центр культурной жизни своего микрорайона
           </span>
