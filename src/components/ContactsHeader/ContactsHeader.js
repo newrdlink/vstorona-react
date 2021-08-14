@@ -1,11 +1,11 @@
 import React from 'react'
-import NumPhone from '../NumPhone/NumPhone'
+import NumPhone from '../UI/NumPhone/NumPhone'
 import './ContactsHeader.css'
 
-const ContactsHeader = ()=> {
+const ContactsHeader = () => {
   return (
     <div className="contacts">
-      <NumPhone/>
+      <NumPhone place="header" />
       <p className="contacts__address">ул. Смолячкова 13</p>
     </div>
   )

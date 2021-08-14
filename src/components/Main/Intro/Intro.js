@@ -5,8 +5,8 @@ import mainImage from '../../../images/main-background.jpg'
 
 const Intro = () => {
   return (
-    <section>
-      <img alt="Главная Фотография" src={mainImage} />
+    <section className="intro">
+      <img alt="Главная Фотография" src={mainImage} className="intro__img" />
 
     </section>
   )

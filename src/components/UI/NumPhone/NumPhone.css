@@ -8,3 +8,7 @@
   text-transform: uppercase;  
   color: #FFF;
 }
+
+.phone__link_place_footer {
+  text-decoration: underline;
+}
