@@ -6,8 +6,12 @@
   line-height: 15px;
   text-transform: uppercase;  
   color: #FFF;
+<<<<<<< HEAD:src/components/Footer/PolicyConfidentiality/PolicyConfidentiality.css
+  text-decoration: none;
+=======
 }
 
 .phone__link_place_footer {
   text-decoration: underline;
+>>>>>>> feature/footer:src/components/UI/NumPhone/NumPhone.css
 }

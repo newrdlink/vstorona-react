@@ -1,7 +1,7 @@
 import React from 'react'
 import './CopyRight.css'
 
-import currentYear from '../../../helpers/currentYear'
+import currentYear from '../../../helpers/'
 
 const CopyRight = () => {
   const year = currentYear()
