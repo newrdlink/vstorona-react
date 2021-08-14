@@ -99,11 +99,17 @@
 
 .history__about {
   position: relative;
-  display: flex;
-  
-  
+  display: flex;  
   margin-top: 50px;
   margin-bottom: 100px;
+  top: 100px;
+  opacity: 0;
+  transition: all .2s ease-out;
+}
+
+.history__about_active {
+  top: 0;
+  opacity: 1;
 }
 
 .history__about-container {

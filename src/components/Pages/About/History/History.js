@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './History.css'
 import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 import i1 from '../../../../images/History/1.jpg'
@@ -9,7 +9,25 @@ import i5 from '../../../../images/History/5.jpg'
 
 
 const History = ({ pageInfo }) => {
+  const [activeHistoryAbout, setActiveHistoryAbout] = useState(false)
   // console.log(pageInfo)
+  useEffect(() => {
+    function handleScroll(event) {
+      let scroll = this.scrollY;
+      // console.log(scroll)
+      if (scroll >= 420) {
+        setActiveHistoryAbout(true)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    };
+  });
+
+
   return (
     <section className="history">
       <PageTitleShadow pageInfo={pageInfo} />
@@ -30,10 +48,7 @@ const History = ({ pageInfo }) => {
       </div>
 
 
-
-
-
-      <div className="history__about">
+      <div className={`history__about history__about_${activeHistoryAbout && 'active'}`}>
         <div className="history__about-container">
           <p className="history__text">Клуб является подведомственным учреждением отдела культуры Администрации Выборгского района Санкт-Петербурга и ведет свою историю с 1962 года.
           </p>
