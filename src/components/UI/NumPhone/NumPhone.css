@@ -1,17 +1,18 @@
-.policy{
-  font-family: Montserrat;
+.phone__link{
+  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 14px;  
+  text-decoration-line: underline;
   text-transform: uppercase;  
   color: #FFF;
-<<<<<<< HEAD:src/components/Footer/PolicyConfidentiality/PolicyConfidentiality.css
+}
+
+.phone__link_place_header {
   text-decoration: none;
-=======
 }
 
 .phone__link_place_footer {
   text-decoration: underline;
->>>>>>> feature/footer:src/components/UI/NumPhone/NumPhone.css
 }
