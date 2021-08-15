@@ -9,7 +9,7 @@ class Api extends React.Component {
   }
 
   createWorker(data) {    
-    // console.log("11")
+    console.log("11")
     return fetch(`${this.address}/workers`, {
       method: "POST",
       headers: this.headers,
@@ -37,8 +37,8 @@ class Api extends React.Component {
 
 //создаем экземпляр
 const api = new Api({
-  address: "http://localhost:5000",
-  // address: "http://api.vstorona.didrom.ru",
+  address: "http://localhost:3001",
+  // address: "https://api.vs.didrom.ru",
   headers: {
     "Contetnt-Type": "multipart/form-data",
     // "Content-Type": "application/json",
