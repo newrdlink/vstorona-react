@@ -1,0 +1,20 @@
+.button-add-worker {
+  position: absolute;
+  right: 60px;
+  top: 50px;
+  padding: 0;
+  border: 0;
+  min-height: 52px;
+  min-width: 52px;
+  background: transparent;
+  background-image: url('./../../../../images/UI/add_worker.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: .2;
+  transition: all .2s ease-in;
+}
+
+.button-add-worker:hover {
+  opacity: 1;
+  cursor: pointer;
+}

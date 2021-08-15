@@ -14,14 +14,15 @@ import Documents from './Documents/Documents'
 import Achievements from './Achievements/Achievements'
 import Questionnaire from './Questionnaire/Questionnaire'
 
-const About = () => {
+const About = ({ workers, onClickAddWorker, loggedIn }) => {
   const location = useLocation()
   const { pathname: currentPath } = location
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+  // console.log(pageInfo)
 
   return (
-    <div className="about">
+    <div className={`about about_place_${pageInfo.pathName}`}>
       <NavPage />
       {/* <h2 className="about__title">о нас</h2> */}
       <PageTitle
@@ -38,7 +39,11 @@ const About = () => {
         </Route>
         <Route path="/about/collective">
           <Collective
-            pageInfo={pageInfo} />
+            pageInfo={pageInfo}
+            workers={workers}
+            onClickAddWorker={onClickAddWorker}
+            loggedIn={loggedIn}
+          />
         </Route>
         <Route path="/about/documents">
           <Documents />

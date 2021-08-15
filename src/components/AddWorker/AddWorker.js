@@ -81,7 +81,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
           autoComplete="off"
           placeholder="Должность"
           minLength="2"
-          maxLength="20"
+          maxLength="50"
           onChange={(evt) => onChangeText(evt)}
         />
       </label>
