@@ -15,9 +15,11 @@ const App = () => {
   const [errorAddWorker, setErrorAddWorker] = useState("")
 
   const onSubmitHandlerAddWorker = (workerData) => {
+    // console.log(workerData)
     api.createWorker(workerData)
-      .then(() => setIsPopupAddWorkerOpen(false))
-      .catch((e) => setErrorAddWorker(e))
+      //     .then(() => setIsPopupAddWorkerOpen(false))
+      .then(() => console.log("ошибки нет"))
+      .catch((e) => console.log('ошибка'))
     // .catch((e) => console.log(e))
   }
 
@@ -37,8 +39,8 @@ const App = () => {
       </Switch>
       <Footer />
 
-      {/* <button type="button" 
-      onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button> */}
+      <button type="button"
+        onClick={() => setIsPopupAddWorkerOpen(true)}>Добавить работника</button>
 
       <AddWorker
         title="Новый сотрудник"

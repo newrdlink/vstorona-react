@@ -32,8 +32,6 @@ const History = ({ pageInfo }) => {
     <section className="history">
       <PageTitleShadow pageInfo={pageInfo} />
 
-
-
       <div className="history__intro">
         <img alt="" src={i1} className="history__intro-img" />
         <div className="history__intro-text-container">

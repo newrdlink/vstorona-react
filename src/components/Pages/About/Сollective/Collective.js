@@ -1,10 +1,15 @@
 import React from 'react'
 import './Collective.css'
 
-const Collective = () => {
+import WorkersBox from '../../../WorkersBox/WorkersBox'
+
+const Collective = ({ pageInfo }) => {
+
+  // console.log(pageInfo)
+
   return (
-    <section>
-      <h2>Коллектив</h2>
+    <section className="collective">
+      <WorkersBox />
     </section>
   )
 }

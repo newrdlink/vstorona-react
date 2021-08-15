@@ -37,7 +37,8 @@ const About = () => {
           />
         </Route>
         <Route path="/about/collective">
-          <Collective />
+          <Collective
+            pageInfo={pageInfo} />
         </Route>
         <Route path="/about/documents">
           <Documents />
