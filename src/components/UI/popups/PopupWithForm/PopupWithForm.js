@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react'
 import './PopupWithForm.css'
 import CloseIcon from '../CloseIcon/CloseIcon'
-import resetInputs from '../../helpers/clearInputs'
+import resetInputs from '../../../../helpers/clearInputs'
 
 const PopupWithForm = ({ children, onClose, isOpen, title, onSubmit, submitBtnName, onClickBtnClose, name }) => {
 

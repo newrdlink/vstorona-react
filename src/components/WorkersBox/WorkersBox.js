@@ -4,7 +4,7 @@ import './WorkersBox.css'
 import Worker from '../Worker/Worker'
 import ButtonAddWorker from '../UI/buttons/ButtonAddWorker/ButtonAddWorker'
 
-const WorkersBox = ({ workers, onClickAddWorker, loggedIn }) => {
+const WorkersBox = ({ workers, onClickAdd, onClickEdit, onClickRemove, loggedIn }) => {
 
 
   return (
@@ -21,6 +21,11 @@ const WorkersBox = ({ workers, onClickAddWorker, loggedIn }) => {
               middleName={middleName}
               position={position}
               image={image}
+              id={id}
+              loggedIn={loggedIn}
+              onClickAdd={onClickAdd}
+              onClickEdit={onClickEdit}
+              onClickRemove={onClickRemove}
             />
           })
         }
@@ -29,7 +34,7 @@ const WorkersBox = ({ workers, onClickAddWorker, loggedIn }) => {
       {
         loggedIn ?
           <ButtonAddWorker
-            onClickAddWorker={onClickAddWorker}
+            onClickAddWorker={onClickAdd}
           />
           : null
       }

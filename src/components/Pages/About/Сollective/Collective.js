@@ -3,7 +3,13 @@ import './Collective.css'
 
 import WorkersBox from '../../../WorkersBox/WorkersBox'
 
-const Collective = ({ pageInfo, workers, onClickAddWorker, loggedIn }) => {
+const Collective = ({
+  pageInfo,
+  workers,
+  onClickAddWorker,
+  onClickEditWorker,
+  onClickRemove,
+  loggedIn }) => {
 
   // console.log(pageInfo)
 
@@ -11,7 +17,9 @@ const Collective = ({ pageInfo, workers, onClickAddWorker, loggedIn }) => {
     <section className="collective">
       <WorkersBox
         workers={workers}
-        onClickAddWorker={onClickAddWorker}
+        onClickAdd={onClickAddWorker}
+        onClickEdit={onClickEditWorker}
+        onClickRemove={onClickRemove}
         loggedIn={loggedIn}
       />
     </section>

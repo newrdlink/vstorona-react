@@ -1,0 +1,25 @@
+.action-button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+  opacity: .7;
+  margin-right: 5px;
+}
+
+.action-button_type_remove {
+  background-image: url('../../../../images/UI/deleteBtn.png');
+}
+
+.action-button_type_add {
+  background-image: url('../../../../images/UI/addBtn.png');
+}
+
+.action-button_type_edit {
+  background-image: url('../../../../images/UI/editBtn.png');
+}
+
+.action-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}

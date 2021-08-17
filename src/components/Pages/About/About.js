@@ -14,7 +14,7 @@ import Documents from './Documents/Documents'
 import Achievements from './Achievements/Achievements'
 import Questionnaire from './Questionnaire/Questionnaire'
 
-const About = ({ workers, onClickAddWorker, loggedIn }) => {
+const About = ({ workers, onClickAddWorker, onClickEditWorker, onClickRemove, loggedIn }) => {
   const location = useLocation()
   const { pathname: currentPath } = location
 
@@ -42,6 +42,8 @@ const About = ({ workers, onClickAddWorker, loggedIn }) => {
             pageInfo={pageInfo}
             workers={workers}
             onClickAddWorker={onClickAddWorker}
+            onClickEditWorker={onClickEditWorker}
+            onClickRemove={onClickRemove}
             loggedIn={loggedIn}
           />
         </Route>
