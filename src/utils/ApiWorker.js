@@ -18,6 +18,16 @@ class Api extends React.Component {
     }).then(handlerResponse);
   }
 
+  patchWorker(data) {
+    // console.log(data)
+    return fetch(`${this.address}/workers`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: data,
+
+    }).then(handlerResponse);
+  }
+
   getWorkers() {
     return fetch(`${this.address}/workers`, {
       method: "GET",
@@ -26,7 +36,7 @@ class Api extends React.Component {
     ).then(handlerResponse);
   }
 
-  rmWorker(_id) {
+  removeWorker(_id) {
     return fetch(`${this.address}/workers/${_id}`, {
       method: "DELETE",
       headers: this.headers,
