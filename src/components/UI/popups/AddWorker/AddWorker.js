@@ -3,10 +3,12 @@ import './AddWorker.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 // import inputs from '../../config/inputsAddWorker'
 // import Input from '../Input/Input'
+import isAreFileInInput from '../../../../helpers/isAreFileInInput'
 
 const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onSubmitHandlerAddWorker, errorMessage }) => {
 
   const [file, setFile] = useState(null)
+  //  const imageFile = useRef(null) => working
   const imageFile = useRef(null)
   const [userData, setUserData] = useState({});
 
@@ -39,6 +41,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
       name="addWorker">
       <label>
         <input
+          className="input"
           name="firstName"
           type="text"
           required
@@ -51,6 +54,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
       </label>
       <label>
         <input
+          className="input"
           name="lastName"
           type="text"
           required
@@ -63,6 +67,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
       </label>
       <label>
         <input
+          className="input"
           name="middleName"
           type="text"
           required
@@ -75,6 +80,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
       </label>
       <label>
         <input
+          className="input"
           name="position"
           type="text"
           required
@@ -87,6 +93,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
       </label>
       <label>
         <input
+          className="input input_type_file"
           name="imageFile"
           type="file"
           required
@@ -94,6 +101,7 @@ const AddWorker = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onS
           ref={imageFile}
           onChange={handleChangeFile}
         />
+        <span className={`input__span input__span_${isAreFileInInput(file) && "active"}`}>{isAreFileInInput(file) || "Выбрать фото"}</span>
       </label>
       <p>{errorMessage}</p>
       {/* {inputs.map((input) => {
