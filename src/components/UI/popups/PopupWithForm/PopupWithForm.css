@@ -1,6 +1,5 @@
 .popup {
-  background-color: #974269;
-  /* opacity: .7; */
+  background: rgba(151, 66, 105, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +15,7 @@
 
 .popup_opened {
   visibility: visible;
-  opacity: .8;
+  opacity: 1;
   transition: opacity .3s linear;
 }
 
@@ -26,14 +25,15 @@
 
 .popup__container {
   position: relative;
-  background-color: white;
+  background: white;
   max-width: 430px;
   padding: 46px 36px 52px 36px;
+  box-sizing: border-box;
 }
 
 .popup__title {
-  margin: 0;
-  font-family: Inter;
+  margin: 0 0 70px 0;
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -46,5 +46,30 @@
 }
 
 .popup__submit {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  border: 0;
+  text-transform: uppercase;  
+  color: #974269;
+  width: 100%;
+  padding: 16px 0;
+  border: 1px solid #974269;
+  box-sizing: border-box;
+  background: transparent;
+}
 
+.popup__submit:hover {
+  cursor: pointer;
+}
+
+.popup__submit_disabled {  
+  color: rgba(151, 66, 105, 0.2);
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.popup__submit_disabled:hover {
+  cursor: default;
 }

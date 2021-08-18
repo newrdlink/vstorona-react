@@ -18,7 +18,12 @@ const PopupWithForm = ({ children, onClose, isOpen, title, onSubmit, submitBtnNa
         <h3 className="popup__title">{title}</h3>
         <form className="popup__form" noValidate onSubmit={onSubmit} name={name}>
           {children}
-          <button type='submit' className="popup__submit">{submitBtnName}</button>
+          <button
+            type='submit'
+            
+            className="popup__submit">
+            {submitBtnName}
+          </button>
         </form>
       </div>
     </section>

@@ -3,6 +3,8 @@ import './EditWorker.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 
+import isAreFileInInput from '../../../../helpers/isAreFileInInput'
+
 const EditWorker = ({
   title,
   submitBtnName,
@@ -52,6 +54,7 @@ const EditWorker = ({
     >
       <label>
         <input
+          className="input"
           value={userData.firstName || ''}
           name="firstName"
           type="text"
@@ -63,6 +66,7 @@ const EditWorker = ({
       </label>
       <label>
         <input
+          className="input"
           value={userData.lastName || ''}
           name="lastName"
           type="text"
@@ -75,6 +79,7 @@ const EditWorker = ({
       </label>
       <label>
         <input
+          className="input"
           value={userData.middleName || ''}
           name="middleName"
           type="text"
@@ -87,6 +92,7 @@ const EditWorker = ({
       </label>
       <label>
         <input
+          className="input"
           value={userData.position || ''}
           name="position"
           type="text"
@@ -99,6 +105,7 @@ const EditWorker = ({
       </label>
       <label>
         <input
+          className="input input_type_file"
           name="imageFile"
           type="file"
           required
@@ -106,6 +113,7 @@ const EditWorker = ({
           ref={imageFile}
           onChange={handleChangeFile}
         />
+        <span className={`input__span input__span_${isAreFileInInput(file) && "active"}`}>{isAreFileInInput(file) || "Выбрать фото"}</span>
       </label>
     </PopupWithForm>
   )
