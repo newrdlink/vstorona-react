@@ -11,7 +11,8 @@ const Input = ({
   maxlength,
   minlength,
   onChange,
-  file
+  file,
+  value
 }) => {
 
   return (
@@ -28,6 +29,7 @@ const Input = ({
         minLength={minlength}
         maxLength={maxlength}
         onChange={onChange}
+        value={value || ''}
       />
     </label>
   )
