@@ -1,0 +1,37 @@
+.input__file {
+  display: block;  
+  margin: 10px 0 40px 0;
+  height: 35px;
+  width: 100%;
+  color: rgba(68, 40, 54, 0.2);
+  background-image: url('../../../../images//UI/skrepka.png');
+  background-repeat: no-repeat;  
+  background-position: bottom 14px right 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  transition: all .2s ease-in;  
+  /* vertical-align: middle; */
+}
+
+.input__file:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.input__file:active {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.input__file_active {
+  background-image: url('../../../../images//UI/removeFile.png');
+}
+
+.input_type_file {
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip: rect(0 0 0 0);
+}
+
+.input_type_file::after {
+
+}
