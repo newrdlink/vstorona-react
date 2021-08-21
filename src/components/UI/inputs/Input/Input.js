@@ -1,13 +1,25 @@
 import React from 'react'
+import './Input.css'
 
-const Input = ({ name,
-  type, required, autocomplete, label, placeholder, maxlength, minlength, onChange, imageFile }) => {
+const Input = ({
+  name,
+  type,
+  required,
+  autocomplete,
+  label,
+  placeholder,
+  maxlength,
+  minlength,
+  onChange,
+  file
+}) => {
 
   return (
-    <label>
+    <label className="input-label">
       {label}
       <input
-        ref={imageFile}
+        className="input"
+        ref={file}
         name={name}
         type={type}
         required={required}
