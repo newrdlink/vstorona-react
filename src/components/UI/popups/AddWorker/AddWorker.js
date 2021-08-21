@@ -4,7 +4,6 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import inputs from '../../../../config/inputsAddWorker'
 import Input from '../../inputs/Input/Input'
 import InputFile from '../../inputs/InputFile/InputFile'
-import isAreFileInInput from '../../../../helpers/isAreFileInInput'
 
 const AddWorker = ({
   title,
@@ -17,7 +16,6 @@ const AddWorker = ({
 }) => {
 
   const [file, setFile] = useState(null)
-  //  const imageFile = useRef(null) => working
 
   const [userData, setUserData] = useState({});
 
@@ -65,7 +63,6 @@ const AddWorker = ({
             file={file}
             name="imageFileWorker"
             setFileChange={handleChangeFile}
-          // handleChangeFile={handleChangeFile}
           /> :
           <Input
             key={id}
@@ -78,6 +75,7 @@ const AddWorker = ({
             minlength={minlength}
             maxlength={maxlength}
             onChange={(evt) => onChangeText(evt)}
+            value={userData[name]}
           />
       })}
     </PopupWithForm>

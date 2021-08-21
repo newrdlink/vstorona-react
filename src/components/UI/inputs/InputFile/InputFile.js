@@ -7,15 +7,12 @@ const InputFile = ({ name, file, setFileChange }) => {
 
   const handleChangeFile = (evt) => {
     const file = evt.target.files[0]
-    // console.log(evt.target.files[0])
     setFileChange(file)
   }
 
   const deleteFileInput = () => {
     setFileChange(null)
   }
-
-  // console.log(file)
 
   return (
     <label className="input-label">
@@ -25,7 +22,6 @@ const InputFile = ({ name, file, setFileChange }) => {
         type="file"
         required
         autoComplete="off"
-        // ref={file}
         onChange={handleChangeFile}
       />
       <span

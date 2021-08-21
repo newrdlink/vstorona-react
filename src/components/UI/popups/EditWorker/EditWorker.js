@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './EditWorker.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
-
-import isAreFileInInput from '../../../../helpers/isAreFileInInput'
+import inputs from '../../../../config/inputsAddWorker'
+import Input from '../../inputs/Input/Input'
+import InputFile from '../../inputs/InputFile/InputFile'
 
 const EditWorker = ({
   title,
@@ -15,8 +16,6 @@ const EditWorker = ({
   onSubmitHandlerEditWorker,
   errorMessage }) => {
 
-  // console.log(worker)
-  const imageFile = useRef({})
   const [file, setFile] = useState(null)
   const [userData, setUserData] = useState({});
 
@@ -33,8 +32,7 @@ const EditWorker = ({
     setUserData({ ...userData, [evt.target.name]: evt.target.value })
   }
 
-  const handleChangeFile = () => {
-    const file = imageFile.current.files[0]
+  const handleChangeFile = (file) => {
     setFile(file)
   }
 
@@ -52,69 +50,39 @@ const EditWorker = ({
       onSubmit={onSubmit}
       name="editWorker"
     >
-      <label>
-        <input
-          className="input"
-          value={userData.firstName || ''}
-          name="firstName"
-          type="text"
-          required
-          minLength="2"
-          maxLength="20"
-          onChange={(evt) => onChangeText(evt)}
-        />
-      </label>
-      <label>
-        <input
-          className="input"
-          value={userData.lastName || ''}
-          name="lastName"
-          type="text"
-          required
-          autoComplete="off"
-          minLength="2"
-          maxLength="20"
-          onChange={(evt) => onChangeText(evt)}
-        />
-      </label>
-      <label>
-        <input
-          className="input"
-          value={userData.middleName || ''}
-          name="middleName"
-          type="text"
-          required
-          autoComplete="off"
-          minLength="2"
-          maxLength="20"
-          onChange={(evt) => onChangeText(evt)}
-        />
-      </label>
-      <label>
-        <input
-          className="input"
-          value={userData.position || ''}
-          name="position"
-          type="text"
-          required
-          autoComplete="off"
-          minLength="2"
-          maxLength="50"
-          onChange={(evt) => onChangeText(evt)}
-        />
-      </label>
-      <label>
-        <input
-          className="input input_type_file"
-          name="imageFile"
-          type="file"
-          required
-          autoComplete="off"
-          ref={imageFile}
-          onChange={handleChangeFile}
-        />
-        <span className={`input__span input__span_${isAreFileInInput(file) && "active"}`}>{isAreFileInInput(file) || "Выбрать фото"}</span>
-      </label>
+      <p>{errorMessage}</p>
+      {inputs.map((input) => {
+        const {
+          name,
+          type,
+          required,
+          autocomplete,
+          label,
+          placeholder,
+          maxlength,
+          minlength,
+          id } = input
+        return type === "file" ?
+          <InputFile
+            key={id}
+            file={file}
+            name="imageFileWorker"
+            setFileChange={handleChangeFile}
+          /> :
+          <Input
+            key={id}
+            name={name}
+            type={type}
+            required={required}
+            autocomplete={autocomplete}
+            label={label}
+            placeholder={placeholder}
+            minlength={minlength}
+            maxlength={maxlength}
+            onChange={(evt) => onChangeText(evt)}
+            value={userData[name]}
+          />
+      })}
     </PopupWithForm>
   )
 }
