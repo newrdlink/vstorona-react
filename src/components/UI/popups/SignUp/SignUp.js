@@ -27,7 +27,6 @@ const SignUp = ({
   const onSubmit = (evt) => {
     evt.preventDefault()
     onSubmitHandlerSignUp(userData)
-    // if (isSignUpOk) { evt.target.reset() }
   }
 
   useEffect(() => {
