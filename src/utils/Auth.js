@@ -26,14 +26,16 @@ class Api extends React.Component {
       body: JSON.stringify({
         password: data.password,
         email: data.email,
-        name: data.name,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        middleName: data.middleName,
       }),
     }).then(handlerResponse);
   }
 }
 
 const apiAuth = new Api({
-  address: "http://localhost:5000",
+  address: "http://localhost:3002",
   // address: "http://api.vstorona.didrom.ru",
   headers: {
     "Content-Type": "application/json",

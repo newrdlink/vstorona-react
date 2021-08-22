@@ -10,3 +10,7 @@
   text-transform: uppercase; 
   color: #FFF;
 }
+
+.signin-button:hover {
+  cursor: pointer;
+}

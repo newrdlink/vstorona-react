@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import './AddWorker.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
-import inputs from '../../../../config/inputsAddWorker'
+import inputsAddWorker from '../../../../config/inputsAddWorker'
 import Input from '../../inputs/Input/Input'
 import InputFile from '../../inputs/InputFile/InputFile'
 
@@ -46,7 +46,7 @@ const AddWorker = ({
       onSubmit={onSubmit}
       name="addWorker">
       <p>{errorMessage}</p>
-      {inputs.map((input) => {
+      {inputsAddWorker.map((input) => {
         const {
           name,
           type,
