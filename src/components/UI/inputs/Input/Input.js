@@ -16,10 +16,10 @@ const Input = ({
 }) => {
 
   return (
-    <label className="input-label">
+    <label className={`input-label input-label_type_${type}`}>
       {label}
       <input
-        className="input"
+        className={`input input_type_${type}`}
         ref={file}
         name={name}
         type={type}

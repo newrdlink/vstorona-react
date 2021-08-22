@@ -1,0 +1,23 @@
+.button-sign {
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;  
+  color: #974269;
+}
+
+.button-sign__button {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  color: #974269;
+  border: none;
+  background-color: transparent;
+}
+
+.button-sign__button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

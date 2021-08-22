@@ -7,7 +7,10 @@ import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import AddWorker from '../UI/popups/AddWorker/AddWorker'
 import EditWorker from '../UI/popups/EditWorker/EditWorker'
+import SignIn from '../UI/popups/SignIn/SignIn'
+import SignUp from '../UI/popups/SignUp/SignUp'
 import api from '../../utils/ApiWorker'
+import apiAuth from '../../utils/Auth'
 
 import About from '../Pages/About/About'
 
@@ -25,6 +28,11 @@ const App = () => {
 
   const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
   const [isPopupEditWorkerOpen, setIsPopupEditWorkerOpen] = useState({})
+  const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
+  const [isPopupSignUpOpen, setIsPopupSignUpOpen] = useState(false)
+  const [isSignUpOk, setIsSignUpOk] = useState(false)
+
+  // console.log(isPopupSignInOpen)
 
   const [errorAddWorker, setErrorAddWorker] = useState("")
 
@@ -62,20 +70,50 @@ const App = () => {
       .catch((error) => console.log(error))
   }
 
-  const onClickRemove = (workerId) => {
+  const onClickRemoveWorker = (workerId) => {
     api.removeWorker(workerId)
       .then((worker) => {
-        const newWorkers = workers.filter((w) => w._id !== workerId);        
+        const newWorkers = workers.filter((w) => w._id !== workerId);
         setWorkers(newWorkers)
       })
-      .catch((error) => console.log(error))    
+      .catch((error) => console.log(error))
   }
 
+
+  // const onClickSignInButton = () => setIsPopupSignInOpen(true)
+  const onClickSignInButton = () => {
+    setIsPopupSignInOpen(true)
+  }
+  const onClickBtnSignUp = () => {
+    setIsPopupSignInOpen(false)
+    setIsPopupSignUpOpen(true)
+  }
+  const onClickBtnSignIn = () => {
+    setIsPopupSignInOpen(true)
+    setIsPopupSignUpOpen(false)
+  }
+  const onSubmitHandlerSignIn = (data) => {
+    console.log(data)
+  }
+
+  const onSubmitHandlerSignUp = (data) => {
+    apiAuth.signUp(data)
+      .then((user) => {
+        // console.log(user)
+        setIsPopupSignUpOpen(false)
+        setIsSignUpOk(true)
+      }
+      )
+      .catch((error) => console.log(error))
+    console.log(data)
+  }
 
   return (
     <div className="app">
 
-      <Header />
+      <Header
+        onClickSignInButton={onClickSignInButton}
+      />
 
 
       <Switch>
@@ -87,7 +125,7 @@ const App = () => {
             workers={workers}
             onClickAddWorker={onClickAddWorker}
             onClickEditWorker={onClickEditWorker}
-            onClickRemove={onClickRemove}
+            onClickRemove={onClickRemoveWorker}
             loggedIn={loggedIn}
           />
         </Route>
@@ -106,7 +144,6 @@ const App = () => {
         onClose={() => setIsPopupAddWorkerOpen(false)}
         errorMessage={errorAddWorker}
       />
-
       <EditWorker
         title="Изменить"
         submitBtnName="Изменить профиль"
@@ -116,7 +153,25 @@ const App = () => {
         onClose={() => setIsPopupEditWorkerOpen({})}
         onSubmitHandlerEditWorker={onSubmitHandlerEditWorker}
       />
-
+      <SignIn
+        title="Авторизация"
+        isOpen={isPopupSignInOpen}
+        onClickBtnClose={() => setIsPopupSignInOpen(false)}
+        onClose={() => setIsPopupSignInOpen(false)}
+        submitBtnName="Войти"
+        onSubmitHandlerSignIn={onSubmitHandlerSignIn}
+        onClickBtnSignUp={onClickBtnSignUp}
+      />
+      <SignUp
+        title="Регистрация"
+        isOpen={isPopupSignUpOpen}
+        onClickBtnClose={() => setIsPopupSignUpOpen(false)}
+        onClose={() => setIsPopupSignUpOpen(false)}
+        submitBtnName="Зарегистрироваться"
+        onSubmitHandlerSignUp={onSubmitHandlerSignUp}
+        onClickBtnSignIn={onClickBtnSignIn}
+        isSignUpOk={isSignUpOk}
+      />
     </div>
   )
 }
