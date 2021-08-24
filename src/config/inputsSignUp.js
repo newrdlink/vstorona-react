@@ -40,7 +40,7 @@ const inputsSignUp = [
     label: "эл. почтовый ящик",
     // placeholder: "Мухин",
     minlength: 6,
-    maxlength: 20,
+    maxlength: 40,
   },
   {
     id: 5,

@@ -8,7 +8,7 @@ const inputsSignIn = [
     label: "эл. почтовый ящик",
     // placeholder: "email",
     minlength: 5,
-    maxlength: 25,
+    maxlength: 40,
   },
   {
     id: 2,
