@@ -17,8 +17,6 @@ const Worker = ({
   onClickRemove
 }) => {
 
-
-
   return (
     <li className="worker">
       <p className="worker__name">{lastName + " " + firstName}</p>
@@ -27,7 +25,6 @@ const Worker = ({
         <img className="worker__img" alt="" src={image || addWorkerImg} />
         <p className="worker__position">{position}</p>
       </div>
-
       {loggedIn ?
         <ButtonsBox
           id={id}

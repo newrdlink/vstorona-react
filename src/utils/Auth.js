@@ -8,6 +8,16 @@ class Api extends React.Component {
     this.headers = headers;
   }
 
+  pullUserData(data) {
+    return fetch(`${this.address}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${data}`
+      },
+    }).then(handlerResponse)
+  }
+
   signIn(data) {
     return fetch(`${this.address}/signin`, {
       method: "POST",
@@ -35,8 +45,8 @@ class Api extends React.Component {
 }
 
 const apiAuth = new Api({
-  // address: "http://localhost:3002",
-  address: "https://api.vs.didrom.ru",
+  address: "http://localhost:3002",
+  /// address: "https://api.vs.didrom.ru",
   headers: {
     "Content-Type": "application/json",
   },

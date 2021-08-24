@@ -8,21 +8,27 @@ class Api extends React.Component {
     this.headers = headers;
   }
 
-  createWorker(data) {
+  createWorker(data, token) {
     // console.log(data)
     return fetch(`${this.address}/workers`, {
       method: "POST",
-      headers: this.headers,
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "Authorization": `Bearer ${token}`
+      },
       body: data,
 
     }).then(handlerResponse);
   }
 
-  patchWorker(data) {
+  patchWorker(data, token) {
     // console.log(data)
     return fetch(`${this.address}/workers`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "Authorization": `Bearer ${token}`
+      },
       body: data,
 
     }).then(handlerResponse);
@@ -36,10 +42,13 @@ class Api extends React.Component {
     ).then(handlerResponse);
   }
 
-  removeWorker(_id) {
+  removeWorker(_id, token) {
     return fetch(`${this.address}/workers/${_id}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "Authorization": `Bearer ${token}`
+      },
     }
     )
   }
@@ -47,8 +56,8 @@ class Api extends React.Component {
 
 //создаем экземпляр
 const api = new Api({
-  // address: "http://localhost:3001",
-  address: "https://api.vs.didrom.ru",
+  address: "http://localhost:3002",
+  // address: "https://api.vs.didrom.ru",
   headers: {
     "Contetnt-Type": "multipart/form-data",
     // "Content-Type": "application/json",

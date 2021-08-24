@@ -32,7 +32,7 @@ const WorkersBox = ({ workers, onClickAdd, onClickEdit, onClickRemove, loggedIn 
 
       </ul>
       {
-        loggedIn ?
+        loggedIn && workers.length === 0 ?
           <ButtonAddWorker
             onClickAddWorker={onClickAdd}
           />

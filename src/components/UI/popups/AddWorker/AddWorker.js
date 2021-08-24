@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import './AddWorker.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import inputsAddWorker from '../../../../config/inputsAddWorker'
@@ -35,6 +35,11 @@ const AddWorker = ({
   const onChangeText = (evt) => {
     setUserData({ ...userData, [evt.target.name]: evt.target.value })
   }
+
+  useEffect(() => {
+    setUserData({})
+    setFile(null)
+  }, [onClose])
 
   return (
     <PopupWithForm
