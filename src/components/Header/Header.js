@@ -10,7 +10,7 @@ import SearchButton from '../Buttons/SearchButton/SearchButton'
 import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
 
 
-const Header = ({ onClickSignInButton }) => {
+const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton }) => {
 
 
   return (
@@ -22,6 +22,8 @@ const Header = ({ onClickSignInButton }) => {
       <СollectivesButton />
       <SignInButton
         onClickSignInButton={onClickSignInButton}
+        loggedIn={loggedIn}
+        onClickSignOutButton={onClickSignOutButton}
       />
       <SearchButton />
       <RightMenuButton />

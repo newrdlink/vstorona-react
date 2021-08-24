@@ -7,6 +7,7 @@ const handlerResponse = (res) => {
   // }
   // return Promise.reject(res);
   return Promise.reject(`Извините, ошибка: ${res.status}`);
+  //  return Promise.reject(res);
 };
 
 export default handlerResponse;

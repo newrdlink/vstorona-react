@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './SignIn.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import inputsSignIn from '../../../../config/inputsSignIn'
 import Input from '../../inputs/Input/Input'
 import LinkSignInSignUp from '../../buttons/LinkSignInSignUp/LinkSignInSignUp'
+import ErrorByResponse from '../../ErrorByResponse/ErrorByResponse'
 
 const SignIn = ({
   title,
@@ -13,7 +14,7 @@ const SignIn = ({
   onClose,
   onSubmitHandlerSignIn,
   onClickBtnSignUp,
-  errorMessage
+  errorResponse
 }) => {
 
   const [userData, setUserData] = useState({});
@@ -69,23 +70,9 @@ const SignIn = ({
         nameSpan="Еще не с нами?"
         onClickBtnSignUp={onClickBtnSignUp}
       />
-
-      {/* <input
-        className="form__input form__input_email"
-        type="email"
-        placeholder="Email"
-        onChange={evt => {
-          setUserData({ ...userData, "email": evt.target.value })
-        }}
+      <ErrorByResponse
+        errorResponse={errorResponse}
       />
-      <input
-        className="form__input form__input_password"
-        type="password"
-        placeholder="Пароль"
-        onChange={evt => {
-          setUserData({ ...userData, "password": evt.target.value })
-        }}
-      /> */}
     </PopupWithForm>
   )
 }

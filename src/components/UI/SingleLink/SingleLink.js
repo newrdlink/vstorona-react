@@ -5,8 +5,7 @@ const SingleLink = ({ url, place, name }) => <a
   rel="noreferrer"
   target="_blank"
   href={url}
-  place={place}
-  className="single-link">
+  className={`single-link single-link_place_${place}`}>
   {name}
 </a>
 
