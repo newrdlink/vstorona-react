@@ -4,8 +4,13 @@ import './WorkersBox.css'
 import Worker from '../Worker/Worker'
 import ButtonAddWorker from '../UI/buttons/ButtonAddWorker/ButtonAddWorker'
 
-const WorkersBox = ({ workers, onClickAdd, onClickEdit, onClickRemove, loggedIn }) => {
-
+const WorkersBox = ({
+  workers,
+  onClickAdd,
+  onClickEdit,
+  onClickRemove,
+  loggedIn
+}) => {
 
   return (
     <div className="workers">

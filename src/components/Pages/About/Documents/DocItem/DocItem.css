@@ -1,0 +1,26 @@
+.doc-item {
+  position: relative;
+  margin-bottom: 20px;
+  left: 0;
+  max-width: 400px;
+  transition: all 0.2s ease-out;  
+  
+}
+
+.doc-item:hover{  
+  left: 10px;
+}
+
+.doc-item__link {
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 37px;
+  color: #442836;
+}
+
+.doc-item:hover .buttons-box {
+  opacity: 1;
+}
