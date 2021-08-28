@@ -158,7 +158,7 @@ const App = () => {
               workers={workers}
               onClickAddWorker={onClickAddWorker}
               onClickEditWorker={onClickEditWorker}
-              onClickRemove={onClickRemoveWorker}
+              onClickRemoveWorker={onClickRemoveWorker}
               loggedIn={loggedIn}
             />
           </Route>

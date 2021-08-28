@@ -78,3 +78,7 @@
 .popup__submit_disabled:hover {
   cursor: default;
 }
+
+.popup__submit_place_add-document {
+  margin-top: 20px;
+}

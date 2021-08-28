@@ -13,7 +13,7 @@ export const infoPages = [
   },
   {
     name: 'документы',
-    pathName: '/documents'
+    pathName: 'documents'
   },
   {
     name: 'достижения',

@@ -8,7 +8,7 @@ const Collective = ({
   workers,
   onClickAddWorker,
   onClickEditWorker,
-  onClickRemove,
+  onClickRemoveWorker,
   loggedIn }) => {
 
   // console.log(pageInfo)
@@ -19,7 +19,7 @@ const Collective = ({
         workers={workers}
         onClickAdd={onClickAddWorker}
         onClickEdit={onClickEditWorker}
-        onClickRemove={onClickRemove}
+        onClickRemove={onClickRemoveWorker}
         loggedIn={loggedIn}
       />
     </section>

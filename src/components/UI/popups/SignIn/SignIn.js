@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './SignIn.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import inputsSignIn from '../../../../config/inputsSignIn'

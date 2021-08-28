@@ -49,7 +49,8 @@ const AddWorker = ({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={onSubmit}
-      name="addWorker">
+      name="addWorker"
+    >
       <p>{errorMessage}</p>
       {inputsAddWorker.map((input) => {
         const {

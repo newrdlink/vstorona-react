@@ -3,7 +3,16 @@ import './PopupWithForm.css'
 import CloseIcon from '../CloseIcon/CloseIcon'
 import resetInputs from '../../../../helpers/clearInputs'
 
-const PopupWithForm = ({ children, onClose, isOpen, title, onSubmit, submitBtnName, onClickBtnClose, name }) => {
+const PopupWithForm = ({
+  children,
+  onClose,
+  isOpen,
+  title,
+  onSubmit,
+  submitBtnName,
+  onClickBtnClose,
+  name,
+}) => {
 
   useEffect(() => {
     setTimeout(() => resetInputs(name), 1000)
@@ -22,11 +31,13 @@ const PopupWithForm = ({ children, onClose, isOpen, title, onSubmit, submitBtnNa
           noValidate
           onSubmit={onSubmit}
           name={name}>
+
           {children}
+
           <button
             type='submit'
 
-            className="popup__submit">
+            className={`popup__submit popup__submit_place_${name}`}>
             {submitBtnName}
           </button>
         </form>

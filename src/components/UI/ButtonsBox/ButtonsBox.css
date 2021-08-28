@@ -1,8 +1,13 @@
 .buttons-box {
   position: absolute;
+
   /* display: flex; */
-  right: 10px;
-  bottom: 10px;
+  right: 0;
+  bottom: 0;
   opacity: 0;
   transition: opacity .15s ease-out;
+}
+
+.buttons-box_place_document {
+  bottom: -30px;
 }
