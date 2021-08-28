@@ -45,8 +45,8 @@ class Api extends React.Component {
 }
 
 const apiAuth = new Api({
-  address: "http://localhost:3002",
-  // address: "https://api.vs.didrom.ru",
+  // address: "http://localhost:3002",
+  address: "https://api.vs.didrom.ru",
   headers: {
     "Content-Type": "application/json",
   },

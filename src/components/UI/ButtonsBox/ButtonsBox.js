@@ -12,7 +12,7 @@ const ButtonsBox = ({
 }) => {
 
   return (
-    <div className={`buttons-box button-box_place_${place}`}>
+    <div className={`buttons-box buttons-box_place_${place}`}>
       <ActionButton
         type="button"
         action="edit"

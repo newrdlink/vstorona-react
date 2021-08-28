@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import './AddDocument.css'
+import './EditDocument.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
-
 import inputsAddDocument from '../../../../config/inputsAddDocument'
 import Input from '../../inputs/Input/Input'
 import ErrorByResponse from '../../ErrorByResponse/ErrorByResponse'
-// import InputFile from '../../inputs/InputFile/InputFile'
 
-const AddDocument = ({
+const EditDocument = ({
   title,
   submitBtnName,
   onClickBtnClose,
   isOpen,
   onClose,
-  onSubmitHandlerAddDocument,
-  errorResponse
-}) => {
+  onSubmitHandlerEditDocument,
+  errorResponse,
+  editDocument,
+}
+) => {
 
   const [document, setDocument] = useState({})
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
-    onSubmitHandlerAddDocument(document)
+    onSubmitHandlerEditDocument(document)
   }
 
   const onChangeText = (evt) => {
@@ -30,24 +30,20 @@ const AddDocument = ({
   }
 
   useEffect(() => {
-    // for if open Add popup input type will be filled
-    const arrKeys = Object.keys(isOpen)
-    const obj = arrKeys.reduce((obj, item) => {
-      item === "type" ? obj[item] = isOpen[item] : obj[item] = ""
-      return obj
-    }, {})
-    setDocument(obj)
-  }, [isOpen])
+    setDocument(editDocument[0])
+  }, [editDocument])
+
+  const isUndefined = document === undefined ? "" : 1
 
   return (
     <PopupWithForm
+      onSubmit={onSubmit}
+      name="editDocument"
+      isOpen={isOpen}
+      onClose={onClose}
       title={title}
       submitBtnName={submitBtnName}
       onClickBtnClose={onClickBtnClose}
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={onSubmit}
-      name="add-document"
     >
 
       {inputsAddDocument.map((input) => {
@@ -72,14 +68,15 @@ const AddDocument = ({
           minlength={minlength}
           maxlength={maxlength}
           onChange={(evt) => onChangeText(evt)}
-          value={name === "type" ? document.type : document[name]}
+          value={isUndefined && document[name]}
         />
       })}
       <ErrorByResponse
         errorResponse={errorResponse}
       />
+
     </PopupWithForm>
   )
 }
 
-export default AddDocument
+export default EditDocument

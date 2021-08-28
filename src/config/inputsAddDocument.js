@@ -17,7 +17,7 @@ const inputs = [
     autocomplete: "off",
     label: 'Название документа',
     minlength: 5,
-    maxlength: 50,
+    maxlength: 120,
   },
   {
     id: 3,

@@ -10,7 +10,14 @@ const DocItems = ({
   onClickEdit,
   onClickRemove
 }) => {
-  // console.log(docsArr)
+
+  docsArr.sort((a, b) => {
+    if (a.createdAt > b.createdAt) {
+      return -1
+    }
+    return 1
+  })
+  // console.log(sortedArr)
   return (
     <ul className="doc-items">
       {docsArr.map((item) => {

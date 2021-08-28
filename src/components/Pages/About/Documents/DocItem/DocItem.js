@@ -27,7 +27,7 @@ const DocItem = ({
           // onClickRmBtn={onClickRmBtn}
           place="document"
           loggedIn={loggedIn}
-          onClickAdd={() => onClickAdd()}
+          onClickAdd={() => onClickAdd(id)}
           onClickEdit={() => onClickEdit(id)}
           onClickRemove={() => onClickRemove(id)}
         /> : null
