@@ -19,6 +19,7 @@ import { getToken, } from '../../../utils/Token'
 // import AddDocument from '../../UI/popups/AddDocument/AddDocument'
 
 import apiDocuments from '../../../utils/ApiDocument'
+import apiAchievements from '../../../utils/ApiAchievement'
 
 const About = ({
   workers,
@@ -37,36 +38,61 @@ const About = ({
   const [isPopupAddDocumentOpen, setIsPopupAddDocumentOpen] = useState({})
   const [isPopupEditDocumentOpen, setIsPopupEditDocumentOpen] = useState({})
 
-  const [errorResponse, setErrorResponse] = useState("")
+  const [achievements, setAchievements] = useState([])
+  const [isPopupAddAchievementOpen, setIsPopupAddAchievementsOpen] = useState({})
+  const [isPopupEditAchievementOpen, setIsPopupEditAchievementsOpen] = useState({})
 
-  // console.log(Object.keys(isPopupAddDocumentOpen).length > 0)
+  const [errorResponse, setErrorResponse] = useState("")
 
   const isAreDocsInServer = Object.keys(isPopupAddDocumentOpen || {}).length > 0
 
   const onClickAddDocument = (_id) => {
     const arrWithDocumentClicked = allDocuments.filter((doc) => _id === doc._id)
-    // console.log(arrWithDocumentClicked)
+
     if (arrWithDocumentClicked.length === 0) {
-      // console.log(arrWithDocumentClicked)
       setIsPopupAddDocumentOpen({ forFirstDoc: '0000e7d4b9735e545cee0000' })
     } else {
-      // console.log(2)
       setIsPopupAddDocumentOpen(arrWithDocumentClicked[0])
     }
-    // console.log(arrWithDocumentClicked)
-    // console.log(2, documentClicked)
   }
+
+  const onClickAddAchievement = (_id) => {
+    const arrWithAchievementClicked = achievements.filter((doc) => _id === doc._id)
+
+    if (arrWithAchievementClicked.length === 0) {
+      setIsPopupAddAchievementsOpen({ forFirstDoc: '0000e7d4b9735e545cee0000' })
+    } else {
+      setIsPopupAddAchievementsOpen(arrWithAchievementClicked[0])
+    }
+  }
+
+  const onSubmitHandlerAddAchievement = (data) => {
+    const jwt = getToken()
+    apiAchievements.createAchievement(data, jwt)
+      .then((achievement) => {
+        setAchievements([...achievements, achievement])
+        setIsPopupAddAchievementsOpen({})
+      })
+      .catch((error) => console.log(error))
+  }
+
   const onClickEditDocument = (_id) => {
     const editDocument = allDocuments.filter((doc) => _id === doc._id)
     setIsPopupEditDocumentOpen(editDocument)
-    // console.log(`edit doc - ${_id}`)
   }
+
+  const onClickEditAchievement = (_id) => {
+    // console.log(_id)
+    const editAchievement = achievements.filter((achievement) => _id === achievement._id)
+    // console.log(editAchievement)
+    setIsPopupEditAchievementsOpen(editAchievement)
+  }
+
   const onClickRemoveDocument = (_id) => {
     // console.log(`remove doc - ${_id}`)
     const jwt = getToken()
-
     apiDocuments.deleteDocument(_id, jwt)
-      .then((document) => {
+      .then(() => {
         const newDocuments = allDocuments.filter((doc) => doc._id !== _id)
         setAllDocuments(newDocuments)
       })
@@ -104,6 +130,21 @@ const About = ({
       })
   }
 
+  const onSubmitHandlerEditAchievement = (data) => {
+    const jwt = getToken()
+    apiAchievements.patchAchievement(data, jwt)
+      .then((achievement) => {
+        const indexUpdAchievement = achievements.findIndex(el => el._id === achievement._id)
+        achievements.splice(indexUpdAchievement, 1, achievement)
+        setAchievements(achievements)
+        setIsPopupEditAchievementsOpen({})
+      })
+      .catch((error) => {
+        console.log(error)
+        setErrorResponse(error)
+      })
+  }
+
   useEffect(() => {
     apiDocuments.getDocuments()
       .then((documents) => {
@@ -111,13 +152,27 @@ const About = ({
         setAllDocuments(documents)
       })
       .catch((error) => console.log(error))
+    apiAchievements.getAchievements()
+      .then((achievements) => setAchievements(achievements))
+      .catch((error) => console.log(error))
   }, [])
 
   const closeEditAddPopups = () => {
     setIsPopupAddDocumentOpen({})
     setIsPopupEditDocumentOpen({})
+    setIsPopupAddAchievementsOpen({})
+    setIsPopupEditAchievementsOpen({})
   }
   // console.log(pageInfo.pathName)
+  const onClickRemoveEchievement = (_id) => {
+    const jwt = getToken()
+    apiAchievements.deleteAchievement(_id, jwt)
+      .then(() => {
+        const newAchievements = achievements.filter((achievement) => achievement._id !== _id)
+        setAchievements(newAchievements)
+      })
+      .catch((error) => console.log(error))
+  }
 
   return (
     <div className={`about about_place_${pageInfo.pathName}`}>
@@ -161,7 +216,18 @@ const About = ({
           />
         </Route>
         <Route path="/about/achievements">
-          <Achievements />
+          <Achievements
+            loggedIn={loggedIn}
+            onClickAddDocument={(_id) => onClickAddAchievement(_id)}
+            onClickEditDocument={onClickEditAchievement}
+            onClickRemoveDocument={onClickRemoveEchievement}
+            onClickBtnClose={closeEditAddPopups}
+            isPopupAddAchievementOpen={Object.keys(isPopupAddAchievementOpen).length > 0 && isPopupAddAchievementOpen}
+            isPopupEditAchievementOpen={Object.keys(isPopupEditAchievementOpen).length > 0 && isPopupEditAchievementOpen}
+            onSubmitHandlerAddAchievement={onSubmitHandlerAddAchievement}
+            onSubmitHandlerEditAchievement={onSubmitHandlerEditAchievement}
+            achievements={achievements}
+          />
         </Route>
         <Route path="/about/questionnaire">
           <Questionnaire />

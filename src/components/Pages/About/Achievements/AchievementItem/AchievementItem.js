@@ -1,10 +1,9 @@
 import React from 'react'
-import './DocItem.css'
-
+import './AchievementItem.css'
 import ButtonsBox from '../../../../UI/ButtonsBox/ButtonsBox'
 
-const DocItem = ({
-  name,
+const AchivementItem = ({
+  title,
   link,
   id,
   loggedIn,
@@ -12,20 +11,15 @@ const DocItem = ({
   onClickEdit,
   onClickRemove
 }) => {
-  //console.log(loggedIn)
+
   return (
-    <li className="doc-item">
-      <a href={link}
-        className="doc-item__link"
-        target="_blank"
-        rel="noreferrer">
-        {name}
-      </a>
+    <li className="achievement-item">
+      <a className="achievement-item__link" href={link}>{title}</a>
       {loggedIn ?
         <ButtonsBox
           id={id}
           // onClickRmBtn={onClickRmBtn}
-          place="document"
+          place="achievement"
           loggedIn={loggedIn}
           onClickAdd={() => onClickAdd(id)}
           onClickEdit={() => onClickEdit(id)}
@@ -36,4 +30,4 @@ const DocItem = ({
   )
 }
 
-export default DocItem
+export default AchivementItem

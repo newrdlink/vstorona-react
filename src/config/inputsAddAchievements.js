@@ -2,12 +2,12 @@ const inputs = [
   {
     id: 1,
     name: 'type',
-    type: "text",
+    type: 'text',
     required: true,
     autocomplete: "off",
-    label: 'Какой тип документа',
+    label: 'Какой год',
     minlength: 2,
-    maxlength: 100,
+    maxlength: 120,
   },
   {
     id: 2,
@@ -15,8 +15,8 @@ const inputs = [
     type: 'text',
     required: true,
     autocomplete: "off",
-    label: 'Название документа',
-    minlength: 5,
+    label: 'Название достижения',
+    minlength: 2,
     maxlength: 120,
   },
   {

@@ -1,7 +1,7 @@
-import { React, useEffect } from 'react'
+import { React } from 'react'
 import './PopupWithForm.css'
 import CloseIcon from '../CloseIcon/CloseIcon'
-import resetInputs from '../../../../helpers/clearInputs'
+// import resetInputs from '../../../../helpers/clearInputs'
 
 const PopupWithForm = ({
   children,
@@ -14,9 +14,9 @@ const PopupWithForm = ({
   name,
 }) => {
 
-  useEffect(() => {
-    setTimeout(() => resetInputs(name), 1000)
-  }, [isOpen, name])
+  // useEffect(() => {
+  //   setTimeout(() => resetInputs(name), 1000)
+  // }, [isOpen, name])
 
   return (
     <section className={`popup ${isOpen && "popup_opened"}`}
