@@ -1,53 +1,53 @@
 import React, { useState, useEffect } from 'react'
-import './EditDocument.css'
+import './EditAchievement.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
-import inputsAddDocument from '../../../../config/inputsAddDocument'
-import Input from '../../inputs/Input/Input'
 import ErrorByResponse from '../../ErrorByResponse/ErrorByResponse'
+import Input from '../../inputs/Input/Input'
 
-const EditDocument = ({
+import inputs from '../../../../config/inputsAddAchievements'
+
+
+const EditAchievement = ({
   title,
   submitBtnName,
   onClickBtnClose,
   isOpen,
   onClose,
-  onSubmitHandlerEditDocument,
+  onSubmitHandlerEditAchievement,
   errorResponse,
-  editDocument,
-}
-) => {
+}) => {
 
-  const [document, setDocument] = useState({})
+  const [achievement, setAchievement] = useState({})
+
+  const onChangeText = (evt) => {
+    setAchievement({ ...achievement, [evt.target.name]: evt.target.value })
+  }
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
-    onSubmitHandlerEditDocument(document)
-  }
-
-  const onChangeText = (evt) => {
-    setDocument({ ...document, [evt.target.name]: evt.target.value })
+    onSubmitHandlerEditAchievement(achievement)
   }
 
   useEffect(() => {
-    setDocument(editDocument[0])
-  }, [editDocument])
+    setAchievement(isOpen[0])
+  }, [isOpen])
 
-  const isUndefined = document === undefined ? "" : 1
+  const isUndefined = achievement === undefined ? "" : 1
 
   return (
     <PopupWithForm
-      onSubmit={onSubmit}
-      name="edit-document"
-      isOpen={isOpen}
-      onClose={onClose}
       title={title}
       submitBtnName={submitBtnName}
       onClickBtnClose={onClickBtnClose}
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={onSubmit}
+      name="edit-achievement"
+
     >
 
-      {inputsAddDocument.map((input) => {
-
+      {inputs.map((input) => {
         const {
           name,
           type,
@@ -58,7 +58,6 @@ const EditDocument = ({
           maxlength,
           minlength,
           id } = input
-
         return <Input
           key={id}
           name={name}
@@ -70,9 +69,8 @@ const EditDocument = ({
           minlength={minlength}
           maxlength={maxlength}
           onChange={(evt) => onChangeText(evt)}
-          value={isUndefined && document[name]}
+          value={isUndefined && achievement[name]}
         />
-
       })}
 
       <ErrorByResponse
@@ -83,4 +81,4 @@ const EditDocument = ({
   )
 }
 
-export default EditDocument
+export default EditAchievement

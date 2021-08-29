@@ -22,7 +22,6 @@ const Documents = ({
   onSubmitHandlerEditDocument,
   errorResponse
 }) => {
-
   // console.log(isPopupEditDocumentOpen)
   const arrayAllTypeDocument = allDocuments.reduce((arr, item) => {
     if (!arr.includes(item.type)) {

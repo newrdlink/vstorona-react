@@ -1,1 +1,1 @@
-module.exports = (formName) => document.forms[`${formName}`].reset()
+// module.exports = (formName) => document.forms[`${formName}`].reset()
