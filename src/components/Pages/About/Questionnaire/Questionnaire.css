@@ -1,0 +1,46 @@
+.questionnaire {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.questionnaire__subtitle {
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 37px;
+  color: #442836;
+  text-indent: 30px;
+}
+
+.questionnaire__title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #442836;
+  text-align: center;
+}
+
+.questionnaire__image {
+  display: block;
+  background-color: transparent;
+  margin: 0 auto 40px;
+}
+
+.questionnaire__link {
+  display: block;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 37px;
+  color: #442836;
+}
+
+.questionnaire__link:hover {
+  text-decoration: underline;
+}

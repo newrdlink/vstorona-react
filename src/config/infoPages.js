@@ -20,7 +20,7 @@ export const infoPages = [
     pathName: 'achievements'
   },
   {
-    name: 'анкета',
+    name: 'анкета о работе клуба',
     pathName: 'questionnaire'
   }
 ]
