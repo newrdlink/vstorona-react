@@ -5,11 +5,11 @@ import './App.css'
 import Header from '../Header/Header'
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
-import AddWorker from '../UI/popups/AddWorker/AddWorker'
-import EditWorker from '../UI/popups/EditWorker/EditWorker'
+// import AddWorker from '../UI/popups/AddWorker/AddWorker'
+// import EditWorker from '../UI/popups/EditWorker/EditWorker'
 import SignIn from '../UI/popups/SignIn/SignIn'
 import SignUp from '../UI/popups/SignUp/SignUp'
-import api from '../../utils/ApiWorker'
+// import api from '../../utils/ApiWorker'
 import apiAuth from '../../utils/Auth'
 import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
@@ -20,13 +20,13 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
-  const [workers, setWorkers] = useState([])
+  // 1 const [workers, setWorkers] = useState([])
 
-  useEffect(() => {
-    api.getWorkers()
-      .then((workers) => setWorkers(workers))
-      .catch((error) => console.log(error))
-  }, [])
+  // 2 useEffect(() => {
+  //   api.getWorkers()
+  //     .then((workers) => setWorkers(workers))
+  //     .catch((error) => console.log(error))
+  // }, [])
 
   useEffect(() => {
     const jwt = getToken()
@@ -40,8 +40,8 @@ const App = () => {
     }
   }, [])
 
-  const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
-  const [isPopupEditWorkerOpen, setIsPopupEditWorkerOpen] = useState({})
+  // 3 const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
+  // const [isPopupEditWorkerOpen, setIsPopupEditWorkerOpen] = useState({})
   const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
   const [isPopupSignUpOpen, setIsPopupSignUpOpen] = useState(false)
   const [isSignUpOk, setIsSignUpOk] = useState(false)
@@ -51,47 +51,47 @@ const App = () => {
     setTimeout(() => setErrorResponse(''), 5000)
   }, [errorResponse])
 
-  const onClickAddWorker = () => setIsPopupAddWorkerOpen(true)
-  const onSubmitHandlerAddWorker = (workerData) => {
-    const jwt = getToken();
+  // const onClickAddWorker = () => setIsPopupAddWorkerOpen(true)
+  // const onSubmitHandlerAddWorker = (workerData) => {
+  //   const jwt = getToken();
 
-    api.createWorker(workerData, jwt)
-      .then((worker) => {
-        setWorkers([...workers, worker])
-        setIsPopupAddWorkerOpen(false)
-      })
-      .catch((e) => console.log('ошибка'))
-  }
+  //   api.createWorker(workerData, jwt)
+  //     .then((worker) => {
+  //       setWorkers([...workers, worker])
+  //       setIsPopupAddWorkerOpen(false)
+  //     })
+  //     .catch((e) => console.log('ошибка'))
+  // }
 
-  const onClickEditWorker = (id) => {
-    // take editing worker
-    const editWorker = workers.filter((item) => id === item._id)
-    // sending worker to editForm for inputs
-    setIsPopupEditWorkerOpen(editWorker[0])
-  }
-  const onSubmitHandlerEditWorker = (workerData) => {
-    // console.log(workerData)
-    const jwt = getToken();
-    api.patchWorker(workerData, jwt)
-      .then((worker) => {
-        const indexUpdWorker = workers.findIndex(el => el._id === worker._id)
-        workers.splice(indexUpdWorker, 1, worker)
-        setWorkers(workers)
-        setIsPopupEditWorkerOpen(false)
-        // console.log(worker)
-      })
-      .catch((error) => console.log(error))
-  }
+  // const onClickEditWorker = (id) => {
+  //   // take editing worker
+  //   const editWorker = workers.filter((item) => id === item._id)
+  //   // sending worker to editForm for inputs
+  //   setIsPopupEditWorkerOpen(editWorker[0])
+  // }
+  // const onSubmitHandlerEditWorker = (workerData) => {
+  //   // console.log(workerData)
+  //   const jwt = getToken();
+  //   api.patchWorker(workerData, jwt)
+  //     .then((worker) => {
+  //       const indexUpdWorker = workers.findIndex(el => el._id === worker._id)
+  //       workers.splice(indexUpdWorker, 1, worker)
+  //       setWorkers(workers)
+  //       setIsPopupEditWorkerOpen(false)
+  //       // console.log(worker)
+  //     })
+  //     .catch((error) => console.log(error))
+  // }
 
-  const onClickRemoveWorker = (workerId) => {
-    const jwt = getToken()
-    api.removeWorker(workerId, jwt)
-      .then((worker) => {
-        const newWorkers = workers.filter((w) => w._id !== workerId);
-        setWorkers(newWorkers)
-      })
-      .catch((error) => console.log(error.message))
-  }
+  // const onClickRemoveWorker = (workerId) => {
+  //   const jwt = getToken()
+  //   api.removeWorker(workerId, jwt)
+  //     .then((worker) => {
+  //       const newWorkers = workers.filter((w) => w._id !== workerId);
+  //       setWorkers(newWorkers)
+  //     })
+  //     .catch((error) => console.log(error.message))
+  // }
   // const onClickSignInButton = () => setIsPopupSignInOpen(true)
   const onClickSignInButton = () => {
     setIsPopupSignInOpen(true)
@@ -155,17 +155,17 @@ const App = () => {
           </Route>
           <Route path="/about">
             <About
-              workers={workers}
-              onClickAddWorker={onClickAddWorker}
-              onClickEditWorker={onClickEditWorker}
-              onClickRemoveWorker={onClickRemoveWorker}
+              // workers={workers}
+              // onClickAddWorker={onClickAddWorker}
+              // onClickEditWorker={onClickEditWorker}
+              // onClickRemoveWorker={onClickRemoveWorker}
               loggedIn={loggedIn}
             />
           </Route>
         </Switch>
         <Footer />
 
-        <AddWorker
+        {/* <AddWorker
           title="Новый сотрудник"
           submitBtnName="Добавить работника"
           onClickBtnClose={() => setIsPopupAddWorkerOpen(false)}
@@ -182,7 +182,7 @@ const App = () => {
           onClickBtnClose={() => setIsPopupEditWorkerOpen({})}
           onClose={() => setIsPopupEditWorkerOpen({})}
           onSubmitHandlerEditWorker={onSubmitHandlerEditWorker}
-        />
+        /> */}
         <SignIn
           title="Авторизация"
           isOpen={isPopupSignInOpen}

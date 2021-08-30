@@ -17,15 +17,15 @@ import Questionnaire from './Questionnaire/Questionnaire'
 import { getToken, } from '../../../utils/Token'
 
 // import AddDocument from '../../UI/popups/AddDocument/AddDocument'
-
+import apiWorker from '../../../utils/ApiWorker'
 import apiDocuments from '../../../utils/ApiDocument'
 import apiAchievements from '../../../utils/ApiAchievement'
 
 const About = ({
-  workers,
-  onClickAddWorker,
-  onClickEditWorker,
-  onClickRemoveWorker,
+  // 1 workers,
+  // onClickAddWorker,
+  // 2 onClickEditWorker,
+  // 3 onClickRemoveWorker,
   loggedIn
 }) => {
 
@@ -34,6 +34,9 @@ const About = ({
 
   const pageInfo = contentTitle({ currentPath, infoPages })
   // console.log(pageInfo)
+  const [workers, setWorkers] = useState([])
+  const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
+  const [isPopupEditWorkerOpen, setIsPopupEditWorkerOpen] = useState({})
   const [allDocuments, setAllDocuments] = useState([])
   const [isPopupAddDocumentOpen, setIsPopupAddDocumentOpen] = useState({})
   const [isPopupEditDocumentOpen, setIsPopupEditDocumentOpen] = useState({})
@@ -46,6 +49,59 @@ const About = ({
 
   const isAreDocsInServer = Object.keys(isPopupAddDocumentOpen || {}).length > 0
 
+  useEffect(() => {
+    apiWorker.getWorkers()
+      .then((workers) => setWorkers(workers))
+      .catch((error) => console.log(error))
+  }, [])
+
+  //////
+
+  const onClickAddWorker = () => setIsPopupAddWorkerOpen(true)
+
+  const onSubmitHandlerAddWorker = (workerData) => {
+    const jwt = getToken();
+
+    apiWorker.createWorker(workerData, jwt)
+      .then((worker) => {
+        setWorkers([...workers, worker])
+        setIsPopupAddWorkerOpen(false)
+      })
+      .catch((e) => console.log('ошибка'))
+  }
+
+  const onClickEditWorker = (id) => {
+    // take editing worker
+    const editWorker = workers.filter((item) => id === item._id)
+    // sending worker to editForm for inputs
+    setIsPopupEditWorkerOpen(editWorker[0])
+  }
+  const onSubmitHandlerEditWorker = (workerData) => {
+    // console.log(workerData)
+    const jwt = getToken();
+    apiWorker.patchWorker(workerData, jwt)
+      .then((worker) => {
+        const indexUpdWorker = workers.findIndex(el => el._id === worker._id)
+        workers.splice(indexUpdWorker, 1, worker)
+        setWorkers(workers)
+        setIsPopupEditWorkerOpen(false)
+        // console.log(worker)
+      })
+      .catch((error) => console.log(error))
+  }
+
+  const onClickRemoveWorker = (workerId) => {
+    const jwt = getToken()
+    apiWorker.removeWorker(workerId, jwt)
+      .then((worker) => {
+        const newWorkers = workers.filter((w) => w._id !== workerId);
+        setWorkers(newWorkers)
+      })
+      .catch((error) => console.log(error.message))
+  }
+
+
+  //////
   const onClickAddDocument = (_id) => {
     const arrWithDocumentClicked = allDocuments.filter((doc) => _id === doc._id)
 
@@ -162,6 +218,8 @@ const About = ({
     setIsPopupEditDocumentOpen({})
     setIsPopupAddAchievementsOpen({})
     setIsPopupEditAchievementsOpen({})
+    setIsPopupAddWorkerOpen(false)
+    setIsPopupEditWorkerOpen({})
   }
   // console.log(pageInfo.pathName)
   const onClickRemoveEchievement = (_id) => {
@@ -197,6 +255,13 @@ const About = ({
             onClickEditWorker={onClickEditWorker}
             onClickRemoveWorker={onClickRemoveWorker}
             loggedIn={loggedIn}
+
+            isPopupAddWorkerOpen={isPopupAddWorkerOpen}
+            isPopupEditWorkerOpen={isPopupEditWorkerOpen}
+            onSubmitHandlerAddWorker={onSubmitHandlerAddWorker}
+            onSubmitHandlerEditWorker={onSubmitHandlerEditWorker}
+            onClose={() => setIsPopupAddWorkerOpen(false)}
+            onClickBtnClose={closeEditAddPopups}
           />
         </Route>
         <Route path="/about/documents">
