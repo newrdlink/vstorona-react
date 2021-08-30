@@ -13,8 +13,7 @@ const SignUp = ({
   onClose,
   onSubmitHandlerSignUp,
   onClickBtnSignIn,
-  name,
-  errorMessage,
+  errorResponse,
   isSignUpOk
 }) => {
 
@@ -75,22 +74,6 @@ const SignUp = ({
         nameSpan="Зарегистрированы?"
         onClickBtnSignUp={onClickBtnSignIn}
       />
-      {/* <input
-        className="form__input form__input_email"
-        type="email"
-        placeholder="Email"
-        onChange={evt => {
-          setUserData({ ...userData, "email": evt.target.value })
-        }}
-      />
-      <input
-        className="form__input form__input_password"
-        type="password"
-        placeholder="Пароль"
-        onChange={evt => {
-          setUserData({ ...userData, "password": evt.target.value })
-        }}
-      /> */}
     </PopupWithForm>
   )
 }
