@@ -22,5 +22,17 @@ export const infoPages = [
   {
     name: 'анкета о работе клуба',
     pathName: 'questionnaire'
+  },
+  {
+    name: 'платные услуги',
+    pathName: 'services'
+  },
+  {
+    name: 'аренда залов',
+    pathName: 'rent'
+  },
+  {
+    name: 'танцевальные вечера',
+    pathName: 'dance'
   }
 ]

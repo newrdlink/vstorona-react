@@ -45,7 +45,6 @@ const EditDocument = ({
       submitBtnName={submitBtnName}
       onClickBtnClose={onClickBtnClose}
     >
-
       {inputsAddDocument.map((input) => {
 
         const {
@@ -72,13 +71,10 @@ const EditDocument = ({
           onChange={(evt) => onChangeText(evt)}
           value={isUndefined && document[name]}
         />
-
       })}
-
       <ErrorByResponse
         errorResponse={errorResponse}
       />
-
     </PopupWithForm>
   )
 }

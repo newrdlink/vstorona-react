@@ -1,12 +1,9 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './NavPage.css'
 // import { aboutItems } from '../../config/aboutItems'
 
-const NavPage = () => {
-  // console.log(currentPath)
-  const location = useLocation()
-  const { pathname: currentPath } = location
+const NavPage = ({ currentPath }) => {
 
   const arrStr = currentPath.split('/')
 
@@ -60,6 +57,27 @@ const NavPage = () => {
         g.name = 'документы '
         g.path = '/about/documents'
         obj.push(g)
+        break
+      case 'services':
+        let h = {}
+        h.id = 8
+        h.name = 'платные услуги '
+        h.path = '/services'
+        obj.push(h)
+        break
+      case 'rent':
+        let i = {}
+        i.id = 9
+        i.name = 'аренда залов '
+        i.path = '/services/rent'
+        obj.push(i)
+        break
+      case 'dance':
+        let j = {}
+        j.id = 10
+        j.name = 'танцевальные вечера '
+        j.path = '/services/dance'
+        obj.push(j)
         break
       default:
       // alert('fjhrioehgf')

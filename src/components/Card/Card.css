@@ -6,6 +6,10 @@
   /* overflow: hidden; */
 }
 
+.card_place_services {
+  margin-right: 24px;
+}
+
 .card__image {
   position: relative;
   object-fit: cover;
@@ -63,6 +67,7 @@
   position: relative;
   left: 104px;
   top: -160px;
+  max-width: 160px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
