@@ -15,25 +15,17 @@ import Achievements from './Achievements/Achievements'
 import Questionnaire from './Questionnaire/Questionnaire'
 
 import { getToken, } from '../../../utils/Token'
-
-// import AddDocument from '../../UI/popups/AddDocument/AddDocument'
 import apiWorker from '../../../utils/ApiWorker'
 import apiDocuments from '../../../utils/ApiDocument'
 import apiAchievements from '../../../utils/ApiAchievement'
 
-const About = ({
-  // 1 workers,
-  // onClickAddWorker,
-  // 2 onClickEditWorker,
-  // 3 onClickRemoveWorker,
-  loggedIn
-}) => {
+const About = ({ loggedIn }) => {
 
   const location = useLocation()
   const { pathname: currentPath } = location
 
   const pageInfo = contentTitle({ currentPath, infoPages })
-  // console.log(pageInfo)
+
   const [workers, setWorkers] = useState([])
   const [isPopupAddWorkerOpen, setIsPopupAddWorkerOpen] = useState(false)
   const [isPopupEditWorkerOpen, setIsPopupEditWorkerOpen] = useState({})
@@ -55,8 +47,6 @@ const About = ({
       .catch((error) => console.log(error))
   }, [])
 
-  //////
-
   const onClickAddWorker = () => setIsPopupAddWorkerOpen(true)
 
   const onSubmitHandlerAddWorker = (workerData) => {
@@ -77,21 +67,21 @@ const About = ({
     setIsPopupEditWorkerOpen(editWorker[0])
   }
   const onSubmitHandlerEditWorker = (workerData) => {
-    // console.log(workerData)
     const jwt = getToken();
+
     apiWorker.patchWorker(workerData, jwt)
       .then((worker) => {
         const indexUpdWorker = workers.findIndex(el => el._id === worker._id)
         workers.splice(indexUpdWorker, 1, worker)
         setWorkers(workers)
         setIsPopupEditWorkerOpen(false)
-        // console.log(worker)
       })
       .catch((error) => console.log(error))
   }
 
   const onClickRemoveWorker = (workerId) => {
     const jwt = getToken()
+
     apiWorker.removeWorker(workerId, jwt)
       .then((worker) => {
         const newWorkers = workers.filter((w) => w._id !== workerId);
@@ -100,8 +90,6 @@ const About = ({
       .catch((error) => console.log(error.message))
   }
 
-
-  //////
   const onClickAddDocument = (_id) => {
     const arrWithDocumentClicked = allDocuments.filter((doc) => _id === doc._id)
 
@@ -124,6 +112,7 @@ const About = ({
 
   const onSubmitHandlerAddAchievement = (data) => {
     const jwt = getToken()
+
     apiAchievements.createAchievement(data, jwt)
       .then((achievement) => {
         setAchievements([...achievements, achievement])
@@ -138,15 +127,13 @@ const About = ({
   }
 
   const onClickEditAchievement = (_id) => {
-    // console.log(_id)
     const editAchievement = achievements.filter((achievement) => _id === achievement._id)
-    // console.log(editAchievement)
     setIsPopupEditAchievementsOpen(editAchievement)
   }
 
   const onClickRemoveDocument = (_id) => {
-    // console.log(`remove doc - ${_id}`)
     const jwt = getToken()
+
     apiDocuments.deleteDocument(_id, jwt)
       .then(() => {
         const newDocuments = allDocuments.filter((doc) => doc._id !== _id)
@@ -157,22 +144,21 @@ const About = ({
 
   const onSubmitHandlerAddDocument = (data) => {
     const jwt = getToken()
+
     apiDocuments.createDocument(data, jwt)
       .then((document) => {
         setAllDocuments([...allDocuments, document])
         setIsPopupAddDocumentOpen({})
-        // console.log(document)
       })
       .catch((error) => {
         console.log(error)
         setErrorResponse(error)
       })
-    // console.log(data)
   }
 
   const onSubmitHandlerEditDocument = (data) => {
-    // console.log(data)
     const jwt = getToken()
+
     apiDocuments.patchDocument(data, jwt)
       .then((document) => {
         const indexUpdDocument = allDocuments.findIndex(el => el._id === document._id)
@@ -188,6 +174,7 @@ const About = ({
 
   const onSubmitHandlerEditAchievement = (data) => {
     const jwt = getToken()
+
     apiAchievements.patchAchievement(data, jwt)
       .then((achievement) => {
         const indexUpdAchievement = achievements.findIndex(el => el._id === achievement._id)
@@ -202,9 +189,9 @@ const About = ({
   }
 
   useEffect(() => {
+
     apiDocuments.getDocuments()
       .then((documents) => {
-        // console.log(documents)
         setAllDocuments(documents)
       })
       .catch((error) => console.log(error))
@@ -221,9 +208,10 @@ const About = ({
     setIsPopupAddWorkerOpen(false)
     setIsPopupEditWorkerOpen({})
   }
-  // console.log(pageInfo.pathName)
+
   const onClickRemoveEchievement = (_id) => {
     const jwt = getToken()
+
     apiAchievements.deleteAchievement(_id, jwt)
       .then(() => {
         const newAchievements = achievements.filter((achievement) => achievement._id !== _id)

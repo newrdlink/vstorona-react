@@ -14,6 +14,7 @@ import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 import About from '../Pages/About/About'
+import Services from '../Pages/Services/Services';
 
 const App = () => {
 
@@ -101,6 +102,11 @@ const App = () => {
           </Route>
           <Route path="/about">
             <About
+              loggedIn={loggedIn}
+            />
+          </Route>
+          <Route path="/services">
+            <Services
               loggedIn={loggedIn}
             />
           </Route>
