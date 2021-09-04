@@ -1,0 +1,67 @@
+.hall {
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  min-height: 1000px;
+}
+
+.hall__image-container {
+  position: absolute;
+  left: 0;
+  top: 0;  
+}
+
+.hall__image {
+
+}
+
+.hall__title {
+  position: relative;
+  max-width: 700px;
+  margin: 200px 0 90px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.hall__order-btn {
+  position: relative;
+  z-index: 1;
+  margin-right: 150px;
+}
+
+.hall__about-items {
+  display: flex;
+}
+
+.hall__about-item {
+  margin-right: 150px;
+}
+
+.hall__about-item-title {
+  position: relative;
+  z-index: 1;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  text-transform: uppercase;  
+  color: #FFFFFF;
+}
+
+.hall__about-item-roominess {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}

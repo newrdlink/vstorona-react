@@ -2,7 +2,7 @@ import React from 'react'
 import './CardsBox.css'
 import Card from '../Card/Card'
 
-const CardsBox = ({ arrayCards, currentPath }) => {
+const CardsBox = ({ arrayCards, currentPath = "" }) => {
   const currentPlace = currentPath.slice(1)
   // console.log(currentPlace)
   return (

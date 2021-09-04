@@ -14,9 +14,16 @@ import PageTitle from '../../PageTitle/PageTitle'
 import Dance from './Dance/Dance'
 import Rent from './Rent/Rent'
 
+// import Halls from './Rent/Halls/Halls'
+import HallPage from './Rent/Halls/HallPage/HallPage'
+import { hallItems } from '../../../config/temp/hallItems'
+
 const Services = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+
+
+
   // console.log(pageInfo)
   return (
     <section className="services">
@@ -32,13 +39,21 @@ const Services = ({ loggedIn, currentPath }) => {
             currentPath={currentPath}
             arrayCards={serviceItems} />
         </Route>
-        <Route path="/rent">
-          <Dance
+        <Route exact path="/services/rent">
+          <Rent
             currentPath={currentPath}
           />
         </Route>
+
+        <Route path="/services/rent/:type">
+          <HallPage
+            hallItems={hallItems}
+          // currentPath={currentPath}
+          />
+        </Route>
+
         <Route path="/dance">
-          <Rent
+          <Dance
             currentPath={currentPath}
           />
         </Route>

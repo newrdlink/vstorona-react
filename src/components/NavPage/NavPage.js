@@ -1,11 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './NavPage.css'
-// import { aboutItems } from '../../config/aboutItems'
 
 const NavPage = ({ currentPath }) => {
 
   const arrStr = currentPath.split('/')
+
+  const isHallPage = currentPath.endsWith('showroom')
+  console.log(currentPath)
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -79,6 +81,41 @@ const NavPage = ({ currentPath }) => {
         j.path = '/services/dance'
         obj.push(j)
         break
+      case 'big':
+        let k = {}
+        k.id = 11
+        k.name = 'большой зал '
+        k.path = '/services/rent/big'
+        obj.push(k)
+        break
+      case 'foyer':
+        let l = {}
+        l.id = 12
+        l.name = 'зал фойэ 1 этажа '
+        l.path = '/services/rent/foyer'
+        obj.push(l)
+        break
+      case 'showroom':
+        let m = {}
+        m.id = 13
+        m.name = 'выставочный зал '
+        m.path = '/services/rent/showroom'
+        obj.push(m)
+        break
+      case 'choreography':
+        let n = {}
+        n.id = 14
+        n.name = 'зал хореографии '
+        n.path = '/services/rent/choreography'
+        obj.push(n)
+        break
+      case 'costume':
+        let o = {}
+        o.id = 15
+        o.name = 'костюмерный зал '
+        o.path = '/services/rent/costume'
+        obj.push(o)
+        break
       default:
       // alert('fjhrioehgf')
     }
@@ -86,14 +123,15 @@ const NavPage = ({ currentPath }) => {
   }, [])
 
   return (
-    <ul className="nav-page">
+    <ul className={`nav-page ${isHallPage && "nav-page_place_hall"}`}>
       {
         obj.map((item) =>
-          <li key={item.id} className="nav-page__item">
-            <NavLink exact
+          <li key={item.id} className={`nav-page__item ${isHallPage && "nav-page__item_place_hall"}`}>
+            <NavLink
+              exact
               to={item.path}
-              className="nav-page__link"
-              activeClassName="nav-page__link_active">
+              className={`nav-page__link ${isHallPage && "nav-page__link_place_hall"}`}
+              activeClassName={`nav-page__link_active ${isHallPage && "nav-page__link_active_place_hall"}`}>
               {
                 item.name + (item.path === currentPath ? '' : '/')
               }

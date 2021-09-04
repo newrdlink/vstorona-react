@@ -1,8 +1,10 @@
 .nav-page {
+  position: relative;
   list-style: none;
   display: flex;
   margin: 0 0 110px 0;
   padding: 0;
+  z-index: 1;
 }
 
 .nav-page__item {
@@ -20,6 +22,28 @@
   text-transform: uppercase;
 }
 
+.nav-page__link_place_hall {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .nav-page__link_active {
   color: #442836;
+}
+
+.nav-page__link_active_place_hall {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  text-transform: uppercase;  
+  color: #FFFFFF;
 }

@@ -34,5 +34,25 @@ export const infoPages = [
   {
     name: 'танцевальные вечера',
     pathName: 'dance'
+  },
+  {
+    name: 'большой зал',
+    pathName: 'big'
+  },
+  {
+    name: 'зал фойэ 1 этажа',
+    pathName: 'foyer'
+  },
+  {
+    name: 'выставочный зал',
+    pathName: 'showroom'
+  },
+  {
+    name: 'зал хореографии',
+    pathName: 'choreography'
+  },
+  {
+    name: 'костюмерный зал',
+    pathName: 'costume'
   }
 ]
