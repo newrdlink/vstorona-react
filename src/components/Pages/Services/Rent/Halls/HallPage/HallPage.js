@@ -1,20 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './HallPage.css'
 
 import Carusel from '../../../Carusel/Carusel'
 import Composition from '../../../Composition/Composition'
 
+import HallDescription from '../../../HallDescription/HallDescription'
+import prepareObjectForQuery from '../../../../../../helpers/prepareObjForEditItemInHall'
 
-const HallPage = ({ hallItems }) => {
+import AddItemDescrHall from '../../../../../UI/popups/AddItemDescrHall/AddItemDescrHall'
+
+import api from '../../../../../../utils/ApiHalls'
+import { getToken } from '../../../../../../utils/Token'
+
+const HallPage = ({ hallItems, loggedIn }) => {
+
+  const [isPopupAddItemDescrHallOpen, setIsPopupAddItemDescrHallOpen] = useState('')
 
   const { type } = useParams()
   const currentHall = hallItems.find(h => h.type === type) ||
-    { description: "templete for start", images: [{ link: "temp" }] }
+    { description: "templete for start", images: [{ link: "temp" }], linkToPrice: { link: "temp" } }
 
   const { images } = currentHall
-  // console.log(images)
-  // console.log(currentHall)
+  const { descriptionServices } = currentHall
+
+  const onClickAddItemDescription = (itemStr) => {
+    console.log(itemStr)
+    setIsPopupAddItemDescrHallOpen(itemStr)
+  }
+
+  const onSubmitAddDescrHall = (str) => {
+    const jwt = getToken()
+    const data = prepareObjectForQuery(currentHall, isPopupAddItemDescrHallOpen, str)
+    // console.log(data)
+    api.patchItemDescriptionHall(data, jwt, type)
+      .then((description) => console.log(description))
+      .catch((error) => console.log(error))
+  }
+
   return (
 
     <section className="hall">
@@ -38,25 +61,29 @@ const HallPage = ({ hallItems }) => {
         </div>
       </div>
       <div className="hall__description">
-        <div className="hall__description-items">
-          <p className="hall__description-title">описание</p>
-          <ul className="hall__description-items">
-            <li className="hall__description-item">{`общая площадь - ${currentHall.description.square} кв.М.`}</li>
-            <li className="hall__description-item">фортепиано essex</li>
-            <li className="hall__description-item">{`количество стульев - ${currentHall.description.chairs} шт.`}</li>
-            <li className="hall__description-item">{`количество столов (90*120 см.) - ${currentHall.description.tables} шт.`}</li>
-            <li className="hall__description-item">дополнительная расстановка мебели, предоставление скатертей и текстильных чехлов на стулья – по договоренности</li>
-            <li className="hall__description-item">свободный wi-fi</li>
-            <li className="hall__description-item">зал оснащен переносным рециркулятором</li>
-          </ul>
-        </div>
-        <div className="images-page">
-          <Carusel
-            images={images}
-          />
-        </div>
+        <HallDescription
+          title="описание"
+          arrDescription={descriptionServices}
+          loggedIn={loggedIn}
+          onClickAdd={onClickAddItemDescription}
+        />
+        <Carusel images={images} />
       </div>
-      <Composition />
+      <Composition
+        currentHall={currentHall}
+        loggedIn={loggedIn}
+        onClickAdd={onClickAddItemDescription}
+      />
+      <p className="hall__ps">{currentHall.ps}</p>
+      <a href={currentHall.linkToPrice.link} target="_blank"
+        rel="noreferrer"
+        className="hall__link-to-price">{currentHall.linkToPrice.name}</a>
+      <AddItemDescrHall
+        isOpen={isPopupAddItemDescrHallOpen}
+        title="Добавить описание"
+        submitBtnName="Добавить"
+        onSubmitAddDescrHall={onSubmitAddDescrHall}
+      />
     </section>
 
   )

@@ -1,14 +1,28 @@
 import React from 'react'
 import './Composition.css'
 
-const Composition = () => {
+import HallDescription from '../HallDescription/HallDescription'
+
+const Composition = ({ currentHall, loggedIn, onClickAdd }) => {
+
+  const { compositionServices, soundServices } = currentHall
   return (
     <div className="composition">
       <div className="composition__service">
-        <p>в стоимость аренды входит: </p>
+        <HallDescription
+          title="в стоимость аренды входит:"
+          arrDescription={compositionServices}
+          loggedIn={loggedIn}
+          onClickAdd={onClickAdd}
+        />
       </div>
       <div className="composition__service-audio">
-        <p>звуковое оборудование</p>
+        <HallDescription
+          title="звуковое оборудование: "
+          arrDescription={soundServices}
+          loggedIn={loggedIn}
+          onClickAdd={onClickAdd}
+        />
       </div>
     </div>
   )

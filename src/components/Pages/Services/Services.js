@@ -54,6 +54,7 @@ const Services = ({ loggedIn, currentPath }) => {
         <Route path="/services/rent/:type">
           <HallPage
             hallItems={halls}
+            loggedIn={loggedIn}
           // currentPath={currentPath}
           />
         </Route>

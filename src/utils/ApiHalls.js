@@ -40,18 +40,15 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  patchDocument(data, token) {
-    return fetch(`${this.address}/Halls`, {
+  patchItemDescriptionHall(data, token, type) {
+    return fetch(`${this.address}/halls/${type}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
-        _id: data._id,
-        link: data.link,
-        type: data.type,
-        title: data.title,
+        data
       })
     })
       .then(handlerResponse)

@@ -1,0 +1,13 @@
+.hall-description-item {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 37px;
+  color: #442836;
+}
+
+.hall-description-item:hover .buttons-box {
+  opacity: 1;
+}
