@@ -6,8 +6,12 @@ const NavPage = ({ currentPath }) => {
 
   const arrStr = currentPath.split('/')
 
-  const isHallPage = currentPath.endsWith('showroom')
-  console.log(currentPath)
+  const isHallPage = currentPath.endsWith('showroom') ||
+    currentPath.endsWith('big') ||
+    currentPath.endsWith('foyer') ||
+    currentPath.endsWith('choreography') ||
+    currentPath.endsWith('costume')
+  // console.log(currentPath)
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {

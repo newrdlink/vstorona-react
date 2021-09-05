@@ -30,3 +30,43 @@
   text-transform: uppercase;
   color: #FFFFFF;
 }
+
+.title_place_foyer {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.title_place_big {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.title_place_choreography {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.title_place_costume {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Services.css'
 import { Switch, Route } from 'react-router-dom'
 
@@ -16,15 +16,21 @@ import Rent from './Rent/Rent'
 
 // import Halls from './Rent/Halls/Halls'
 import HallPage from './Rent/Halls/HallPage/HallPage'
-import { hallItems } from '../../../config/temp/hallItems'
+// import { hallItems } from '../../../config/temp/hallItems'
+
+import apiHalls from '../../../utils/ApiHalls'
 
 const Services = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+  const [halls, setHalls] = useState([])
 
+  useEffect(() => {
+    apiHalls.getHalls()
+      .then((halls) => setHalls(halls))
+      .catch((error) => console.log(error))
+  }, [])
 
-
-  // console.log(pageInfo)
   return (
     <section className="services">
       <NavPage
@@ -47,7 +53,7 @@ const Services = ({ loggedIn, currentPath }) => {
 
         <Route path="/services/rent/:type">
           <HallPage
-            hallItems={hallItems}
+            hallItems={halls}
           // currentPath={currentPath}
           />
         </Route>

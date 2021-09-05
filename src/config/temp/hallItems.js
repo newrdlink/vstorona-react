@@ -1,5 +1,3 @@
-import mainImg from '../../images/Services/Halls/showroom.jpg'
-
 export const hallItems = [
   {
     id: 1,
@@ -15,15 +13,23 @@ export const hallItems = [
     images: [
       {
         name: "1",
-        link: "https://fnwefvwehnvc.ru"
+        link: "https://api.vs.didrom.ru/halls/showroom/1.jpg"
       },
       {
         name: "2",
-        link: "https://fnwefvweh.ru"
+        link: "https://api.vs.didrom.ru/halls/showroom/2.jpg"
       },
       {
         name: "mainImg",
-        image: mainImg,
+        link: "https://api.vs.didrom.ru/halls/showroom/3.jpg",
+      },
+      {
+        name: "mainImg",
+        link: "https://api.vs.didrom.ru/halls/showroom/4.jpg",
+      },
+      {
+        name: "mainImg",
+        link: "https://api.vs.didrom.ru/halls/showroom/5.jpg",
       }
     ],
     price: 1500,

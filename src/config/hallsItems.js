@@ -24,7 +24,7 @@ export const hallsItems = [
   {
     id: 4,
     name: "зал хореографии",
-    path: "/choreography ",
+    path: "/choreography",
     image: i2
   },
   {
