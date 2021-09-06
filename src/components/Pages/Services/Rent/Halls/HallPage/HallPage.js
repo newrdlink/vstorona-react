@@ -6,7 +6,8 @@ import Carusel from '../../../Carusel/Carusel'
 import Composition from '../../../Composition/Composition'
 
 import HallDescription from '../../../HallDescription/HallDescription'
-import prepareObjectForQuery from '../../../../../../helpers/prepareObjForEditItemInHall'
+import prepareObjectForQueryPut from '../../../../../../helpers/prepareObjForPutItemToHall'
+import prepareObjectForQueryRemove from '../../../../../../helpers/prepareObjForRemoveItemToHall'
 
 import AddItemDescrHall from '../../../../../UI/popups/AddItemDescrHall/AddItemDescrHall'
 
@@ -29,11 +30,20 @@ const HallPage = ({ hallItems, loggedIn }) => {
     setIsPopupAddItemDescrHallOpen(itemStr)
   }
 
-  const onSubmitAddDescrHall = (str) => {
+  const onSubmitPutDescrHall = (str) => {
     const jwt = getToken()
-    const data = prepareObjectForQuery(currentHall, isPopupAddItemDescrHallOpen, str)
+    const data = prepareObjectForQueryPut(currentHall, isPopupAddItemDescrHallOpen, str)
     // console.log(data)
-    api.patchItemDescriptionHall(data, jwt, type)
+    api.putItemDescrHall(data, jwt, type)
+      .then((description) => console.log(description))
+      .catch((error) => console.log(error))
+  }
+
+  const removeItemDescrHall = (str) => {
+    const jwt = getToken()
+    const data = prepareObjectForQueryRemove(currentHall, str)
+    // console.log(data)
+    api.deleteItemDescrHall(data, jwt, type)
       .then((description) => console.log(description))
       .catch((error) => console.log(error))
   }
@@ -66,6 +76,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
           arrDescription={descriptionServices}
           loggedIn={loggedIn}
           onClickAdd={onClickAddItemDescription}
+          onClickRemove={removeItemDescrHall}
         />
         <Carusel images={images} />
       </div>
@@ -73,6 +84,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
         currentHall={currentHall}
         loggedIn={loggedIn}
         onClickAdd={onClickAddItemDescription}
+        onClickRemove={removeItemDescrHall}
       />
       <p className="hall__ps">{currentHall.ps}</p>
       <a href={currentHall.linkToPrice.link} target="_blank"
@@ -82,7 +94,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
         isOpen={isPopupAddItemDescrHallOpen}
         title="Добавить описание"
         submitBtnName="Добавить"
-        onSubmitAddDescrHall={onSubmitAddDescrHall}
+        onSubmitAddDescrHall={onSubmitPutDescrHall}
       />
     </section>
 

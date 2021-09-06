@@ -40,9 +40,9 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  patchItemDescriptionHall(data, token, type) {
+  putItemDescrHall(data, token, type) {
     return fetch(`${this.address}/halls/${type}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
@@ -54,16 +54,19 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  //   deleteDocument(id, token) {
-  //     return fetch(`${this.address}/Halls/${id}`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //     })
-  //       .then(handlerResponse)
-  //   }
+  deleteItemDescrHall(data, token, type) {
+    return fetch(`${this.address}/halls/${type}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        data
+      })
+    })
+      .then(handlerResponse)
+  }
 }
 
 const api = new Api({

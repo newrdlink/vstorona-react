@@ -3,9 +3,10 @@ import './Composition.css'
 
 import HallDescription from '../HallDescription/HallDescription'
 
-const Composition = ({ currentHall, loggedIn, onClickAdd }) => {
+const Composition = ({ currentHall, loggedIn, onClickAdd, onClickRemove }) => {
 
   const { compositionServices, soundServices } = currentHall
+
   return (
     <div className="composition">
       <div className="composition__service">
@@ -14,6 +15,7 @@ const Composition = ({ currentHall, loggedIn, onClickAdd }) => {
           arrDescription={compositionServices}
           loggedIn={loggedIn}
           onClickAdd={onClickAdd}
+          onClickRemove={onClickRemove}
         />
       </div>
       <div className="composition__service-audio">
@@ -22,6 +24,7 @@ const Composition = ({ currentHall, loggedIn, onClickAdd }) => {
           arrDescription={soundServices}
           loggedIn={loggedIn}
           onClickAdd={onClickAdd}
+          onClickRemove={onClickRemove}
         />
       </div>
     </div>
