@@ -1,22 +1,34 @@
-import React, { useState } from 'react'
-import './AddItemDescrHall.css'
+import React, { useState, useEffect } from 'react'
+import './EditItemDescrHall.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import Input from '../../inputs/Input/Input'
 
-const AddItemDescrHall = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onSubmitAddDescrHall }) => {
+const EditItemDescrHall = ({
+  title,
+  submitBtnName,
+  onClickBtnClose,
+  isOpen,
+  onClose,
+  onSubmitEditDescrHall
+}) => {
 
   const [descriptionItem, setDescriptionItem] = useState('')
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
-    onSubmitAddDescrHall(descriptionItem)
+    onSubmitEditDescrHall(descriptionItem)
   }
 
   const onChangeText = (evt) => {
     // setDescriptionItem({ ...descriptionItem, [evt.target.name]: evt.target.value })
     setDescriptionItem(evt.target.value)
   }
+
+  useEffect(() => {
+    setDescriptionItem(isOpen)
+  }, [isOpen])
+  //console.log(isOpen)
   return (
     <PopupWithForm
       title={title}
@@ -25,11 +37,11 @@ const AddItemDescrHall = ({ title, submitBtnName, onClickBtnClose, isOpen, onClo
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={onSubmit}
-      name="add-description-hall"
+      name="edit-description-hall"
     >
       <Input
         name="desctiption"
-        label="Введите описание"
+        label="Измените описание"
         onChange={(evt) => onChangeText(evt)}
         value={descriptionItem}
       />
@@ -37,4 +49,4 @@ const AddItemDescrHall = ({ title, submitBtnName, onClickBtnClose, isOpen, onClo
   )
 }
 
-export default AddItemDescrHall
+export default EditItemDescrHall

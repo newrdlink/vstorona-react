@@ -4,7 +4,7 @@ import './HallDescription.css'
 import HallDescriptionItem from './HallDescriptionItem/HallDescriptionItem'
 
 
-const HallDescription = ({ title, arrDescription = [], loggedIn, onClickAdd, onClickRemove }) => {
+const HallDescription = ({ title, arrDescription = [], loggedIn, onClickAdd, onClickRemove, onClickEdit }) => {
 
   return (
     <div className="hall-description">
@@ -18,6 +18,7 @@ const HallDescription = ({ title, arrDescription = [], loggedIn, onClickAdd, onC
               loggedIn={loggedIn}
               onClickAdd={onClickAdd}
               onClickRemove={onClickRemove}
+              onClickEdit={onClickEdit}
             />)
         }
       </ul>

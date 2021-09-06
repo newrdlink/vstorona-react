@@ -10,6 +10,7 @@ import prepareObjectForQueryPut from '../../../../../../helpers/prepareObjForPut
 import prepareObjectForQueryRemove from '../../../../../../helpers/prepareObjForRemoveItemToHall'
 
 import AddItemDescrHall from '../../../../../UI/popups/AddItemDescrHall/AddItemDescrHall'
+import EditItemDescrHall from '../../../../../UI/popups/EditItemDescrHall/EditItemDescrHall'
 
 import api from '../../../../../../utils/ApiHalls'
 import { getToken } from '../../../../../../utils/Token'
@@ -17,6 +18,7 @@ import { getToken } from '../../../../../../utils/Token'
 const HallPage = ({ hallItems, loggedIn }) => {
 
   const [isPopupAddItemDescrHallOpen, setIsPopupAddItemDescrHallOpen] = useState('')
+  const [isPopupEditItemDescrHallOpen, setIsPopupEditItemDescrHallOpen] = useState('')
 
   const { type } = useParams()
   const currentHall = hallItems.find(h => h.type === type) ||
@@ -26,15 +28,18 @@ const HallPage = ({ hallItems, loggedIn }) => {
   const { descriptionServices } = currentHall
 
   const onClickAddItemDescription = (itemStr) => {
-    console.log(itemStr)
     setIsPopupAddItemDescrHallOpen(itemStr)
+  }
+
+  const onClickEditItemDescription = (itemStr) => {
+    setIsPopupEditItemDescrHallOpen(itemStr)
   }
 
   const onSubmitPutDescrHall = (str) => {
     const jwt = getToken()
     const data = prepareObjectForQueryPut(currentHall, isPopupAddItemDescrHallOpen, str)
     // console.log(data)
-    api.putItemDescrHall(data, jwt, type)
+    api.postItemDescrHall(data, jwt, type)
       .then((description) => console.log(description))
       .catch((error) => console.log(error))
   }
@@ -46,6 +51,20 @@ const HallPage = ({ hallItems, loggedIn }) => {
     api.deleteItemDescrHall(data, jwt, type)
       .then((description) => console.log(description))
       .catch((error) => console.log(error))
+  }
+
+  const onSubmitEditDescrHall = (newStr) => {
+    const oldValue = prepareObjectForQueryRemove(currentHall, isPopupEditItemDescrHallOpen)
+    const keyObj = Object.keys(oldValue)[0]
+    let newValue = {}
+    newValue[keyObj] = newStr
+    const jwt = getToken()
+
+    api.patchItemDescrHall(oldValue, newValue, jwt, type)
+      .then((description) => console.log(description))
+      .catch((error) => console.log(error))
+    // console.log(1, oldValue)
+    // console.log(2, newValue)
   }
 
   return (
@@ -77,6 +96,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
           loggedIn={loggedIn}
           onClickAdd={onClickAddItemDescription}
           onClickRemove={removeItemDescrHall}
+          onClickEdit={onClickEditItemDescription}
         />
         <Carusel images={images} />
       </div>
@@ -85,6 +105,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
         loggedIn={loggedIn}
         onClickAdd={onClickAddItemDescription}
         onClickRemove={removeItemDescrHall}
+        onClickEdit={onClickEditItemDescription}
       />
       <p className="hall__ps">{currentHall.ps}</p>
       <a href={currentHall.linkToPrice.link} target="_blank"
@@ -95,6 +116,14 @@ const HallPage = ({ hallItems, loggedIn }) => {
         title="Добавить описание"
         submitBtnName="Добавить"
         onSubmitAddDescrHall={onSubmitPutDescrHall}
+        onClose={() => setIsPopupAddItemDescrHallOpen('')}
+      />
+      <EditItemDescrHall
+        isOpen={isPopupEditItemDescrHallOpen}
+        title="Изменить описание"
+        submitBtnName="Изменить"
+        onSubmitEditDescrHall={onSubmitEditDescrHall}
+        onClose={() => setIsPopupEditItemDescrHallOpen('')}
       />
     </section>
 

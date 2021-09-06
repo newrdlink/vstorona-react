@@ -1,6 +1,7 @@
 .hall-description {
   padding-right: 50px;
   box-sizing: border-box;
+  min-width: 738px;
 }
 
 .hall-description__title {

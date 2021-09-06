@@ -3,11 +3,11 @@ import './HallDescriptionItem.css'
 
 import ButtonsBox from '../../../../UI/ButtonsBox/ButtonsBox'
 
-const HallDescriptionItem = ({ item, loggedIn, onClickAdd, onClickRemove }) => {
+const HallDescriptionItem = ({ item, loggedIn, onClickAdd, onClickRemove, onClickEdit }) => {
   // console.log(item)
 
   // const onClickAdd = (item) => console.log(item)
-  const onClickEdit = (item) => console.log(item)
+  // const onClickEdit = (item) => console.log(item)
   // const onClickRemove = (item) => console.log(item)
 
   return (

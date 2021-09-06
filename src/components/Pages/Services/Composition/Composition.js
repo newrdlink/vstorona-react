@@ -3,7 +3,7 @@ import './Composition.css'
 
 import HallDescription from '../HallDescription/HallDescription'
 
-const Composition = ({ currentHall, loggedIn, onClickAdd, onClickRemove }) => {
+const Composition = ({ currentHall, loggedIn, onClickAdd, onClickRemove, onClickEdit }) => {
 
   const { compositionServices, soundServices } = currentHall
 
@@ -16,6 +16,7 @@ const Composition = ({ currentHall, loggedIn, onClickAdd, onClickRemove }) => {
           loggedIn={loggedIn}
           onClickAdd={onClickAdd}
           onClickRemove={onClickRemove}
+          onClickEdit={onClickEdit}
         />
       </div>
       <div className="composition__service-audio">
@@ -25,6 +26,7 @@ const Composition = ({ currentHall, loggedIn, onClickAdd, onClickRemove }) => {
           loggedIn={loggedIn}
           onClickAdd={onClickAdd}
           onClickRemove={onClickRemove}
+          onClickEdit={onClickEdit}
         />
       </div>
     </div>

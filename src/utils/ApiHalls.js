@@ -40,9 +40,9 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  putItemDescrHall(data, token, type) {
+  postItemDescrHall(data, token, type) {
     return fetch(`${this.address}/halls/${type}`, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
@@ -63,6 +63,19 @@ class Api extends React.Component {
       },
       body: JSON.stringify({
         data
+      })
+    })
+      .then(handlerResponse)
+  }
+  patchItemDescrHall(oldData, newData, token, type) {
+    return fetch(`${this.address}/halls/${type}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        oldData, newData
       })
     })
       .then(handlerResponse)
