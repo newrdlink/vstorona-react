@@ -14,9 +14,7 @@ import PageTitle from '../../PageTitle/PageTitle'
 import Dance from './Dance/Dance'
 import Rent from './Rent/Rent'
 
-// import Halls from './Rent/Halls/Halls'
 import HallPage from './Rent/Halls/HallPage/HallPage'
-// import { hallItems } from '../../../config/temp/hallItems'
 
 import apiHalls from '../../../utils/ApiHalls'
 
@@ -24,12 +22,18 @@ const Services = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
   const [halls, setHalls] = useState([])
+  const [update, SetUpdate] = useState(false)
+
+  const infoUpdated = () => {
+    // console.log("info updated")
+    SetUpdate(!update)
+  }
 
   useEffect(() => {
     apiHalls.getHalls()
       .then((halls) => setHalls(halls))
       .catch((error) => console.log(error))
-  }, [])
+  }, [update])
 
   return (
     <section className="services">
@@ -55,7 +59,7 @@ const Services = ({ loggedIn, currentPath }) => {
           <HallPage
             hallItems={halls}
             loggedIn={loggedIn}
-          // currentPath={currentPath}
+            infoUpdated={infoUpdated}
           />
         </Route>
 

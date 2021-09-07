@@ -29,7 +29,7 @@ export const hallsItems = [
   },
   {
     id: 5,
-    name: "костюмерный зал",
+    name: "зал 6",
     path: "/costume",
     image: i2
   },

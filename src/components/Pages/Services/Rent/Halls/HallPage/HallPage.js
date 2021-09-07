@@ -20,14 +20,14 @@ import ActionButton from '../../../../../UI/buttons/ActionButton/ActionButton'
 import api from '../../../../../../utils/ApiHalls'
 import { getToken } from '../../../../../../utils/Token'
 
-const HallPage = ({ hallItems, loggedIn }) => {
+const HallPage = ({ hallItems, loggedIn, infoUpdated }) => {
 
   const [isPopupAddItemDescrHallOpen, setIsPopupAddItemDescrHallOpen] = useState('')
   const [isPopupEditItemDescrHallOpen, setIsPopupEditItemDescrHallOpen] = useState('')
   const [isPopupEditMainDescrHallOpen, setIsPopupEditMainDescrHallOpen] = useState(false)
 
   const { type } = useParams()
-  let currentHall = hallItems.find(h => h.type === type) ||
+  const currentHall = hallItems.find(h => h.type === type) ||
     { description: "templete for start", images: [{ link: "temp" }], }
 
   const { images } = currentHall
@@ -41,21 +41,24 @@ const HallPage = ({ hallItems, loggedIn }) => {
     setIsPopupEditItemDescrHallOpen(itemStr)
   }
 
-  const onSubmitPutDescrHall = (str) => {
+  const onSubmitPostDescrHall = (str) => {
     const jwt = getToken()
     const data = prepareObjectForQueryPut(currentHall, isPopupAddItemDescrHallOpen, str)
-    // console.log(data)
+
     api.postItemDescrHall(data, jwt, type)
-      .then((description) => console.log(description))
+      .then(() => {
+        setIsPopupAddItemDescrHallOpen('')
+        infoUpdated()
+      })
       .catch((error) => console.log(error))
   }
 
   const removeItemDescrHall = (str) => {
     const jwt = getToken()
     const data = prepareObjectForQueryRemove(currentHall, str)
-    // console.log(data)
+
     api.deleteItemDescrHall(data, jwt, type)
-      .then((description) => console.log(description))
+      .then(() => infoUpdated())
       .catch((error) => console.log(error))
   }
 
@@ -67,17 +70,18 @@ const HallPage = ({ hallItems, loggedIn }) => {
     const jwt = getToken()
 
     api.patchItemDescrHall(oldValue, newValue, jwt, type)
-      .then((description) => console.log(description))
+      .then(() => {
+        setIsPopupEditItemDescrHallOpen('')
+        infoUpdated()
+      })
       .catch((error) => console.log(error))
   }
 
   const onSubmitEditMainDescrHall = (data) => {
-    // console.log(data)
     const jwt = getToken()
     api.putMainDescrHall(data, jwt, type)
-      .then((hall) => {
-        console.log(hall)
-        // currentHall = hall
+      .then(() => {
+        infoUpdated()
         setIsPopupEditMainDescrHallOpen(false)
       })
       .catch((error) => console.log(error))
@@ -86,7 +90,6 @@ const HallPage = ({ hallItems, loggedIn }) => {
   const onClickEditPrice = () => setIsPopupEditMainDescrHallOpen(true)
 
   return (
-
     <section className="hall">
       <div className="hall__image-container">
         <img className="hall__image" src={currentHall.images[0].link} alt={currentHall.images[0].name} />
@@ -141,7 +144,7 @@ const HallPage = ({ hallItems, loggedIn }) => {
         isOpen={isPopupAddItemDescrHallOpen}
         title="Добавить описание"
         submitBtnName="Добавить"
-        onSubmitAddDescrHall={onSubmitPutDescrHall}
+        onSubmitAddDescrHall={onSubmitPostDescrHall}
         onClose={() => setIsPopupAddItemDescrHallOpen('')}
       />
       <EditItemDescrHall
@@ -160,7 +163,6 @@ const HallPage = ({ hallItems, loggedIn }) => {
         currentHall={currentHall}
       />
     </section>
-
   )
 }
 

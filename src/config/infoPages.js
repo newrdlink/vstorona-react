@@ -52,7 +52,7 @@ export const infoPages = [
     pathName: 'choreography'
   },
   {
-    name: 'костюмерный зал',
+    name: 'зал 6',
     pathName: 'costume'
   }
 ]
