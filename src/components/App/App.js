@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import './App.css'
 
 import Header from '../Header/Header'
@@ -20,6 +20,9 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+
+  const location = useLocation()
+  const { pathname: currentPath } = location
 
   useEffect(() => {
     const jwt = getToken()
@@ -103,11 +106,13 @@ const App = () => {
           <Route path="/about">
             <About
               loggedIn={loggedIn}
+              currentPath={currentPath}
             />
           </Route>
           <Route path="/services">
             <Services
               loggedIn={loggedIn}
+              currentPath={currentPath}
             />
           </Route>
         </Switch>

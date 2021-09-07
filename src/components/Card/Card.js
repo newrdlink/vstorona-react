@@ -2,13 +2,13 @@ import React from 'react'
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import './Card.css'
 
-const Card = ({ name, pathName, image, id }) => {
+const Card = ({ name, pathName, image, id, currentPlace }) => {
 
   const { path, url } = useRouteMatch()
   // console.log(currentPath)
   // console.log(path + pathName)
   return (
-    <li className="card">
+    <li className={`card card_place_${currentPlace}`}>
       <img alt="name" src={image} className="card__image" />
       <h4 className="card__number">{`${'0' + id}`}</h4>
       <NavLink className="card__link" to={url + pathName}>
@@ -27,7 +27,6 @@ const Card = ({ name, pathName, image, id }) => {
         12.0831L1.74065 13.117Z" />
         </svg>
       </NavLink>
-
     </li>
   )
 }

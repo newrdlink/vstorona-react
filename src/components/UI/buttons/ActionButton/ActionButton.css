@@ -27,3 +27,9 @@
 .action-button_place_document {
 
 }
+
+.action-button_place_hall-price {
+  position: absolute;
+  right: -45px;
+  bottom: 10px;
+}

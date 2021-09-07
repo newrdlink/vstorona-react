@@ -1,51 +1,51 @@
 import React, { useState, useEffect } from 'react'
-import './EditDocument.css'
+import './EditMainDescrHall.css'
 
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
-import inputsAddDocument from '../../../../config/inputsAddDocument'
 import Input from '../../inputs/Input/Input'
-import ErrorByResponse from '../../ErrorByResponse/ErrorByResponse'
 
-const EditDocument = ({
+import inputs from '../../../../config/inputsEditMainDescrHall'
+
+const EditMainDescrHall = ({
   title,
   submitBtnName,
-  onClickBtnClose,
   isOpen,
   onClose,
-  onSubmitHandlerEditDocument,
-  errorResponse,
-  editDocument,
-}
-) => {
-
-  const [document, setDocument] = useState({})
+  onSubmitEditMainDescrHall,
+  currentHall
+}) => {
+  // console.log(currentHall)
+  const [description, setDescription] = useState({})
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
-    onSubmitHandlerEditDocument(document)
+    onSubmitEditMainDescrHall(description)
   }
 
   const onChangeText = (evt) => {
-    setDocument({ ...document, [evt.target.name]: evt.target.value })
+    setDescription({ ...description, [evt.target.name]: evt.target.value })
+    // setDescription(evt.target.value)
   }
 
   useEffect(() => {
-    setDocument(editDocument[0])
-  }, [editDocument])
-
-  const isUndefined = document === undefined ? "" : 1
+    let obj = {}
+    obj.price = currentHall.price
+    obj.linkToPrice = currentHall.linkToPrice
+    setDescription(obj)
+  }, [currentHall])
 
   return (
     <PopupWithForm
-      onSubmit={onSubmit}
-      name="edit-document"
-      isOpen={isOpen}
-      onClose={onClose}
       title={title}
       submitBtnName={submitBtnName}
-      onClickBtnClose={onClickBtnClose}
+      onClickBtnClose={onClose}
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={onSubmit}
+      name="edit-main-description-hall"
     >
-      {inputsAddDocument.map((input) => {
+
+      {inputs.map((input) => {
 
         const {
           name,
@@ -69,14 +69,17 @@ const EditDocument = ({
           minlength={minlength}
           maxlength={maxlength}
           onChange={(evt) => onChangeText(evt)}
-          value={isUndefined && document[name]}
+          value={description[name]}
         />
       })}
-      <ErrorByResponse
-        errorResponse={errorResponse}
-      />
+      {/* <Input
+        name="desctiption"
+        label="Измените описание"
+        onChange={(evt) => onChangeText(evt)}
+        value={'ghfreio'}
+      /> */}
     </PopupWithForm>
   )
 }
 
-export default EditDocument
+export default EditMainDescrHall

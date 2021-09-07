@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './About.css'
-import { Switch, Route, useLocation } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import CardsBox from '../../CardsBox/CardsBox'
 import { aboutItems } from '../../../config/aboutItems'
 import NavPage from '../../NavPage/NavPage'
@@ -19,10 +19,7 @@ import apiWorker from '../../../utils/ApiWorker'
 import apiDocuments from '../../../utils/ApiDocument'
 import apiAchievements from '../../../utils/ApiAchievement'
 
-const About = ({ loggedIn }) => {
-
-  const location = useLocation()
-  const { pathname: currentPath } = location
+const About = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
 
@@ -221,14 +218,17 @@ const About = ({ loggedIn }) => {
   }
 
   return (
-    <div className={`about about_place_${pageInfo.pathName}`}>
-      <NavPage />
+    <section className={`about about_place_${pageInfo.pathName}`}>
+      <NavPage
+        currentPath={currentPath} />
       <PageTitle
         pageInfo={pageInfo}
       />
       <Switch>
         <Route exact path="/about">
-          <CardsBox arrayCards={aboutItems} />
+          <CardsBox
+            currentPath={currentPath}
+            arrayCards={aboutItems} />
         </Route>
         <Route path="/about/history">
           <History
@@ -243,7 +243,6 @@ const About = ({ loggedIn }) => {
             onClickEditWorker={onClickEditWorker}
             onClickRemoveWorker={onClickRemoveWorker}
             loggedIn={loggedIn}
-
             isPopupAddWorkerOpen={isPopupAddWorkerOpen}
             isPopupEditWorkerOpen={isPopupEditWorkerOpen}
             onSubmitHandlerAddWorker={onSubmitHandlerAddWorker}
@@ -286,7 +285,7 @@ const About = ({ loggedIn }) => {
           <Questionnaire />
         </Route>
       </Switch>
-    </div>
+    </section>
   )
 }
 

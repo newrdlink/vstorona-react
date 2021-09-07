@@ -1,11 +1,74 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Services.css'
+import { Switch, Route } from 'react-router-dom'
 
-const Services = () => {
+import CardsBox from '../../CardsBox/CardsBox'
+import { serviceItems } from '../../../config/serviceItems'
+
+import { infoPages } from '../../../config/infoPages'
+import contentTitle from '../../../helpers/contentTitle'
+
+import NavPage from '../../NavPage/NavPage'
+import PageTitle from '../../PageTitle/PageTitle'
+
+import Dance from './Dance/Dance'
+import Rent from './Rent/Rent'
+
+import HallPage from './Rent/Halls/HallPage/HallPage'
+
+import apiHalls from '../../../utils/ApiHalls'
+
+const Services = ({ loggedIn, currentPath }) => {
+
+  const pageInfo = contentTitle({ currentPath, infoPages })
+  const [halls, setHalls] = useState([])
+  const [update, SetUpdate] = useState(false)
+
+  const infoUpdated = () => {
+    // console.log("info updated")
+    SetUpdate(!update)
+  }
+
+  useEffect(() => {
+    apiHalls.getHalls()
+      .then((halls) => setHalls(halls))
+      .catch((error) => console.log(error))
+  }, [update])
+
   return (
-    <section>
-      <p>fjiowerhfgiopwerh</p>
-      <p>fjiowerhfgiopwerh</p>
+    <section className="services">
+      <NavPage
+        currentPath={currentPath}
+      />
+      <PageTitle
+        pageInfo={pageInfo}
+      />
+      <Switch>
+        <Route exact path="/services">
+          <CardsBox
+            currentPath={currentPath}
+            arrayCards={serviceItems} />
+        </Route>
+        <Route exact path="/services/rent">
+          <Rent
+            currentPath={currentPath}
+          />
+        </Route>
+
+        <Route path="/services/rent/:type">
+          <HallPage
+            hallItems={halls}
+            loggedIn={loggedIn}
+            infoUpdated={infoUpdated}
+          />
+        </Route>
+
+        <Route path="/dance">
+          <Dance
+            currentPath={currentPath}
+          />
+        </Route>
+      </Switch>
     </section>
   )
 }

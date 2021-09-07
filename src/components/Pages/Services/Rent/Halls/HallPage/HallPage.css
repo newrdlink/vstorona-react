@@ -1,0 +1,133 @@
+.hall {
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  /* min-height: 1000px; */
+  /* position: relative; */
+}
+
+.hall__image-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 774px;
+  width: 100%;  
+  overflow: hidden;
+  
+}
+
+.hall__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;  
+  
+}
+
+.hall__title {
+  position: relative;
+  max-width: 700px;
+  margin: 200px 0 90px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.hall__order-btn {
+  position: relative;
+  width: 190px;
+  height: 50px;
+  z-index: 1;
+  background-color: #974269;
+  border: 0;
+  margin-right: 150px;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+.hall__order-btn:hover {
+  cursor: pointer;
+}
+
+.hall__about-items {
+  display: flex;  
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.hall__about-item {
+  position: relative;
+  margin-right: 150px;
+}
+
+.hall__about-item-title {
+  position: relative;
+  z-index: 1;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  text-transform: uppercase;  
+  color: #FFFFFF;
+}
+
+.hall__about-item-roominess {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+.hall__description {
+  position: relative;
+  display: flex;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+.hall__description::before {
+  position: absolute;  
+  bottom: -50px;
+  left: 0;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background:rgba(30, 30, 30, 0.5);
+}
+
+.hall__ps {
+  max-width: 728px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #1E1E1E;
+  margin-bottom: 50px;
+}
+
+.hall__link-to-price {
+  display: block;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: #974269;
+  margin-bottom: 50px;
+}

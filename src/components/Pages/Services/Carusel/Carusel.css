@@ -1,0 +1,11 @@
+.carusel__image {
+  /* width: 728px;
+  height: 374px;   */
+}
+
+.carusel {
+  display: flex;
+  width: 728px;
+  height: 374px;  
+  overflow: hidden;
+}
