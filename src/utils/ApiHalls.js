@@ -24,25 +24,39 @@ class Api extends React.Component {
   //     .then(handlerResponse)
   // }
 
-  createDocument(data, token) {
-    return fetch(`${this.address}/halls`, {
+  // createDocument(data, token) {
+  //   return fetch(`${this.address}/halls`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "authorization": `Bearer ${token}`
+  //     },
+  //     body: JSON.stringify({
+  //       link: data.link,
+  //       type: data.type,
+  //       title: data.title,
+  //     })
+  //   })
+  //     .then(handlerResponse)
+  // }
+
+  postItemDescrHall(data, token, type) {
+    return fetch(`${this.address}/halls/${type}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
-        link: data.link,
-        type: data.type,
-        title: data.title,
+        data
       })
     })
       .then(handlerResponse)
   }
 
-  postItemDescrHall(data, token, type) {
+  putMainDescrHall(data, token, type) {
     return fetch(`${this.address}/halls/${type}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
@@ -67,6 +81,7 @@ class Api extends React.Component {
     })
       .then(handlerResponse)
   }
+
   patchItemDescrHall(oldData, newData, token, type) {
     return fetch(`${this.address}/halls/${type}`, {
       method: "PATCH",

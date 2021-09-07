@@ -7,7 +7,6 @@ import Input from '../../inputs/Input/Input'
 const EditItemDescrHall = ({
   title,
   submitBtnName,
-  onClickBtnClose,
   isOpen,
   onClose,
   onSubmitEditDescrHall

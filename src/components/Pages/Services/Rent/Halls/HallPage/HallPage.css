@@ -3,6 +3,7 @@
   left: 0;
   top: 0; */
   /* min-height: 1000px; */
+  /* position: relative; */
 }
 
 .hall__image-container {
@@ -62,6 +63,7 @@
 }
 
 .hall__about-item {
+  position: relative;
   margin-right: 150px;
 }
 
