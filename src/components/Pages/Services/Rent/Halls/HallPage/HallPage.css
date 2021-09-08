@@ -95,12 +95,12 @@
   position: relative;
   display: flex;
   margin-top: 200px;
-  margin-bottom: 100px;
+  margin-bottom: 67px;
 }
 
 .hall__description::before {
   position: absolute;  
-  bottom: -50px;
+  bottom: -17px;
   left: 0;
   content: "";
   height: 1px;
