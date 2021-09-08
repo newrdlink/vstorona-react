@@ -3,6 +3,7 @@ import './CaruselImage.css'
 
 const CaruselImage = ({ image }) => {
   // console.log(image)
+
   return (
     <div className="image-container">
       <img

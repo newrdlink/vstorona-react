@@ -1,7 +1,10 @@
 .image-container {
+  position: relative;
   width: 100%;
   min-width: 728px;
   height: 100%;
+  /*left: 0;*/
+  /*transition: left 0.3s ease-in-out;*/
 }
 
 .carusel-image {
@@ -9,3 +12,7 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* .image-container_temp {
+  left: -728px;
+} */

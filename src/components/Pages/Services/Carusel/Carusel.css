@@ -1,11 +1,63 @@
 .carusel__image {
-  /* width: 728px;
-  height: 374px;   */
+
+}
+
+.carusel-container {
+ 
+
+}
+
+.carusel-images {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  left: 0;  
+  transition: left 0.3s ease-in-out;
 }
 
 .carusel {
-  display: flex;
   width: 728px;
-  height: 374px;  
+  height: 374px; 
   overflow: hidden;
+}
+
+.carusel-images_bias_one {
+  left: -728px;  
+}
+
+.carusel-images_bias_two {
+  left: -1456px;  
+}
+
+.carusel-images_bias_three {
+  left: -2184px;  
+}
+
+.carusel-control {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carusel__btn {
+  border: 0; 
+  width: 32px; 
+  height: 12px;
+}
+
+.carusel__btn_type_back {  
+  background: url('../../../../../src/images/Services/Halls/arrow-back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.carusel__btn_type_next { 
+  background: url('../../../../../src/images/Services/Halls/arrow-next.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.carusel__btn:hover {
+  cursor: pointer;
 }

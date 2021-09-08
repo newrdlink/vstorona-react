@@ -1,0 +1,8 @@
+.circle-btn {
+  margin-right: 25px;
+  padding: 5px;
+}
+
+.circle-btn:hover {
+  cursor: pointer;
+}
