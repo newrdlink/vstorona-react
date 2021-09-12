@@ -7,7 +7,7 @@ import Carusel from '../Carusel/Carusel'
 
 const Dance = () => {
   const [dancePage, setDancePage] = useState({ images: [{ link: "temp" }], days: ['1', '2'], startTime: '1', compositionServices: ["temp"] })
-  console.log(dancePage)
+  // console.log(dancePage)
   useEffect(() => {
     apiDance.getDance()
       .then((dances) => {
