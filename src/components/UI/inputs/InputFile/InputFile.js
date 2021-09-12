@@ -23,6 +23,7 @@ const InputFile = ({ name, file, setFileChange }) => {
         required
         autoComplete="off"
         onChange={handleChangeFile}
+        accept="image/*"
       />
       <span
         className={`input__file input__file_${isAreFileInInput(file) && "active"}`}

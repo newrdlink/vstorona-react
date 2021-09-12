@@ -70,3 +70,13 @@
   text-transform: uppercase;
   color: #FFFFFF;
 }
+
+.title_place_dance {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}

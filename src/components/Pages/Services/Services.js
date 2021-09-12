@@ -22,11 +22,11 @@ const Services = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
   const [halls, setHalls] = useState([])
-  const [update, SetUpdate] = useState(false)
+  const [update, setUpdate] = useState(false)
 
   const infoUpdated = () => {
     // console.log("info updated")
-    SetUpdate(!update)
+    setUpdate(!update)
   }
 
   useEffect(() => {
@@ -54,16 +54,14 @@ const Services = ({ loggedIn, currentPath }) => {
             currentPath={currentPath}
           />
         </Route>
-
-        <Route path="/services/rent/:type">
+        <Route exact path="/services/rent/:type">
           <HallPage
             hallItems={halls}
             loggedIn={loggedIn}
             infoUpdated={infoUpdated}
           />
         </Route>
-
-        <Route path="/dance">
+        <Route exact path="/services/dance">
           <Dance
             currentPath={currentPath}
           />
