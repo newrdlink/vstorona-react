@@ -49,19 +49,19 @@ const Services = ({ loggedIn, currentPath }) => {
             currentPath={currentPath}
             arrayCards={serviceItems} />
         </Route>
-        <Route path="/services/rent">
+        <Route exact path="/services/rent">
           <Rent
             currentPath={currentPath}
           />
         </Route>
-        <Route path="/services/rent/:type">
+        <Route exact path="/services/rent/:type">
           <HallPage
             hallItems={halls}
             loggedIn={loggedIn}
             infoUpdated={infoUpdated}
           />
         </Route>
-        <Route path="/services/dance">
+        <Route exact path="/services/dance">
           <Dance
             currentPath={currentPath}
           />

@@ -1,0 +1,150 @@
+.dance {
+
+}
+
+.dance__image-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 774px;
+  width: 100%;  
+  overflow: hidden;  
+}
+
+.dance__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;  
+}
+
+.dance__title {
+  position: relative;
+  max-width: 700px;
+  margin: 0 0 30px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+.dance__subtitle {
+  position: relative;
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+}
+
+.dance__subtitle::after {
+  position: absolute;  
+  bottom: -66px;
+  left: 0;
+  content: "";
+  height: 1px;
+  width: 40%;
+  background:#868686;
+}
+
+.dance__work-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.dance__work-time {
+  font-family: Montserrat;
+  margin: 0 120px 0 0;
+  max-width: 100px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  color: #FFF;
+}
+
+.dance__work-days {
+
+}
+
+.dance__work-day {
+  font-family: Montserrat;
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #FFFFFF;
+}
+
+.dance__description {
+  position: relative;
+  margin: 200px 0 100px 0;
+  max-width: 720px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1E1E1E;
+}
+
+.dance__composition {
+  display: flex;
+
+}
+
+.dance-composition-title {
+  font-family: Montserrat;
+  margin: 0 0 50px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1E1E1E;
+}
+
+.dance__composition-items {
+  max-width: 720px;
+  margin-right: 25px;
+}
+
+.dance__composition-item {
+  font-family: Montserrat;
+  margin: 0 0 30px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+.dance__composition-link {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  text-transform: uppercase;  
+  color: #442836;
+}
+
+.dance__composition-link::after {
+  position: absolute;  
+  bottom: 0;
+  right: -30px;
+  content: "";
+  height: 16px;
+  width: 16px;
+  background:url('../../../../images/Services/Dance/arrow.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

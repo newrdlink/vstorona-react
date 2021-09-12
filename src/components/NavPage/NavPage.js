@@ -10,7 +10,8 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('big') ||
     currentPath.endsWith('foyer') ||
     currentPath.endsWith('choreography') ||
-    currentPath.endsWith('costume')
+    currentPath.endsWith('costume') ||
+    currentPath.endsWith('dance')
   // console.log(currentPath)
 
   let obj = arrStr.reduce((obj, item) => {
