@@ -10,6 +10,7 @@ import { activityItems } from '../../../config/activityItems'
 
 import { infoPages } from '../../../config/infoPages'
 import contentTitle from '../../../helpers/contentTitle'
+import { eventsItems } from '../../../config/temp/eventsItems'
 
 import Events from './Events/Events'
 
@@ -34,6 +35,7 @@ const Activity = ({ loggedIn, currentPath }) => {
         <Route exact path="/activity/events">
           <Events
             pageInfo={pageInfo}
+            eventsList={eventsItems}
           />
         </Route>
       </Switch>
