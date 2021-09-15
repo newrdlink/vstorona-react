@@ -28,6 +28,10 @@
 
 }
 
+.action-button_place_hall {
+  background-color: grey;
+}
+
 .action-button_place_hall-price {
   position: absolute;
   right: -45px;
