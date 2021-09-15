@@ -14,7 +14,8 @@ import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 import About from '../Pages/About/About'
-import Services from '../Pages/Services/Services';
+import Services from '../Pages/Services/Services'
+import Activity from '../Pages/Activity/Activity';
 
 const App = () => {
 
@@ -93,51 +94,59 @@ const App = () => {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="app">
-        <Header
-          onClickSignInButton={onClickSignInButton}
-          loggedIn={loggedIn}
-          onClickSignOutButton={onClickSignOutButton}
-        />
-        <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/about">
-            <About
-              loggedIn={loggedIn}
-              currentPath={currentPath}
-            />
-          </Route>
-          <Route path="/services">
-            <Services
-              loggedIn={loggedIn}
-              currentPath={currentPath}
-            />
-          </Route>
-        </Switch>
-        <Footer />
-        <SignIn
-          title="Авторизация"
-          isOpen={isPopupSignInOpen}
-          onClickBtnClose={() => setIsPopupSignInOpen(false)}
-          onClose={() => setIsPopupSignInOpen(false)}
-          submitBtnName="Войти"
-          onSubmitHandlerSignIn={onSubmitHandlerSignIn}
-          onClickBtnSignUp={onClickBtnSignUp}
-          errorResponse={errorResponse}
-        />
-        <SignUp
-          title="Регистрация"
-          isOpen={isPopupSignUpOpen}
-          onClickBtnClose={() => setIsPopupSignUpOpen(false)}
-          onClose={() => setIsPopupSignUpOpen(false)}
-          submitBtnName="Зарегистрироваться"
-          onSubmitHandlerSignUp={onSubmitHandlerSignUp}
-          onClickBtnSignIn={onClickBtnSignIn}
-          isSignUpOk={isSignUpOk}
-          errorResponse={errorResponse}
-        />
+      <div className="root">
+        <div className="app">
+          <Header
+            onClickSignInButton={onClickSignInButton}
+            loggedIn={loggedIn}
+            onClickSignOutButton={onClickSignOutButton}
+          />
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route path="/about">
+              <About
+                loggedIn={loggedIn}
+                currentPath={currentPath}
+              />
+            </Route>
+            <Route path="/services">
+              <Services
+                loggedIn={loggedIn}
+                currentPath={currentPath}
+              />
+            </Route>
+            <Route path="/activity">
+              <Activity
+                loggedIn={loggedIn}
+                currentPath={currentPath}
+              />
+            </Route>
+          </Switch>
+          <Footer />
+          <SignIn
+            title="Авторизация"
+            isOpen={isPopupSignInOpen}
+            onClickBtnClose={() => setIsPopupSignInOpen(false)}
+            onClose={() => setIsPopupSignInOpen(false)}
+            submitBtnName="Войти"
+            onSubmitHandlerSignIn={onSubmitHandlerSignIn}
+            onClickBtnSignUp={onClickBtnSignUp}
+            errorResponse={errorResponse}
+          />
+          <SignUp
+            title="Регистрация"
+            isOpen={isPopupSignUpOpen}
+            onClickBtnClose={() => setIsPopupSignUpOpen(false)}
+            onClose={() => setIsPopupSignUpOpen(false)}
+            submitBtnName="Зарегистрироваться"
+            onSubmitHandlerSignUp={onSubmitHandlerSignUp}
+            onClickBtnSignIn={onClickBtnSignIn}
+            isSignUpOk={isSignUpOk}
+            errorResponse={errorResponse}
+          />
+        </div>
       </div>
     </CurrentUserContext.Provider>
   )

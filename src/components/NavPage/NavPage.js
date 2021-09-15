@@ -121,6 +121,20 @@ const NavPage = ({ currentPath }) => {
         o.path = '/services/rent/costume'
         obj.push(o)
         break
+      case 'activity':
+        let p = {}
+        p.id = 16
+        p.name = 'мероприятия '
+        p.path = '/activity'
+        obj.push(p)
+        break
+      case 'events':
+        let q = {}
+        q.id = 17
+        q.name = 'афиша '
+        q.path = '/activity/events'
+        obj.push(q)
+        break
       default:
       // alert('fjhrioehgf')
     }

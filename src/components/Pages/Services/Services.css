@@ -1,5 +1,7 @@
 .services{
-  padding: 80px 60px 95px 60px;
+  padding: 0 0 0 60px;
   position: relative;
   background: #FFF;
+  max-width: 1600px;  
+  margin: 0 auto 180px;
 }

@@ -15,18 +15,20 @@ const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton }) => {
 
   return (
     <header className="header">
-      <Logo place="header" />
-      <ContactsHeader />
-      <ModVersion />
-      <Nav />
-      <СollectivesButton />
-      <SignInButton
-        onClickSignInButton={onClickSignInButton}
-        loggedIn={loggedIn}
-        onClickSignOutButton={onClickSignOutButton}
-      />
-      <SearchButton />
-      <RightMenuButton />
+      <div className="header-container">
+        <Logo place="header" />
+        <ContactsHeader />
+        <ModVersion />
+        <Nav />
+        <СollectivesButton />
+        <SignInButton
+          onClickSignInButton={onClickSignInButton}
+          loggedIn={loggedIn}
+          onClickSignOutButton={onClickSignOutButton}
+        />
+        <SearchButton />
+        <RightMenuButton />
+      </div>
     </header>
   )
 }

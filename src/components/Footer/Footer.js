@@ -10,15 +10,17 @@ import SingleLink from '../UI/SingleLink/SingleLink'
 const Footer = () => {
   return (
     <footer className="footer">
-      <Logo place="footer" />
-      <CopyRight />
-      <PolicyConfidentiality />
-      <NumPhone
-        place="footer" />
-      <SingleLink
-        name="Instagram"
-        url="https://www.instagram.com/?hl=ru"
-        place="footer" />
+      <div className="footer-container">
+        <Logo place="footer" />
+        <CopyRight />
+        <PolicyConfidentiality />
+        <NumPhone
+          place="footer" />
+        <SingleLink
+          name="Instagram"
+          url="https://www.instagram.com/?hl=ru"
+          place="footer" />
+      </div>
     </footer>
   )
 }

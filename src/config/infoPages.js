@@ -54,5 +54,13 @@ export const infoPages = [
   {
     name: 'зал 6',
     pathName: 'costume'
+  },
+  {
+    name: 'мероприятия',
+    pathName: 'activity'
+  },
+  {
+    name: 'афиша мероприятий',
+    pathName: 'events'
   }
 ]

@@ -7,6 +7,7 @@ const PageTitleShadow = ({ pageInfo }) => {
 
   useEffect(() => {
     function handleScroll(event) {
+      // console.log(this.closest('events'))
       let scroll = this.scrollY - 44;
       setPositionScroll(scroll)
     }
@@ -30,12 +31,12 @@ const PageTitleShadow = ({ pageInfo }) => {
   }, [])
 
   return (
-    
-      <h3 className="title-shadow"
-        style={{ left: `${positionScroll}px` }}>
-        {pageInfo.name}
-      </h3>
-    
+
+    <h3 className="title-shadow"
+      style={{ left: `${positionScroll}px` }}>
+      {pageInfo.name}
+    </h3>
+
 
   )
 }
