@@ -41,7 +41,7 @@ const inputs = [
     label: "Должность",
     // placeholder: "Директор, возможно...)",
     minlength: 2,
-    maxlength: 20,
+    maxlength: 50,
   },
   {
     id: 5,
