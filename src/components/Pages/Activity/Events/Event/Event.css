@@ -1,7 +1,17 @@
 .event {
   position: relative;
+  padding: 0 60px 0 60px;
   min-height: 250px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(134, 134, 134, .5);
+  box-sizing: border-box;
 }
+
+.event:hover {
+  border-bottom: 1px solid rgba(134, 134, 134, .0);
+}
+
 
 .event::before {
   position: absolute;
@@ -40,7 +50,10 @@
 }
 
 .event__title {
-  position: relative;
+  position: relative;  
+  max-width: 350px;
+  padding: 0;
+  margin-right: 25px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -51,8 +64,20 @@
   z-index: 3;
 }
 
+.event:hover .event__title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
 .event__subtitle {
   position: relative;
+  max-width: 350px;
+  margin-right: auto;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -62,8 +87,18 @@
   z-index: 3;
 }
 
+.event:hover .event__subtitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #FFFFFF;
+}
+
 .event__link {
   position: relative;
+  margin-right: 10px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -72,4 +107,55 @@
   text-decoration-line: underline;  
   color: #442836;
   z-index: 4;
+}
+
+.event:hover .event__link {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+}
+
+.event:hover .event-time__day{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 88px;
+  color: #FFFFFF;
+}
+
+.event:hover .event-time__month-year{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #FFFFFF;
+}
+
+.event:hover:hover .event-time__current-time {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #FFFFFF;
+}
+
+.event__arrow {
+  position: relative;  
+  height: 16px;
+  width: 16px;
+  fill: #442836;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+}
+
+.event:hover .event__arrow {
+  fill: #fff;
 }
