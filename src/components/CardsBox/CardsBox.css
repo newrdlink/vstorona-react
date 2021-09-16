@@ -10,3 +10,7 @@
 .card-box_place_services {
   justify-content: flex-start;
 }
+
+.card-box_place_activity {
+  justify-content: flex-start;
+}

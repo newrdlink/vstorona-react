@@ -1,0 +1,38 @@
+.event-time {
+  position: relative;
+  margin-right: 250px;
+  z-index: 3;
+}
+
+.event-time__day {
+  font-family: Montserrat;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 88px;
+  color: #442836;
+}
+
+.event-time__month-year {
+  font-family: Montserrat;
+  padding: 0;
+  margin: 0 0 10px 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #442836;
+}
+
+.event-time__current-time {
+  font-family: Montserrat;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #442836;
+}

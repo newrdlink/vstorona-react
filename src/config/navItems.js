@@ -12,6 +12,6 @@ export const navItems = [
   {
     id: 3,
     name: "мероприятия",
-    path: "/events"
+    path: "/activity"
   }
 ]

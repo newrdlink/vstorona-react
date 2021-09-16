@@ -10,6 +10,10 @@
   margin-right: 24px;
 }
 
+.card_place_activity {
+  margin-right: 24px;
+}
+
 .card__image {
   position: relative;
   object-fit: cover;

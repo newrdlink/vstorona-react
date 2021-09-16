@@ -1,7 +1,12 @@
 .footer {
-  display: flex;
   background-color: #974269;
+}
+
+.footer-container {
+  display: flex;  
   padding: 35px 60px;
   align-items: flex-end;
   justify-content: space-between;
+  max-width: 1600px;  
+  margin: 0 auto;
 }
