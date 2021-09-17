@@ -1,17 +1,20 @@
 import React from 'react'
 import './Event.css'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 
 import EventTime from './EventTime/EventTime'
 
-const Event = ({ startTime, endTime, title, subtitle, link, image }) => {
+const Event = ({ _id, startTime, title, subtitle, description, link, image }) => {
+  const { path, url } = useRouteMatch()
+  // console.log(pageInfo)
+  console.log(image)
   return (
     <li className="event">
       <img src={image} alt="#" className="event__image" />
-      <EventTime startTime={startTime} endTime={endTime} />
+      <EventTime startTime={startTime} />
       <h3 className="event__title">{title}</h3>
       <p className="event__subtitle">{subtitle}</p>
-      <Link to="#" className="event__link">Подробнее</Link>
+      <Link to={url + '/' + _id} className="event__link">Подробнее</Link>
       <svg className="event__arrow">
         <path d="M13.5701 1.5601C13.5701 
         1.15633 13.2261 0.829018 12.8017 

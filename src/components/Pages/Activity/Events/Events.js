@@ -9,8 +9,11 @@ const Events = ({ pageInfo, eventsList }) => {
   // console.log(eventsList)
   return (
     <main className="events">
-      <PageTitleShadow pageInfo={pageInfo} />
-      <EventsBox eventsList={eventsList} />
+      <PageTitleShadow
+        pageInfo={pageInfo} />
+      <EventsBox
+        // pageInfo={pageInfo}
+        eventsList={eventsList} />
     </main>
   )
 }
