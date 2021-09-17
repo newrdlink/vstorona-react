@@ -62,5 +62,9 @@ export const infoPages = [
   {
     name: 'афиша мероприятий',
     pathName: 'events'
+  },
+  {
+    name: 'добавить событие',
+    pathName: 'add-event'
   }
 ]

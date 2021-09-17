@@ -6,8 +6,7 @@ import EventTime from './EventTime/EventTime'
 
 const Event = ({ _id, startTime, title, subtitle, description, link, image }) => {
   const { path, url } = useRouteMatch()
-  // console.log(pageInfo)
-  console.log(image)
+  // console.log(image)
   return (
     <li className="event">
       <img src={image} alt="#" className="event__image" />

@@ -1,5 +1,6 @@
 .nav-page {
   position: relative;
+  max-width: 500px;
   list-style: none;
   display: flex;
   margin: 0 0 110px 0;

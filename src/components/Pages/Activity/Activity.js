@@ -1,6 +1,6 @@
 import React from 'react'
 import './Activity.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import NavPage from '../../NavPage/NavPage'
 import PageTitle from '../../PageTitle/PageTitle'
@@ -13,6 +13,7 @@ import contentTitle from '../../../helpers/contentTitle'
 import { eventsItems } from '../../../config/temp/eventsItems'
 
 import Events from './Events/Events'
+import AddEvent from '../../backend/AddEvent/AddEvent'
 
 const Activity = ({ loggedIn, currentPath }) => {
 
@@ -20,12 +21,17 @@ const Activity = ({ loggedIn, currentPath }) => {
 
   return (
     <section className="activity">
+      {loggedIn && currentPath === "/activity" ?
+        <Link className="activity__add-event-button" to="/activity/add-event">Добавить событие</Link> :
+        null
+      }
       <NavPage
         currentPath={currentPath}
       />
       <PageTitle
         pageInfo={pageInfo}
       />
+
       <Switch>
         <Route exact path="/activity">
           <CardsBox
@@ -38,8 +44,12 @@ const Activity = ({ loggedIn, currentPath }) => {
             eventsList={eventsItems}
           />
         </Route>
-      </Switch>
 
+        <Route path="/activity/add-event">
+          <AddEvent />
+        </Route>
+
+      </Switch>
     </section>
   )
 }

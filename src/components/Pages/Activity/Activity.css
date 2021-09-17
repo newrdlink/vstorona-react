@@ -1,5 +1,12 @@
 .activity {
+  position: relative;
   padding: 0 0 0 60px;
   max-width: 1600px;
   margin: 0 auto 180px;
+}
+
+.activity__add-event-button {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
