@@ -24,18 +24,15 @@ class Api extends React.Component {
   //     .then(handlerResponse)
   // }
 
-  createEvents(data, token) {
-    return fetch(`${this.address}/halls`, {
+  createEvent(data, token) {
+    // console.log(data)
+    return fetch(`${this.address}/activity/events`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Contetnt-Type": "multipart/form-data",
         "authorization": `Bearer ${token}`
       },
-      body: JSON.stringify({
-        link: data.link,
-        type: data.type,
-        title: data.title,
-      })
+      body: data
     })
       .then(handlerResponse)
   }
@@ -97,12 +94,14 @@ class Api extends React.Component {
   //   }
 }
 
+//создаем экземпляр
 const api = new Api({
-  address: 'http://localhost:3002',
+  address: "http://localhost:3002",
   // address: "https://api.vs.didrom.ru",
   headers: {
-    "Content-Type": "application/json",
+    "Contetnt-Type": "multipart/form-data",
+    // "Content-Type": "application/json",
   },
-})
+});
 
 export default api

@@ -7,7 +7,7 @@ const EventTime = ({ isActive, startTime }) => {
 
   const startTimeEvent = new Date(startTime)
   const eventDay = startTimeEvent.getDate()
-  const eventMonth = startTimeEvent.getMonth() + 1
+  const eventMonth = startTimeEvent.getMonth()
 
   return (
     <div className="event-time">
