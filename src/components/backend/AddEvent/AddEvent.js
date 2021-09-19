@@ -10,6 +10,8 @@ const AddEvent = () => {
   const [eventData, setEventData] = useState({})
 
   const onChange = (evt) => {
+    // console.log(evt.target.name)
+    // console.log(evt.target.value)
     setEventData({ ...eventData, [evt.target.name]: evt.target.value })
   }
 
@@ -37,40 +39,56 @@ const AddEvent = () => {
   // console.log(files)
 
   return (
-    <section>
+    <section className="add-event">
       <form
+        className="add-event__form"
         method="POST"
         onSubmit={onSubmit}
         name="addEvent">
+        <select
+          className="add-event__form-item add-event__form-item_type_date"
+          defaultValue="default"
+          name="type"
+          onChange={(evt) => onChange(evt)} >
+          <option value="festival">фестиваль или конкурс</option>
+          <option value="default">событие</option>
+        </select>
         <input
+          className="add-event__form-item add-event__form-item_type_files"
           type="file"
           multiple={true}
           name="files"
           onChange={handleChangeFiles}
         />
         <input
-          type="text"
-          name="title"
-          onChange={(evt) => onChange(evt)}
-        />
-        <textarea
-          type="text"
-          name="subtitle"
-          onChange={(evt) => onChange(evt)}
-        />
-        {/* <input
-          type="text"
-          name="subtitle"
-          onChange={(evt) => onChange(evt)}
-        /> */}
-        <input
+          className="add-event__form-item add-event__form-item_type_date"
           name="startTime"
           type="datetime-local"
           min="2018-01-01"
           max="2038-12-31"
           onChange={(evt) => onChange(evt)} />
-
-        <button type="submit">Отправить событие</button>
+        <input
+          className="add-event__form-item add-event__form-item_type_title"
+          type="text"
+          name="title"
+          onChange={(evt) => onChange(evt)}
+          placeholder="Заголовок"
+        />
+        <input
+          className="add-event__form-item add-event__form-item_type_subtitle"
+          type="text"
+          name="subtitle"
+          onChange={(evt) => onChange(evt)}
+          placeholder="Подзаголовок"
+        />
+        <textarea
+          className="add-event__form-item add-event__form-item_type_description"
+          type="text"
+          name="description"
+          onChange={(evt) => onChange(evt)}
+          placeholder="Описание"
+        />
+        <button type="submit" className="add-event__form-button">Отправить событие</button>
       </form>
     </section>
   )

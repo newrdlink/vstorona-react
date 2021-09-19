@@ -1,6 +1,6 @@
 .nav-page {
   position: relative;
-  max-width: 500px;
+  max-width: 1400px;
   list-style: none;
   display: flex;
   margin: 0 0 110px 0;
@@ -10,9 +10,11 @@
 
 .nav-page__item {
   margin-right: 15px;
+  position: relative;
 }
 
 .nav-page__link {
+  /* position: relative; */
   color: rgba(68, 40, 54, 0.6);
   font-family: Montserrat;
   font-style: normal;

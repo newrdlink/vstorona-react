@@ -8,16 +8,10 @@ const EventsBox = ({ eventsList }) => {
   return (
     <ul className="events-box">
       {eventsList.map((event) => {
-        const { startTime, title, subtitle, description, _id, images, image } = event
+        // const { startTime, title, subtitle, description, _id, images, image } = event
         return <Event
-          startTime={startTime}
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          key={_id}
-          images={images}
-          image={image}
-          _id={_id}
+          key={event._id}
+          event={event}
         />
       })}
     </ul>

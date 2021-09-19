@@ -2,17 +2,27 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './NavPage.css'
 
+import { getEvent } from '../../utils/currentEvent'
+
 const NavPage = ({ currentPath }) => {
 
   const arrStr = currentPath.split('/')
+
+  const strReverseForEvent = (str) => str.split("").reverse().join("")
+  const isEventPage = (str) => str.indexOf("/")
+  const event = getEvent()
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
     currentPath.endsWith('foyer') ||
     currentPath.endsWith('choreography') ||
     currentPath.endsWith('costume') ||
-    currentPath.endsWith('dance')
-  // console.log(currentPath)
+    currentPath.endsWith('dance') ||
+    isEventPage(strReverseForEvent(currentPath)) === 24
+
+  // console.log(1, currentPath)
+  // console.log(2, strReverseForEvent(currentPath))
+  // console.log(getEvent())
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -141,6 +151,13 @@ const NavPage = ({ currentPath }) => {
         r.name = 'добавить событие '
         r.path = '/activity/add-event'
         obj.push(r)
+        break
+      case `${event._id}`:
+        let dinamic = {}
+        dinamic.id = 19
+        dinamic.name = `${event.title} `
+        dinamic.path = `/activity/events/${event._id}`
+        obj.push(dinamic)
         break
       default:
       // alert('fjhrioehgf')

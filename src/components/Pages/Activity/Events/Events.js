@@ -9,30 +9,28 @@ import EventsBox from './EventsBox/EventsBox'
 import EventsLinks from './EventsLinks/EventsLinks'
 
 const Events = ({ pageInfo }) => {
+
   const [eventsList, setEventsList] = useState([])
   const [countWillBe, setCountWillBe] = useState(3)
   const [countDidBe, setCountDidBe] = useState(3)
-  const [isActive, setIsActive] = useState(true)
+  const [isActiveWill, setIsActiveWill] = useState(true)
 
   const timeNow = Date.now()
 
-  const arrEventsWillBe = eventsList.filter((event) => {
+  const arrEventsWillBeFull = eventsList.filter((event) => {
     const timeEvent = new Date(event.startTime).getTime()
     return timeNow < timeEvent
   })
 
-  const arrEventsDidBe = eventsList.filter((event) => {
+  const arrEventsDidBeFull = eventsList.filter((event) => {
     const timeEvent = new Date(event.startTime).getTime()
     return timeNow > timeEvent
   })
 
-  // console.log(arrEventsWillBe)
-  // console.log(arrEventsDidBe)
-
-  const arrEventsWillBeView = arrEventsWillBe.slice(0, countWillBe)
-  const arrEventsDidBeView = arrEventsDidBe.slice(0, countDidBe)
+  const arrEventsWillBeView = arrEventsWillBeFull.slice(0, countWillBe)
+  const arrEventsDidBeView = arrEventsDidBeFull.slice(0, countDidBe)
   const handlerCountEvents = () => {
-    isActive ? setCountWillBe((countWillBe) => countWillBe + 1) :
+    isActiveWill ? setCountWillBe((countWillBe) => countWillBe + 1) :
       setCountDidBe((countDidBe) => countDidBe + 1)
   }
 
@@ -42,21 +40,28 @@ const Events = ({ pageInfo }) => {
       .catch((error) => console.log(error))
   }, [])
 
+  const handlerViewEvents = () => setIsActiveWill(!isActiveWill)
 
-  const handlerViewEvents = () => setIsActive(!isActive)
+  const lockButtonAddEventMore = () => {
+    if (isActiveWill) {
+      return arrEventsWillBeFull.length === countWillBe ? false : true
+    } else {
+      return arrEventsDidBeFull.length === countDidBe ? false : true
+    }
+  }
 
   return (
     <main className="events">
       <PageTitleShadow
         pageInfo={pageInfo} />
-      <EventsLinks isActive={isActive} handlerViewEvents={handlerViewEvents} />
+      <EventsLinks isActive={isActiveWill} handlerViewEvents={handlerViewEvents} />
       {
-        isActive ? <EventsBox
+        isActiveWill ? <EventsBox
           eventsList={arrEventsWillBeView} /> : <EventsBox
           eventsList={arrEventsDidBeView} />
       }
       {
-        <button type="button" onClick={(evt) => handlerCountEvents(evt)}>Показать ещё</button>
+        lockButtonAddEventMore() && <button className="events__button-add" type="button" onClick={(evt) => handlerCountEvents(evt)}>показать ещё</button>
       }
     </main>
   )

@@ -13,6 +13,10 @@ import contentTitle from '../../../helpers/contentTitle'
 // import { eventsItems } from '../../../config/temp/eventsItems'
 
 import Events from './Events/Events'
+import EventPage from './Events/EventPage/EventPage'
+
+import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
+
 import AddEvent from '../../backend/AddEvent/AddEvent'
 
 const Activity = ({ loggedIn, currentPath }) => {
@@ -31,23 +35,32 @@ const Activity = ({ loggedIn, currentPath }) => {
       <PageTitle
         pageInfo={pageInfo}
       />
-
       <Switch>
+
         <Route exact path="/activity">
           <CardsBox
             currentPath={currentPath}
             arrayCards={activityItems} />
         </Route>
+
         <Route exact path="/activity/events">
           <Events
             pageInfo={pageInfo}
-          // eventsList={eventsItems}
           />
         </Route>
 
-        <Route path="/activity/add-event">
-          <AddEvent />
+        <Route path="/activity/events/:id">
+          <EventPage />
         </Route>
+
+        <ProtectedRoute
+          loggedIn={loggedIn}
+          component={AddEvent}
+        />
+
+        {/* <Route path="/activity/add-event">
+          <AddEvent />
+        </Route> */}
 
       </Switch>
     </section>

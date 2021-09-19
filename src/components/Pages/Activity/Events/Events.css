@@ -1,3 +1,25 @@
 .events {
+  position: relative;  
+}
+
+.events__button-add {  
   position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: Montserrat;
+  text-transform: uppercase;
+  font-style: normal;
+  padding: 15px 25px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: transparent;
+  color: #974269;
+  border: 1px solid #974269;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.events__button-add:hover {
+  cursor: pointer;
 }

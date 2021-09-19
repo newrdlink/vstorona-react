@@ -8,6 +8,7 @@ const Carusel = ({ images }) => {
 
   const [count, setCount] = useState(0)
   const newArrImages = images.slice(1)
+
   let i = 0
   newArrImages.forEach(element => {
     element.pos = i
