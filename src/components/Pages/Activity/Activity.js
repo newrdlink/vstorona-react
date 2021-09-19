@@ -1,6 +1,6 @@
 import React from 'react'
 import './Activity.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import NavPage from '../../NavPage/NavPage'
 import PageTitle from '../../PageTitle/PageTitle'
@@ -10,9 +10,14 @@ import { activityItems } from '../../../config/activityItems'
 
 import { infoPages } from '../../../config/infoPages'
 import contentTitle from '../../../helpers/contentTitle'
-import { eventsItems } from '../../../config/temp/eventsItems'
+// import { eventsItems } from '../../../config/temp/eventsItems'
 
 import Events from './Events/Events'
+import EventPage from './Events/EventPage/EventPage'
+
+import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
+
+import AddEvent from '../../backend/AddEvent/AddEvent'
 
 const Activity = ({ loggedIn, currentPath }) => {
 
@@ -20,6 +25,10 @@ const Activity = ({ loggedIn, currentPath }) => {
 
   return (
     <section className="activity">
+      {loggedIn && currentPath === "/activity" ?
+        <Link className="activity__add-event-button" to="/activity/add-event">Добавить событие</Link> :
+        null
+      }
       <NavPage
         currentPath={currentPath}
       />
@@ -27,19 +36,33 @@ const Activity = ({ loggedIn, currentPath }) => {
         pageInfo={pageInfo}
       />
       <Switch>
+
         <Route exact path="/activity">
           <CardsBox
             currentPath={currentPath}
             arrayCards={activityItems} />
         </Route>
+
         <Route exact path="/activity/events">
           <Events
             pageInfo={pageInfo}
-            eventsList={eventsItems}
           />
         </Route>
-      </Switch>
 
+        <Route path="/activity/events/:id">
+          <EventPage />
+        </Route>
+
+        <ProtectedRoute
+          loggedIn={loggedIn}
+          component={AddEvent}
+        />
+
+        {/* <Route path="/activity/add-event">
+          <AddEvent />
+        </Route> */}
+
+      </Switch>
     </section>
   )
 }
