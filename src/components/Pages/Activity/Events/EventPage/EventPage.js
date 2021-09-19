@@ -29,7 +29,7 @@ const EventPage = () => {
   return (
     <section className="event-page">
       <div className="event-page__image-container">
-        <img className="event-page__image" src="https://api.vs.didrom.ru/halls/big/1.jpg" alt="" />
+        <img className="event-page__image" src={images[0]} alt="" />
       </div>
       <h1 className="event-page__title">{title}</h1>
       <div className="event__time-info">
@@ -45,7 +45,7 @@ const EventPage = () => {
                 key={descr}>{descr}</p>)
           }
         </div>
-        <Carusel images={arrImagesForCarusel} />
+        <Carusel images={arrImagesForCarusel} place="event" />
       </div>
       <div className="event-page__links">
         <button type="button" onClick={() => history.goBack()}>вернутся</button>

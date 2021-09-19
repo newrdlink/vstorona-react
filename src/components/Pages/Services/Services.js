@@ -35,8 +35,14 @@ const Services = ({ loggedIn, currentPath }) => {
       .catch((error) => console.log(error))
   }, [update])
 
+  // console.log(pageInfo)
+
+  const isNotHall = (obj) => obj.pathName === "services" ||
+    obj.pathName === "rent"
+
+
   return (
-    <section className="services">
+    <section className={`services ${isNotHall(pageInfo) && "services_place_hall"}`}>
       <NavPage
         currentPath={currentPath}
       />

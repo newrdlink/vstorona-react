@@ -4,7 +4,7 @@ import './Carusel.css'
 import CaruselImage from './CaruselImage/CaruselImage'
 import BtnChangeImage from './BtnChangeImage/BtnChangeImage'
 
-const Carusel = ({ images }) => {
+const Carusel = ({ images, place }) => {
 
   const [count, setCount] = useState(0)
   const newArrImages = images.slice(1)
@@ -36,7 +36,7 @@ const Carusel = ({ images }) => {
 
   return (
     <section className="carusel-container">
-      <div className="carusel">
+      <div className={`carusel carusel_place_${place}`}>
         <div
           className={`carusel-images ${count === 1 && "carusel-images_bias_one"} ${count === 2 && "carusel-images_bias_two"} ${count === 3 && "carusel-images_bias_three"}`}>
           {

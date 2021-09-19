@@ -24,7 +24,7 @@ const Activity = ({ loggedIn, currentPath }) => {
   const pageInfo = contentTitle({ currentPath, infoPages })
 
   return (
-    <section className="activity">
+    <section className={`activity ${pageInfo !== undefined && "activity_place_event"}`}>
       {loggedIn && currentPath === "/activity" ?
         <Link className="activity__add-event-button" to="/activity/add-event">Добавить событие</Link> :
         null
@@ -56,6 +56,7 @@ const Activity = ({ loggedIn, currentPath }) => {
         <ProtectedRoute
           loggedIn={loggedIn}
           component={AddEvent}
+          path="/activity/add-event"
         />
 
         {/* <Route path="/activity/add-event">

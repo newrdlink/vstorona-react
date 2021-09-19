@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.activity_place_event {
+  padding: 0;
+}
+
 .activity__add-event-button {
   position: absolute;
   right: 0;
