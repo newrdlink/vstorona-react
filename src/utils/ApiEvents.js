@@ -16,6 +16,14 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
+  getEvent(id) {
+    return fetch(`${this.address}/activity/events/${id}`, {
+      method: "GET",
+      headers: this.headres,
+    })
+      .then(handlerResponse)
+  }
+
   // getHall(type) {
   //   return fetch(`${this.address}/halls/${type}`, {
   //     method: "GET",

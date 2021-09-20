@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './EventPage.css'
 import { useParams, useHistory } from 'react-router-dom';
 
-import { getEvent } from '../../../../../utils/currentEvent'
+import apiEvents from '../../../../../utils/ApiEvents'
+
+import { getEvent, setEvent } from '../../../../../utils/currentEvent'
 import Carusel from '../../../Services/Carusel/Carusel'
 
 const EventPage = () => {
+  const { id } = useParams();
   const history = useHistory();
-
+  // console.log(1)
   const currentEvent = getEvent()
+
+  if (!currentEvent) {
+    apiEvents.getEvent(id)
+      .then((event) => setEvent(event))
+      .catch((error) => console.log(error))
+  }
+  // console.log(currentEvent)
   const { startTime, title, subtitle, description, _id, images } = currentEvent
 
   const arrWithDescr = description.split("    ")

@@ -10,6 +10,8 @@ const Event = ({ event }) => {
   const { path, url } = useRouteMatch()
   const { startTime, title, subtitle, _id, images } = event
 
+
+
   return (
     <li className="event">
       <img src={images[0]} alt="#" className="event__image" />
