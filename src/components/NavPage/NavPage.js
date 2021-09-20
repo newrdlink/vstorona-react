@@ -10,7 +10,7 @@ const NavPage = ({ currentPath }) => {
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
-  const event = getEvent()
+  const event = getEvent() || {}
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
