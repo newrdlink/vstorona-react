@@ -30,6 +30,7 @@
 .event-page__title {
   position: relative;
   max-width: 780px;
+  min-height: 177px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 900;
