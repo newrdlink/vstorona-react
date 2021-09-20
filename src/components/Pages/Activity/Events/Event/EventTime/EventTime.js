@@ -14,7 +14,7 @@ const EventTime = ({ isActive, startTime }) => {
       <p className="event-time__day">{eventDay}</p>
       <p className="event-time__month-year">{`${getMonth(eventMonth)} ${startTimeEvent.getFullYear()} г.`}</p>
       <p className="event-time__current-time">
-        {`${startTimeEvent.getHours()}.${startTimeEvent.getMinutes()}`}
+        {`${startTimeEvent.getHours()}.${startTimeEvent.getMinutes() || "00"}`}
       </p>
     </div>
   )
