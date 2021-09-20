@@ -1,0 +1,20 @@
+.activity-main {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 0 0 60px;
+  box-sizing: border-box;
+  min-height: 600px;
+}
+
+.activity-main__scroll-container {
+
+  overflow: scroll;
+  overflow-y: hidden;
+
+  min-width: 1000px;
+}
+
+.activity-main__scroll-container::-webkit-scrollbar {
+  width: 0;
+}

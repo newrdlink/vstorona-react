@@ -14,3 +14,7 @@
 .card-box_place_activity {
   justify-content: flex-start;
 }
+
+.card-box_place_activity-main {
+  flex-wrap: nowrap;
+}

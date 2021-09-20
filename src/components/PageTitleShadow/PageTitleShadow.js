@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './PageTitleShadow.css'
 
-const PageTitleShadow = ({ pageInfo }) => {
+const PageTitleShadow = ({ pageInfo, place }) => {
 
   const [positionScroll, setPositionScroll] = useState(-44)
 
@@ -32,7 +32,7 @@ const PageTitleShadow = ({ pageInfo }) => {
 
   return (
 
-    <h3 className="title-shadow"
+    <h3 className={`title-shadow title-shadow_place_${place || ""}`}
       style={{ left: `${positionScroll}px` }}>
       {pageInfo.name}
     </h3>
