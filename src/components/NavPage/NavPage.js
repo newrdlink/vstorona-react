@@ -152,9 +152,23 @@ const NavPage = ({ currentPath }) => {
         r.path = '/activity/add-event'
         obj.push(r)
         break
+      case 'festivals':
+        let s = {}
+        s.id = 19
+        s.name = 'конкурсы и фестивали '
+        s.path = '/activity/festivals'
+        obj.push(s)
+        break
+      case 'exhibitions':
+        let t = {}
+        t.id = 20
+        t.name = 'выставки '
+        t.path = '/activity/exhibitions'
+        obj.push(t)
+        break
       case `${event._id}`:
         let dinamic = {}
-        dinamic.id = 19
+        dinamic.id = 100
         dinamic.name = `${event.title} `
         dinamic.path = `/activity/events/${event._id}`
         obj.push(dinamic)

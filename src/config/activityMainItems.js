@@ -1,39 +1,39 @@
 // import i1 from '../images/About/1.png'
-import i1 from '../images/About/1.jpg'
-import i2 from '../images/About/2.jpg'
-import i3 from '../images/About/3.png'
-import i4 from '../images/About/4.png'
-import i5 from '../images/About/5.jpeg'
+import events from '../images/Main/icons/events.png'
+import creativeTeams from '../images/Main/icons/creative-teams.png'
+import dance from '../images/Main/icons/dance.png'
+import exhibitions from '../images/Main/icons/exhibitions.png'
+import rent from '../images/Main/icons/rent.png'
 
 export const activityMainItems = [
   {
     id: 1,
     name: "Мероприятия",
     path: "activity/events",
-    image: i1
+    image: events
   },
   {
     id: 2,
     name: "Творческие коллективы",
     path: "about/collective",
-    image: i2
+    image: creativeTeams
   },
   {
     id: 3,
     name: "Танцевальные вечера",
     path: "services/dance",
-    image: i3
+    image: dance
   },
   {
     id: 4,
     name: "Выставки",
     path: "activity/exhibitions",
-    image: i4
+    image: exhibitions
   },
   {
     id: 5,
     name: "аренда залов",
     path: "services/rent",
-    image: i5
+    image: rent
   }
 ]
