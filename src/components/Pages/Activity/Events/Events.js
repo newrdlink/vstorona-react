@@ -49,7 +49,7 @@ const Events = ({ pageInfo }) => {
       return arrEventsDidBeFull.length === countDidBe ? false : true
     }
   }
-  console.log(pageInfo)
+  // console.log(pageInfo)
   return (
     <main className="events">
       <PageTitleShadow

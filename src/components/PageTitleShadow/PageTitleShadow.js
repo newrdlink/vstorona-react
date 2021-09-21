@@ -4,7 +4,7 @@ import './PageTitleShadow.css'
 const PageTitleShadow = ({ pageInfo, place, startPosition = -44 }) => {
 
   const [positionScroll, setPositionScroll] = useState(startPosition)
-  console.log(startPosition)
+  // console.log(startPosition)
   // console.log(place !== "main")
 
   useEffect(() => {
