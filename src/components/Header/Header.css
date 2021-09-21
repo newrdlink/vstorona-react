@@ -5,8 +5,11 @@
   min-height: 100px;
   max-width: 1600px;
   margin: 0 auto 100px;
+
 }
 
 .header {
+  position: relative;
   background-color: #974269;
+  z-index: 5;
 }

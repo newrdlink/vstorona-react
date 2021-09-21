@@ -1,15 +1,17 @@
 import React from 'react'
 import './Main.css'
 
-import Activity from './Activity/Activity'
+import ActivityMain from './ActivityMain/ActivityMain'
 import Intro from './Intro/Intro'
 
-const Main = () => {
+const Main = ({ currentPath }) => {
   return (
-    <>
+    <main className="main">
       <Intro />
-      <Activity />
-    </>
+      <ActivityMain
+        currentPath={currentPath}
+      />
+    </main>
   )
 }
 

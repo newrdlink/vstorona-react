@@ -102,3 +102,13 @@
 .card:hover .card__arrow {
   fill: #FBF3F2;
 }
+
+.card_place_activity-main {
+  margin-right: 24px;
+  margin-bottom: 0;
+}
+
+.card__image_place_activity-main {
+  min-width: 352px;
+  height: 352px;
+}

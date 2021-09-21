@@ -1,0 +1,26 @@
+.single-link-page {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFF;
+  border: 0;
+  padding: 20px 50px;
+  text-decoration: none;
+}
+
+.single-link-page_place_intro {
+  background: #974269;
+  width: 300px;
+}
+
+.single-link-page__arrow {
+  width: 14px;
+  height: 14px; 
+  margin-left: 20px;
+}
+
+.single-link-page:hover {
+  cursor: pointer;
+}

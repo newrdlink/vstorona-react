@@ -103,7 +103,9 @@ const App = () => {
           />
           <Switch>
             <Route exact path="/">
-              <Main />
+              <Main
+                currentPath={currentPath}
+              />
             </Route>
             <Route path="/about">
               <About

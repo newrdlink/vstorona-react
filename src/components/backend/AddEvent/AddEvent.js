@@ -33,7 +33,11 @@ const AddEvent = () => {
     data.append('eventData', JSON.stringify(eventData))
 
     apiAddEvent.createEvent(data, jwt)
-      .then((event) => console.log(event))
+      .then((event) => {
+        console.log(event)
+        setFiles([])
+        setEventData({})
+      })
       .catch((error) => console.log(error))
   }
   // console.log(files)
