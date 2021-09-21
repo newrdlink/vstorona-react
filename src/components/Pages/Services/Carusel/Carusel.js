@@ -16,7 +16,7 @@ const Carusel = ({ images, place }) => {
   });
 
   const changeImageInCarusel = (evt) => {
-    console.log(evt.target.name)
+    // console.log(evt.target.name)
     if (count === 3 && evt.target.name === "inc") {
       return setCount(0)
     }

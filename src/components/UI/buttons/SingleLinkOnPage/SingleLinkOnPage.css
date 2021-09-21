@@ -8,6 +8,7 @@
   border: 0;
   padding: 20px 50px;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .single-link-page_place_intro {
@@ -23,4 +24,14 @@
 
 .single-link-page:hover {
   cursor: pointer;
+}
+
+.single-link-page_place_events-main {
+  border: 1px solid #974269;
+  color: #974269;
+  font-family: Montserrat;
+  margin: 0;
+  position: relative;
+  left: 40%;
+  transform: translate(-50%, 0);
 }

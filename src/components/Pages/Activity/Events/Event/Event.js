@@ -10,7 +10,9 @@ const Event = ({ event }) => {
   const { path, url } = useRouteMatch()
   const { startTime, title, subtitle, _id, images } = event
 
-
+  const isMainPage = () => url === "/" ? "activity/events" : url
+  // console.log(path)
+  // console.log(url)
 
   return (
     <li className="event">
@@ -18,7 +20,7 @@ const Event = ({ event }) => {
       <EventTime startTime={startTime} />
       <h3 className="event__title">{title}</h3>
       <p className="event__subtitle">{subtitle}</p>
-      <Link to={url + '/' + _id} className="event__link" onClick={() => setEvent(event)}>Подробнее</Link>
+      <Link to={isMainPage() + '/' + _id} className="event__link" onClick={() => setEvent(event)}>Подробнее</Link>
       <svg className="event__arrow">
         <path d="M13.5701 1.5601C13.5701 
         1.15633 13.2261 0.829018 12.8017 

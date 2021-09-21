@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.event:first-child {
+  border-top: 1px solid rgba(134, 134, 134, .5);
+}
+
 .event:hover {
   border-bottom: 1px solid rgba(134, 134, 134, .0);
 }
