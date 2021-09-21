@@ -27,13 +27,13 @@ export const activityMainItems = [
   {
     id: 4,
     name: "Выставки",
-    path: "about/achievements",
+    path: "activity/exhibitions",
     image: i4
   },
   {
     id: 5,
     name: "аренда залов",
-    path: "about/questionnaire",
+    path: "services/rent",
     image: i5
   }
 ]

@@ -7,7 +7,7 @@ const CardsBox = ({ arrayCards, currentPath = "", place = "" }) => {
   const currentPlace = currentPath.slice(1)
   // let { path } = useRouteMatch()
 
-  console.log(currentPlace)
+  // console.log(currentPlace)
   return (
     <ul className={`card-box card-box_place_${currentPlace || place}`}>
       {

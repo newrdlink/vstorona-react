@@ -1,17 +1,17 @@
 .activity-main {
   position: relative;
   max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 0 0 60px;
-  box-sizing: border-box;
-  min-height: 600px;
+  margin: 0 auto 170px;
+  padding: 0;
+  /* box-sizing: border-box; */
+  /* min-height: 600px; */
 }
 
 .activity-main__scroll-container {
 
   overflow: scroll;
   overflow-y: hidden;
-
+  padding: 0;
   min-width: 1000px;
 }
 

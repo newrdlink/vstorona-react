@@ -104,10 +104,11 @@
 }
 
 .card_place_activity-main {
-  margin-right: 100px;
+  margin-right: 24px;
+  margin-bottom: 0;
 }
 
 .card__image_place_activity-main {
-  width: 352px;
+  min-width: 352px;
   height: 352px;
 }
