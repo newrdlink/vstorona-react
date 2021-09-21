@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './PageTitleShadow.css'
 
-const PageTitleShadow = ({ pageInfo, place, startPosition = -44 }) => {
+const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
 
   const [positionScroll, setPositionScroll] = useState(startPosition)
-  // console.log(startPosition)
-  // console.log(place !== "main")
 
   useEffect(() => {
     function handleScroll(event) {
@@ -21,6 +19,7 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44 }) => {
     };
   });
   // if pageYOffset is not 0 (page up max)
+
   const handleScrollFix = () => {
     // console.log(1)
     let position = window.pageYOffset;
@@ -36,13 +35,24 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44 }) => {
   }, [])
 
   return (
+    <>
+      {
+        place === "events-main" ?
+          <h3 className={`title-shadow title-shadow_place_${place || ""}`}
+            style={{ right: `${positionScroll}px` }}
+          >
+            {pageInfo?.name || title}
+          </h3>
+          :
+          <h3 className={`title-shadow title-shadow_place_${place || ""}`}
+            style={{ left: `${positionScroll}px` }}
+          >
+            {pageInfo?.name || title}
+          </h3>
+      }
 
-    <h3 className={`title-shadow title-shadow_place_${place || ""}`}
-      style={{ left: `${positionScroll}px` }}>
-      {pageInfo.name}
-    </h3>
 
-
+    </>
   )
 }
 

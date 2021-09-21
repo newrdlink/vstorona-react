@@ -53,7 +53,9 @@ const Events = ({ pageInfo }) => {
   return (
     <main className="events">
       <PageTitleShadow
-        pageInfo={pageInfo} />
+        pageInfo={pageInfo}
+        startPosition={-500}
+      />
       <EventsLinks isActive={isActiveWill} handlerViewEvents={handlerViewEvents} />
       {
         isActiveWill ? <EventsBox

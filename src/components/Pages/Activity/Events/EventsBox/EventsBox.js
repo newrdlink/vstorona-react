@@ -3,7 +3,7 @@ import './EventsBox.css'
 
 import Event from '../Event/Event'
 
-const EventsBox = ({ eventsList }) => {
+const EventsBox = ({ eventsList = [] }) => {
 
   return (
     <ul className="events-box">

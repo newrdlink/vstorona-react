@@ -60,6 +60,7 @@
 
 .event-page__descriptions-items {
   max-width: 730px;
+  min-width: 720px;
   margin-top: 50px;
   margin-right: 20px;
   padding-right: 40px;

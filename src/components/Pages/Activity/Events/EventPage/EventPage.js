@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './EventPage.css'
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const EventPage = () => {
       .catch((error) => console.log(error))
   }
   // console.log(currentEvent)
-  const { startTime, title, subtitle, description, _id, images } = currentEvent
+  const { startTime, title, description, _id, images } = currentEvent
 
   const arrWithDescr = description.split("    ")
 
