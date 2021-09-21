@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './EventPage.css'
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -8,19 +8,12 @@ import { getEvent, setEvent } from '../../../../../utils/currentEvent'
 import Carusel from '../../../Services/Carusel/Carusel'
 
 const EventPage = () => {
+
+  const [currentEvent, setCurrentEvent] = useState({})
   const { id } = useParams();
   const history = useHistory();
-  // console.log(1)
-  const currentEvent = getEvent()
 
-  if (!currentEvent) {
-    apiEvents.getEvent(id)
-      .then((event) => setEvent(event))
-      .catch((error) => console.log(error))
-  }
-  // console.log(currentEvent)
-  const { startTime, title, description, _id, images } = currentEvent
-
+  const { startTime, title, description = "", _id, images = [] } = currentEvent
   const arrWithDescr = description.split("    ")
 
   const arrImagesForCarusel = images.reduce((arr, item) => {
@@ -35,6 +28,19 @@ const EventPage = () => {
   const strDateEvent = `${dateEvent.getDate()}/${dateEvent.getMonth() + 1}/${dateEvent.getFullYear()}`
   const strTimeEvent = `${dateEvent.getHours()}:${dateEvent.getMinutes() || "00"}`
 
+  useEffect(() => {
+    const currentEvent = getEvent()
+    if (!currentEvent) {
+      apiEvents.getEvent(id)
+        .then((event) => {
+          setEvent(event)
+          setCurrentEvent(event)
+        })
+        .catch((error) => console.log(error))
+    } else {
+      setCurrentEvent(currentEvent)
+    }
+  }, [id])
   // console.log(dateEvent)
   return (
     <section className="event-page">
