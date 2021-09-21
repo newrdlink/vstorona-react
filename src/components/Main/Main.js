@@ -10,7 +10,7 @@ import apiEvents from '../../utils/ApiEvents'
 const Main = ({ currentPath }) => {
 
   const [eventsList, setEventsList] = useState([])
-
+  // console.log(eventsList)
   useEffect(() => {
     apiEvents.getEvents()
       .then((events) => {
@@ -37,7 +37,7 @@ const Main = ({ currentPath }) => {
         currentPath={currentPath}
       />
       <EventsMain
-        eventsList={eventsList}
+        eventsList={eventsList.slice(0, 3)}
       />
     </main>
   )
