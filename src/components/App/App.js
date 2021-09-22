@@ -12,10 +12,12 @@ import SignUp from '../UI/popups/SignUp/SignUp'
 import apiAuth from '../../utils/Auth'
 import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
+// import { infoPages } from '../../config/infoPages';
 
 import About from '../Pages/About/About'
 import Services from '../Pages/Services/Services'
-import Activity from '../Pages/Activity/Activity';
+import Activity from '../Pages/Activity/Activity'
+import News from '../Pages/News/News'
 
 const App = () => {
 
@@ -123,6 +125,12 @@ const App = () => {
               <Activity
                 loggedIn={loggedIn}
                 currentPath={currentPath}
+              />
+            </Route>
+            <Route path="/news">
+              <News
+                currentPath={currentPath}
+
               />
             </Route>
           </Switch>

@@ -74,5 +74,9 @@ export const infoPages = [
   {
     name: 'выставки',
     pathName: 'exhibitions'
+  },
+  {
+    name: 'новости',
+    pathName: 'news'
   }
 ]

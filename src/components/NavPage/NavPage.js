@@ -20,10 +20,6 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('dance') ||
     isEventPage(strReverseForEvent(currentPath)) === 24
 
-  // console.log(1, currentPath)
-  // console.log(2, strReverseForEvent(currentPath))
-  // console.log(getEvent())
-
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
       case '':
@@ -166,15 +162,21 @@ const NavPage = ({ currentPath }) => {
         t.path = '/activity/exhibitions'
         obj.push(t)
         break
+      case 'news':
+        let u = {}
+        u.id = 21
+        u.name = 'новости '
+        u.path = '/news'
+        obj.push(u)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
         dinamic.name = `${event.title} `
-        dinamic.path = `/activity/events/${event._id}`
+        dinamic.path = `/activity/${event.type === "festival" ? "festivals/" : "events/"}${event._id}`
         obj.push(dinamic)
         break
       default:
-      // alert('fjhrioehgf')
     }
     return obj
   }, [])

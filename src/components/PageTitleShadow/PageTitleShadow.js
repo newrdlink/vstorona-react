@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './PageTitleShadow.css'
 
 const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
@@ -34,6 +34,9 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
     }
   }, [])
 
+  // console.log(pageInfo?.name)
+  // console.log(title)
+  // <p>&#8226;</p>
   return (
     <>
       {
@@ -41,7 +44,7 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
           <h3 className={`title-shadow title-shadow_place_${place || ""}`}
             style={{ right: `${positionScroll}px` }}
           >
-            {pageInfo?.name || title}
+            {pageInfo?.name || title} &#8226;
           </h3>
           :
           <h3 className={`title-shadow title-shadow_place_${place || ""}`}
@@ -50,8 +53,6 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
             {pageInfo?.name || title}
           </h3>
       }
-
-
     </>
   )
 }

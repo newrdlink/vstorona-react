@@ -15,6 +15,8 @@ import contentTitle from '../../../helpers/contentTitle'
 import Events from './Events/Events'
 import EventPage from './Events/EventPage/EventPage'
 
+import Festivals from './Festivals/Festivals'
+
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 
 import AddEvent from '../../backend/AddEvent/AddEvent'
@@ -48,6 +50,15 @@ const Activity = ({ loggedIn, currentPath }) => {
             pageInfo={pageInfo}
           />
         </Route>
+        <Route exact path="/activity/festivals">
+          <Festivals
+            pageInfo={pageInfo}
+          />
+        </Route>
+
+        <Route path="/activity/festivals/:id">
+          <EventPage />
+        </Route>
 
         <Route path="/activity/events/:id">
           <EventPage />
@@ -58,10 +69,6 @@ const Activity = ({ loggedIn, currentPath }) => {
           component={AddEvent}
           path="/activity/add-event"
         />
-
-        {/* <Route path="/activity/add-event">
-          <AddEvent />
-        </Route> */}
 
       </Switch>
     </section>

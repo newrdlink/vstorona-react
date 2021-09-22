@@ -22,7 +22,6 @@ const Main = ({ currentPath }) => {
         const sortArrEvents = arrEventsWillBeFull.sort((a, b) => {
           const dateA = new Date(a.startTime)
           const dateB = new Date(b.startTime)
-
           return dateA - dateB
         })
         setEventsList(sortArrEvents)
