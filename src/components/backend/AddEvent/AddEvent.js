@@ -8,8 +8,13 @@ const AddEvent = () => {
 
   const [files, setFiles] = useState([])
   const [eventData, setEventData] = useState({})
+  const [response, setResponse] = useState("")
 
   const onChange = (evt) => {
+    if (response) {
+      console.log("text in response")
+      setResponse("")
+    }
     // console.log(evt.target.name)
     // console.log(evt.target.value)
     setEventData({ ...eventData, [evt.target.name]: evt.target.value })
@@ -35,8 +40,9 @@ const AddEvent = () => {
     apiAddEvent.createEvent(data, jwt)
       .then((event) => {
         console.log(event)
-        setFiles([])
-        setEventData({})
+        setResponse("Событие добавлено")
+        // setFiles([])
+        // setEventData({})
       })
       .catch((error) => console.log(error))
   }
@@ -57,13 +63,16 @@ const AddEvent = () => {
           <option value="festival">фестиваль или конкурс</option>
           <option value="default">событие</option>
         </select>
-        <input
-          className="add-event__form-item add-event__form-item_type_files"
-          type="file"
-          multiple={true}
-          name="files"
-          onChange={handleChangeFiles}
-        />
+        <label className="add-event__form-label">
+          5 фотографий, имена файлов от 1 до 5 (1.png, 2.jpg и т.д.)
+          <input
+            className="add-event__form-item add-event__form-item_type_files"
+            type="file"
+            multiple={true}
+            name="files"
+            onChange={handleChangeFiles}
+          />
+        </label>
         <input
           className="add-event__form-item add-event__form-item_type_date"
           name="startTime"
@@ -93,6 +102,7 @@ const AddEvent = () => {
           placeholder="Описание"
         />
         <button type="submit" className="add-event__form-button">Отправить событие</button>
+        <p className="add-event__response">{response}</p>
       </form>
     </section>
   )

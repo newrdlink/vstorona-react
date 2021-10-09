@@ -22,15 +22,39 @@ const Events = ({ pageInfo }) => {
     return timeNow < timeEvent
   })
 
+  const arrEventsWillBeFullSort = arrEventsWillBeFull.sort((a, b) => {
+    const dateA = + (new Date(a.startTime))
+    const dateB = + (new Date(b.startTime))
+    if (dateA > dateB) {
+      return 1
+    }
+    if (dateA < dateB) {
+      return -1
+    } return null
+  })
+
   const arrEventsDidBeFull = eventsList.filter((event) => {
     const timeEvent = new Date(event.startTime).getTime()
     return timeNow > timeEvent
   })
 
-  const arrEventsWillBeView = arrEventsWillBeFull.slice(0, countWillBe)
-  const arrEventsDidBeView = arrEventsDidBeFull.slice(0, countDidBe)
+  const arrEventsDidBeFullSort = arrEventsDidBeFull.sort((a, b) => {
+    const dateA = + (new Date(a.startTime))
+    const dateB = + (new Date(b.startTime))
+    if (dateA > dateB) {
+      return -1
+    }
+    if (dateA < dateB) {
+      return 1
+    } return null
+  })
+
+  const arrEventsWillBeView = arrEventsWillBeFullSort.slice(0, countWillBe)
+  const arrEventsDidBeView = arrEventsDidBeFullSort.slice(0, countDidBe)
+
   const handlerCountEvents = () => {
-    isActiveWill ? setCountWillBe((countWillBe) => countWillBe + 1) :
+    isActiveWill ?
+      setCountWillBe((countWillBe) => countWillBe + 1) :
       setCountDidBe((countDidBe) => countDidBe + 1)
   }
 
@@ -58,9 +82,11 @@ const Events = ({ pageInfo }) => {
       />
       <EventsLinks isActive={isActiveWill} handlerViewEvents={handlerViewEvents} />
       {
-        isActiveWill ? <EventsBox
-          eventsList={arrEventsWillBeView} /> : <EventsBox
-          eventsList={arrEventsDidBeView} />
+        isActiveWill ?
+          <EventsBox
+            eventsList={arrEventsWillBeView} /> :
+          <EventsBox
+            eventsList={arrEventsDidBeView} />
       }
       {
         lockButtonAddEventMore() && <button className="events__button-add" type="button" onClick={(evt) => handlerCountEvents(evt)}>показать ещё</button>
