@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './News.css'
 
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
@@ -12,8 +12,15 @@ import NewsBox from './NewsBox/NewsBox'
 import { newsItems } from '../../../config/temp/newsItems'
 
 const News = ({ currentPath }) => {
+  const [countNews, setCountNews] = useState(4)
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+
+  const countNewsHandler = () => setCountNews(countNews + 4)
+
+  const isAreMoreNews = () => newsItems.length >= countNews
+
+  // console.log(isAreMoreNews())
 
   return (
     <section className="news">
@@ -31,8 +38,16 @@ const News = ({ currentPath }) => {
       <p>hgvreiopdv</p>
       <NewsBox
         newsList={newsItems}
+        countNews={countNews}
       />
-      <button type="button" className="news__button-add">показать ещё</button>
+      {
+        isAreMoreNews() &&
+        <button
+          type="button"
+          onClick={() => countNewsHandler()}
+          className="news__button-add">показать ещё</button>
+      }
+
     </section>
   )
 }

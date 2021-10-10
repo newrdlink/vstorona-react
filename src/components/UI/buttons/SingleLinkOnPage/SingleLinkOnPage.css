@@ -50,3 +50,13 @@
   left: 40%;
   transform: translate(-50%, 0);
 }
+
+.single-link-page_place_news-main {
+  border: 1px solid #974269;
+  color: #974269;
+  font-family: Montserrat;
+  margin: 0;
+  position: relative;
+  left: 40%;
+  transform: translate(-50%, 0);
+}

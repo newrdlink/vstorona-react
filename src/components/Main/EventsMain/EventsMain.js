@@ -13,7 +13,7 @@ const EventsMain = ({ eventsList }) => {
       <PageTitleShadow
         place="events-main"
         title="афиша мероприятий"
-        startPosition={-1800}
+        startPosition={-2500}
       />
       <MainTitle
         title="афиша мероприятий"
