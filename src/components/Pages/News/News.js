@@ -7,6 +7,9 @@ import NavPage from '../../NavPage/NavPage'
 
 import { infoPages } from '../../../config/infoPages'
 import contentTitle from '../../../helpers/contentTitle'
+import NewsBox from './NewsBox/NewsBox'
+
+import { newsItems } from '../../../config/temp/newsItems'
 
 const News = ({ currentPath }) => {
 
@@ -26,6 +29,10 @@ const News = ({ currentPath }) => {
         pageInfo={pageInfo}
       />
       <p>hgvreiopdv</p>
+      <NewsBox
+        newsList={newsItems}
+      />
+      <button type="button" className="news__button-add">показать ещё</button>
     </section>
   )
 }

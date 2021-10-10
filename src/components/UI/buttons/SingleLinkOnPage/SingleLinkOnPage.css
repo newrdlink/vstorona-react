@@ -16,6 +16,21 @@
   width: 300px;
 }
 
+.single-link-page_place_single-news {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  text-decoration-line: underline;  
+  color: #442836;
+  padding: 0;
+  margin-top: auto;
+}
+
 .single-link-page__arrow {
   width: 14px;
   height: 14px; 
