@@ -3,11 +3,11 @@ import './NewsBox.css'
 
 import NewsSingle from '../NewsSingle/NewsSingle'
 
-const NewsBox = ({ newsList = [], countNews }) => {
+const NewsBox = ({ newsList = [], countNews, onClickRemove }) => {
 
   const [currentNewsList, setCurrentNewsList] = useState([])
 
-
+  // const onClickRemove = (id) => console.log(id)
 
   useEffect(() => {
     const newArr = newsList.slice(0, countNews)
@@ -22,7 +22,7 @@ const NewsBox = ({ newsList = [], countNews }) => {
   return (
     <ul className="news-box">
       {
-        currentNewsList.map((item) => <NewsSingle key={item._id} {...item} />)
+        currentNewsList.map((item) => <NewsSingle key={item._id} {...item} onClickRemove={onClickRemove} />)
       }
     </ul>
   )

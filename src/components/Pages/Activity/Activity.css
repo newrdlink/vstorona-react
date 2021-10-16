@@ -12,7 +12,7 @@
 
 .activity__add-event-button {
   position: absolute;
-  right: 0;
+  right: 64px;
   top: 0;
   font-family: Montserrat;
   font-style: normal;

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Switch, Route, Link } from 'react-router-dom'
 import './News.css'
 
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
@@ -8,45 +9,105 @@ import NavPage from '../../NavPage/NavPage'
 import { infoPages } from '../../../config/infoPages'
 import contentTitle from '../../../helpers/contentTitle'
 import NewsBox from './NewsBox/NewsBox'
+// import { newsItems } from '../../../config/temp/newsItems'
+import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
+import AddNews from '../../backend/AddNews/AddNews'
+import apiNews from '../../../utils/ApiNews'
+import { getToken } from '../../../utils/Token'
 
-import { newsItems } from '../../../config/temp/newsItems'
+import NewsPage from './NewsPage/NewsPage'
 
-const News = ({ currentPath }) => {
+const News = ({ currentPath, loggedIn }) => {
   const [countNews, setCountNews] = useState(4)
+  const [newsAll, setNewsAll] = useState([])
 
   const pageInfo = contentTitle({ currentPath, infoPages })
 
   const countNewsHandler = () => setCountNews(countNews + 4)
 
-  const isAreMoreNews = () => newsItems.length >= countNews
+  const isAreMoreNews = () => newsAll.length > countNews
 
-  // console.log(isAreMoreNews())
+  const onClickRemoveNewsCard = (_id) => {
+    const jwt = getToken()
+
+    apiNews.deleteNews(_id, jwt)
+      .then((news) => {
+        const { _id } = news
+
+        const arrWithoutDeletedCard = newsAll.filter((item) => item._id !== _id)
+        setNewsAll(arrWithoutDeletedCard)
+
+        console.log(news)
+      })
+      .catch((error) => console.log(error))
+    console.log(1, _id)
+  }
+  // console.log(loggedIn)
+  useEffect(() => {
+    let cleanupFunction = false
+
+    apiNews.getNewsAll()
+      .then((newsAll) => {
+        if (!cleanupFunction) {
+          setNewsAll(newsAll)
+        }
+      })
+      .catch((error) => console.log(error))
+
+    return () => cleanupFunction = true;
+  }, [])
 
   return (
     <section className="news">
+      {loggedIn && currentPath === "/news" ?
+        <Link className="activity__add-event-button" to="/news/add-news">Добавить новость</Link> :
+        null
+      }
       <NavPage
         currentPath={currentPath}
       />
-      <PageTitleShadow
-        place="news"
-        title="новости &#8226; новости"
-        startPosition={-300}
-      />
-      <PageTitle
-        pageInfo={pageInfo}
-      />
-      <p>hgvreiopdv</p>
-      <NewsBox
-        newsList={newsItems}
-        countNews={countNews}
-      />
-      {
-        isAreMoreNews() &&
-        <button
-          type="button"
-          onClick={() => countNewsHandler()}
-          className="news__button-add">показать ещё</button>
-      }
+      <Switch>
+        <Route exact path="/news">
+          <PageTitleShadow
+            place="news"
+            title="новости &#8226; новости"
+            startPosition={-300}
+          />
+          <PageTitle
+            pageInfo={pageInfo}
+          />
+          <p>Copmonent with logic diferance of date</p>
+          <NewsBox
+            newsList={newsAll}
+            countNews={countNews}
+            onClickRemove={onClickRemoveNewsCard}
+          />
+          {
+            isAreMoreNews() &&
+            <button
+              type="button"
+              onClick={() => countNewsHandler()}
+              className="news__button-add">показать ещё</button>
+          }
+        </Route>
+
+        <ProtectedRoute
+          loggedIn={loggedIn}
+          component={AddNews}
+          path="/news/add-news"
+        />
+
+        <Route exact path="/news/:id">
+          <NewsPage
+            newsAll={newsAll}
+            currentPath={currentPath}
+          />
+        </Route>
+
+
+      </Switch>
+
+
 
     </section>
   )

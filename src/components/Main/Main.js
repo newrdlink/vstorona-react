@@ -5,15 +5,25 @@ import ActivityMain from './ActivityMain/ActivityMain'
 import Intro from './Intro/Intro'
 import EventsMain from './EventsMain/EventsMain'
 import NewsMain from './NewsMain/NewsMain'
-import { newsItems } from '../../config/temp/newsItems'
+// import { newsItems } from '../../config/temp/newsItems'
 
 import apiEvents from '../../utils/ApiEvents'
+import apiNews from '../../utils/ApiNews'
 
 const Main = ({ currentPath }) => {
 
   const [eventsList, setEventsList] = useState([])
+  const [newsAllList, setNewsAllList] = useState([])
   // console.log(eventsList)
+
+  const onClickRemoveNewsCard = (id) => console.log(id)
+
   useEffect(() => {
+
+    apiNews.getNewsAll()
+      .then((allNews) => setNewsAllList(allNews))
+      .catch((error) => console.log(error))
+
     apiEvents.getEvents()
       .then((events) => {
         const timeNow = Date.now()
@@ -44,7 +54,8 @@ const Main = ({ currentPath }) => {
         currentPath={currentPath}
       />
       <NewsMain
-        newsList={newsItems.slice(0, 4)}
+        newsList={newsAllList.reverse().slice(0, 4)}
+        onClickRemoveNewsCard={onClickRemoveNewsCard}
       />
       <EventsMain
         eventsList={eventsList.slice(0, 3)}

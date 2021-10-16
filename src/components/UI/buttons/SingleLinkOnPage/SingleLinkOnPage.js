@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './SingleLinkOnPage.css'
 
-const SingleLinkOnPage = ({ to, bodyName, place, colorArrow }) =>
+// import { setNews } from '../../../../utils/currentNews'
+
+const SingleLinkOnPage = ({ to, bodyName, place, colorArrow, onClickHandler = false }) =>
   <Link
     to={to}
     className={`single-link-page single-link-page_place_${place}`}
+    onClick={onClickHandler ? onClickHandler : null}
   >
     {bodyName}
 

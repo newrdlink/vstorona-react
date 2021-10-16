@@ -1,28 +1,45 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './NewsSingle.css'
 
 import NewsDate from './NewsDate/NewsDate'
 import SingleLinkOnPage from '../../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage'
+import { setNews } from '../../../../utils/currentNews'
+import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 
 const NewsSingle = (props) => {
   // console.log(props)
-  const { image, date, title, subtitle, description, _id } = props
+  const { images, createdAt, title, subtitle, _id, onClickRemove } = props
+  const history = useHistory()
+  // console.log(history)
+  // console.log(onClickRemove)
+  const onClickHandler = () => setNews(props)
+
+  const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
+  const subtitleForCard = () => subtitle.length > 80 ? subtitle.slice(0, 80) + ". . ." : title
 
   return (
     <li className="single-news">
-      <NewsDate date={date} />
+      <NewsDate date={createdAt} />
       <div className="single-news__img-container">
-        <img src={image} alt="#" className="single-news__image" />
+        <img src={images[0]} alt="#" className="single-news__image" />
+        <ButtonsBox
+          place="news-card"
+          // loggedIn={loggedIn}
+          onClickAdd={() => history.push('/news/add-news')}
+          onClickEdit={() => console.log(_id)}
+          onClickRemove={() => onClickRemove(_id)}
+        />
       </div>
-      <h6 className="single-news__title">{title}</h6>
-      <p className="single-news__subtitle">{subtitle}</p>
+      <h6 className="single-news__title">{titleForCard()}</h6>
+      <p className="single-news__subtitle">{subtitleForCard()}</p>
       {/* <Link to={`${"/" + _id}`} className="single-news__link">подробнее</Link> */}
       <SingleLinkOnPage
         to={`${"/news/" + _id}`}
         bodyName="подробнее"
         place="single-news"
         colorArrow="#442836"
+        onClickHandler={onClickHandler}
       />
     </li>
   )

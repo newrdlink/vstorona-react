@@ -23,11 +23,13 @@
 }
 
 .add-event__form-item_type_title {
-  max-width: 600px;
+  max-width: 720px;
+  min-height: 100px;
 }
 
 .add-event__form-item_type_subtitle {
-  max-width: 1000px;
+  max-width: 720px;
+  min-height: 200px;
 }
 
 .add-event__form-item_type_date {

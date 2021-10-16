@@ -130,7 +130,7 @@ const App = () => {
             <Route path="/news">
               <News
                 currentPath={currentPath}
-
+                loggedIn={loggedIn}
               />
             </Route>
           </Switch>
