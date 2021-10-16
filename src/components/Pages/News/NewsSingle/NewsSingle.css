@@ -1,8 +1,8 @@
 .single-news {
   position: relative;
-  width: 320px;
+  width: 350px;
   min-height: 665px;
-  margin-right: 66px;
+  margin-right: 26px;
   margin-bottom: 130px;
   transition: all .2s ease-in;
   /* padding: 10px;
@@ -52,7 +52,7 @@
 
 .single-news__img-container {
   position: relative;
-  width: 320px;
+  width: 350px;
   height: 300px;
   margin-bottom: 40px;
 }

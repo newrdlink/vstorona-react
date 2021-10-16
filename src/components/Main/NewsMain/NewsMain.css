@@ -1,4 +1,6 @@
 .news-main {
   position: relative;
   margin-bottom: 200px;
+  padding: 0 60px;
+  box-sizing: border-box;
 }

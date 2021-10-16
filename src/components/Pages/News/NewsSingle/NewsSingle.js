@@ -16,7 +16,7 @@ const NewsSingle = (props) => {
   const onClickHandler = () => setNews(props)
 
   const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
-  const subtitleForCard = () => subtitle.length > 80 ? subtitle.slice(0, 80) + ". . ." : title
+  const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : title
 
   return (
     <li className="single-news">
