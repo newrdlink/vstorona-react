@@ -5,15 +5,28 @@ import ActivityMain from './ActivityMain/ActivityMain'
 import Intro from './Intro/Intro'
 import EventsMain from './EventsMain/EventsMain'
 import NewsMain from './NewsMain/NewsMain'
+import DanceMain from './DanceMain/DanceMain'
 
 import apiEvents from '../../utils/ApiEvents'
 import apiNews from '../../utils/ApiNews'
+import apiDance from '../../utils/ApiDance'
 import { getToken } from '../../utils/Token'
 
 const Main = ({ currentPath, loggedIn }) => {
 
   const [eventsList, setEventsList] = useState([])
   const [newsAllList, setNewsAllList] = useState([])
+  const [dancePage, setDancePage] = useState({ images: [{ link: "temp" }], days: ['1', '2'], startTime: '1', compositionServices: ["temp"] })
+
+  useEffect(() => {
+    apiDance.getDance()
+      .then((dances) => {
+        const [page] = dances
+        setDancePage(page)
+      })
+      .catch((error) => console.log(error))
+  }, [])
+  // console.log(dancePage)
 
   const onClickRemoveNewsCard = (_id) => {
     const jwt = getToken()
@@ -83,6 +96,10 @@ const Main = ({ currentPath, loggedIn }) => {
         eventsList={eventsList.slice(0, 3)}
         loggedIn={loggedIn}
         onClickRemove={onClickRemoveEventCard}
+      />
+
+      <DanceMain
+        danceInfo={dancePage}
       />
 
     </main>
