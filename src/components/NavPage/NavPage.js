@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './NavPage.css'
 
 import { getEvent } from '../../utils/currentEvent'
+import { getNews } from '../../utils/currentNews'
 
 const NavPage = ({ currentPath }) => {
 
@@ -10,7 +11,11 @@ const NavPage = ({ currentPath }) => {
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
-  const event = getEvent() || {}
+  const event = getEvent() || { title: "" }
+  const news = getNews() || { title: "" }
+  // console.log(news)
+  const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
+  const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -18,11 +23,7 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('choreography') ||
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
-    isEventPage(strReverseForEvent(currentPath)) === 24
-
-  // console.log(1, currentPath)
-  // console.log(2, strReverseForEvent(currentPath))
-  // console.log(getEvent())
+    (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -166,15 +167,35 @@ const NavPage = ({ currentPath }) => {
         t.path = '/activity/exhibitions'
         obj.push(t)
         break
+      case 'news':
+        let u = {}
+        u.id = 21
+        u.name = 'новости '
+        u.path = '/news'
+        obj.push(u)
+        break
+      case 'add-news':
+        let v = {}
+        v.id = 22
+        v.name = 'добавить новость  '
+        v.path = '/news/add-news'
+        obj.push(v)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
-        dinamic.name = `${event.title} `
-        dinamic.path = `/activity/events/${event._id}`
+        dinamic.name = `${eventTitle()} `
+        dinamic.path = `/activity/${event.type === "festival" ? "festivals/" : "events/"}${event._id}`
         obj.push(dinamic)
         break
+      case `${news._id}`:
+        let dinamicNews = {}
+        dinamicNews.id = 200
+        dinamicNews.name = `${newsTitle()} `
+        dinamicNews.path = `/news/${news._id}`
+        obj.push(dinamicNews)
+        break
       default:
-      // alert('fjhrioehgf')
     }
     return obj
   }, [])

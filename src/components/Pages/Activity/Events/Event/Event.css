@@ -55,9 +55,9 @@
 
 .event__title {
   position: relative;  
-  max-width: 350px;
+  width: 350px;
   padding: 0;
-  /* margin-right: auto; */
+  margin-right: 25px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -81,7 +81,7 @@
 .event__subtitle {
   position: relative;
   max-width: 350px;
-  margin-left: auto;
+  /* margin-left: auto; */
   margin-right: auto;
   font-family: Montserrat;
   font-style: normal;
@@ -163,4 +163,9 @@
 
 .event:hover .event__arrow {
   fill: #fff;
+}
+
+.event:hover .buttons-box {
+  opacity: 1;
+  z-index: 3;
 }

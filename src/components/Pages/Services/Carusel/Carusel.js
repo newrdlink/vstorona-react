@@ -30,12 +30,13 @@ const Carusel = ({ images, place }) => {
     }
   }
 
+  // console.log(newArrImages)
   const clickOnCircle = (image) => setCount(image)
 
   // const onClickBtnBack = (evt) => console.log(evt.target)
 
   return (
-    <section className="carusel-container">
+    <section className={`carusel-container carusel-container_place_${place}`}>
       <div className={`carusel carusel_place_${place}`}>
         <div
           className={`carusel-images ${count === 1 && "carusel-images_bias_one"} ${count === 2 && "carusel-images_bias_two"} ${count === 3 && "carusel-images_bias_three"}`}>

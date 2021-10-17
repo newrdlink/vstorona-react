@@ -19,16 +19,19 @@
   line-height: 17px;
   color: #974269;
   border-radius: 3px;
-  border: 1px solid #974269;
-  
+  border: 1px solid #974269;  
 }
 
 .add-event__form-item_type_title {
-  max-width: 600px;
+  max-width: 720px;
+  min-height: 100px;
+  padding-top: 15px;
 }
 
 .add-event__form-item_type_subtitle {
-  max-width: 1000px;
+  max-width: 720px;
+  min-height: 200px;
+  padding-top: 15px;
 }
 
 .add-event__form-item_type_date {
@@ -37,11 +40,16 @@
 
 .add-event__form-item_type_description {
  position: relative;
+ padding-top: 15px;
+ max-width: 1000px;
+ min-height: 200px;
 }
 
 .add-event__form-item_type_files {
+  display: block;
   max-width: 280px;
   border: 0;
+  margin-top: 10px;
 }
 
 .add-event__form-button {
@@ -58,4 +66,26 @@
   border: 1px solid #974269;
   box-sizing: border-box;
   background: transparent;
+}
+
+.add-event__form-label {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #974269;
+  border: 1px solid #974269;
+  padding: 20px 20px 0 20px;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.add-event__response {  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #017c01;  
 }

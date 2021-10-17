@@ -16,6 +16,21 @@
   width: 300px;
 }
 
+.single-link-page_place_single-news {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  text-decoration-line: underline;  
+  color: #442836;
+  padding: 0;
+  margin-top: auto;
+}
+
 .single-link-page__arrow {
   width: 14px;
   height: 14px; 
@@ -27,6 +42,16 @@
 }
 
 .single-link-page_place_events-main {
+  border: 1px solid #974269;
+  color: #974269;
+  font-family: Montserrat;
+  margin: 0;
+  position: relative;
+  left: 40%;
+  transform: translate(-50%, 0);
+}
+
+.single-link-page_place_news-main {
   border: 1px solid #974269;
   color: #974269;
   font-family: Montserrat;

@@ -1,7 +1,6 @@
-.events-main {
+.news-main {
   position: relative;
-  max-width: 1600px;
-  margin: 0 auto 200px;
+  margin-bottom: 200px;
   padding: 0 60px;
   box-sizing: border-box;
 }

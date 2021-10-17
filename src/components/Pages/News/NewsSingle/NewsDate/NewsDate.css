@@ -1,0 +1,10 @@
+.news-date {
+  padding: 0 10px;
+  margin: 10px 0 45px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: rgba(30, 30, 30, 0.5);
+}

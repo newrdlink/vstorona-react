@@ -6,6 +6,11 @@
  margin: 0 auto;
 }
 
+.carusel-container_place_news-page {
+  margin: 0;
+  /* margin-left: auto; */
+}
+
 .carusel-images {
   position: relative;
   display: flex;
@@ -27,6 +32,10 @@
 
 .carusel_place_event {
   height: 441px;
+}
+
+.carusel_place_news-page {
+  height: 494px;
 }
 
 .carusel-images_bias_two {

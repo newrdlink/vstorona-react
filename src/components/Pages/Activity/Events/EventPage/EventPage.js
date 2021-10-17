@@ -13,7 +13,7 @@ const EventPage = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  const { startTime, title, description = "", _id, images = [] } = currentEvent
+  const { startTime, title = "", description = "", _id, images = [] } = currentEvent
   const arrWithDescr = description.split("    ")
 
   const arrImagesForCarusel = images.reduce((arr, item) => {
@@ -27,6 +27,8 @@ const EventPage = () => {
   const dateEvent = new Date(startTime)
   const strDateEvent = `${dateEvent.getDate()}/${dateEvent.getMonth() + 1}/${dateEvent.getFullYear()}`
   const strTimeEvent = `${dateEvent.getHours()}:${dateEvent.getMinutes() || "00"}`
+
+  const titleForPageEvent = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
 
   useEffect(() => {
     const currentEvent = getEvent()
@@ -47,7 +49,7 @@ const EventPage = () => {
       <div className="event-page__image-container">
         <img className="event-page__image" src={images[0]} alt="" />
       </div>
-      <h1 className="event-page__title">{title}</h1>
+      <h1 className="event-page__title">{titleForPageEvent()}</h1>
       <div className="event__time-info">
         <p className="event__time-info-item">{strDateEvent}</p>
         <p className="event__time-info-item">{strTimeEvent}</p>

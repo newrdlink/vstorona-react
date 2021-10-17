@@ -1,17 +1,22 @@
 .activity {
   position: relative;
-  padding: 0 0 0 60px;
+  padding: 0 60px;
+  box-sizing: border-box;
   max-width: 1600px;
   margin: 0 auto 180px;
-  box-sizing: border-box;
 }
 
 .activity_place_event {
-  padding: 0;
+  
 }
 
 .activity__add-event-button {
   position: absolute;
-  right: 0;
+  right: 64px;
   top: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;  
+  color: #974269;
 }

@@ -43,7 +43,6 @@ const WorkersBox = ({
           />
           : null
       }
-
     </div>
 
   )

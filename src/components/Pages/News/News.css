@@ -1,0 +1,29 @@
+.news {
+  position: relative;
+  max-width: 1600px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.news__button-add {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: transparent;
+  padding: 10px 20px;
+  border: 1px solid #974269;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #974269;
+  text-transform: uppercase;
+  /* margin: 0 auto; */
+  margin-bottom: 180px;
+}
+
+.news__button-add:hover {
+  cursor: pointer;
+}

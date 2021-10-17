@@ -1,6 +1,7 @@
 .event-time {
   position: relative;
-  margin-right: 250px;
+  width: 125px;
+  margin-right: 280px;
   z-index: 3;
 }
 

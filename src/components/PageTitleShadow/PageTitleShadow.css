@@ -24,7 +24,18 @@
   top: -110px;
 }
 
-
 .title-shadow_place_events-main {
   top: -110px;
+}
+
+.title-shadow_place_news-main {
+  top: -110px;
+}
+
+.title-shadow_place_news {
+  top: 70px;
+}
+
+.title-shadow_place_festivals {
+  top: -285px;
 }

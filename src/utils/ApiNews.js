@@ -8,33 +8,25 @@ class Api extends React.Component {
     this.headres = headers;
   }
 
-  getEvents() {
-    return fetch(`${this.address}/activity/events`, {
+  getNewsAll() {
+    return fetch(`${this.address}/news`, {
       method: "GET",
       headers: this.headres,
     })
       .then(handlerResponse)
   }
 
-  getEvent(id) {
-    return fetch(`${this.address}/activity/events/${id}`, {
+  getNews(id) {
+    return fetch(`${this.address}/news/${id}`, {
       method: "GET",
       headers: this.headres,
     })
       .then(handlerResponse)
   }
 
-  // getHall(type) {
-  //   return fetch(`${this.address}/halls/${type}`, {
-  //     method: "GET",
-  //     headers: this.headres,
-  //   })
-  //     .then(handlerResponse)
-  // }
-
-  createEvent(data, token) {
+  createNews(data, token) {
     // console.log(data)
-    return fetch(`${this.address}/activity/events`, {
+    return fetch(`${this.address}/news`, {
       method: "POST",
       headers: {
         "Contetnt-Type": "multipart/form-data",
@@ -73,8 +65,8 @@ class Api extends React.Component {
   //       .then(handlerResponse)
   //   }
 
-  deleteEvent(_id, token) {
-    return fetch(`${this.address}/activity/events`, {
+  deleteNews(_id, token) {
+    return fetch(`${this.address}/news`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
