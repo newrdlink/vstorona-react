@@ -25,11 +25,13 @@
 .add-event__form-item_type_title {
   max-width: 720px;
   min-height: 100px;
+  padding-top: 15px;
 }
 
 .add-event__form-item_type_subtitle {
   max-width: 720px;
   min-height: 200px;
+  padding-top: 15px;
 }
 
 .add-event__form-item_type_date {

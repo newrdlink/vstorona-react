@@ -5,18 +5,28 @@ import ActivityMain from './ActivityMain/ActivityMain'
 import Intro from './Intro/Intro'
 import EventsMain from './EventsMain/EventsMain'
 import NewsMain from './NewsMain/NewsMain'
-// import { newsItems } from '../../config/temp/newsItems'
 
 import apiEvents from '../../utils/ApiEvents'
 import apiNews from '../../utils/ApiNews'
+import { getToken } from '../../utils/Token'
 
-const Main = ({ currentPath }) => {
+const Main = ({ currentPath, loggedIn }) => {
 
   const [eventsList, setEventsList] = useState([])
   const [newsAllList, setNewsAllList] = useState([])
-  // console.log(eventsList)
 
-  const onClickRemoveNewsCard = (id) => console.log(id)
+  const onClickRemoveNewsCard = (_id) => {
+    const jwt = getToken()
+
+    apiNews.deleteNews(_id, jwt)
+      .then((news) => {
+        const { _id } = news
+
+        const arrWithoutDeletedCard = newsAllList.filter((item) => item._id !== _id)
+        setNewsAllList(arrWithoutDeletedCard)
+      })
+      .catch((error) => console.log(error))
+  }
 
   useEffect(() => {
 
@@ -47,6 +57,17 @@ const Main = ({ currentPath }) => {
       .catch((error) => console.log(error))
   }, [])
 
+  const onClickRemoveEventCard = (_id) => {
+    const jwt = getToken()
+
+    apiEvents.deleteEvent(_id, jwt)
+      .then((event) => {
+        const arrWithoutDeletedCard = eventsList.filter((item) => item._id !== event._id)
+        setEventsList(arrWithoutDeletedCard)
+      })
+      .catch((error) => console.log(error))
+  }
+
   return (
     <main className="main">
       <Intro />
@@ -59,6 +80,8 @@ const Main = ({ currentPath }) => {
       />
       <EventsMain
         eventsList={eventsList.slice(0, 3)}
+        loggedIn={loggedIn}
+        onClickRemove={onClickRemoveEventCard}
       />
 
     </main>

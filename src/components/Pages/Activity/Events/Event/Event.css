@@ -164,3 +164,8 @@
 .event:hover .event__arrow {
   fill: #fff;
 }
+
+.event:hover .buttons-box {
+  opacity: 1;
+  z-index: 3;
+}

@@ -9,7 +9,7 @@ import NavPage from '../../NavPage/NavPage'
 import { infoPages } from '../../../config/infoPages'
 import contentTitle from '../../../helpers/contentTitle'
 import NewsBox from './NewsBox/NewsBox'
-// import { newsItems } from '../../../config/temp/newsItems'
+
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddNews from '../../backend/AddNews/AddNews'
 import apiNews from '../../../utils/ApiNews'
@@ -36,11 +36,9 @@ const News = ({ currentPath, loggedIn }) => {
 
         const arrWithoutDeletedCard = newsAll.filter((item) => item._id !== _id)
         setNewsAll(arrWithoutDeletedCard)
-
-        console.log(news)
       })
       .catch((error) => console.log(error))
-    console.log(1, _id)
+    // console.log(1, _id)
   }
   // console.log(loggedIn)
   useEffect(() => {
@@ -104,11 +102,7 @@ const News = ({ currentPath, loggedIn }) => {
           />
         </Route>
 
-
       </Switch>
-
-
-
     </section>
   )
 }

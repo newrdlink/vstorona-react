@@ -11,10 +11,11 @@ const NavPage = ({ currentPath }) => {
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
-  const event = getEvent() || {}
+  const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
   // console.log(news)
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
+  const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -183,7 +184,7 @@ const NavPage = ({ currentPath }) => {
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
-        dinamic.name = `${event.title} `
+        dinamic.name = `${eventTitle()} `
         dinamic.path = `/activity/${event.type === "festival" ? "festivals/" : "events/"}${event._id}`
         obj.push(dinamic)
         break

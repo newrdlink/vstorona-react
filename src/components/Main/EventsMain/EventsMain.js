@@ -6,7 +6,7 @@ import MainTitle from '../MainTitle/MainTitle'
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
 import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage'
 
-const EventsMain = ({ eventsList }) => {
+const EventsMain = ({ eventsList, loggedIn, onClickRemove }) => {
 
   return (
     <section className="events-main">
@@ -21,6 +21,8 @@ const EventsMain = ({ eventsList }) => {
       />
       <EventsBox
         eventsList={eventsList}
+        loggedIn={loggedIn}
+        onClickRemove={onClickRemove}
       />
       <SingleLinkOnPage
         to="activity/events"

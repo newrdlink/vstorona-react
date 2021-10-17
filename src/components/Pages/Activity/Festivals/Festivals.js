@@ -5,9 +5,10 @@ import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 import EventsBox from '../Events/EventsBox/EventsBox'
 
 import apiEvents from '../../../../utils/ApiEvents'
+import { getToken } from '../../../../utils/Token'
 
 
-const Festivals = ({ pageInfo }) => {
+const Festivals = ({ pageInfo, loggedIn }) => {
   const [eventsList, setEventsList] = useState([])
 
   useEffect(() => {
@@ -29,6 +30,18 @@ const Festivals = ({ pageInfo }) => {
       .catch((error) => console.log(error))
   }, [])
 
+  const onClickRemoveEvent = (_id) => {
+    const jwt = getToken()
+
+    apiEvents.deleteEvent(_id, jwt)
+      .then((event) => {
+        const eventsListWithoutDeletedCard = eventsList.filter((item) => item._id !== event._id)
+        setEventsList(eventsListWithoutDeletedCard)
+        // console.log(event)
+      })
+      .catch((error) => console.log(error))
+  }
+
   return (
     <main className="festivals">
       <PageTitleShadow
@@ -38,6 +51,8 @@ const Festivals = ({ pageInfo }) => {
       />
       <EventsBox
         eventsList={eventsList}
+        loggedIn={loggedIn}
+        onClickRemove={onClickRemoveEvent}
       />
     </main>
   )

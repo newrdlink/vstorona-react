@@ -1,5 +1,5 @@
 .services {
-  padding: 0 0 0 60px;
+  padding: 0 60px;
   box-sizing: border-box;
   position: relative;
   background: #FFF;
@@ -8,5 +8,5 @@
 }
 
 .services_place_hall {
-  padding: 0;
+
 }

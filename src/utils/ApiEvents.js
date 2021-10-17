@@ -73,19 +73,19 @@ class Api extends React.Component {
   //       .then(handlerResponse)
   //   }
 
-  //   deleteItemDescrHall(data, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         data
-  //       })
-  //     })
-  //       .then(handlerResponse)
-  //   }
+  deleteEvent(_id, token) {
+    return fetch(`${this.address}/activity/events`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        _id
+      })
+    })
+      .then(handlerResponse)
+  }
 
   //   patchItemDescrHall(oldData, newData, token, type) {
   //     return fetch(`${this.address}/halls/${type}`, {

@@ -11,8 +11,6 @@ const NewsSingle = (props) => {
   // console.log(props)
   const { images, createdAt, title, subtitle, _id, onClickRemove } = props
   const history = useHistory()
-  // console.log(history)
-  // console.log(onClickRemove)
   const onClickHandler = () => setNews(props)
 
   const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
@@ -25,7 +23,6 @@ const NewsSingle = (props) => {
         <img src={images[0]} alt="#" className="single-news__image" />
         <ButtonsBox
           place="news-card"
-          // loggedIn={loggedIn}
           onClickAdd={() => history.push('/news/add-news')}
           onClickEdit={() => console.log(_id)}
           onClickRemove={() => onClickRemove(_id)}
@@ -33,7 +30,6 @@ const NewsSingle = (props) => {
       </div>
       <h6 className="single-news__title">{titleForCard()}</h6>
       <p className="single-news__subtitle">{subtitleForCard()}</p>
-      {/* <Link to={`${"/" + _id}`} className="single-news__link">подробнее</Link> */}
       <SingleLinkOnPage
         to={`${"/news/" + _id}`}
         bodyName="подробнее"

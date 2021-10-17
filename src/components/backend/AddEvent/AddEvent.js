@@ -80,14 +80,14 @@ const AddEvent = () => {
           min="2018-01-01"
           max="2038-12-31"
           onChange={(evt) => onChange(evt)} />
-        <input
+        <textarea
           className="add-event__form-item add-event__form-item_type_title"
           type="text"
           name="title"
           onChange={(evt) => onChange(evt)}
           placeholder="Заголовок"
         />
-        <input
+        <textarea
           className="add-event__form-item add-event__form-item_type_subtitle"
           type="text"
           name="subtitle"

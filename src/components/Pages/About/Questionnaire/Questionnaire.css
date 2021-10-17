@@ -31,7 +31,29 @@
   margin: 0 auto 40px;
 }
 
+@keyframes for_link {
+  0% {
+    transform: translateY(10%);
+  }
+  70% {
+    transform: translateY(-40%);
+  }
+
+  80% {
+    transform: translateY(10%);
+  }
+  90% {
+    transform: translateY(-25%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+
 .questionnaire__link {
+  animation: for_link 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 4s;
   display: block;
   text-decoration: none;
   font-family: Montserrat;

@@ -24,14 +24,6 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  // getHall(type) {
-  //   return fetch(`${this.address}/halls/${type}`, {
-  //     method: "GET",
-  //     headers: this.headres,
-  //   })
-  //     .then(handlerResponse)
-  // }
-
   createNews(data, token) {
     // console.log(data)
     return fetch(`${this.address}/news`, {

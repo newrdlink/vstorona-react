@@ -48,11 +48,13 @@ const Activity = ({ loggedIn, currentPath }) => {
         <Route exact path="/activity/events">
           <Events
             pageInfo={pageInfo}
+            loggedIn={loggedIn}
           />
         </Route>
         <Route exact path="/activity/festivals">
           <Festivals
             pageInfo={pageInfo}
+            loggedIn={loggedIn}
           />
         </Route>
 

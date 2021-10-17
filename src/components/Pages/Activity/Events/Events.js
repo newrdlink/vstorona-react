@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './Events.css'
 
 import apiEvents from '../../../../utils/ApiEvents'
+import { getToken } from '../../../../utils/Token'
 
 import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 
 import EventsBox from './EventsBox/EventsBox'
 import EventsLinks from './EventsLinks/EventsLinks'
 
-const Events = ({ pageInfo }) => {
+const Events = ({ pageInfo, loggedIn }) => {
 
   const [eventsList, setEventsList] = useState([])
   const [countWillBe, setCountWillBe] = useState(3)
@@ -73,6 +74,19 @@ const Events = ({ pageInfo }) => {
       return arrEventsDidBeFull.length === countDidBe ? false : true
     }
   }
+
+  const onClickRemoveEvent = (_id) => {
+    const jwt = getToken()
+
+    apiEvents.deleteEvent(_id, jwt)
+      .then((event) => {
+        const eventsListWithoutdeletedCard = eventsList.filter((item) => item._id !== event._id)
+        setEventsList(eventsListWithoutdeletedCard)
+        // console.log(event)
+      })
+      .catch((error) => console.log(error))
+    // console.log(_id)
+  }
   // console.log(pageInfo)
   return (
     <main className="events">
@@ -84,9 +98,15 @@ const Events = ({ pageInfo }) => {
       {
         isActiveWill ?
           <EventsBox
-            eventsList={arrEventsWillBeView} /> :
+            eventsList={arrEventsWillBeView}
+            loggedIn={loggedIn}
+            onClickRemove={onClickRemoveEvent}
+          /> :
           <EventsBox
-            eventsList={arrEventsDidBeView} />
+            eventsList={arrEventsDidBeView}
+            loggedIn={loggedIn}
+            onClickRemove={onClickRemoveEvent}
+          />
       }
       {
         lockButtonAddEventMore() && <button className="events__button-add" type="button" onClick={(evt) => handlerCountEvents(evt)}>показать ещё</button>
