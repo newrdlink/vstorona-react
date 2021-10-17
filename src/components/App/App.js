@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { Route, Switch, useLocation, useHistory } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import './App.css'
 
 import Header from '../Header/Header'
@@ -20,7 +20,7 @@ import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
 
 const App = () => {
-  const history = useHistory()
+  // const history = useHistory()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})

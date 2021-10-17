@@ -1,0 +1,99 @@
+.dance-main {
+  position: relative;
+  margin-bottom: 180px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.dance-main__image-container {
+  width: 730px;
+  height: 360px;
+  margin-left: auto;
+}
+
+.dance-main__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dance-main__content {
+  display: flex;
+
+}
+
+.dance-main__title {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #442836;
+  margin: 0 24px 190px 0;
+}
+
+.dance-main__title::after {
+  position: absolute;
+  left:0;
+  bottom: -170px;
+  height: 1px;
+  width: 100%;
+  background-color: #868686;
+  content: "";
+}
+
+.dance-main__info {
+  max-width: 728px;
+}
+ 
+.dance-main__work-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 24px;
+}
+
+.dance-main__work-info::after {
+  position: absolute;
+  left:0;
+  bottom: -25px;
+  height: 1px;
+  width: 100%;
+  background-color: #868686;
+  content: "";
+}
+
+.dance-main__work-time {
+  max-width: 100px;
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  color: #974269;
+}
+
+.dance-main__work-day {
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #442836;
+}
+
+.dance-main__subtitle {
+  margin: 0 0 0 0;
+  max-width: 170px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #442836;
+}

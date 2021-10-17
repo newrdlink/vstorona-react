@@ -13,7 +13,7 @@ const EventPage = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  const { startTime, title = "", description = "", _id, images = [] } = currentEvent
+  const { startTime, title = "", description = "", images = [] } = currentEvent
   const arrWithDescr = description.split("    ")
 
   const arrImagesForCarusel = images.reduce((arr, item) => {

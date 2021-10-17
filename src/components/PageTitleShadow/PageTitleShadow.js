@@ -40,7 +40,7 @@ const PageTitleShadow = ({ pageInfo, place, startPosition = -44, title }) => {
   return (
     <>
       {
-        place === "news-main" ?
+        place === "news-main" || place === "dance-main" ?
           <h3 className={`title-shadow title-shadow_place_${place || ""}`}
             style={{ right: `${positionScroll}px` }}
           >
