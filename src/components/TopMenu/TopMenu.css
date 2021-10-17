@@ -1,0 +1,16 @@
+.top-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -700px;
+  width: 100%;
+  max-width: 1600px;
+  height: 700px;
+  background-color: #974269;
+  z-index: 10;
+  transition: all ease-in .2s;
+}
+
+.top-menu_active {
+  top: 0;
+}

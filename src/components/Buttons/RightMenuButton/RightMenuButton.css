@@ -1,6 +1,43 @@
 .right-menu-button {
-  /* width: 27px;
-  height: 16px; */
+  position: relative;
+  height: 20px;
   background-color: transparent;
   border: none;
+  width: 27px;
+  padding: 0;
+  transition: ease-in .2s all;
+}
+
+.right-menu-button__span {
+  display: block;
+  width: 27px;
+  height: 2px;
+  background-color: white;
+}
+
+.right-menu-button__span::before {
+  background-color: white;
+  position: absolute;
+  content: "";
+  left: 0;
+  height: 2px;
+  width: 27px;
+  transform: translateY(-6px);
+  transition: .5s;
+}
+
+.right-menu-button__span::after {
+  background-color: white;
+  position: absolute;
+  content: "";
+  left: 0;
+  transition: .5s;
+  height: 2px;
+  width: 27px;
+  transform: translateY(6px);
+}
+
+.right-menu-button:hover {
+  opacity: .7;
+  cursor: pointer;
 }

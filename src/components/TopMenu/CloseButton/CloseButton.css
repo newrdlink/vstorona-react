@@ -1,0 +1,62 @@
+.btn-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0;
+  border: 0;
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  opacity: .7;
+}
+
+.btn-close__span {
+  position: relative;
+  display: block;
+  height: 2px;
+  background-color: white;
+  width: 26px;
+  height: 2px;
+  transition: ease-in-out 0.1s;
+}
+
+.btn-close__span::before {
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  left: 0;
+  top: 0;
+  content: "";
+  transform: translateY(5px);
+  transition: ease-in-out 0.2s;
+}
+
+.btn-close__span::after {
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  left: 0;
+  top: o;
+  content: "";
+  transform: translateY(-5px);
+  transition: ease-in-out 0.2s;
+}
+
+.btn-close:hover .btn-close__span::after {
+  transform: rotate(45deg)
+}
+
+.btn-close:hover .btn-close__span::before {
+  transform: rotate(-45deg)
+}
+
+.btn-close:hover .btn-close__span {
+  height: 0;
+}
+
+.btn-close:hover {
+  cursor: pointer;
+  opacity: 1;
+}
