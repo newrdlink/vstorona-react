@@ -79,6 +79,7 @@ const News = ({ currentPath, loggedIn }) => {
             newsList={newsAll}
             countNews={countNews}
             onClickRemove={onClickRemoveNewsCard}
+            loggedIn={loggedIn}
           />
           {
             isAreMoreNews() &&

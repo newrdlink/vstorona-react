@@ -77,6 +77,7 @@ const Main = ({ currentPath, loggedIn }) => {
       <NewsMain
         newsList={newsAllList.reverse().slice(0, 4)}
         onClickRemoveNewsCard={onClickRemoveNewsCard}
+        loggedIn={loggedIn}
       />
       <EventsMain
         eventsList={eventsList.slice(0, 3)}

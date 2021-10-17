@@ -9,7 +9,7 @@ import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 
 const NewsSingle = (props) => {
   // console.log(props)
-  const { images, createdAt, title, subtitle, _id, onClickRemove } = props
+  const { images, createdAt, title, subtitle, _id, onClickRemove, loggedIn } = props
   const history = useHistory()
   const onClickHandler = () => setNews(props)
 
@@ -21,12 +21,15 @@ const NewsSingle = (props) => {
       <NewsDate date={createdAt} />
       <div className="single-news__img-container">
         <img src={images[0]} alt="#" className="single-news__image" />
-        <ButtonsBox
-          place="news-card"
-          onClickAdd={() => history.push('/news/add-news')}
-          onClickEdit={() => console.log(_id)}
-          onClickRemove={() => onClickRemove(_id)}
-        />
+        {
+          loggedIn ? <ButtonsBox
+            place="news-card"
+            onClickAdd={() => history.push('/news/add-news')}
+            onClickEdit={() => console.log(_id)}
+            onClickRemove={() => onClickRemove(_id)}
+          /> : null
+        }
+
       </div>
       <h6 className="single-news__title">{titleForCard()}</h6>
       <p className="single-news__subtitle">{subtitleForCard()}</p>

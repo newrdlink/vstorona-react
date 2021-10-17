@@ -7,7 +7,7 @@ import NewsBox from '../../Pages/News/NewsBox/NewsBox'
 import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage'
 
 
-const NewsMain = ({ newsList = [], onClickRemoveNewsCard }) => {
+const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
 
   return (
     <section className="news-main">
@@ -23,6 +23,7 @@ const NewsMain = ({ newsList = [], onClickRemoveNewsCard }) => {
       <NewsBox
         newsList={newsList}
         onClickRemove={onClickRemoveNewsCard}
+        loggedIn={loggedIn}
       />
       <SingleLinkOnPage
         to="/news"
