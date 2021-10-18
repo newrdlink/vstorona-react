@@ -27,8 +27,18 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
   const [isTopMenuActive, setIsTopMenuActive] = useState(false)
+  const [isTopMenuNoActive, setIsTopMenuNoActive] = useState(false)
 
-  const onClickLinkInTopMenu = () => setIsTopMenuActive(false)
+  const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
+
+  const handlerTopMenu = () => {
+    setIsTopMenuActive(!isTopMenuActive)
+    setIsTopMenuNoActive(true)
+  }
+  const onClickOpenTopMenu = () => {
+    setIsTopMenuActive(true)
+    setIsTopMenuNoActive(false)
+  }
 
   const location = useLocation()
   const { pathname: currentPath } = location
@@ -107,13 +117,14 @@ const App = () => {
           <TopMenu
             onClickLink={onClickLinkInTopMenu}
             isActive={isTopMenuActive}
-            onClick={() => setIsTopMenuActive(false)}
+            isTopMenuNoActive={isTopMenuNoActive}
+            onClickBtnClose={handlerTopMenu}
           />
           <Header
             onClickSignInButton={onClickSignInButton}
             loggedIn={loggedIn}
             onClickSignOutButton={onClickSignOutButton}
-            onClickOpenTopMenu={() => setIsTopMenuActive(true)}
+            onClickOpenTopMenu={onClickOpenTopMenu}
           />
           <Switch>
             <Route exact path="/">

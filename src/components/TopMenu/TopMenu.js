@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './TopMenu.css'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import { itemsMenu } from '../../config/itemsTopMenu'
 import BlockMenu from './BlockMenu/BlockMenu'
 import SingleLink from '../UI/SingleLink/SingleLink'
 
-const TopMenu = ({ isActive, onClick, onClickLink }) => {
+const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) => {
   //console.log(itemsMenu)
   const arrAllTypeBlockMenu = itemsMenu.reduce((arr, item) => {
     if (!arr.includes(item.type)) {
@@ -18,10 +18,22 @@ const TopMenu = ({ isActive, onClick, onClickLink }) => {
     return arr
   }, [])
 
+  // useEffect(() => {
+  //   console.log(this)
+  // }, [])
+
   // console.log(arrAllTypeBlockMenu)
   return (
-    <section className={`top-menu ${isActive && "top-menu_active"}`}>
-      <CloseButton onClick={onClick} />
+    <section
+      className={
+        `top-menu
+        ${isActive && "top-menu_active"}
+        ${isTopMenuNoActive && "top-menu_no-active"}
+        `
+      }
+    // style={{ "animationPlayState": isActive && "running" }}
+    >
+      <CloseButton onClick={onClickBtnClose} />
       <div className="top-menu__blocks">
         {
           arrAllTypeBlockMenu.map((typeLinks) => {
@@ -33,9 +45,9 @@ const TopMenu = ({ isActive, onClick, onClickLink }) => {
 
       </div>
 
-      <Link to="/anti-corruption" className="top-menu__link" onClick={onClick}>противоднйствие коррупции</Link>
-      <Link to="/accessible" className="top-menu__link" onClick={onClick}>доступная среда</Link>
-      <Link to="/contacts" className="top-menu__link" onClick={onClick}>контакты</Link>
+      <Link to="/anti-corruption" className="top-menu__link" onClick={onClickBtnClose}>противоднйствие коррупции</Link>
+      <Link to="/accessible" className="top-menu__link" onClick={onClickBtnClose}>доступная среда</Link>
+      <Link to="/contacts" className="top-menu__link" onClick={onClickBtnClose}>контакты</Link>
 
       <div className="top-menu__social">
 
@@ -43,10 +55,10 @@ const TopMenu = ({ isActive, onClick, onClickLink }) => {
           name="Vkontakte"
           url="https://www.vk.com"
           place="top-menu"
-          onClick={onClick}
+          onClick={onClickBtnClose}
         />
         <SingleLink
-          onClick={onClick}
+          onClick={onClickBtnClose}
           name="Instagram"
           url="https://www.instagram.com/?hl=ru"
           place="top-menu"
