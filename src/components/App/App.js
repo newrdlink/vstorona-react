@@ -28,6 +28,8 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({})
   const [isTopMenuActive, setIsTopMenuActive] = useState(false)
 
+  const onClickLinkInTopMenu = () => setIsTopMenuActive(false)
+
   const location = useLocation()
   const { pathname: currentPath } = location
 
@@ -103,6 +105,7 @@ const App = () => {
       <div className="root">
         <div className="app">
           <TopMenu
+            onClickLink={onClickLinkInTopMenu}
             isActive={isTopMenuActive}
             onClick={() => setIsTopMenuActive(false)}
           />
