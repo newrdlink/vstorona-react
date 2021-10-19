@@ -7,3 +7,12 @@
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
 }
+
+.single-link_place_contacts-main {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #442836;
+}

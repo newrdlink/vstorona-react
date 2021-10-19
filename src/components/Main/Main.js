@@ -12,6 +12,8 @@ import apiNews from '../../utils/ApiNews'
 import apiDance from '../../utils/ApiDance'
 import { getToken } from '../../utils/Token'
 
+import ContactsMain from './ContactsMain/ContactsMain'
+
 const Main = ({ currentPath, loggedIn }) => {
 
   const [eventsList, setEventsList] = useState([])
@@ -101,6 +103,8 @@ const Main = ({ currentPath, loggedIn }) => {
       <DanceMain
         danceInfo={dancePage}
       />
+
+      <ContactsMain />
 
     </main>
   )
