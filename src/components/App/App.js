@@ -19,11 +19,26 @@ import Services from '../Pages/Services/Services'
 import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
 
+import TopMenu from '../TopMenu/TopMenu';
+
 const App = () => {
   // const history = useHistory()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [isTopMenuActive, setIsTopMenuActive] = useState(false)
+  const [isTopMenuNoActive, setIsTopMenuNoActive] = useState(false)
+
+  const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
+
+  const handlerTopMenu = () => {
+    setIsTopMenuActive(!isTopMenuActive)
+    setIsTopMenuNoActive(true)
+  }
+  const onClickOpenTopMenu = () => {
+    setIsTopMenuActive(true)
+    setIsTopMenuNoActive(false)
+  }
 
   const location = useLocation()
   const { pathname: currentPath } = location
@@ -99,10 +114,17 @@ const App = () => {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="root">
         <div className="app">
+          <TopMenu
+            onClickLink={onClickLinkInTopMenu}
+            isActive={isTopMenuActive}
+            isTopMenuNoActive={isTopMenuNoActive}
+            onClickBtnClose={handlerTopMenu}
+          />
           <Header
             onClickSignInButton={onClickSignInButton}
             loggedIn={loggedIn}
             onClickSignOutButton={onClickSignOutButton}
+            onClickOpenTopMenu={onClickOpenTopMenu}
           />
           <Switch>
             <Route exact path="/">

@@ -1,9 +1,10 @@
 import React from 'react'
 import './RightMenuButton.css'
 
-const RightMenuButton = () => <button className="right-menu-button">
-  <svg width="27" height="16" fill="none">
-    <path d="M26.73 0H0.27C0.1215 0 0 0.0818182 0 
+const RightMenuButton = ({ onClickOpenTopMenu }) =>
+  <button className="right-menu-button" onClick={onClickOpenTopMenu}>
+    {/* <svg width="27" height="16" fill="none">
+      <path d="M26.73 0H0.27C0.1215 0 0 0.0818182 0 
     0.181818V1.63636C0 1.73636 0.1215 1.81818 0.27 
     1.81818H26.73C26.8785 1.81818 27 1.73636 27 
     1.63636V0.181818C27 0.0818182 26.8785 0 26.73 
@@ -15,7 +16,8 @@ const RightMenuButton = () => <button className="right-menu-button">
     8.82727 0.1215 8.90909 0.27 8.90909H26.73C26.8785 8.90909 
     27 8.82727 27 8.72727V7.27273C27 7.17273 26.8785 7.09091 
     26.73 7.09091Z" fill="white" />
-  </svg>
-</button>
+    </svg> */}
+    <span className="right-menu-button__span"></span>
+  </button>
 
 export default RightMenuButton

@@ -1,0 +1,25 @@
+.tel-item__title {
+  margin: 0 0 10px 0;
+  max-width: 120px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;  
+  color: #974269;
+}
+
+.tel-item__number {
+  margin: 0;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 146.4%;
+  color: #442836;
+}
+
+.tel-item_place_days {
+  margin-left: 145px;
+}

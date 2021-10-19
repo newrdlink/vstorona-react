@@ -10,7 +10,7 @@ import SearchButton from '../Buttons/SearchButton/SearchButton'
 import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
 
 
-const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton }) => {
+const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton, onClickOpenTopMenu }) => {
 
 
   return (
@@ -27,7 +27,9 @@ const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton }) => {
           onClickSignOutButton={onClickSignOutButton}
         />
         <SearchButton />
-        <RightMenuButton />
+        <RightMenuButton
+          onClickOpenTopMenu={onClickOpenTopMenu}
+        />
       </div>
     </header>
   )

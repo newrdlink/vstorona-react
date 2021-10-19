@@ -31,7 +31,7 @@
   line-height: 29px;
   text-transform: uppercase;
   color: #442836;
-  margin: 0 24px 190px 0;
+  margin: 0 0 190px 0;
 }
 
 .dance-main__title::after {
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 24px;
+  /* margin-right: 24px; */
 }
 
 .dance-main__work-info::after {
