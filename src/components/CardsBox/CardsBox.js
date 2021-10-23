@@ -3,22 +3,23 @@ import './CardsBox.css'
 import Card from '../Card/Card'
 // import { useRouteMatch } from 'react-router-dom'
 
-const CardsBox = ({ arrayCards, currentPath = "", place = "" }) => {
+const CardsBox = ({ arrayCards, currentPath = "", place = "", onClickHandler }) => {
   const currentPlace = currentPath.slice(1)
   // let { path } = useRouteMatch()
-
   // console.log(currentPlace)
+  // console.log(arrayCards)
   return (
     <ul className={`card-box card-box_place_${currentPlace || place}`}>
       {
         arrayCards.map((item) => {
-          const { id, name, path, image } = item
+          const { id, name, path, image, _id } = item
           return <Card
-            key={id}
+            onClickHandler={onClickHandler}
+            key={id || _id}
             name={name}
             pathName={path}
             image={image}
-            id={id}
+            id={id || _id}
             currentPlace={currentPlace}
             place={place}
           />

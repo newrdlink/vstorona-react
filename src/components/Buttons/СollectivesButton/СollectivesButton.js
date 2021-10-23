@@ -1,6 +1,6 @@
 import React from 'react'
 import './СollectivesButton.css'
 
-const СollectivesButton = () => <button type="button" className="collectives">творческие коллективы</button>
+const СollectivesButton = ({ onClick }) => <button type="button" className="collectives-btn" onClick={onClick} >творческие коллективы</button>
 
 export default СollectivesButton

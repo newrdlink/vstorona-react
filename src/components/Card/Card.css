@@ -3,7 +3,9 @@
   width: 352px;
   height: 352px;
   margin-bottom: 24px;
+  /* white-space: wrap; */
   /* overflow: hidden; */
+  overflow-wrap: anywhere;
 }
 
 .card_place_services {
@@ -68,6 +70,7 @@
 }
 
 .card__link {
+
   position: relative;
   left: 104px;
   top: -160px;
@@ -82,6 +85,16 @@
   color: #974269;
   z-index: 3;
   transition: color ease-in .45s;
+}
+
+.card__link_place_collectives {
+  /* display: block; */
+  /* margin: 0;
+  padding: 0;
+  top: 200px;
+  left: 107px; */
+  word-wrap: break-word ;
+  text-decoration: none;
 }
 
 .card:hover .card__link {

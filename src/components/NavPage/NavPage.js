@@ -4,6 +4,10 @@ import './NavPage.css'
 
 import { getEvent } from '../../utils/currentEvent'
 import { getNews } from '../../utils/currentNews'
+import { getCollective } from '../../utils/currentCollective'
+
+import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
+
 
 const NavPage = ({ currentPath }) => {
 
@@ -11,11 +15,18 @@ const NavPage = ({ currentPath }) => {
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
+  const isCollectivePage = () => strReverseForEvent(currentPath) === 24 && currentPath.includes("collectives")
+  // console.log(isCollectivePage())
+
+
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
-  // console.log(news)
+  const collective = getCollective() || { name: "" }
+  console.log(getTypeCollectiveFromTypeRus(collective.type))
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
+  const collectiveTitle = () => collective.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
+  // console.log(getCollective())
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -24,6 +35,7 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
     (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
+
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -181,6 +193,41 @@ const NavPage = ({ currentPath }) => {
         v.path = '/news/add-news'
         obj.push(v)
         break
+      case 'collectives':
+        let w = {}
+        w.id = 23
+        w.name = 'творческие коллективы  '
+        w.path = '/collectives'
+        obj.push(w)
+        break
+      case 'folk':
+        let x = {}
+        x.id = 24
+        x.name = 'народные и образцовые '
+        x.path = '/collectives/folk'
+        obj.push(x)
+        break
+      case 'kids':
+        let y = {}
+        y.id = 25
+        y.name = 'для детей '
+        y.path = '/collectives/kids'
+        obj.push(y)
+        break
+      case 'adult':
+        let z = {}
+        z.id = 26
+        z.name = 'для взрослых '
+        z.path = '/collectives/adult'
+        obj.push(z)
+        break
+      case 'young':
+        let zz = {}
+        zz.id = 27
+        zz.name = 'для молодёжи '
+        zz.path = '/collectives/young'
+        obj.push(zz)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
@@ -194,6 +241,13 @@ const NavPage = ({ currentPath }) => {
         dinamicNews.name = `${newsTitle()} `
         dinamicNews.path = `/news/${news._id}`
         obj.push(dinamicNews)
+        break
+      case `${collective._id}`:
+        let dinamicCollective = {}
+        dinamicCollective.id = 300
+        dinamicCollective.name = `${collectiveTitle()}`
+        dinamicCollective.path = `/collectives/${getTypeCollectiveFromTypeRus(collective.type)}/${collective._id}`
+        obj.push(dinamicCollective)
         break
       default:
     }
@@ -209,7 +263,7 @@ const NavPage = ({ currentPath }) => {
               exact
               to={item.path}
               className={`nav-page__link ${isHallPage && "nav-page__link_place_hall"}`}
-              activeClassName={`nav-page__link_active ${isHallPage && "nav-page__link_active_place_hall"}`}>
+              activeClassName={`nav-page__link_active ${isHallPage && "nav-page__link_active_place_hall"} ${isCollectivePage() && "nav-page__link_active_place_hall"}`}>
               {
                 item.name + (item.path === currentPath ? '' : '/')
               }

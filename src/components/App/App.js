@@ -19,15 +19,24 @@ import Services from '../Pages/Services/Services'
 import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
 
-import TopMenu from '../TopMenu/TopMenu';
+import TopMenu from '../TopMenu/TopMenu'
+import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives';
+import { collectivesItems } from '../../config/temp/collectivesItems';
+import Collectives from '../Pages/Collectives/Collectives';
 
 const App = () => {
   // const history = useHistory()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+
   const [isTopMenuActive, setIsTopMenuActive] = useState(false)
   const [isTopMenuNoActive, setIsTopMenuNoActive] = useState(false)
+
+  const [isMenuCollActive, setIsMenuCollActive] = useState(false)
+  const [isMenuCollNoActive, setIsMenuCollNoActive] = useState(false)
+
+
 
   const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
 
@@ -35,9 +44,21 @@ const App = () => {
     setIsTopMenuActive(!isTopMenuActive)
     setIsTopMenuNoActive(true)
   }
+
+  const handlerCollMenu = () => {
+    setIsMenuCollActive(false)
+    setIsMenuCollNoActive(true)
+  }
+
+
   const onClickOpenTopMenu = () => {
     setIsTopMenuActive(true)
     setIsTopMenuNoActive(false)
+  }
+
+  const onClickOpenCollMenu = () => {
+    setIsMenuCollActive(true)
+    setIsMenuCollNoActive(false)
   }
 
   const location = useLocation()
@@ -120,11 +141,17 @@ const App = () => {
             isTopMenuNoActive={isTopMenuNoActive}
             onClickBtnClose={handlerTopMenu}
           />
+          <TopMenuCollectives
+            isActive={isMenuCollActive}
+            isNoActive={isMenuCollNoActive}
+            onClickBtnClose={handlerCollMenu}
+          />
           <Header
             onClickSignInButton={onClickSignInButton}
             loggedIn={loggedIn}
             onClickSignOutButton={onClickSignOutButton}
             onClickOpenTopMenu={onClickOpenTopMenu}
+            onClickOpenCollMenu={onClickOpenCollMenu}
           />
           <Switch>
             <Route exact path="/">
@@ -157,6 +184,15 @@ const App = () => {
                 loggedIn={loggedIn}
               />
             </Route>
+
+            <Route path="/collectives">
+              <Collectives
+                currentPath={currentPath}
+                loggedIn={loggedIn}
+                collectivesItems={collectivesItems}
+              />
+            </Route>
+
           </Switch>
           <Footer />
           <SignIn
