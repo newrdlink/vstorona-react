@@ -2,19 +2,19 @@ import React from 'react'
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import './Card.css'
 
-const Card = ({ name, pathName, image, id, currentPlace, place, onClickHandler = false }) => {
+const Card = ({ name, pathName, image, id, currentPlace, place, onClickHandler = false, pos }) => {
 
   const { path, url } = useRouteMatch()
   // console.log(1, currentPlace)
   // console.log(path + pathName)
   // console.log(currentPlace)
-  // console.log(id)
+  // console.log(pathName)
   return (
     <li className={`card card_place_${currentPlace || place}`}>
       <img alt="name" src={image} className={`card__image card__image_place_${place}`} />
-      <h4 className="card__number">{`${'0' + id}`}</h4>
+      <h4 className="card__number">{`${'0' + pos}`}</h4>
       <NavLink
-        onClick={onClickHandler ? () => onClickHandler(id) : null}
+        onClick={onClickHandler ? (evt) => onClickHandler(evt) : null}
         className={`card__link card__link_place_${place}`}
         to={url + (pathName || ('/' + id))}>
         {name}

@@ -4,8 +4,11 @@ import './TopMenuCollectives.css'
 import CloseButton from '../TopMenu/CloseButton/CloseButton'
 import SingleLink from '../UI/SingleLink/SingleLink'
 
-const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose }) => {
+import BlocksMenuColl from './BlocksMenuColl/BlocksMenuColl'
 
+const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectivesItems }) => {
+
+  console.log(collectivesItems)
   return (
     <section
       className={
@@ -17,6 +20,7 @@ const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose }) => {
     // style={{ "animationPlayState": isActive && "running" }}
     >
       <CloseButton onClick={onClickBtnClose} />
+      <BlocksMenuColl />
 
 
       {/* <div className="top-menu__blocks">

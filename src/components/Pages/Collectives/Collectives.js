@@ -7,14 +7,13 @@ import addPath from '../../../helpers/createPathForCollIcons'
 import addImagePath from '../../../helpers/createImagePathForCollIcons'
 import NavPage from '../../NavPage/NavPage'
 
-import SubtypeCollectives from './SubtypeCollectives/SubtypeCollectives'
+import TypesCollectives from './TypesCollectives/TypesCollectives'
 
 const Collectives = ({ collectivesItems = [], currentPath }) => {
   // console.log(collectivesItems)
   let i = 1
   const typesCollectives = collectivesItems.reduce((arr, item) => {
     const typeCollective = item.type
-
     // console.log(typeCollective)
     if (!arr.find((item) => item.type === typeCollective)) {
       const obj = {}
@@ -52,7 +51,7 @@ const Collectives = ({ collectivesItems = [], currentPath }) => {
         </Route>
 
         <Route path="/collectives/:type">
-          <SubtypeCollectives
+          <TypesCollectives
             currentPath={currentPath}
             collectivesItems={collectivesItems}
           />

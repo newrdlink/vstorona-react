@@ -14,7 +14,7 @@ import { getToken } from '../../utils/Token'
 
 import ContactsMain from './ContactsMain/ContactsMain'
 
-const Main = ({ currentPath, loggedIn }) => {
+const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
 
   const [eventsList, setEventsList] = useState([])
   const [newsAllList, setNewsAllList] = useState([])
@@ -83,11 +83,19 @@ const Main = ({ currentPath, loggedIn }) => {
       .catch((error) => console.log(error))
   }
 
+  const onClickLinkInCard = (evt) => {
+    evt.preventDefault()
+    // console.log(1)
+    openCollectiveMenu()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <main className="main">
       <Intro />
       <ActivityMain
         currentPath={currentPath}
+        onClickHandler={onClickLinkInCard}
       />
       <NewsMain
         newsList={newsAllList.reverse().slice(0, 4)}

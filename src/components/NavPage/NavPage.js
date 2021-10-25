@@ -15,17 +15,30 @@ const NavPage = ({ currentPath }) => {
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
-  const isCollectivePage = () => strReverseForEvent(currentPath) === 24 && currentPath.includes("collectives")
+  // const isCollectivePage = () => isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("collectives")
   // console.log(isCollectivePage())
 
 
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
   const collective = getCollective() || { name: "" }
-  console.log(getTypeCollectiveFromTypeRus(collective.type))
+
+  // console.log(`/collectives${getTypeCollectiveFromTypeRus(collective.type)}/crafts/${collective._id}` === currentPath)
+  // console.log(`/collectives${getTypeCollectiveFromTypeRus(collective.type)}/${collective._id}`)
+  // console.log(currentPath)
+
+
+  const isAdultCategory = arrStr.find((el) => el === "adult")
+  const isYoungCategory = arrStr.find((el) => el === "young")
+  // console.log(isAdultCategory)
+
+  // console.log(getTypeCollectiveFromTypeRus(collective.type))
+  // console.log(strReverseForEvent(currentPath))
+  // console.log(currentPath)
+
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
-  const collectiveTitle = () => collective.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
+  const collectiveTitle = () => collective?.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
   // console.log(getCollective())
 
   const isHallPage = currentPath.endsWith('showroom') ||
@@ -221,12 +234,54 @@ const NavPage = ({ currentPath }) => {
         z.path = '/collectives/adult'
         obj.push(z)
         break
+      // case 'crafts':
+      //   let tt = {}
+      //   z.id = 26
+      //   z.name = 'для взрослых '
+      //   z.path = '/collectives/adult'
+      //   obj.push(z)
+      //   break
       case 'young':
         let zz = {}
         zz.id = 27
         zz.name = 'для молодёжи '
         zz.path = '/collectives/young'
         obj.push(zz)
+        break
+      case 'crafts':
+        let yy = {}
+        yy.id = 28
+        yy.name = 'декоративно-прикладное творчество '
+        yy.path = `/collectives/${isAdultCategory ? "adult" : "kids"}/crafts`
+        obj.push(yy)
+        break
+      case 'dances':
+        let xx = {}
+        xx.id = 29
+        xx.name = 'танцевальные '
+        xx.path = '/collectives/kids/dances'
+        obj.push(xx)
+        break
+      case 'vocal':
+        let ww = {}
+        ww.id = 30
+        ww.name = 'вокальные '
+        ww.path = `/collectives/${isYoungCategory ? "young" : "kids"}/vocal`
+        obj.push(ww)
+        break
+      case 'theatrical':
+        let vv = {}
+        vv.id = 31
+        vv.name = 'театральные '
+        vv.path = '/collectives/kids/theatrical'
+        obj.push(vv)
+        break
+      case 'art':
+        let uu = {}
+        uu.id = 32
+        uu.name = 'изобразительное искусство '
+        uu.path = '/collectives/kids/art'
+        obj.push(uu)
         break
       case `${event._id}`:
         let dinamic = {}
@@ -246,7 +301,7 @@ const NavPage = ({ currentPath }) => {
         let dinamicCollective = {}
         dinamicCollective.id = 300
         dinamicCollective.name = `${collectiveTitle()}`
-        dinamicCollective.path = `/collectives/${getTypeCollectiveFromTypeRus(collective.type)}/${collective._id}`
+        dinamicCollective.path = `/collectives${getTypeCollectiveFromTypeRus(collective.type)}/crafts/${collective._id}`
         obj.push(dinamicCollective)
         break
       default:
@@ -263,7 +318,7 @@ const NavPage = ({ currentPath }) => {
               exact
               to={item.path}
               className={`nav-page__link ${isHallPage && "nav-page__link_place_hall"}`}
-              activeClassName={`nav-page__link_active ${isHallPage && "nav-page__link_active_place_hall"} ${isCollectivePage() && "nav-page__link_active_place_hall"}`}>
+              activeClassName={`nav-page__link_active ${isHallPage && "nav-page__link_active_place_hall"}`}>
               {
                 item.name + (item.path === currentPath ? '' : '/')
               }

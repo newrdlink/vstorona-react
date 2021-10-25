@@ -22,10 +22,9 @@ import News from '../Pages/News/News'
 import TopMenu from '../TopMenu/TopMenu'
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives';
 import { collectivesItems } from '../../config/temp/collectivesItems';
-import Collectives from '../Pages/Collectives/Collectives';
+// import Collectives from '../Pages/Collectives/Collectives';
 
 const App = () => {
-  // const history = useHistory()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
@@ -35,8 +34,6 @@ const App = () => {
 
   const [isMenuCollActive, setIsMenuCollActive] = useState(false)
   const [isMenuCollNoActive, setIsMenuCollNoActive] = useState(false)
-
-
 
   const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
 
@@ -83,6 +80,7 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => setErrorResponse(''), 5000)
+
   }, [errorResponse])
 
   const onClickSignInButton = () => {
@@ -145,6 +143,7 @@ const App = () => {
             isActive={isMenuCollActive}
             isNoActive={isMenuCollNoActive}
             onClickBtnClose={handlerCollMenu}
+            collectivesItems={collectivesItems}
           />
           <Header
             onClickSignInButton={onClickSignInButton}
@@ -158,6 +157,7 @@ const App = () => {
               <Main
                 currentPath={currentPath}
                 loggedIn={loggedIn}
+                openCollectiveMenu={onClickOpenCollMenu}
               />
             </Route>
             <Route path="/about">
@@ -185,13 +185,13 @@ const App = () => {
               />
             </Route>
 
-            <Route path="/collectives">
+            {/* <Route path="/collectives">
               <Collectives
                 currentPath={currentPath}
                 loggedIn={loggedIn}
                 collectivesItems={collectivesItems}
               />
-            </Route>
+            </Route> */}
 
           </Switch>
           <Footer />
