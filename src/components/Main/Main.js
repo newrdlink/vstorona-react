@@ -84,7 +84,7 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
   }
 
   const onClickLinkInCard = (evt) => {
-    // console.log(evt.target.innerText.toLowerCase() === "творческие коллективы")
+    // console.log("press on card link")
     if (evt.target.innerText.toLowerCase() === "творческие коллективы") {
       evt.preventDefault()
       window.scrollTo({ top: 0, behavior: 'smooth' })

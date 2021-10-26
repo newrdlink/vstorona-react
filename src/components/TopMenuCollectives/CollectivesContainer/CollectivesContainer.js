@@ -16,7 +16,9 @@ const CollectivesContainer = ({ collectivesItems = [] }) => {
 
   return (
     <div className="collectives-container">
-      <TypeCollectives collectiveItems={chosenColectives} type="народные и образцовые" />
+      <TypeCollectives
+        collectiveItems={chosenColectives}
+        type="народные и образцовые" />
       {
         typesCollective.map((collectives) => {
           const arr = collectivesItems.filter(col => col.type === collectives)
