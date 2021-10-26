@@ -5,10 +5,7 @@ import './Card.css'
 const Card = ({ name, pathName, image, id, currentPlace, place, onClickHandler = false, pos }) => {
 
   const { path, url } = useRouteMatch()
-  // console.log(1, currentPlace)
-  // console.log(path + pathName)
-  // console.log(currentPlace)
-  // console.log(pathName)
+
   return (
     <li className={`card card_place_${currentPlace || place}`}>
       <img alt="name" src={image} className={`card__image card__image_place_${place}`} />
