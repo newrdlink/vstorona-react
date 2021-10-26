@@ -4,23 +4,18 @@ import './TopMenuCollectives.css'
 import CloseButton from '../TopMenu/CloseButton/CloseButton'
 import SingleLink from '../UI/SingleLink/SingleLink'
 
-import BlocksMenuColl from './BlocksMenuColl/BlocksMenuColl'
+import CollectivesContainer from './CollectivesContainer/CollectivesContainer'
 
 const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectivesItems }) => {
 
-  console.log(collectivesItems)
+  // console.log(collectivesItems)
   return (
     <section
-      className={
-        `top-menu
-        ${isActive && "top-menu_active"}
-        ${isNoActive && "top-menu_no-active"}
-        `
-      }
-    // style={{ "animationPlayState": isActive && "running" }}
-    >
+      className={`top-menu ${isActive && "top-menu_active"} ${isNoActive && "top-menu_no-active"}`}>
       <CloseButton onClick={onClickBtnClose} />
-      <BlocksMenuColl />
+      <CollectivesContainer
+        collectivesItems={collectivesItems}
+      />
 
 
       {/* <div className="top-menu__blocks">

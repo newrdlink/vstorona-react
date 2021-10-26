@@ -85,9 +85,9 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
 
   const onClickLinkInCard = (evt) => {
     evt.preventDefault()
-    // console.log(1)
-    openCollectiveMenu()
+    // console.log(1)    
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    setTimeout(() => openCollectiveMenu(), 450)
   }
 
   return (
