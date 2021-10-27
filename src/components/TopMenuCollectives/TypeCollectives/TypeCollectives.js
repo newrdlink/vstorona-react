@@ -5,7 +5,7 @@ import React from 'react'
 import './TypeCollectives.css'
 import SubtypeCollectives from '../SubtypeCollectives/SubtypeCollectives'
 
-const TypeCollectives = ({ collectiveItems = [], type }) => {
+const TypeCollectives = ({ collectiveItems = [], type, onClickLink }) => {
 
   const subType = collectiveItems?.[0]?.type
   // console.log(collectiveItems)
@@ -29,15 +29,15 @@ const TypeCollectives = ({ collectiveItems = [], type }) => {
       {
         type ?
           <ul className="type-collectives__items">
-            <SubtypeCollectives arrSubtype={childArr} chosen="Детские" />
-            <SubtypeCollectives arrSubtype={adultArr} chosen="Взрослые" />
+            <SubtypeCollectives arrSubtype={childArr} chosen="Образцовые" onClickLink={onClickLink} />
+            <SubtypeCollectives arrSubtype={adultArr} chosen="Народные" onClickLink={onClickLink} />
           </ul> :
           <ul className="type-collectives__items">
             {
               subtypesCollective.map((item) => {
                 const arr = collectiveItems.filter((el) => el.subtype === item)
                 // console.log(arr)
-                return <SubtypeCollectives key={item} arrSubtype={arr} />
+                return <SubtypeCollectives key={item} arrSubtype={arr} onClickLink={onClickLink} />
               })
             }
           </ul>

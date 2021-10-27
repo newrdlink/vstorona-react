@@ -20,9 +20,9 @@ import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
 
 import TopMenu from '../TopMenu/TopMenu'
-import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives';
-import { collectivesItems } from '../../config/temp/collectivesItems';
-// import Collectives from '../Pages/Collectives/Collectives';
+import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
+import { collectivesItems } from '../../config/temp/collectivesItems'
+import Collectives from '../Pages/Collectives/Collectives'
 
 const App = () => {
 
@@ -46,7 +46,6 @@ const App = () => {
     setIsMenuCollActive(false)
     setIsMenuCollNoActive(true)
   }
-
 
   const onClickOpenTopMenu = () => {
     setIsTopMenuActive(true)
@@ -144,6 +143,7 @@ const App = () => {
             isNoActive={isMenuCollNoActive}
             onClickBtnClose={handlerCollMenu}
             collectivesItems={collectivesItems}
+          // onClickLinkCollective={onClickLinkCollective}
           />
           <Header
             onClickSignInButton={onClickSignInButton}
@@ -185,13 +185,13 @@ const App = () => {
               />
             </Route>
 
-            {/* <Route path="/collectives">
+            <Route path="/collectives">
               <Collectives
                 currentPath={currentPath}
                 loggedIn={loggedIn}
                 collectivesItems={collectivesItems}
               />
-            </Route> */}
+            </Route>
 
           </Switch>
           <Footer />

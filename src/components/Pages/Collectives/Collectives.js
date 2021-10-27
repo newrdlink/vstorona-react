@@ -1,38 +1,15 @@
 import React from 'react'
 import './Collectives.css'
 import { Switch, Route } from 'react-router'
-import CardsBox from '../../CardsBox/CardsBox'
+// import CardsBox from '../../CardsBox/CardsBox'
 
-import addPath from '../../../helpers/createPathForCollIcons'
-import addImagePath from '../../../helpers/createImagePathForCollIcons'
+// import addPath from '../../../helpers/createPathForCollIcons'
+// import addImagePath from '../../../helpers/createImagePathForCollIcons'
 import NavPage from '../../NavPage/NavPage'
-
-import TypesCollectives from './TypesCollectives/TypesCollectives'
+import CollectivePage from '../Collectives/CollectivePage/CollectivePage'
 
 const Collectives = ({ collectivesItems = [], currentPath }) => {
   // console.log(collectivesItems)
-  let i = 1
-  const typesCollectives = collectivesItems.reduce((arr, item) => {
-    const typeCollective = item.type
-    // console.log(typeCollective)
-    if (!arr.find((item) => item.type === typeCollective)) {
-      const obj = {}
-      obj["type"] = item.type
-      obj["id"] = i
-      obj["name"] = item.type
-      obj["path"] = addPath(item.type)
-      obj["image"] = addImagePath(item.type)
-
-      obj["pathName"] = addPath(item.type)
-
-      i++
-      arr.push(obj)
-    }
-    return arr
-  }, [])
-
-
-
   // console.log(typesCollectives)
   return (
     <section className="collectives">
@@ -43,18 +20,15 @@ const Collectives = ({ collectivesItems = [], currentPath }) => {
       <Switch>
 
         <Route exact path="/collectives">
-          <CardsBox
+          <p>Ссылка на спсиок коллективов вверху</p>
+          {/* <CardsBox
             arrayCards={typesCollectives}
             currentPath={currentPath}
             place="collectives"
-          />
+          /> */}
         </Route>
-
-        <Route path="/collectives/:type">
-          <TypesCollectives
-            currentPath={currentPath}
-            collectivesItems={collectivesItems}
-          />
+        <Route path="/collectives/:id">
+          <CollectivePage collectivesItems={collectivesItems} />
         </Route>
 
       </Switch>

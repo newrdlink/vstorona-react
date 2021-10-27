@@ -1,40 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './NavPage.css'
 
 import { getEvent } from '../../utils/currentEvent'
 import { getNews } from '../../utils/currentNews'
 import { getCollective } from '../../utils/currentCollective'
-
-import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
-
-
+// import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
-
+  const [upDate, setUpDate] = useState(false)
   const arrStr = currentPath.split('/')
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
-  // const isCollectivePage = () => isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("collectives")
-  // console.log(isCollectivePage())
-
 
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
   const collective = getCollective() || { name: "" }
-
-  // console.log(`/collectives${getTypeCollectiveFromTypeRus(collective.type)}/crafts/${collective._id}` === currentPath)
-  // console.log(`/collectives${getTypeCollectiveFromTypeRus(collective.type)}/${collective._id}`)
-  // console.log(currentPath)
-
-
-  const isAdultCategory = arrStr.find((el) => el === "adult")
-  const isYoungCategory = arrStr.find((el) => el === "young")
-  // console.log(isAdultCategory)
-
-  // console.log(getTypeCollectiveFromTypeRus(collective.type))
-  // console.log(strReverseForEvent(currentPath))
-  // console.log(currentPath)
 
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
@@ -49,6 +30,13 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('dance') ||
     (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
 
+
+  useEffect(() => {
+    // console.log(`/collectives/${collective._id}`)
+    if (!collective._id) {
+      setTimeout(() => setUpDate(true))
+    }
+  }, [collective._id])
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -213,76 +201,6 @@ const NavPage = ({ currentPath }) => {
         w.path = '/collectives'
         obj.push(w)
         break
-      case 'folk':
-        let x = {}
-        x.id = 24
-        x.name = 'народные и образцовые '
-        x.path = '/collectives/folk'
-        obj.push(x)
-        break
-      case 'kids':
-        let y = {}
-        y.id = 25
-        y.name = 'для детей '
-        y.path = '/collectives/kids'
-        obj.push(y)
-        break
-      case 'adult':
-        let z = {}
-        z.id = 26
-        z.name = 'для взрослых '
-        z.path = '/collectives/adult'
-        obj.push(z)
-        break
-      // case 'crafts':
-      //   let tt = {}
-      //   z.id = 26
-      //   z.name = 'для взрослых '
-      //   z.path = '/collectives/adult'
-      //   obj.push(z)
-      //   break
-      case 'young':
-        let zz = {}
-        zz.id = 27
-        zz.name = 'для молодёжи '
-        zz.path = '/collectives/young'
-        obj.push(zz)
-        break
-      case 'crafts':
-        let yy = {}
-        yy.id = 28
-        yy.name = 'декоративно-прикладное творчество '
-        yy.path = `/collectives/${isAdultCategory ? "adult" : "kids"}/crafts`
-        obj.push(yy)
-        break
-      case 'dances':
-        let xx = {}
-        xx.id = 29
-        xx.name = 'танцевальные '
-        xx.path = '/collectives/kids/dances'
-        obj.push(xx)
-        break
-      case 'vocal':
-        let ww = {}
-        ww.id = 30
-        ww.name = 'вокальные '
-        ww.path = `/collectives/${isYoungCategory ? "young" : "kids"}/vocal`
-        obj.push(ww)
-        break
-      case 'theatrical':
-        let vv = {}
-        vv.id = 31
-        vv.name = 'театральные '
-        vv.path = '/collectives/kids/theatrical'
-        obj.push(vv)
-        break
-      case 'art':
-        let uu = {}
-        uu.id = 32
-        uu.name = 'изобразительное искусство '
-        uu.path = '/collectives/kids/art'
-        obj.push(uu)
-        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
@@ -301,7 +219,7 @@ const NavPage = ({ currentPath }) => {
         let dinamicCollective = {}
         dinamicCollective.id = 300
         dinamicCollective.name = `${collectiveTitle()}`
-        dinamicCollective.path = `/collectives${getTypeCollectiveFromTypeRus(collective.type)}/crafts/${collective._id}`
+        dinamicCollective.path = `/collectives/${collective._id}`
         obj.push(dinamicCollective)
         break
       default:

@@ -15,6 +15,7 @@ const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectives
       <CloseButton onClick={onClickBtnClose} />
       <CollectivesContainer
         collectivesItems={collectivesItems}
+        onClickLink={onClickBtnClose}
       />
 
 
