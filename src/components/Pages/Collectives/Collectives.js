@@ -10,7 +10,7 @@ import CollectivePage from '../Collectives/CollectivePage/CollectivePage'
 
 const Collectives = ({ collectivesItems = [], currentPath }) => {
   // console.log(collectivesItems)
-  // console.log(typesCollectives)
+  // console.log(collectivesItems)
   return (
     <section className="collectives">
       <NavPage

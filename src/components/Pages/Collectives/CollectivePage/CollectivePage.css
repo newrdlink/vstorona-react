@@ -1,0 +1,24 @@
+.collective-page {
+  margin: -50px 0 0 0;
+}
+
+.collective-page__descriptions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collective-page__descriptions-info {
+  max-width: 730px;
+}
+
+.collective-page__title {
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #974269;
+}

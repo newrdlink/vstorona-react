@@ -4,16 +4,25 @@ import './CollectivePage.css'
 import { getCollective, setCollective } from '../../../../utils/currentCollective'
 
 import Carusel from '../../Services/Carusel/Carusel'
+import CollectiveSupervisor from './CollectiveSupervisor/CollectiveSupervisor'
 
 const CollectivePage = ({ collectivesItems }) => {
 
-  const [currentCollective, setCurrentCollective] = useState({})
+  const [currentCollective, setCurrentCollective] = useState({ images: [] })
   const { id } = useParams()
 
+  const { images, name } = currentCollective
+
+  const arrForCarusel = images.reduce((arr, item) => {
+    let obj = {}
+    obj.link = item
+    obj.name = "Фотография коллектива"
+    arr.push(obj)
+    return arr
+  }, [])
+
   useEffect(() => {
-
     const currentCollective = getCollective()
-
     if (!currentCollective) {
 
       const collective = collectivesItems.find(el => el._id === id)
@@ -25,7 +34,7 @@ const CollectivePage = ({ collectivesItems }) => {
   }, [collectivesItems, id])
 
   console.log(currentCollective)
-  const { name } = currentCollective
+  // const { name } = currentCollective
 
 
 
@@ -36,7 +45,16 @@ const CollectivePage = ({ collectivesItems }) => {
           <h1 className="collective-page__title">{name}</h1>
           <p className="collective-page__descroptions-item">описание</p>
         </div>
-        <Carusel place="collective" images={[]} />
+        <Carusel place="collective" images={arrForCarusel} />
+      </div>
+      <div className="collective-page__conditions">
+        <img src={images[0]} alt="Фотография педагога" />
+        <div>
+          <CollectiveSupervisor
+            info={currentCollective?.supervisor}
+            position={currentCollective?.position}
+          />
+        </div>
       </div>
     </main>
   )

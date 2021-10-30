@@ -10,6 +10,7 @@ import SignIn from '../UI/popups/SignIn/SignIn'
 import SignUp from '../UI/popups/SignUp/SignUp'
 
 import apiAuth from '../../utils/Auth'
+import apiCollectives from '../../utils/ApiCollectives'
 import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 // import { infoPages } from '../../config/infoPages';
@@ -34,6 +35,8 @@ const App = () => {
 
   const [isMenuCollActive, setIsMenuCollActive] = useState(false)
   const [isMenuCollNoActive, setIsMenuCollNoActive] = useState(false)
+
+  const [collectives, setCollectives] = useState([])
 
   const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
 
@@ -70,6 +73,10 @@ const App = () => {
         })
         .catch((error) => console.log(error))
     }
+
+    apiCollectives.getCollectives()
+      .then((collectives) => setCollectives(collectives))
+      .catch((error) => console.log(error))
   }, [])
 
   const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
@@ -142,7 +149,7 @@ const App = () => {
             isActive={isMenuCollActive}
             isNoActive={isMenuCollNoActive}
             onClickBtnClose={handlerCollMenu}
-            collectivesItems={collectivesItems}
+            collectivesItems={collectives}
           // onClickLinkCollective={onClickLinkCollective}
           />
           <Header
@@ -189,7 +196,7 @@ const App = () => {
               <Collectives
                 currentPath={currentPath}
                 loggedIn={loggedIn}
-                collectivesItems={collectivesItems}
+                collectivesItems={collectives}
               />
             </Route>
 
