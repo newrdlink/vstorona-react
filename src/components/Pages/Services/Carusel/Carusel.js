@@ -4,7 +4,7 @@ import './Carusel.css'
 import CaruselImage from './CaruselImage/CaruselImage'
 import BtnChangeImage from './BtnChangeImage/BtnChangeImage'
 
-const Carusel = ({ images, place }) => {
+const Carusel = ({ images = [], place }) => {
 
   const [count, setCount] = useState(0)
   const newArrImages = images.slice(1)
