@@ -22,7 +22,7 @@ import News from '../Pages/News/News'
 
 import TopMenu from '../TopMenu/TopMenu'
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
-import { collectivesItems } from '../../config/temp/collectivesItems'
+// import { collectivesItems } from '../../config/temp/collectivesItems'
 import Collectives from '../Pages/Collectives/Collectives'
 
 const App = () => {

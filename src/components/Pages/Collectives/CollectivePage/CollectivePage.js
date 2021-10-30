@@ -5,13 +5,17 @@ import { getCollective, setCollective } from '../../../../utils/currentCollectiv
 
 import Carusel from '../../Services/Carusel/Carusel'
 import CollectiveSupervisor from './CollectiveSupervisor/CollectiveSupervisor'
+import TimeLesson from './TimeLesson/TimeLesson'
+import Ages from './Ages/Ages'
+import SupervisorPhone from './SupervisorPhone/SupervisorPhone'
+import LessonPay from './LessonPay/LessonPay'
 
 const CollectivePage = ({ collectivesItems }) => {
 
   const [currentCollective, setCurrentCollective] = useState({ images: [] })
   const { id } = useParams()
 
-  const { images, name } = currentCollective
+  const { images, name, time, ageEnd, ageStart, phone } = currentCollective
 
   const arrForCarusel = images.reduce((arr, item) => {
     let obj = {}
@@ -48,12 +52,23 @@ const CollectivePage = ({ collectivesItems }) => {
         <Carusel place="collective" images={arrForCarusel} />
       </div>
       <div className="collective-page__conditions">
-        <img src={images[0]} alt="Фотография педагога" />
-        <div>
+        <img src={images[0]} alt="Фотография педагога" className="collective-page__image" />
+        <div className="collective-page__info">
           <CollectiveSupervisor
             info={currentCollective?.supervisor}
             position={currentCollective?.position}
           />
+          <TimeLesson
+            time={time}
+          />
+          <Ages
+            from={ageStart}
+            to={ageEnd}
+          />
+          <SupervisorPhone
+            phone={phone}
+          />
+          <LessonPay />
         </div>
       </div>
     </main>

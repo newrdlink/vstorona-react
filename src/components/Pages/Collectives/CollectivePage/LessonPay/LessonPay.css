@@ -1,0 +1,24 @@
+.lesson-pay {
+  min-width: 340px;
+}
+
+.lesson-pay__title {
+  margin: 0 0 27px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;  
+  text-transform: uppercase;  
+  color: #442836;  
+}
+
+.lesson-price {
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 146.4%;
+  color: #442836;
+}

@@ -1,0 +1,25 @@
+.time-lesson {
+  min-width: 340px;
+  margin-right: 25px;
+}
+
+.time-lesson__item {
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 146.4%;
+  color: #442836;
+}
+
+.time-lesson__title {
+  margin: 0 0 27px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #442836;
+}
