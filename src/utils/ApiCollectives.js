@@ -17,7 +17,7 @@ class Api extends React.Component {
   }
 
   getCollective(id) {
-    return fetch(`${this.address}/news/${id}`, {
+    return fetch(`${this.address}/collectives/${id}`, {
       method: "GET",
       headers: this.headres,
     })
@@ -26,7 +26,7 @@ class Api extends React.Component {
 
   createCollective(data, token) {
     // console.log(data)
-    return fetch(`${this.address}/news`, {
+    return fetch(`${this.address}/collectives`, {
       method: "POST",
       headers: {
         "Contetnt-Type": "multipart/form-data",

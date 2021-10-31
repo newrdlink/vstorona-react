@@ -6,7 +6,7 @@ import SingleLink from '../UI/SingleLink/SingleLink'
 
 import CollectivesContainer from './CollectivesContainer/CollectivesContainer'
 
-const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectivesItems }) => {
+const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectivesItems, onClickLink }) => {
 
   // console.log(collectivesItems)
   return (
@@ -15,7 +15,7 @@ const TopMenuCollectives = ({ isActive, isNoActive, onClickBtnClose, collectives
       <CloseButton onClick={onClickBtnClose} />
       <CollectivesContainer
         collectivesItems={collectivesItems}
-        onClickLink={onClickBtnClose}
+        onClickLink={onClickLink}
       />
 
 

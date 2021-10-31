@@ -38,16 +38,20 @@ const App = () => {
 
   const [collectives, setCollectives] = useState([])
 
-  const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
+  const onClickLinkInTopMenu = () => {
+    setIsTopMenuActive(false)
+    setIsMenuCollActive(false)
+    // console.log('click')
+  }
 
-  const handlerTopMenu = () => {
+  const handleTopMenu = () => {
     setIsTopMenuActive(!isTopMenuActive)
     setIsTopMenuNoActive(true)
   }
 
-  const handlerCollMenu = () => {
-    setIsMenuCollActive(false)
-    setIsMenuCollNoActive(true)
+  const handleCollMenu = () => {
+    setIsMenuCollActive(!isMenuCollActive)
+    setIsMenuCollNoActive(!isMenuCollNoActive)
   }
 
   const onClickOpenTopMenu = () => {
@@ -143,13 +147,15 @@ const App = () => {
             onClickLink={onClickLinkInTopMenu}
             isActive={isTopMenuActive}
             isTopMenuNoActive={isTopMenuNoActive}
-            onClickBtnClose={handlerTopMenu}
+            onClickBtnClose={handleTopMenu}
           />
           <TopMenuCollectives
             isActive={isMenuCollActive}
             isNoActive={isMenuCollNoActive}
-            onClickBtnClose={handlerCollMenu}
+            onClickBtnClose={handleCollMenu}
             collectivesItems={collectives}
+            onClickLink={onClickLinkInTopMenu}
+          // onClickLink={onClickLink}
           // onClickLinkCollective={onClickLinkCollective}
           />
           <Header

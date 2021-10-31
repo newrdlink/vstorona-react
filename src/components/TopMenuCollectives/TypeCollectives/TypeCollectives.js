@@ -1,14 +1,11 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
-// import CollectiveItem from '../CollectiveItem/CollectiveItem'
-
 import './TypeCollectives.css'
 import SubtypeCollectives from '../SubtypeCollectives/SubtypeCollectives'
+import renameTypeCollectives from '../../../helpers/renameTypeCollectives'
 
 const TypeCollectives = ({ collectiveItems = [], type, onClickLink }) => {
 
-  const subType = collectiveItems?.[0]?.type
-  // console.log(collectiveItems)
+  const engType = collectiveItems?.[0]?.type
 
   const subtypesCollective = collectiveItems.reduce((arr, el) => {
     if (!arr.find(item => item === el.subtype)) {
@@ -17,15 +14,12 @@ const TypeCollectives = ({ collectiveItems = [], type, onClickLink }) => {
     return arr
   }, [])
 
-
-  const childArr = collectiveItems.filter((el) => el.type === "Для детей")
-  const adultArr = collectiveItems.filter((el) => el.type === "Для взрослых")
+  const childArr = collectiveItems.filter((el) => el.type === "kids")
+  const adultArr = collectiveItems.filter((el) => el.type === "adults")
 
   return (
     <div className="type-collectives">
-      <h4 className="type-collectives__title">{type || subType}</h4>
-
-
+      <h4 className="type-collectives__title">{type || renameTypeCollectives(engType)}</h4>
       {
         type ?
           <ul className="type-collectives__items">
@@ -41,17 +35,7 @@ const TypeCollectives = ({ collectiveItems = [], type, onClickLink }) => {
               })
             }
           </ul>
-
       }
-      {/* <ul className="type-collectives__items">
-        {
-          subtypesCollective.map((item) => {
-            const arr = collectiveItems.filter((el) => el.subtype === item)
-            // console.log(arr)
-            return <SubtypeCollectives key={item} arrSubtype={arr} />
-          })
-        }
-      </ul> */}
     </div>
 
   )

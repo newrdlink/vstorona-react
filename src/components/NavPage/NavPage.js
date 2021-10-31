@@ -201,6 +201,13 @@ const NavPage = ({ currentPath }) => {
         w.path = '/collectives'
         obj.push(w)
         break
+      case 'add-collective':
+        let col = {}
+        col.id = 24
+        col.name = 'добавить коллектив  '
+        col.path = '/collectives/add-collective'
+        obj.push(col)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

@@ -22,10 +22,46 @@
   border: 1px solid #974269;  
 }
 
+.add-event__form-item_type_age {
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+.add-event__age-container {
+  /* border: 1px solid #974269; */
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  max-width: 350px;
+  /* border-radius: 3px; */
+}
+
+.add-event__age-container_type_main {
+  max-width: 800px;
+}
+
+.add-event__choise-age {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #974269;
+}
+
 .add-event__form-item_type_title {
   max-width: 720px;
   min-height: 100px;
   padding-top: 15px;
+}
+
+.add-event__form-item_type_subtype {
+  max-width: 350px;
+  margin-right: 10px;
+}
+
+.add-event__form-item_type_name-collective {
+  max-width: 720px;
 }
 
 .add-event__form-item_type_subtitle {
@@ -36,12 +72,13 @@
 
 .add-event__form-item_type_date {
   max-width: 210px;
+  margin-right: 10px;
 }
 
 .add-event__form-item_type_description {
  position: relative;
  padding-top: 15px;
- max-width: 1000px;
+ max-width: 720px;
  min-height: 200px;
 }
 

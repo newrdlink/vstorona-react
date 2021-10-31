@@ -22,11 +22,7 @@ const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) 
   return (
     <section
       className={
-        `top-menu
-        ${isActive && "top-menu_active"}
-        ${isTopMenuNoActive && "top-menu_no-active"}
-        `
-      }
+        `top-menu ${isActive && "top-menu_active"} ${isTopMenuNoActive && "top-menu_no-active"}`}
     // style={{ "animationPlayState": isActive && "running" }}
     >
       <CloseButton onClick={onClickBtnClose} />
