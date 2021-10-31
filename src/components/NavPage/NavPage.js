@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './NavPage.css'
 
 import { getEvent } from '../../utils/currentEvent'
 import { getNews } from '../../utils/currentNews'
-
+import { getCollective } from '../../utils/currentCollective'
+// import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
-
+  const [upDate, setUpDate] = useState(false)
   const arrStr = currentPath.split('/')
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
   const isEventPage = (str) => str.indexOf("/")
+
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
-  // console.log(news)
+  const collective = getCollective() || { name: "" }
+
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
+  const collectiveTitle = () => collective?.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
+  // console.log(getCollective())
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -24,6 +29,14 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
     (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
+
+
+  useEffect(() => {
+    // console.log(`/collectives/${collective._id}`)
+    if (!collective._id) {
+      setTimeout(() => setUpDate(true))
+    }
+  }, [collective._id])
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -181,6 +194,20 @@ const NavPage = ({ currentPath }) => {
         v.path = '/news/add-news'
         obj.push(v)
         break
+      case 'collectives':
+        let w = {}
+        w.id = 23
+        w.name = 'творческие коллективы  '
+        w.path = '/collectives'
+        obj.push(w)
+        break
+      case 'add-collective':
+        let col = {}
+        col.id = 24
+        col.name = 'добавить коллектив  '
+        col.path = '/collectives/add-collective'
+        obj.push(col)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
@@ -194,6 +221,13 @@ const NavPage = ({ currentPath }) => {
         dinamicNews.name = `${newsTitle()} `
         dinamicNews.path = `/news/${news._id}`
         obj.push(dinamicNews)
+        break
+      case `${collective._id}`:
+        let dinamicCollective = {}
+        dinamicCollective.id = 300
+        dinamicCollective.name = `${collectiveTitle()}`
+        dinamicCollective.path = `/collectives/${collective._id}`
+        obj.push(dinamicCollective)
         break
       default:
     }

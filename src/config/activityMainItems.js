@@ -15,7 +15,7 @@ export const activityMainItems = [
   {
     id: 2,
     name: "Творческие коллективы",
-    path: "about/collective",
+    path: "handlerToTopMenu",
     image: creativeTeams
   },
   {

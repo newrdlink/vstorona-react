@@ -7,7 +7,7 @@ const BlockMenu = ({ listMenu = [], onClick }) => {
 
   return (
     <div className="block-menu">
-      <h6 className="block-menu__title">{listMenu[0].type}</h6>
+      <h6 className="block-menu__title">{listMenu[0]?.type}</h6>
       <ul className="block-menu__items">
         {
           listMenu.map((item) => {

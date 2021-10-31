@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './TopMenu.css'
 import { Link } from 'react-router-dom'
 
@@ -18,19 +18,11 @@ const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) 
     return arr
   }, [])
 
-  // useEffect(() => {
-  //   console.log(this)
-  // }, [])
-
   // console.log(arrAllTypeBlockMenu)
   return (
     <section
       className={
-        `top-menu
-        ${isActive && "top-menu_active"}
-        ${isTopMenuNoActive && "top-menu_no-active"}
-        `
-      }
+        `top-menu ${isActive && "top-menu_active"} ${isTopMenuNoActive && "top-menu_no-active"}`}
     // style={{ "animationPlayState": isActive && "running" }}
     >
       <CloseButton onClick={onClickBtnClose} />

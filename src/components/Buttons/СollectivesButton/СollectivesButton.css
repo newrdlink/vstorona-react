@@ -1,4 +1,4 @@
-.collectives {
+.collectives-btn {
   width: 190px;
   padding: 0;
   /* margin-top: 2px; */
@@ -13,4 +13,8 @@
   text-decoration-line: underline;
   text-transform: uppercase;
   color: #FFF;
+}
+
+.collectives-btn:hover {
+  cursor: pointer;
 }

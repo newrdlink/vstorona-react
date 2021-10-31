@@ -10,8 +10,12 @@ import SearchButton from '../Buttons/SearchButton/SearchButton'
 import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
 
 
-const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton, onClickOpenTopMenu }) => {
-
+const Header = ({
+  onClickSignInButton,
+  loggedIn,
+  onClickSignOutButton,
+  onClickOpenTopMenu,
+  onClickOpenCollMenu }) => {
 
   return (
     <header className="header">
@@ -20,7 +24,9 @@ const Header = ({ onClickSignInButton, loggedIn, onClickSignOutButton, onClickOp
         <ContactsHeader />
         <ModVersion />
         <Nav />
-        <СollectivesButton />
+        <СollectivesButton
+          onClick={onClickOpenCollMenu}
+        />
         <SignInButton
           onClickSignInButton={onClickSignInButton}
           loggedIn={loggedIn}

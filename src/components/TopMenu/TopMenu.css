@@ -1,14 +1,10 @@
 @keyframes view_menu {
   0% {
-   top: -720px;
+   top: -1000px;
   }
-
-
   75% {
    top: 30px;
   }
-
-
   100% {
     top: 0;
   }
@@ -18,13 +14,11 @@
   0% {
    top: 0;
   }
-
   60% {
     top: 30px;
    }
-
   100% {
-    top: -720px;
+    top: -1000px;
   }
 }
 
@@ -34,7 +28,7 @@
   box-sizing: border-box;
   left: 50%;
   transform: translateX(-50%);
-  top: -720px;
+  top: -1000px;
   width: 100%;
   max-width: 1600px;
   background-color: #974269;

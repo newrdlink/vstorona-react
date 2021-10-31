@@ -7,7 +7,7 @@ import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
 import CardsBox from '../../CardsBox/CardsBox'
 import { activityMainItems } from '../../../config/activityMainItems'
 
-const ActivityMain = ({ currentPath }) => {
+const ActivityMain = ({ currentPath, onClickHandler }) => {
 
   const scrollContainer = useRef()
   // for drag i nprogress
@@ -112,6 +112,7 @@ const ActivityMain = ({ currentPath }) => {
           arrayCards={activityMainItems}
           currentPath={currentPath}
           place="activity-main"
+          onClickHandler={onClickHandler}
         />
       </div>
       {/* <CardsBox

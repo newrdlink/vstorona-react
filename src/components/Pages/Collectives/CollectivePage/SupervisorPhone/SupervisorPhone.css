@@ -1,0 +1,24 @@
+.supervisor-phone {
+  min-width: 374px;
+}
+
+.supervisor-phone__title {
+  margin: 0 0 27px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #442836;
+}
+
+.supervisor-phone-number {
+  margin: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 146.4%;
+  color: #442836;
+}

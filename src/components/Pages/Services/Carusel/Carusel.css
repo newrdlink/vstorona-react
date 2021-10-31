@@ -11,6 +11,11 @@
   /* margin-left: auto; */
 }
 
+.carusel-container_place_collective {
+  margin: 0;
+  /* margin-left: auto; */
+}
+
 .carusel-images {
   position: relative;
   display: flex;
@@ -32,6 +37,10 @@
 
 .carusel_place_event {
   height: 441px;
+}
+
+.carusel_place_collective {
+  height: 444px;
 }
 
 .carusel_place_news-page {

@@ -10,6 +10,7 @@ import SignIn from '../UI/popups/SignIn/SignIn'
 import SignUp from '../UI/popups/SignUp/SignUp'
 
 import apiAuth from '../../utils/Auth'
+import apiCollectives from '../../utils/ApiCollectives'
 import { setToken, getToken, removeToken } from '../../utils/Token'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 // import { infoPages } from '../../config/infoPages';
@@ -19,25 +20,48 @@ import Services from '../Pages/Services/Services'
 import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
 
-import TopMenu from '../TopMenu/TopMenu';
+import TopMenu from '../TopMenu/TopMenu'
+import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
+// import { collectivesItems } from '../../config/temp/collectivesItems'
+import Collectives from '../Pages/Collectives/Collectives'
 
 const App = () => {
-  // const history = useHistory()
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+
   const [isTopMenuActive, setIsTopMenuActive] = useState(false)
   const [isTopMenuNoActive, setIsTopMenuNoActive] = useState(false)
 
-  const onClickLinkInTopMenu = () => setIsTopMenuActive(!isTopMenuActive)
+  const [isMenuCollActive, setIsMenuCollActive] = useState(false)
+  const [isMenuCollNoActive, setIsMenuCollNoActive] = useState(false)
 
-  const handlerTopMenu = () => {
+  const [collectives, setCollectives] = useState([])
+
+  const onClickLinkInTopMenu = () => {
+    setIsTopMenuActive(false)
+    setIsMenuCollActive(false)
+    // console.log('click')
+  }
+
+  const handleTopMenu = () => {
     setIsTopMenuActive(!isTopMenuActive)
     setIsTopMenuNoActive(true)
   }
+
+  const handleCollMenu = () => {
+    setIsMenuCollActive(!isMenuCollActive)
+    setIsMenuCollNoActive(!isMenuCollNoActive)
+  }
+
   const onClickOpenTopMenu = () => {
     setIsTopMenuActive(true)
     setIsTopMenuNoActive(false)
+  }
+
+  const onClickOpenCollMenu = () => {
+    setIsMenuCollActive(true)
+    setIsMenuCollNoActive(false)
   }
 
   const location = useLocation()
@@ -53,6 +77,10 @@ const App = () => {
         })
         .catch((error) => console.log(error))
     }
+
+    apiCollectives.getCollectives()
+      .then((collectives) => setCollectives(collectives))
+      .catch((error) => console.log(error))
   }, [])
 
   const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
@@ -62,6 +90,7 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => setErrorResponse(''), 5000)
+
   }, [errorResponse])
 
   const onClickSignInButton = () => {
@@ -118,19 +147,30 @@ const App = () => {
             onClickLink={onClickLinkInTopMenu}
             isActive={isTopMenuActive}
             isTopMenuNoActive={isTopMenuNoActive}
-            onClickBtnClose={handlerTopMenu}
+            onClickBtnClose={handleTopMenu}
+          />
+          <TopMenuCollectives
+            isActive={isMenuCollActive}
+            isNoActive={isMenuCollNoActive}
+            onClickBtnClose={handleCollMenu}
+            collectivesItems={collectives}
+            onClickLink={onClickLinkInTopMenu}
+          // onClickLink={onClickLink}
+          // onClickLinkCollective={onClickLinkCollective}
           />
           <Header
             onClickSignInButton={onClickSignInButton}
             loggedIn={loggedIn}
             onClickSignOutButton={onClickSignOutButton}
             onClickOpenTopMenu={onClickOpenTopMenu}
+            onClickOpenCollMenu={onClickOpenCollMenu}
           />
           <Switch>
             <Route exact path="/">
               <Main
                 currentPath={currentPath}
                 loggedIn={loggedIn}
+                openCollectiveMenu={onClickOpenCollMenu}
               />
             </Route>
             <Route path="/about">
@@ -157,6 +197,15 @@ const App = () => {
                 loggedIn={loggedIn}
               />
             </Route>
+
+            <Route path="/collectives">
+              <Collectives
+                currentPath={currentPath}
+                loggedIn={loggedIn}
+                collectivesItems={collectives}
+              />
+            </Route>
+
           </Switch>
           <Footer />
           <SignIn

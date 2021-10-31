@@ -13,7 +13,6 @@ import Carusel from '../../Services/Carusel/Carusel';
 const NewsPage = ({ newsAll = [], currentPath }) => {
 
   const [currentNews, setCurrentNews] = useState({ images: [] })
-
   const { id } = useParams();
   // const currentNews = newsAll.find((item) => item._id === id)
   const { title = "", subtitle, description = "", createdAt, images = [] } = currentNews
@@ -28,8 +27,6 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
     arr.push(obj)
     return arr
   }, [])
-
-  // console.log(title.slice(0, 70))
 
   const arrWithDescr = description.split("    ")
 
