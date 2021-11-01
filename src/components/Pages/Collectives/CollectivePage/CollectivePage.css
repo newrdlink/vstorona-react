@@ -3,6 +3,7 @@
 }
 
 .collective-page__conditions {
+  position: relative;
   display: flex;
 }
 
@@ -36,4 +37,10 @@
 
 .collective-page__image {
   margin-right: 25px;
+  position: relative;
+  max-width: 352px;
+}
+
+.collective-page__conditions:hover .buttons-box {
+  opacity: 1;
 }

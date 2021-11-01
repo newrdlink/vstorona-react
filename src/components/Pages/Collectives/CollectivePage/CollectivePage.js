@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import './CollectivePage.css'
 import { getCollective, setCollective } from '../../../../utils/currentCollective'
 
@@ -10,13 +10,15 @@ import TimeLesson from './TimeLesson/TimeLesson'
 import Ages from './Ages/Ages'
 import SupervisorPhone from './SupervisorPhone/SupervisorPhone'
 import LessonPay from './LessonPay/LessonPay'
+import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 
-const CollectivePage = ({ collectivesItems }) => {
+const CollectivePage = ({ collectivesItems, loggedIn }) => {
 
   const [currentCollective, setCurrentCollective] = useState({ images: [] })
   const { id } = useParams()
+  const history = useHistory()
 
-  const { images = [], name, time, ageEnd, ageStart, phone, description = "", chosen, type } = currentCollective
+  const { images = [], name, time, ageEnd, ageStart, phone, description = "", chosen, type, price } = currentCollective
 
   const isChosen = (chosen) => {
     if (chosen) {
@@ -45,8 +47,6 @@ const CollectivePage = ({ collectivesItems }) => {
           setCurrentCollective(collective)
         })
         .catch((error) => console.log(error))
-      // const collective = collectivesItems.find(el => el._id === id)
-      // setCurrentCollective(collective)
     } else {
       setCurrentCollective(currentCollective)
     }
@@ -57,18 +57,24 @@ const CollectivePage = ({ collectivesItems }) => {
       <div className="collective-page__descriptions">
         <div className="collective-page__descriptions-info">
           <h1 className="collective-page__title">{isChosen(chosen) + name}</h1>
-
           {
             arrWithDescr.map((descr) =>
               <p className="news-page__descriptions-item"
                 key={descr}>{descr}</p>)
           }
-
         </div>
         <Carusel place="collective" images={arrForCarusel} />
       </div>
       <div className="collective-page__conditions">
         <img src={images[0]} alt="Фотография педагога" className="collective-page__image" />
+        {
+          loggedIn ? <ButtonsBox
+            place="collective-page"
+            onClickAdd={() => history.push('/collectives/add-collective')}
+            onClickEdit={() => history.push('/collectives/edit-collective')}
+          // onClickRemove={() => onClickRemove(_id)}
+          /> : null
+        }
         <div className="collective-page__info">
           <CollectiveSupervisor
             info={currentCollective?.supervisor}
@@ -77,7 +83,7 @@ const CollectivePage = ({ collectivesItems }) => {
           <TimeLesson time={time} />
           <Ages from={ageStart} to={ageEnd} />
           <SupervisorPhone phone={phone} />
-          <LessonPay />
+          <LessonPay price={price} />
         </div>
       </div>
     </main>
