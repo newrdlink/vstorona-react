@@ -208,6 +208,13 @@ const NavPage = ({ currentPath }) => {
         col.path = '/collectives/add-collective'
         obj.push(col)
         break
+      case 'edit-collective':
+        let edit = {}
+        edit.id = 25
+        edit.name = 'редактировать коллектив  '
+        edit.path = '/collectives/edit-collective'
+        obj.push(edit)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

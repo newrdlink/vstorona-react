@@ -10,8 +10,9 @@ import NavPage from '../../NavPage/NavPage'
 import CollectivePage from '../Collectives/CollectivePage/CollectivePage'
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddCollective from '../../backend/AddCollective/AddCollective'
+import EditCollective from '../../backend/EditCollective/EditCollective'
 
-const Collectives = ({ collectivesItems = [], currentPath, loggedIn }) => {
+const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData, setUpdateData }) => {
   // console.log(collectivesItems)
   // console.log(collectivesItems)
   return (
@@ -43,8 +44,18 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn }) => {
           component={AddCollective}
           loggedIn={loggedIn}
         />
+        <ProtectedRoute
+          path="/collectives/edit-collective"
+          component={EditCollective}
+          loggedIn={loggedIn}
+        />
         <Route path="/collectives/:id">
-          <CollectivePage collectivesItems={collectivesItems} />
+          <CollectivePage
+            collectivesItems={collectivesItems}
+            loggedIn={loggedIn}
+            setUpdateData={setUpdateData}
+            updateData={updateData}
+          />
         </Route>
 
       </Switch>

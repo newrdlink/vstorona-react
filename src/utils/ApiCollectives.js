@@ -37,19 +37,18 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  //   postItemDescrHall(data, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         data
-  //       })
-  //     })
-  //       .then(handlerResponse)
-  //   }
+  updateCollective(data, token) {
+    // console.log(data)
+    return fetch(`${this.address}/collectives`, {
+      method: "PATCH",
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "authorization": `Bearer ${token}`
+      },
+      body: data
+    })
+      .then(handlerResponse)
+  }
 
   //   putMainDescrHall(data, token, type) {
   //     return fetch(`${this.address}/halls/${type}`, {
@@ -66,32 +65,31 @@ class Api extends React.Component {
   //   }
 
   deleteCollective(_id, token) {
-    return fetch(`${this.address}/news`, {
+    // console.log(_id)
+    // console.log(token)
+    return fetch(`${this.address}/collectives/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
       },
-      body: JSON.stringify({
-        _id
-      })
     })
       .then(handlerResponse)
   }
 
-  //   patchItemDescrHall(oldData, newData, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         oldData, newData
-  //       })
+  // patchItemDescrHall(oldData, newData, token, type) {
+  //   return fetch(`${this.address}/halls/${type}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "authorization": `Bearer ${token}`
+  //     },
+  //     body: JSON.stringify({
+  //       oldData, newData
   //     })
-  //       .then(handlerResponse)
-  //   }
+  //   })
+  //     .then(handlerResponse)
+  // }
 }
 
 //создаем экземпляр

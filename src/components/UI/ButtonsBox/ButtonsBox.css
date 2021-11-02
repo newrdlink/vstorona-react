@@ -1,7 +1,5 @@
 .buttons-box {
   position: absolute;
-
-  /* display: flex; */
   right: 0;
   bottom: 0;
   opacity: 0;
@@ -18,4 +16,8 @@
 
 .buttons-box_place_news-card {
   
+}
+
+.buttons-box_place_collective-page {
+  left: 5px;  
 }

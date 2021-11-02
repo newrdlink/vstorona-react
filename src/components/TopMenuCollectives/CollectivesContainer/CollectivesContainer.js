@@ -12,7 +12,7 @@ const CollectivesContainer = ({ collectivesItems = [], onClickLink }) => {
     return arr
   }, [])
 
-  const chosenColectives = collectivesItems.filter(col => col.chosen === true)
+  const chosenColectives = collectivesItems.filter(col => col.chosen.length > 10)
 
   return (
     <div className="collectives-container">
