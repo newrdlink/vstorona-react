@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import './CollectivePage.css'
 import { getCollective, setCollective } from '../../../../utils/currentCollective'
+import { getToken } from '../../../../utils/Token'
 
 import apiCollectives from '../../../../utils/ApiCollectives'
 import Carusel from '../../Services/Carusel/Carusel'
@@ -12,7 +13,7 @@ import SupervisorPhone from './SupervisorPhone/SupervisorPhone'
 import LessonPay from './LessonPay/LessonPay'
 import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 
-const CollectivePage = ({ collectivesItems, loggedIn }) => {
+const CollectivePage = ({ collectivesItems, loggedIn, updateData, setUpdateData }) => {
 
   const [currentCollective, setCurrentCollective] = useState({ images: [] })
   const { id } = useParams()
@@ -52,6 +53,20 @@ const CollectivePage = ({ collectivesItems, loggedIn }) => {
     }
   }, [id])
 
+  const dataIsUpdate = () => setUpdateData(!updateData)
+
+  const onClickRemove = () => {
+    const jwt = getToken()
+
+    apiCollectives.deleteCollective(id, jwt)
+      .then((res) => {
+        // console.log(res)
+        dataIsUpdate()
+        history.push('/')
+      })
+      .catch((error) => console.log(error))
+  }
+
   return (
     <main className="collective-page">
       <div className="collective-page__descriptions">
@@ -72,7 +87,7 @@ const CollectivePage = ({ collectivesItems, loggedIn }) => {
             place="collective-page"
             onClickAdd={() => history.push('/collectives/add-collective')}
             onClickEdit={() => history.push('/collectives/edit-collective')}
-          // onClickRemove={() => onClickRemove(_id)}
+            onClickRemove={() => onClickRemove()}
           /> : null
         }
         <div className="collective-page__info">

@@ -65,15 +65,14 @@ class Api extends React.Component {
   //   }
 
   deleteCollective(_id, token) {
-    return fetch(`${this.address}/collectives`, {
+    // console.log(_id)
+    // console.log(token)
+    return fetch(`${this.address}/collectives/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "authorization": `Bearer ${token}`
       },
-      body: JSON.stringify({
-        _id
-      })
     })
       .then(handlerResponse)
   }

@@ -37,6 +37,7 @@ const App = () => {
   const [isMenuCollNoActive, setIsMenuCollNoActive] = useState(false)
 
   const [collectives, setCollectives] = useState([])
+  const [updateData, setUpdateData] = useState(false)
 
   const onClickLinkInTopMenu = () => {
     setIsTopMenuActive(false)
@@ -68,6 +69,7 @@ const App = () => {
   const { pathname: currentPath } = location
 
   useEffect(() => {
+    // console.log("load main page")
     const jwt = getToken()
     if (jwt) {
       apiAuth.pullUserData(jwt)
@@ -81,7 +83,7 @@ const App = () => {
     apiCollectives.getCollectives()
       .then((collectives) => setCollectives(collectives))
       .catch((error) => console.log(error))
-  }, [])
+  }, [updateData])
 
   const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
   const [isPopupSignUpOpen, setIsPopupSignUpOpen] = useState(false)
@@ -90,7 +92,6 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => setErrorResponse(''), 5000)
-
   }, [errorResponse])
 
   const onClickSignInButton = () => {
@@ -203,6 +204,8 @@ const App = () => {
                 currentPath={currentPath}
                 loggedIn={loggedIn}
                 collectivesItems={collectives}
+                updateData={updateData}
+                setUpdateData={setUpdateData}
               />
             </Route>
 
