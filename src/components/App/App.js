@@ -24,6 +24,7 @@ import TopMenu from '../TopMenu/TopMenu'
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
 // import { collectivesItems } from '../../config/temp/collectivesItems'
 import Collectives from '../Pages/Collectives/Collectives'
+import Corruption from '../Pages/Corruption/Corruption'
 
 const App = () => {
 
@@ -206,6 +207,11 @@ const App = () => {
                 collectivesItems={collectives}
                 updateData={updateData}
                 setUpdateData={setUpdateData}
+              />
+            </Route>
+            <Route path="/anti-corruption">
+              <Corruption
+                currentPath={currentPath}
               />
             </Route>
 

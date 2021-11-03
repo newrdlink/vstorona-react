@@ -78,5 +78,9 @@ export const infoPages = [
   {
     name: 'новости',
     pathName: 'news'
+  },
+  {
+    name: 'противодействие коррупции',
+    pathName: 'anti-corruption'
   }
 ]
