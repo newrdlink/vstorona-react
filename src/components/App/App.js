@@ -25,6 +25,7 @@ import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
 // import { collectivesItems } from '../../config/temp/collectivesItems'
 import Collectives from '../Pages/Collectives/Collectives'
 import Corruption from '../Pages/Corruption/Corruption'
+import apiAntiCorrDoc from '../../utils/ApiAntiCorrDocument'
 
 const App = () => {
 
@@ -39,6 +40,8 @@ const App = () => {
 
   const [collectives, setCollectives] = useState([])
   const [updateData, setUpdateData] = useState(false)
+
+  const [antiCorrDocs, setAntiCorrDocs] = useState([])
 
   const onClickLinkInTopMenu = () => {
     setIsTopMenuActive(false)
@@ -84,7 +87,14 @@ const App = () => {
     apiCollectives.getCollectives()
       .then((collectives) => setCollectives(collectives))
       .catch((error) => console.log(error))
+
+    apiAntiCorrDoc.getAntiCorrDocuments()
+      .then((docs) => setAntiCorrDocs(docs))
+      .catch((error) => console.log(error))
+
   }, [updateData])
+
+  // console.log(antiCorrDocs)
 
   const [isPopupSignInOpen, setIsPopupSignInOpen] = useState(false)
   const [isPopupSignUpOpen, setIsPopupSignUpOpen] = useState(false)
@@ -140,6 +150,8 @@ const App = () => {
       )
       .catch((error) => console.log(error))
   }
+
+  const handleUpdateAntiCorrDocs = () => setUpdateData(!updateData)
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -206,12 +218,16 @@ const App = () => {
                 loggedIn={loggedIn}
                 collectivesItems={collectives}
                 updateData={updateData}
+                dataUpdate={handleUpdateAntiCorrDocs}
                 setUpdateData={setUpdateData}
               />
             </Route>
             <Route path="/anti-corruption">
               <Corruption
                 currentPath={currentPath}
+                listDocs={antiCorrDocs}
+                loggedIn={loggedIn}
+                dataUpdate={handleUpdateAntiCorrDocs}
               />
             </Route>
 

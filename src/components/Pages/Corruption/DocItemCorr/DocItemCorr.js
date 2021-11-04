@@ -1,14 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './DocItemCorr.css'
 
-const DocItemCorr = ({ item }) => {
+import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
+
+const DocItemCorr = ({ item, loggedIn, removeDoc }) => {
+  const history = useHistory()
   //console.log(item)
-  const { link, title } = item
+  const { link, title, _id } = item
 
   return (
-    <li>
-      <a href={link} target="_blank" rel="noreferrer">{title}</a>
+    <li className="doc-item">
+      <a href={link} target="_blank" rel="noreferrer" className="doc-item__link">{title}</a>
+      {loggedIn ?
+        <ButtonsBox
+          id={_id}
+          // onClickRmBtn={onClickRmBtn}
+          place="document"
+          loggedIn={loggedIn}
+          onClickAdd={() => history.push('/anti-corruption/add-anticorrdoc')}
+          onClickEdit={() => console.log(_id)}
+          onClickRemove={() => removeDoc(_id)}
+        /> : null
+      }
     </li>
   )
 }

@@ -12,7 +12,7 @@ import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddCollective from '../../backend/AddCollective/AddCollective'
 import EditCollective from '../../backend/EditCollective/EditCollective'
 
-const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData, setUpdateData }) => {
+const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData, setUpdateData, dataUpdate }) => {
   // console.log(collectivesItems)
   // console.log(collectivesItems)
   return (
@@ -43,11 +43,13 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData,
           path="/collectives/add-collective"
           component={AddCollective}
           loggedIn={loggedIn}
+          dataUpdate={dataUpdate}
         />
         <ProtectedRoute
           path="/collectives/edit-collective"
           component={EditCollective}
           loggedIn={loggedIn}
+          dataUpdate={dataUpdate}
         />
         <Route path="/collectives/:id">
           <CollectivePage
@@ -55,6 +57,7 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData,
             loggedIn={loggedIn}
             setUpdateData={setUpdateData}
             updateData={updateData}
+            dataUpdate={dataUpdate}
           />
         </Route>
 
