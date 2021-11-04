@@ -229,6 +229,13 @@ const NavPage = ({ currentPath }) => {
         addanti.path = '/anti-corruption/add-anticorrdoc'
         obj.push(addanti)
         break
+      case 'contacts':
+        let cont = {}
+        cont.id = 28
+        cont.name = 'контакты  '
+        cont.path = '/contacts'
+        obj.push(cont)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

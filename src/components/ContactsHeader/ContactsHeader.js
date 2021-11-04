@@ -4,7 +4,7 @@ import './ContactsHeader.css'
 
 const ContactsHeader = () => {
   return (
-    <div className="contacts">
+    <div className="contacts-header">
       <NumPhone place="header" />
       <p className="contacts__address">ул. Смолячкова 13</p>
     </div>

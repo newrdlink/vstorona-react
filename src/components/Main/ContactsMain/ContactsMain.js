@@ -6,10 +6,10 @@ import MainTitle from '../MainTitle/MainTitle'
 import YandexMap from '../../YandexMap/YandexMap'
 import TelephonItem from './TelephonItem/TelephonItem'
 
-const ContactsMain = () => {
+const ContactsMain = ({ place }) => {
 
   return (
-    <section className="contacts-main">
+    <section className={`contacts-main contacts-main_place_${place}`}>
       <MainTitle
         title="контакты"
         place="contacts-main"

@@ -3,6 +3,10 @@
   margin-bottom: 180px;
 }
 
+.contacts-main_place_page {
+  padding: 0;
+}
+
 .contacts-main__content {
   width: 100%;
 }
