@@ -82,5 +82,9 @@ export const infoPages = [
   {
     name: 'противодействие коррупции',
     pathName: 'anti-corruption'
+  },
+  {
+    name: 'контакты',
+    pathName: 'contacts'
   }
 ]

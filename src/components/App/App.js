@@ -27,6 +27,8 @@ import Collectives from '../Pages/Collectives/Collectives'
 import Corruption from '../Pages/Corruption/Corruption'
 import apiAntiCorrDoc from '../../utils/ApiAntiCorrDocument'
 
+import Contacts from '../Pages/Contacts/Contacts';
+
 const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -228,6 +230,14 @@ const App = () => {
                 listDocs={antiCorrDocs}
                 loggedIn={loggedIn}
                 dataUpdate={handleUpdateAntiCorrDocs}
+              />
+            </Route>
+            <Route path="/contacts">
+              <Contacts
+                currentPath={currentPath}
+              // listDocs={antiCorrDocs}
+              // loggedIn={loggedIn}
+              // dataUpdate={handleUpdateAntiCorrDocs}
               />
             </Route>
 

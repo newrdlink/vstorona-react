@@ -1,0 +1,7 @@
+.contacts {
+  position: relative;
+  max-width: 1600px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
