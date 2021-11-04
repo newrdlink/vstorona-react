@@ -5,7 +5,7 @@ import { getCollective, removeCollective } from "../../../utils/currentCollectiv
 import { getToken } from '../../../utils/Token'
 import apiCollective from '../../../utils/ApiCollectives'
 
-const EditCollective = () => {
+const EditCollective = ({ dataUpdate }) => {
 
   const [editCollective, setEditCollective] = useState({ time: [] })
   const [collectiveData, setCollectiveData] = useState({})
@@ -49,7 +49,7 @@ const EditCollective = () => {
 
     apiCollective.updateCollective(data, jwt)
       .then((collective) => {
-        // console.log(collective)
+        dataUpdate()
         setResponse("Коллектив отредактирован")
       })
       .catch((error) => console.log(error))
@@ -58,19 +58,15 @@ const EditCollective = () => {
   useEffect(() => {
     const collective = getCollective()
     if (collective) {
-      // console.log(1)
-      // console.log(collective)
+
       setCollectiveData(collective)
       const timeStr = collective.time.join('    ')
       const position = collective.position.join('    ')
       collective.time = timeStr
       collective.position = position
-
       setEditCollective(collective)
-
       removeCollective()
     }
-    console.log(2)
   }, [])
 
   return (

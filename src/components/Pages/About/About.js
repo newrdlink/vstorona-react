@@ -21,6 +21,7 @@ import apiAchievements from '../../../utils/ApiAchievement'
 
 const About = ({ loggedIn, currentPath }) => {
 
+
   const pageInfo = contentTitle({ currentPath, infoPages })
 
   const [workers, setWorkers] = useState([])
@@ -43,7 +44,7 @@ const About = ({ loggedIn, currentPath }) => {
       .then((workers) => setWorkers(workers))
       .catch((error) => console.log(error))
   }, [])
-
+  // console.log(allDocuments)
   const onClickAddWorker = () => setIsPopupAddWorkerOpen(true)
 
   const onSubmitHandlerAddWorker = (workerData) => {

@@ -23,6 +23,12 @@ const Documents = ({
   errorResponse
 }) => {
   // console.log(isPopupEditDocumentOpen)
+  // 'Нормативные документы',
+  // 'Стандарты безопасной организации труда работников',
+  // 'Планы и отчёты финансово-хозяйственной  деятельности',
+  // 'Положение об организации деятельности по оказанию платных услуг',
+  // 'Государственное задание',
+
   const arrayAllTypeDocument = allDocuments.reduce((arr, item) => {
     if (!arr.includes(item.type)) {
       arr.push(item.type)

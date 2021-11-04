@@ -12,8 +12,14 @@ import Ages from './Ages/Ages'
 import SupervisorPhone from './SupervisorPhone/SupervisorPhone'
 import LessonPay from './LessonPay/LessonPay'
 import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
+import { removeCollective } from '../../../../utils/currentCollective'
 
-const CollectivePage = ({ collectivesItems, loggedIn, updateData, setUpdateData }) => {
+const CollectivePage = ({
+  // collectivesItems,
+  loggedIn,
+  // updateData,
+  // setUpdateData,
+  dataUpdate }) => {
 
   const [currentCollective, setCurrentCollective] = useState({ images: [] })
   const { id } = useParams()
@@ -52,17 +58,17 @@ const CollectivePage = ({ collectivesItems, loggedIn, updateData, setUpdateData 
       setCurrentCollective(currentCollective)
     }
   }, [id])
-
-  const dataIsUpdate = () => setUpdateData(!updateData)
-
+  // const dataIsUpdate = () => setUpdateData(!updateData)
   const onClickRemove = () => {
     const jwt = getToken()
 
     apiCollectives.deleteCollective(id, jwt)
       .then((res) => {
         // console.log(res)
-        dataIsUpdate()
-        history.push('/')
+        // dataIsUpdate()
+        dataUpdate()
+        removeCollective()
+        history.push('/collectives')
       })
       .catch((error) => console.log(error))
   }

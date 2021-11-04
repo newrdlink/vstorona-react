@@ -4,10 +4,17 @@
   left: 0;
   max-width: 700px;
   transition: all 0.2s ease-out;  
+  text-decoration-line: underline;
+  text-transform: uppercase;
 }
 
 .doc-item:hover{  
   left: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .doc-item__link {
@@ -18,6 +25,10 @@
   font-size: 18px;
   line-height: 37px;
   color: #442836;
+}
+
+.doc-item__link:hover {
+  color: #974269;
 }
 
 .doc-item:hover .buttons-box {

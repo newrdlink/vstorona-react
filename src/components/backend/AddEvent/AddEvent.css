@@ -52,6 +52,10 @@
 .add-event__form-item_type_chose {
   width: 380px;
 }
+.add-event__form-item_type_corr-doc {
+  width: 100%;
+  max-width: 735px;
+}
 
 .add-event__form-item_type_title {
   max-width: 720px;

@@ -215,6 +215,20 @@ const NavPage = ({ currentPath }) => {
         edit.path = '/collectives/edit-collective'
         obj.push(edit)
         break
+      case 'anti-corruption':
+        let anti = {}
+        anti.id = 26
+        anti.name = 'противодействие коррупции  '
+        anti.path = '/anti-corruption'
+        obj.push(anti)
+        break
+      case 'add-anticorrdoc':
+        let addanti = {}
+        addanti.id = 27
+        addanti.name = 'добавить новый документ  '
+        addanti.path = '/anti-corruption/add-anticorrdoc'
+        obj.push(addanti)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

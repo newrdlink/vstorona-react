@@ -4,7 +4,7 @@ import './AddCollective.css'
 import apiCollective from '../../../utils/ApiCollectives'
 import { getToken } from '../../../utils/Token'
 
-const AddCollective = () => {
+const AddCollective = ({ dataUpdate }) => {
 
   const [files, setFiles] = useState([])
   const [collectiveData, setCollectiveData] = useState({})
@@ -49,7 +49,8 @@ const AddCollective = () => {
 
     apiCollective.createCollective(data, jwt)
       .then((event) => {
-        console.log(event)
+        // console.log(event)
+        dataUpdate()
         setResponse("Коллектив добавлен")
       })
       .catch((error) => console.log(error))
