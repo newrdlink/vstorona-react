@@ -229,6 +229,13 @@ const NavPage = ({ currentPath }) => {
         addanti.path = '/anti-corruption/add-anticorrdoc'
         obj.push(addanti)
         break
+      case 'measures':
+        let me = {}
+        me.id = 28
+        me.name = 'меры юридической ответственности  '
+        me.path = '/anti-corruption/measures'
+        obj.push(me)
+        break
       case 'contacts':
         let cont = {}
         cont.id = 28

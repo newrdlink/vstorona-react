@@ -1,0 +1,12 @@
+.measures-list__item {
+
+}
+
+.measures-list {
+  max-width: 730px;
+  margin: 0;
+}
+
+.measures-list:nth-of-type(4) {
+  margin: 0 0 100px 0;
+}
