@@ -5,6 +5,7 @@
 .footer-container {
   display: flex;  
   padding: 35px 60px;
+  box-sizing: border-box;
   align-items: flex-end;
   justify-content: space-between;
   max-width: 1600px;  
