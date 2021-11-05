@@ -94,5 +94,9 @@ export const infoPages = [
   {
     name: 'доступная среда',
     pathName: 'accessible'
+  },
+  {
+    name: 'политика конфиденциальности',
+    pathName: 'policy'
   }
 ]

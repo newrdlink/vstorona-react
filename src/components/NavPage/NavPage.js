@@ -250,6 +250,13 @@ const NavPage = ({ currentPath }) => {
         acc.path = '/accessible'
         obj.push(acc)
         break
+      case 'policy':
+        let po = {}
+        po.id = 30
+        po.name = 'политика конфиденциальности  '
+        po.path = '/policy'
+        obj.push(po)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

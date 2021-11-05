@@ -29,6 +29,7 @@ import apiAntiCorrDoc from '../../utils/ApiAntiCorrDocument'
 
 import Contacts from '../Pages/Contacts/Contacts'
 import Accessible from '../Pages/Accessible/Accessible'
+import Policy from '../Pages/Policy/Policy';
 
 const App = () => {
 
@@ -236,17 +237,16 @@ const App = () => {
             <Route path="/contacts">
               <Contacts
                 currentPath={currentPath}
-              // listDocs={antiCorrDocs}
-              // loggedIn={loggedIn}
-              // dataUpdate={handleUpdateAntiCorrDocs}
               />
             </Route>
             <Route path="/accessible">
               <Accessible
                 currentPath={currentPath}
-              // listDocs={antiCorrDocs}
-              // loggedIn={loggedIn}
-              // dataUpdate={handleUpdateAntiCorrDocs}
+              />
+            </Route>
+            <Route path="/policy">
+              <Policy
+                currentPath={currentPath}
               />
             </Route>
 

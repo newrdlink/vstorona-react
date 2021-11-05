@@ -1,0 +1,26 @@
+.policy {
+  position: relative;
+  max-width: 1600px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  margin: 0 auto 200px;
+}
+
+.policy__title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 146.4%;
+  color: #442836;
+}
+
+.policy__subtitle {
+  max-width: 1050px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 146.4%;
+  color: #442836;
+}
