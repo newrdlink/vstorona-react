@@ -1,0 +1,25 @@
+.measures {
+margin-bottom: 250px;
+}
+
+.measures__title {
+  margin: 0 0 30px 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  color: #442836;
+}
+
+.measures__subtitle {
+  max-width: 1200px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #000000;
+}

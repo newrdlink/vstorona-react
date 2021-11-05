@@ -5,3 +5,20 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
+
+.corruption__link-measures {
+  display: block;
+  margin-bottom: 150px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-decoration-line: underline;
+  text-transform: uppercase; 
+  color: #442836;
+}
+
+.corruption__link-measures:hover {
+  color: #974269;
+}

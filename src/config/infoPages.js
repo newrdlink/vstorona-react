@@ -84,6 +84,10 @@ export const infoPages = [
     pathName: 'anti-corruption'
   },
   {
+    name: 'меры юридической ответственности',
+    pathName: 'measures'
+  },
+  {
     name: 'контакты',
     pathName: 'contacts'
   }

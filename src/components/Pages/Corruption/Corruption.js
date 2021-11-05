@@ -1,6 +1,6 @@
 import React from 'react'
 import './Corruption.css'
-import { Switch, Route } from 'react-router'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import PageTitle from '../../PageTitle/PageTitle'
 import NavPage from '../../NavPage/NavPage'
@@ -12,10 +12,11 @@ import AddAntiCorrDoc from '../../backend/AddAntiCorrDoc/AddAntiCorrDoc'
 import api from '../../../utils/ApiAntiCorrDocument'
 import { getToken } from '../../../utils/Token'
 
+import LiabilityMeasures from './LiabilityMeasures/LiabilityMeasures'
 
 const Corruption = ({ currentPath, listDocs = [], loggedIn, dataUpdate }) => {
   const pageInfo = contentTitle({ currentPath, infoPages })
-
+  // console.log(pageInfo)
   const typeDocuments = listDocs.reduce((arr, item) => {
     if (!arr.includes(item.type)) arr.push(item.type)
     return arr
@@ -23,7 +24,7 @@ const Corruption = ({ currentPath, listDocs = [], loggedIn, dataUpdate }) => {
 
   const removeDoc = (id) => {
     const jwt = getToken()
-    console.log(id)
+    // console.log(id)
     api.deleteAntiCorrDocument(id, jwt)
       .then((res) => {
         console.log(res)
@@ -44,7 +45,11 @@ const Corruption = ({ currentPath, listDocs = [], loggedIn, dataUpdate }) => {
               return <DocContainer items={arr} key={typeDoc} loggedIn={loggedIn} removeDoc={removeDoc} />
             })
           }
+          <Link to="/anti-corruption/measures" className="corruption__link-measures">меры юридической ответственности</Link>
 
+        </Route>
+        <Route path="/anti-corruption/measures">
+          <LiabilityMeasures />
         </Route>
 
         <ProtectedRoute
