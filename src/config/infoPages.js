@@ -90,5 +90,9 @@ export const infoPages = [
   {
     name: 'контакты',
     pathName: 'contacts'
+  },
+  {
+    name: 'доступная среда',
+    pathName: 'accessible'
   }
 ]

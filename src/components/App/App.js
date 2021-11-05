@@ -27,7 +27,8 @@ import Collectives from '../Pages/Collectives/Collectives'
 import Corruption from '../Pages/Corruption/Corruption'
 import apiAntiCorrDoc from '../../utils/ApiAntiCorrDocument'
 
-import Contacts from '../Pages/Contacts/Contacts';
+import Contacts from '../Pages/Contacts/Contacts'
+import Accessible from '../Pages/Accessible/Accessible'
 
 const App = () => {
 
@@ -234,6 +235,14 @@ const App = () => {
             </Route>
             <Route path="/contacts">
               <Contacts
+                currentPath={currentPath}
+              // listDocs={antiCorrDocs}
+              // loggedIn={loggedIn}
+              // dataUpdate={handleUpdateAntiCorrDocs}
+              />
+            </Route>
+            <Route path="/accessible">
+              <Accessible
                 currentPath={currentPath}
               // listDocs={antiCorrDocs}
               // loggedIn={loggedIn}

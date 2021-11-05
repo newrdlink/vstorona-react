@@ -243,6 +243,13 @@ const NavPage = ({ currentPath }) => {
         cont.path = '/contacts'
         obj.push(cont)
         break
+      case 'accessible':
+        let acc = {}
+        acc.id = 29
+        acc.name = 'доступная среда  '
+        acc.path = '/accessible'
+        obj.push(acc)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
