@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import './Policy.css'
 
 import NavPage from '../../NavPage/NavPage'
@@ -9,13 +9,23 @@ import { infoPages } from '../../../config/infoPages'
 import PolicyBlock from "./PolicyBlock/PolicyBlock"
 import { infoPolicy } from "../../../constants/policy"
 
-
 const Policy = ({ currentPath }) => {
+
   const pageInfo = contentTitle({ currentPath, infoPages })
   const { items = [] } = infoPolicy
 
+  const scrollBlock = useRef()
+
+  useEffect(() => {
+    const element = scrollBlock.current
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }, [])
+
   return (
-    <main className="policy">
+    <main className="policy" ref={scrollBlock}>
       <NavPage
         currentPath={currentPath} />
       <PageTitle
