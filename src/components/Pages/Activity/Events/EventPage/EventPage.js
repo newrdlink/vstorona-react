@@ -6,10 +6,13 @@ import apiEvents from '../../../../../utils/ApiEvents'
 
 import { getEvent, setEvent } from '../../../../../utils/currentEvent'
 import Carusel from '../../../Services/Carusel/Carusel'
+import SocialLinksShare from '../../../../UI/SocialLinksShare/SocialLinksShare'
+import ButtonHistoryBack from '../../../../UI/buttons/ButtonHistoryBack/ButtonHistoryBack';
 
 const EventPage = () => {
 
   const [currentEvent, setCurrentEvent] = useState({})
+
   const { id } = useParams();
   const history = useHistory();
 
@@ -46,6 +49,7 @@ const EventPage = () => {
   // console.log(dateEvent)
   return (
     <section className="event-page">
+
       <div className="event-page__image-container">
         <img className="event-page__image" src={images[0]} alt="" />
       </div>
@@ -66,8 +70,10 @@ const EventPage = () => {
         <Carusel images={arrImagesForCarusel} place="event" />
       </div>
       <div className="event-page__links">
-        <button type="button" onClick={() => history.goBack()}>вернутся</button>
+        <ButtonHistoryBack name="Вернуться" onClick={() => history.goBack()} />
+        <SocialLinksShare />
       </div>
+
     </section>
   )
 }

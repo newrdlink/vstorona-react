@@ -109,13 +109,10 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
         loggedIn={loggedIn}
         onClickRemove={onClickRemoveEventCard}
       />
-
       <DanceMain
         danceInfo={dancePage}
       />
-
       <ContactsMain />
-
     </main>
   )
 }

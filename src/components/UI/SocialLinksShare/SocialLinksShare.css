@@ -1,0 +1,20 @@
+.share-social-links__span {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline; 
+  text-transform: uppercase;  
+  color: #974269;
+  margin-right: 50px;
+}
+
+.share-social-links {
+  display: flex;
+  align-items: center;
+}
+/* 
+.ya-share2__item {
+  margin-right: 50px;
+} */

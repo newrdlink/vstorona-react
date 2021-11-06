@@ -1,0 +1,21 @@
+.button-history-back {
+  position: relative;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: transparent;
+  background: url('../../../../images//UI/arrow-back.png') 10px 7px no-repeat;
+  width: 180px;
+  padding: 0;
+  border: 0;
+  color: #974269;
+  transition: .15s ease-in-out all;
+  text-align: center;
+}
+
+.button-history-back:hover {
+  cursor: pointer;
+  background-position: 5px 7px;
+}

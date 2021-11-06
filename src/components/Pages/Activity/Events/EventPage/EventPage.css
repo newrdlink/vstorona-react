@@ -1,11 +1,28 @@
+.event-page {
+    position: relative;
+}
+
+.event-page::after {
+  position: absolute;
+  left: 0;
+  bottom: 80px;
+  width: 100%;
+  content: "";
+  height: 1px;
+  background-color: rgba(30, 30, 30, 0.5);
+}
+
 .event-page__image-container {
   /* max-width: 1600px;
   max-height: 434px; */
+  margin-left: -60px;
   position: absolute;
   left: 0;
-  top: -100px;
+  top: -229px;
   height: 434px;
-  width: 100%;  
+  
+  width: 108.1%;  
+  
   overflow: hidden;  
 }
 .event-page__image {
@@ -55,7 +72,7 @@
 
 .event-page__descriptions {
   display: flex;
-  
+  margin-bottom: 110px;
 }
 
 .event-page__descriptions-items {
@@ -106,4 +123,9 @@
   font-size: 14px;
   line-height: 146.4%;
   color: rgba(30, 30, 30, 0.5);
+}
+
+.event-page__links {
+  display: flex;
+  justify-content: space-between;
 }
