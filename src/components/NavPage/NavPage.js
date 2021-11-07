@@ -271,6 +271,13 @@ const NavPage = ({ currentPath }) => {
         ph.path = '/media/photo'
         obj.push(ph)
         break
+      case 'add-video':
+        let addv = {}
+        addv.id = 33
+        addv.name = 'добавить видео  '
+        addv.path = '/media/video/add-video'
+        obj.push(addv)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100

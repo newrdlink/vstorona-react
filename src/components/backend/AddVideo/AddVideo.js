@@ -19,14 +19,14 @@ const AddVideo = ({ dataUpdate }) => {
   const onSubmit = async (evt) => {
     const jwt = getToken()
     evt.preventDefault()
-    console.log(videoData)
-    // api.createVideo(videoData, jwt)
-    //   .then((doc) => {
-    //     // console.log(doc)
-    //     dataUpdate()
-    //     setResponse("Видео добавлено")
-    //   })
-    //   .catch((error) => console.log(error))
+    // console.log(videoData)
+    api.createVideo(videoData, jwt)
+      .then((video) => {
+        // console.log(doc)
+        dataUpdate(video)
+        setResponse("Видео добавлено")
+      })
+      .catch((error) => console.log(error))
   }
 
   return (
@@ -48,7 +48,7 @@ const AddVideo = ({ dataUpdate }) => {
           type="text"
           name="link"
           onChange={(evt) => onChange(evt)}
-          placeholder="Ссылка на документ"
+          placeholder="Ссылка на видео"
         />
         <textarea
           className="add-event__form-item add-event__form-item_type_description"

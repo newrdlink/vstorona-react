@@ -3,7 +3,7 @@ import './VideoContent.css'
 
 import VideoFrame from "../VideoFrame/VideoFrame"
 
-const VideoContent = ({ videoList = [], loggedIn }) => {
+const VideoContent = ({ videoList = [], loggedIn, onClickRemove }) => {
 
   return (
     <ul className="video-content">
@@ -17,6 +17,7 @@ const VideoContent = ({ videoList = [], loggedIn }) => {
             title={item.title}
             description={item.description}
             loggedIn={loggedIn}
+            onClickRemove={onClickRemove}
           />)
       }
     </ul>

@@ -8,7 +8,15 @@ class Api extends React.Component {
     this.headres = headers;
   }
 
-  getVideo() {
+  getVideo(id) {
+    return fetch(`${this.address}/video/${id}`, {
+      method: "GET",
+      headers: this.headres,
+    })
+      .then(handlerResponse)
+  }
+
+  getAllVideo() {
     return fetch(`${this.address}/video`, {
       method: "GET",
       headers: this.headres,
@@ -62,8 +70,8 @@ class Api extends React.Component {
 }
 
 const api = new Api({
-  address: 'http://localhost:3002',
-  // address: "https://api.vs.didrom.ru",
+  // address: 'http://localhost:3002',
+  address: "https://api.vs.didrom.ru",
   headers: {
     "Content-Type": "application/json",
   },
