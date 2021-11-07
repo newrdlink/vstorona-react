@@ -29,7 +29,9 @@ import apiAntiCorrDoc from '../../utils/ApiAntiCorrDocument'
 
 import Contacts from '../Pages/Contacts/Contacts'
 import Accessible from '../Pages/Accessible/Accessible'
-import Policy from '../Pages/Policy/Policy';
+import Policy from '../Pages/Policy/Policy'
+import Video from '../Pages/Video/Video'
+import Photo from '../Pages/Photo/Photo'
 
 const App = () => {
 
@@ -246,6 +248,16 @@ const App = () => {
             </Route>
             <Route path="/policy">
               <Policy
+                currentPath={currentPath}
+              />
+            </Route>
+            <Route exact path="/media/video">
+              <Video
+                currentPath={currentPath}
+              />
+            </Route>
+            <Route path="/media/photo">
+              <Photo
                 currentPath={currentPath}
               />
             </Route>

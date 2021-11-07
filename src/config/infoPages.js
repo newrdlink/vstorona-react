@@ -98,5 +98,13 @@ export const infoPages = [
   {
     name: 'политика конфиденциальности',
     pathName: 'policy'
+  },
+  {
+    name: 'видео',
+    pathName: 'video'
+  },
+  {
+    name: 'фото',
+    pathName: 'photo'
   }
 ]

@@ -257,6 +257,20 @@ const NavPage = ({ currentPath }) => {
         po.path = '/policy'
         obj.push(po)
         break
+      case 'video':
+        let vi = {}
+        vi.id = 31
+        vi.name = 'видео  '
+        vi.path = '/media/video'
+        obj.push(vi)
+        break
+      case 'photo':
+        let ph = {}
+        ph.id = 32
+        ph.name = 'фото  '
+        ph.path = '/media/photo'
+        obj.push(ph)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
