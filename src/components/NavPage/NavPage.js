@@ -120,7 +120,7 @@ const NavPage = ({ currentPath }) => {
       case 'foyer':
         let l = {}
         l.id = 12
-        l.name = 'зал фойэ 1 этажа '
+        l.name = 'фойе 1 этажа '
         l.path = '/services/rent/foyer'
         obj.push(l)
         break
@@ -256,6 +256,27 @@ const NavPage = ({ currentPath }) => {
         po.name = 'политика конфиденциальности  '
         po.path = '/policy'
         obj.push(po)
+        break
+      case 'video':
+        let vi = {}
+        vi.id = 31
+        vi.name = 'видео  '
+        vi.path = '/media/video'
+        obj.push(vi)
+        break
+      case 'photo':
+        let ph = {}
+        ph.id = 32
+        ph.name = 'фото  '
+        ph.path = '/media/photo'
+        obj.push(ph)
+        break
+      case 'add-video':
+        let addv = {}
+        addv.id = 33
+        addv.name = 'добавить видео  '
+        addv.path = '/media/video/add-video'
+        obj.push(addv)
         break
       case `${event._id}`:
         let dinamic = {}

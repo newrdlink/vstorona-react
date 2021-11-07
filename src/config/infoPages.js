@@ -40,7 +40,7 @@ export const infoPages = [
     pathName: 'big'
   },
   {
-    name: 'зал фойэ 1 этажа',
+    name: 'фойе 1 этажа',
     pathName: 'foyer'
   },
   {
@@ -98,5 +98,13 @@ export const infoPages = [
   {
     name: 'политика конфиденциальности',
     pathName: 'policy'
+  },
+  {
+    name: 'видео',
+    pathName: 'video'
+  },
+  {
+    name: 'фото',
+    pathName: 'photo'
   }
 ]

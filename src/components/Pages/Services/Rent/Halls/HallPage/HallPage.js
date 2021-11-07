@@ -96,7 +96,7 @@ const HallPage = ({ hallItems, loggedIn, infoUpdated }) => {
       </div>
       <p className="hall__title">{currentHall.description.title}</p>
       <div className="hall__about-items">
-        <button type="button" className="hall__order-btn">забронировать</button>
+        {/* <button type="button" className="hall__order-btn">забронировать</button> */}
         <div className="hall__about-item">
           <p className="hall__about-item-title">вместимость :</p>
           <p className="hall__about-item-roominess">до {currentHall.description.roominess} человек</p>

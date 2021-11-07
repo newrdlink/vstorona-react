@@ -69,7 +69,7 @@ export const itemsMenu = [
     id: 12,
     type: 'медиа',
     name: 'Фото',
-    path: '/media/foto'
+    path: '/media/photo'
   },
   {
     id: 13,
