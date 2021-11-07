@@ -251,14 +251,16 @@ const App = () => {
                 currentPath={currentPath}
               />
             </Route>
-            <Route exact path="/media/video">
+            <Route path="/media/video">
               <Video
                 currentPath={currentPath}
+                loggedIn={loggedIn}
               />
             </Route>
             <Route path="/media/photo">
               <Photo
                 currentPath={currentPath}
+                loggedIn={loggedIn}
               />
             </Route>
 
