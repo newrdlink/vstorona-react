@@ -120,7 +120,7 @@ const NavPage = ({ currentPath }) => {
       case 'foyer':
         let l = {}
         l.id = 12
-        l.name = 'зал фойэ 1 этажа '
+        l.name = 'фойе 1 этажа '
         l.path = '/services/rent/foyer'
         obj.push(l)
         break
