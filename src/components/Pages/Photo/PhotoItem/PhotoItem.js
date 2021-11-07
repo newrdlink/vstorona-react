@@ -6,8 +6,6 @@ import { setAlbum } from '../../../../utils/currentAlbum'
 
 const PhotoItem = ({ loggedIn, ...props }) => {
   const { images, createdAt, title, _id, description } = props
-  // console.log(props)
-  // console.log(loggedIn)
   const history = useHistory()
 
   const dateAddAlbum = new Date(createdAt)
@@ -33,7 +31,7 @@ const PhotoItem = ({ loggedIn, ...props }) => {
             // onClickRmBtn={onClickRmBtn}
             place="video"
             loggedIn={loggedIn}
-            onClickAdd={() => history.push('/media/video/add-video')}
+            onClickAdd={() => history.push('/media/photo/add-photo')}
             onClickEdit={() => console.log(_id)}
             onClickRemove={() => console.log(_id)}
           /> : null
