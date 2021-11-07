@@ -1,0 +1,19 @@
+.images-container {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.images-container::after {
+  position: absolute;
+  left: 0;
+  bottom: -120px;
+  height: 1px;
+  width: 100%;
+  content: "";
+  background-color: rgba(30, 30, 30, 0.5);
+}
