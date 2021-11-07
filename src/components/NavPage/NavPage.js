@@ -22,7 +22,7 @@ const NavPage = ({ currentPath }) => {
   const news = getNews() || { title: "" }
   const collective = getCollective() || { name: "" }
   const album = getAlbum() || { title: "" }
-  // console.log(album._id)
+  // console.log("id album from localStorage", album._id)
 
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title

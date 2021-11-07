@@ -2,8 +2,12 @@ import React from 'react'
 import './PhotoItem.css'
 import { Link, useHistory } from 'react-router-dom'
 import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
+import { setAlbum } from '../../../../utils/currentAlbum'
 
-const PhotoItem = ({ images, createdAt, title, loggedIn, _id, description }) => {
+const PhotoItem = ({ loggedIn, ...props }) => {
+  const { images, createdAt, title, _id, description } = props
+  // console.log(props)
+  // console.log(loggedIn)
   const history = useHistory()
 
   const dateAddAlbum = new Date(createdAt)
@@ -21,7 +25,7 @@ const PhotoItem = ({ images, createdAt, title, loggedIn, _id, description }) => 
       </div>
       <div className="photo-item__img-container">
         <Link to={`/media/photo/${_id}`}>
-          <img src={images[0] || "#"} alt="#" className="photo-item__image" />
+          <img src={images[0] || "#"} alt="#" className="photo-item__image" onClick={() => setAlbum(props)} />
         </Link>
         {loggedIn ?
           <ButtonsBox
