@@ -41,7 +41,7 @@ const Video = ({ currentPath, loggedIn }) => {
     <main className="video">
       <NavPage currentPath={currentPath} />
       <PageTitle pageInfo={pageInfo} />
-      {loggedIn ?
+      {loggedIn && allVideo.length < 1 ?
         <Link className="activity__add-event-button" to="/media/video/add-video">Добавить видео</Link> :
         null
       }
