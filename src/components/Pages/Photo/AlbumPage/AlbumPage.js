@@ -19,7 +19,7 @@ const AlbumPage = ({ albums = [] }) => {
   const dateAddAlbum = new Date(currentAlbum?.createdAt)
   const dateAlbum = `${dateAddAlbum.getDate()}/${dateAddAlbum.getMonth() + 1}/${dateAddAlbum.getFullYear()}`
 
-  const { images = [] } = currentAlbum
+  const { images = [], link = "" } = currentAlbum
 
   const onClickChangeImage = (image, evt) => {
     const index = images.indexOf(image)
@@ -43,7 +43,7 @@ const AlbumPage = ({ albums = [] }) => {
       />
       <div className="event-page__links">
         <ButtonHistoryBack name="Вернуться к альбомам" place="album" onClick={() => history.push('/media/photo')} />
-        <a href="https://ya.ru" target="_blank" rel="noreferrer" className="album-page__link">альбом в контакте</a>
+        <a href={link || "https://ya.ru"} target="_blank" rel="noreferrer" className="album-page__link">альбом в контакте</a>
         <SocialLinksShare />
       </div>
       <ImagePopup
