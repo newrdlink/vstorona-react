@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 import { setAlbum } from '../../../../utils/currentAlbum'
 
-const PhotoItem = ({ loggedIn, ...props }) => {
+const PhotoItem = ({ loggedIn, onClickRemove, ...props }) => {
   const { images, createdAt, title, _id, description } = props
   const history = useHistory()
 
@@ -17,9 +17,9 @@ const PhotoItem = ({ loggedIn, ...props }) => {
       <div className="photo-item__content">
         <p className="video-frame__date">{dateAlbum}</p>
         <h3 className="video-frame__title">{title}</h3>
-        {
+        {/* {
           description.map(el => <p className="video-frame__subtitle" key={el}>{el}</p>)
-        }
+        } */}
       </div>
       <div className="photo-item__img-container">
         <Link to={`/media/photo/${_id}`}>
@@ -33,7 +33,7 @@ const PhotoItem = ({ loggedIn, ...props }) => {
             loggedIn={loggedIn}
             onClickAdd={() => history.push('/media/photo/add-photo')}
             onClickEdit={() => console.log(_id)}
-            onClickRemove={() => console.log(_id)}
+            onClickRemove={() => onClickRemove(_id)}
           /> : null
         }
       </div>

@@ -4,12 +4,19 @@ import './AddItemDescrHall.css'
 import PopupWithForm from '../PopupWithForm/PopupWithForm'
 import Input from '../../inputs/Input/Input'
 
-const AddItemDescrHall = ({ title, submitBtnName, onClickBtnClose, isOpen, onClose, onSubmitAddDescrHall }) => {
+const AddItemDescrHall = ({
+  title,
+  submitBtnName,
+  onClickBtnClose,
+  isOpen,
+  onClose,
+  onSubmitAddDescrHall }) => {
 
   const [descriptionItem, setDescriptionItem] = useState('')
 
   const onSubmit = async (evt) => {
     evt.preventDefault()
+    console.log(2)
     onSubmitAddDescrHall(descriptionItem)
   }
 
@@ -28,7 +35,7 @@ const AddItemDescrHall = ({ title, submitBtnName, onClickBtnClose, isOpen, onClo
       name="add-description-hall"
     >
       <Input
-        name="desctiption"
+        name="description"
         label="Введите описание"
         onChange={(evt) => onChangeText(evt)}
         value={descriptionItem}

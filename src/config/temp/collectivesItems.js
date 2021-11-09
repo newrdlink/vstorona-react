@@ -2,7 +2,7 @@ export const photoItems = [
   {
     _id: "648566489",
     title: "Фото-концерт \"Помнит сердце, не забудет никогда...\"",
-    link: "https://www.youtube.com/embed/L-iepu3EtyE",
+    link: "https://vk.com",
     createdAt: "2021-11-07T15:07:00.000Z",
     images: ["https://api.vs.didrom.ru/halls/big/1.jpg",
       "https://api.vs.didrom.ru/halls/big/2.jpg",
@@ -23,7 +23,7 @@ export const photoItems = [
   {
     _id: "64856648dh9",
     title: "Фото-концерт v районного фестиваля чтецов «Я говорю с тобой под свист снарядов» 2020 в Клубе \"Выборгская сторона\"",
-    link: "https://www.youtube.com/embed/tL25rbnvM4o",
+    link: "https://vk.com",
     createdAt: "2021-11-07T15:07:00.000Z",
     images: ["https://api.vs.didrom.ru/halls/big/3.jpg",
       "https://api.vs.didrom.ru/halls/big/2.jpg",
@@ -41,7 +41,7 @@ export const photoItems = [
   {
     _id: "64856dw1648dh9",
     title: "Фото-концерт v районного фестиваля чтецов «Я говорю с тобой под свист снарядов» 2020 в Клубе \"Выборгская сторона\"",
-    link: "https://www.youtube.com/embed/MSv3Oez4O-4",
+    link: "https://vk.com",
     images: ["https://api.vs.didrom.ru/halls/big/4.jpg",
       "https://api.vs.didrom.ru/halls/big/2.jpg",
       "https://api.vs.didrom.ru/halls/big/3.jpg",

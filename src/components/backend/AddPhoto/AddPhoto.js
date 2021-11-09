@@ -33,14 +33,14 @@ const AddPhoto = () => {
 
     data.append('albumData', JSON.stringify(albumData))
 
-    // api.createAlbum(data, jwt)
-    //   .then((event) => {
-    //     console.log(event)
-    //     setResponse("Альбом добавлен")
-    //     // setFiles([])
-    //     // setEventData({})
-    //   })
-    //   .catch((error) => console.log(error))
+    api.createAlbum(data, jwt)
+      .then((event) => {
+        console.log(event)
+        setResponse("Альбом добавлен")
+        // setFiles([])
+        // setEventData({})
+      })
+      .catch((error) => console.log(error))
   }
   return (
     <section className="add-event">
@@ -74,6 +74,13 @@ const AddPhoto = () => {
           min="2018-01-01"
           max="2038-12-31"
           onChange={(evt) => onChange(evt)} />
+        <input
+          className="add-event__form-item add-event__form-item_type_name-collective"
+          type="text"
+          name="link"
+          onChange={(evt) => onChange(evt)}
+          placeholder="Ссылка на Вконтакте"
+        />
         <textarea
           className="add-event__form-item add-event__form-item_type_title"
           type="text"
