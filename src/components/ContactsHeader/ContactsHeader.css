@@ -1,5 +1,6 @@
 .contacts-header {
-  
+  width: 100%;
+  max-width: 280px;
 }
 
 .contacts__address {
@@ -11,4 +12,10 @@
   font-size: 12px;
   line-height: 14px;
   color: #FFF;
+}
+
+@media screen and (max-width: 1450px) {
+  .contacts__address {
+    margin-right: 100px;
+  }
 }

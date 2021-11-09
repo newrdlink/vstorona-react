@@ -4,6 +4,8 @@
   margin: 0 auto 250px;
   padding: 0 60px;
   box-sizing: border-box;
+
+  /* overflow: hidden; */
   /* min-height: 600px; */
 }
 

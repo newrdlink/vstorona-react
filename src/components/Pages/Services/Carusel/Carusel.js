@@ -16,7 +16,6 @@ const Carusel = ({ images = [], place }) => {
   });
 
   const changeImageInCarusel = (evt) => {
-    // console.log(evt.target.name)
     if (count === 3 && evt.target.name === "inc") {
       return setCount(0)
     }
@@ -30,10 +29,7 @@ const Carusel = ({ images = [], place }) => {
     }
   }
 
-  // console.log(newArrImages)
   const clickOnCircle = (image) => setCount(image)
-
-  // const onClickBtnBack = (evt) => console.log(evt.target)
 
   return (
     <section className={`carusel-container carusel-container_place_${place}`}>
@@ -46,15 +42,20 @@ const Carusel = ({ images = [], place }) => {
         </div>
       </div>
       <div className="carusel-control">
-
         <button className="carusel__btn carusel__btn_type_back"
           type="button" name="dec"
-          onClick={(evt) => changeImageInCarusel(evt)}></button>
-        <BtnChangeImage listImages={newArrImages} count={count} clickOnCircle={clickOnCircle} />
-        <button className="carusel__btn carusel__btn_type_next"
+          onClick={(evt) => changeImageInCarusel(evt)}
+        />
+        <BtnChangeImage
+          listImages={newArrImages}
+          count={count}
+          clickOnCircle={clickOnCircle}
+        />
+        <button
+          className="carusel__btn carusel__btn_type_next"
           type="button" name="inc"
-          onClick={(evt) => changeImageInCarusel(evt)}></button>
-
+          onClick={(evt) => changeImageInCarusel(evt)}
+        />
       </div>
     </section>
 

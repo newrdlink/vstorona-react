@@ -79,7 +79,7 @@ const AddPhoto = ({ dataUpdate }) => {
           onChange={(evt) => onChange(evt)}
           placeholder="Заголовок"
         />
-        <button type="submit" className="add-event__form-button">Отправить событие</button>
+        <button type="submit" className="add-event__form-button">Добавить альбом</button>
         <p className="add-event__response">{response}</p>
       </form>
     </section>

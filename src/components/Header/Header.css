@@ -1,18 +1,23 @@
-.header-container {
-  display: flex;
-  align-items: center;
-
-  box-sizing: border-box;
-
-  padding: 0 60px;
-  min-height: 100px;
-  max-width: 1600px;
-  margin: 0 auto 100px;
-
-}
-
 .header {
+  width: 100%;
   position: relative;
   background-color: #974269;
   z-index: 5;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  box-sizing: border-box;
+  min-height: 100px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 0;
+}
+
+@media screen and (max-width: 1450px) {
+  .header {
+    
+  }
 }
