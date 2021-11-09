@@ -7,10 +7,9 @@ const ImagePopup = ({ onClose, images, image, onClickChangeImage }) => {
   return (
     <div
       className={`popup ${image && "popup_opened"} popup_function_open-element`}
-      onClick={(evt) => evt.target === evt.currentTarget && onClose()}
-    // onClick={(evt) => (evt.target === evt.currentTarget ? onClose() : false)}
-    >
-      <figure className="popup__image-content"
+      onClick={(evt) => evt.target === evt.currentTarget && onClose()}>
+      <figure
+        className="popup__image-content"
         ref={imageContainer}
       >
         <button
@@ -41,7 +40,6 @@ const ImagePopup = ({ onClose, images, image, onClickChangeImage }) => {
             }}
           />
         )}
-
         {/* <figcaption className="popup__image-caption">
           {`Фотография ` + card.name}
         </figcaption> */}

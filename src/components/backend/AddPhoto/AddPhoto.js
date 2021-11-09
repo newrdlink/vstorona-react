@@ -3,7 +3,7 @@ import './AddPhoto.css'
 import { getToken } from '../../../utils/Token'
 import api from '../../../utils/ApiPhoto'
 
-const AddPhoto = () => {
+const AddPhoto = ({ dataUpdate }) => {
 
   const [files, setFiles] = useState([])
   const [albumData, setAlbumData] = useState({})
@@ -34,11 +34,10 @@ const AddPhoto = () => {
     data.append('albumData', JSON.stringify(albumData))
 
     api.createAlbum(data, jwt)
-      .then((event) => {
-        console.log(event)
+      .then((album) => {
+        // console.log(event)
+        dataUpdate(album)
         setResponse("Альбом добавлен")
-        // setFiles([])
-        // setEventData({})
       })
       .catch((error) => console.log(error))
   }
@@ -49,14 +48,6 @@ const AddPhoto = () => {
         method="POST"
         onSubmit={onSubmit}
         name="addEvent">
-        {/* <select
-          className="add-event__form-item add-event__form-item_type_date"
-          defaultValue="default"
-          name="type"
-          onChange={(evt) => onChange(evt)} >
-          <option value="festival">фестиваль или конкурс</option>
-          <option value="default">событие</option>
-        </select> */}
         <label className="add-event__form-label">
           10 фотографий, имена файлов от 1 до 10 (1.png, 2.jpg и т.д.)
           <input
@@ -88,20 +79,6 @@ const AddPhoto = () => {
           onChange={(evt) => onChange(evt)}
           placeholder="Заголовок"
         />
-        {/* <textarea
-          className="add-event__form-item add-event__form-item_type_subtitle"
-          type="text"
-          name="subtitle"
-          onChange={(evt) => onChange(evt)}
-          placeholder="Подзаголовок"
-        />
-        <textarea
-          className="add-event__form-item add-event__form-item_type_description"
-          type="text"
-          name="description"
-          onChange={(evt) => onChange(evt)}
-          placeholder="Описание"
-        /> */}
         <button type="submit" className="add-event__form-button">Отправить событие</button>
         <p className="add-event__response">{response}</p>
       </form>

@@ -28,7 +28,6 @@ const PhotoItem = ({ loggedIn, onClickRemove, ...props }) => {
         {loggedIn ?
           <ButtonsBox
             id={_id}
-            // onClickRmBtn={onClickRmBtn}
             place="video"
             loggedIn={loggedIn}
             onClickAdd={() => history.push('/media/photo/add-photo')}
