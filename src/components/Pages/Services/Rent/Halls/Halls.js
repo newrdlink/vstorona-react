@@ -11,6 +11,7 @@ const Halls = ({ loggedIn, currentPath }) => {
       <CardsBox
         arrayCards={hallsItems}
         currentPath={currentPath}
+        place="rent"
       />
     </section>
 

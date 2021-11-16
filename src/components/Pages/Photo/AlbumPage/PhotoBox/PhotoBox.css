@@ -17,3 +17,9 @@
   content: "";
   background-color: rgba(30, 30, 30, 0.5);
 }
+
+@media screen and (max-width: 1450px) {
+  .images-container {
+    justify-content: space-between;
+  }
+}

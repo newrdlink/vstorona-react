@@ -16,6 +16,8 @@ import ContactsMain from './ContactsMain/ContactsMain'
 
 const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
 
+  const [initialCountNews, setInitialCountNews] = useState(4)
+
   const [eventsList, setEventsList] = useState([])
   const [newsAllList, setNewsAllList] = useState([])
   const [dancePage, setDancePage] = useState({ images: [{ link: "temp" }], days: ['1', '2'], startTime: '1', compositionServices: ["temp"] })
@@ -29,7 +31,6 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
       .catch((error) => console.log(error))
   }, [])
   // console.log(dancePage)
-
   const onClickRemoveNewsCard = (_id) => {
     const jwt = getToken()
 
@@ -92,6 +93,12 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
     }
   }
 
+  useEffect(() => {
+    if (window.innerWidth < 1450) {
+      return setInitialCountNews(3)
+    }
+  }, [])
+
   return (
     <main className="main">
       <Intro />
@@ -100,7 +107,7 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
         onClickHandler={onClickLinkInCard}
       />
       <NewsMain
-        newsList={newsAllList.reverse().slice(0, 4)}
+        newsList={newsAllList.reverse().slice(0, initialCountNews)}
         onClickRemoveNewsCard={onClickRemoveNewsCard}
         loggedIn={loggedIn}
       />

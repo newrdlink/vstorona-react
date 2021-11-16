@@ -217,7 +217,6 @@ const App = () => {
                 loggedIn={loggedIn}
               />
             </Route>
-
             <Route path="/collectives">
               <Collectives
                 currentPath={currentPath}

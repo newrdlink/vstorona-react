@@ -1,7 +1,7 @@
 .photo-container {
   position: relative;
   width: 350px;
-  height: 224px;
+  height: auto;
   overflow: hidden;
   margin-right: 26px;
   margin-bottom: 26px;
@@ -42,3 +42,15 @@
   cursor: pointer;
   opacity: .5;
 } 
+
+@media screen and (max-width: 1450px) {
+
+  .photo-container {
+    width: 425px;
+    margin-right: 0;
+  }
+
+  .photo-container:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}

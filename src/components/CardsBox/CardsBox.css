@@ -18,3 +18,15 @@
 .card-box_place_activity-main {
   flex-wrap: nowrap;
 }
+
+@media screen and (max-width: 1450px) {
+
+  .card-box_place_about {
+    justify-content: start;
+  }
+
+  .card-box_place_rent {
+    justify-content: start;
+  }
+
+}

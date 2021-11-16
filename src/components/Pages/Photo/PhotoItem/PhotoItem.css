@@ -27,3 +27,10 @@
 .photo-item:hover .buttons-box {
   opacity: 1;
 }
+
+@media screen and (max-width: 1450px) {
+  .photo-item__img-container {
+    width: 900px;
+    height: auto;
+  }
+}

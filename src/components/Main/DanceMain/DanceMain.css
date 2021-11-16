@@ -19,7 +19,6 @@
 
 .dance-main__content {
   display: flex;
-
 }
 
 .dance-main__title {
@@ -45,7 +44,7 @@
 }
 
 .dance-main__info {
-  max-width: 728px;
+  max-width: 728px;  
 }
  
 .dance-main__work-info {
@@ -96,4 +95,17 @@
   font-size: 14px;
   line-height: 17px;
   color: #442836;
+}
+
+@media screen and (max-width: 1450px) {
+  .dance-main__info {
+    max-width: 600px;
+    margin-right: 24px;
+  }
+  .dance-main__title {
+    margin: 0 0 160px 0;
+  }
+  .dance-main__title::after {
+    bottom: -140px;
+  }
 }

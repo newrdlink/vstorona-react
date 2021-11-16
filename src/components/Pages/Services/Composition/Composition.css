@@ -17,3 +17,10 @@
 .composition__service {
   min-width: 752px;
 }
+
+@media screen and (max-width: 1450px) {
+  .composition__service {
+    min-width: 580px;
+    max-width: 590px;
+  }
+}
