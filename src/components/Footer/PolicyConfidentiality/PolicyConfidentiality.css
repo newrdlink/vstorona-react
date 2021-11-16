@@ -10,4 +10,17 @@
 
 .phone__link_place_footer {
   text-decoration: underline;
+  display: block;
+}
+
+@media screen and (max-width: 780px) {
+
+  .phone__link_place_footer {
+
+  }
+
+  .policy-link {
+    text-decoration: none;
+    margin-bottom: 25px;
+  }
 }

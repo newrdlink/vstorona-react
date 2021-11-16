@@ -1,4 +1,5 @@
 .copyright {
+  display: block;
   font-family: Montserrat;
   margin: 0;
   font-style: normal;
@@ -7,4 +8,11 @@
   line-height: 15px;
   text-transform: uppercase;
   color: #FFF;
+}
+
+@media screen and (max-width: 780px) {
+
+  .copyright {
+    margin-top: 10px;
+  }
 }

@@ -5,3 +5,10 @@
   padding: 0 60px;
   box-sizing: border-box;
 }
+
+
+@media screen and (max-width: 780px) {
+  .events-main {
+    padding: 0;
+  }
+}

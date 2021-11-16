@@ -10,7 +10,6 @@
 }
 
 .activity-main__scroll-container {
-
   overflow: scroll;
   overflow-y: hidden;
   padding: 0;
@@ -19,4 +18,19 @@
 
 .activity-main__scroll-container::-webkit-scrollbar {
   width: 0;
+}
+
+@media screen and (max-width: 780px) {
+
+  .activity-main {
+    padding: 0 20px;
+    margin: 0 auto 217px;
+  }
+
+  .activity-main__scroll-container {
+    min-width: 100%;
+    overflow: visible;
+    overflow-y: visible;
+  }
+
 }

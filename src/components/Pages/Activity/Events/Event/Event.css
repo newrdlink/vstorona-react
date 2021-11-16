@@ -1,6 +1,7 @@
 .event {
   position: relative;
-  padding: 0 60px 0 60px;
+  width: 100%;
+  padding: 0 60px;
   min-height: 250px;
   display: flex;
   align-items: center;
@@ -101,6 +102,10 @@
   color: #FFFFFF;
 }
 
+.event__link-container {
+  display: inline-flex;
+}
+
 .event__link {
   position: relative;
   margin-right: 10px;
@@ -168,4 +173,30 @@
 .event:hover .buttons-box {
   opacity: 1;
   z-index: 3;
+}
+
+@media screen and (max-width: 780px) {
+
+  .event {
+    flex-direction: column;
+    padding: 37px 20px;
+    align-items: flex-start;
+    min-height: 150px;
+  }
+
+  .event:hover .event-time__day{
+    font-size: 48px;
+    line-height: 59px;
+    color: #FFF;
+  }
+  
+  .event__title {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .event__subtitle {
+    max-width: 100%;
+    margin: 0 0 15px 0;
+  }
 }

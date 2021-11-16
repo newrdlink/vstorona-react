@@ -23,3 +23,10 @@
 .tel-item_place_days {
   margin-left: 145px;
 }
+
+@media screen and (max-width: 780px) {
+
+  .tel-item_place_days {
+    margin: 0 70px;
+  }
+}

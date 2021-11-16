@@ -135,3 +135,10 @@
     margin-right: 24px;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .card_place_activity-main {
+    margin-bottom: 24px;
+    margin-right: 0;
+  }
+}

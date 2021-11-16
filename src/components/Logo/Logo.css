@@ -18,6 +18,12 @@
 
 @media screen and (max-width: 780px) {
   .logo_place_header {
+    margin-right: 0;
+    max-height: 50px;
+  }
+
+  .logo_place_footer {
     margin-right: 20px;
+    margin-bottom: 10px;
   }
 }

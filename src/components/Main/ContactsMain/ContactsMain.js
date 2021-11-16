@@ -71,16 +71,10 @@ const ContactsMain = ({ place }) => {
                   url="https://www.instagram.com/?hl=ru"
                 />
               </div>
-
-
             </div>
-
           </div>
-
-          <div className="contacts-main__contact">
-
-          </div>
-
+          {/* <div className="contacts-main__contact">
+          </div> */}
         </div>
       </div>
     </section>

@@ -5,7 +5,8 @@ import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
 import MainTitle from '../MainTitle/MainTitle'
 
 const DanceMain = ({ danceInfo }) => {
-  // console.log(danceInfo)
+  const isMobile = window.innerWidth < 780
+  // console.log(isMobile)
   return (
     <section className="dance-main">
       <PageTitleShadow
@@ -17,9 +18,17 @@ const DanceMain = ({ danceInfo }) => {
         title="танцевальные вечера"
         place="dance-main"
       />
+      {
+        isMobile ? <h4 className="dance-main__title">{danceInfo.title}</h4> : null
+      }
+      {
+        isMobile ? <p className="dance-main__subtitle">{danceInfo.subtitle}</p> : null
+      }
       <div className="dance-main__content">
         <div className="dance-main__info">
-          <h4 className="dance-main__title">{danceInfo.title}</h4>
+          {
+            isMobile ? null : <h4 className="dance-main__title">{danceInfo.title}</h4>
+          }
           <div className="dance-main__work-info">
             <p className="dance-main__work-time">
               {danceInfo?.startTime + " " + danceInfo?.endTime}
@@ -27,7 +36,9 @@ const DanceMain = ({ danceInfo }) => {
             <div className="dance-main__work-days">
               {danceInfo?.days.map(day => <p key={day} className="dance-main__work-day">{day}</p>)}
             </div>
-            <p className="dance-main__subtitle">{danceInfo.subtitle}</p>
+            {
+              isMobile ? null : <p className="dance-main__subtitle">{danceInfo.subtitle}</p>
+            }
           </div>
         </div>
         <div className="dance-main__image-container">
