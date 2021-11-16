@@ -1,0 +1,43 @@
+.album-page {
+  position: relative;
+  max-width: 1480px;
+}
+
+.album-page__link {
+  position: relative;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 29px;
+  text-transform: uppercase; 
+  color: #442836;
+  /* transition: .15s ease-in all; */
+}
+
+.album-page__link:hover {
+  cursor: pointer; 
+}
+
+.album-page__link::after {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  content: "";
+  background-color: #000;
+  transition: transform .6s cubic-bezier(.19,1,.22,1);
+}
+
+.album-page__link:hover::after {
+  transform: scaleX(1);  
+  transform-origin: left;
+}
+
+@media screen and (max-width: 1450px) {
+
+}

@@ -50,3 +50,9 @@
 .worker:hover .buttons-box {
   opacity: 1;
 }
+
+@media screen and (max-width: 1450px) {
+  .worker:nth-of-type(4n+4) {
+    margin-right: 24px;
+  }
+}

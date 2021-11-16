@@ -5,3 +5,9 @@
   flex-wrap: wrap;
   /* margin: 0 auto; */
 }
+
+@media screen and (max-width: 1450px) {
+  .news-box {
+    justify-content: space-between;
+  }
+}

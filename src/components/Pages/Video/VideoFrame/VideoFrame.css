@@ -44,6 +44,20 @@
   background-color: rgba(30, 30, 30, 0.5);
 }
 
+.video-frame__date_place_photo-page {
+  margin-bottom: 60px;
+}
+
+.video-frame__date_place_photo-page::before {
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  height: 1px;
+  width: 100%;
+  content: "";
+  background-color: rgba(30, 30, 30, 0.5);
+}
+
 .video-frame__title {
   margin: 50px 0;
   font-family: Montserrat;

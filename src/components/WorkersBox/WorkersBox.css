@@ -9,3 +9,9 @@
   flex-wrap: wrap;
   padding: 0;
 }
+
+@media screen and (max-width: 1450px) {
+  .workers-box {
+    justify-content: space-between;
+  }
+}

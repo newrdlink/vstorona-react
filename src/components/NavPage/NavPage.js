@@ -5,9 +5,14 @@ import './NavPage.css'
 import { getEvent } from '../../utils/currentEvent'
 import { getNews } from '../../utils/currentNews'
 import { getCollective } from '../../utils/currentCollective'
+import { getAlbum } from '../../utils/currentAlbum'
 // import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
+  // const { path, url } = useRouteMatch()
+  // console.log(path)
+  // console.log(url)
   const [upDate, setUpDate] = useState(false)
+  // const [currentAlbum, setCurrentAlbum] = useState({})
   const arrStr = currentPath.split('/')
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
@@ -16,10 +21,13 @@ const NavPage = ({ currentPath }) => {
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
   const collective = getCollective() || { name: "" }
+  const album = getAlbum() || { title: "" }
+  // console.log("id album from localStorage", album._id)
 
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
   const collectiveTitle = () => collective?.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
+  const albumTitle = () => album?.title.length > 80 ? album.title.slice(0, 80) + "..." : album.title
   // console.log(getCollective())
 
   const isHallPage = currentPath.endsWith('showroom') ||
@@ -36,6 +44,7 @@ const NavPage = ({ currentPath }) => {
     if (!collective._id) {
       setTimeout(() => setUpDate(true))
     }
+    // console.log(1)
   }, [collective._id])
 
   let obj = arrStr.reduce((obj, item) => {
@@ -278,6 +287,13 @@ const NavPage = ({ currentPath }) => {
         addv.path = '/media/video/add-video'
         obj.push(addv)
         break
+      case 'add-photo':
+        let addp = {}
+        addp.id = 34
+        addp.name = 'добавить альбом  '
+        addp.path = '/media/photo/add-photo'
+        obj.push(addp)
+        break
       case `${event._id}`:
         let dinamic = {}
         dinamic.id = 100
@@ -298,6 +314,13 @@ const NavPage = ({ currentPath }) => {
         dinamicCollective.name = `${collectiveTitle()}`
         dinamicCollective.path = `/collectives/${collective._id}`
         obj.push(dinamicCollective)
+        break
+      case `${album._id}`:
+        let dinamicAlbum = {}
+        dinamicAlbum.id = 400
+        dinamicAlbum.name = `${albumTitle()}`
+        dinamicAlbum.path = `/media/photo/${album._id}`
+        obj.push(dinamicAlbum)
         break
       default:
     }

@@ -14,16 +14,18 @@ import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddNews from '../../backend/AddNews/AddNews'
 import apiNews from '../../../utils/ApiNews'
 import { getToken } from '../../../utils/Token'
+// import useWindowSize from '../../../helpers/windowsWidth'
 
 import NewsPage from './NewsPage/NewsPage'
 
 const News = ({ currentPath, loggedIn }) => {
+
   const [countNews, setCountNews] = useState(4)
   const [newsAll, setNewsAll] = useState([])
 
   const pageInfo = contentTitle({ currentPath, infoPages })
 
-  const countNewsHandler = () => setCountNews(countNews + 4)
+  const countNewsHandler = () => setCountNews(countNews + countNews)
 
   const isAreMoreNews = () => newsAll.length > countNews
 
@@ -55,6 +57,13 @@ const News = ({ currentPath, loggedIn }) => {
     return () => cleanupFunction = true;
   }, [])
 
+
+  useEffect(() => {
+    if (window.innerWidth < 1450) {
+      setCountNews(3)
+    }
+  }, [])
+
   return (
     <section className="news">
       {loggedIn && currentPath === "/news" ?
@@ -74,7 +83,7 @@ const News = ({ currentPath, loggedIn }) => {
           <PageTitle
             pageInfo={pageInfo}
           />
-          <p>Copmonent with logic diferance of date</p>
+          <p>Copmonent with logic differance of date</p>
           <NewsBox
             newsList={newsAll}
             countNews={countNews}

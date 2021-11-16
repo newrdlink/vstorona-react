@@ -30,8 +30,9 @@ const History = ({ pageInfo }) => {
 
   return (
     <section className="history">
-      <PageTitleShadow pageInfo={pageInfo} />
-
+      <div className="history__container">
+        <PageTitleShadow pageInfo={pageInfo} place="history" />
+      </div>
       <div className="history__intro">
         <img alt="" src={i1} className="history__intro-img" />
         <div className="history__intro-text-container">
@@ -44,8 +45,6 @@ const History = ({ pageInfo }) => {
         </div>
         <img alt="" src={i2} className="history__intro-img-2" />
       </div>
-
-
       <div className={`history__about history__about_${activeHistoryAbout && 'active'}`}>
         <div className="history__about-container">
           <p className="history__text">Клуб является подведомственным учреждением отдела культуры Администрации Выборгского района Санкт-Петербурга и ведет свою историю с 1962 года.
@@ -56,15 +55,12 @@ const History = ({ pageInfo }) => {
         <p className="history__text">На первые годы существования Клуба пришелся расцвет художественной самодеятельности и любительского творчества рабочих и жителей Выборгского района, многие из которых спустя годы привели сюда своих детей, а некоторые – стали руководителями творческих коллективов.
         </p>
       </div>
-
       <div className="history__rename">
         <p className="history__text-span history__text-span_place_about">
           В июне 1994 г. Клуб был  преобразован в муниципальное учреждение культуры Клуб «Выборгская сторона»
         </p>
         <img alt="" src={i3} className="history__rename-img" />
       </div>
-
-
       <div className="history__content">
         <p className="history__text history__text_place_content">
           На основании Распоряжения Комитета по Управлению городским имуществом Санкт-Петербурга в  2011 г. учреждение получило наименование «Санкт-Петербургское государственное бюджетное учреждение культуры «Клуб «Выборгская сторона» (СПб ГБУК «Клуб «Выборгская сторона»).
@@ -78,8 +74,6 @@ const History = ({ pageInfo }) => {
           На первые годы существования Клуба пришелся расцвет художественной самодеятельности и любительского творчества рабочих и жителей Выборгского района, многие из которых спустя годы привели сюда своих детей, а некоторые – стали руководителями творческих коллективов.
         </p>
       </div>
-
-
       <div className="history__end">
         <img alt="" src={i4} className="history__end-img" />
         <img alt="" src={i5} className="history__end-img" />
@@ -94,8 +88,6 @@ const History = ({ pageInfo }) => {
             Диапазон его творческих проектов – от  занятий творческих студий до фестивалей городского и международного масштаба - сопоставим только с возрастным и социальным диапазоном посетителей: школьников, молодежи, людей старшего возраста. Идея культурного центра, открытого для всех, отвечающего самым разнообразным культурным запросам людей – по-прежнему остается главной в работе этого старейшего учреждения культуры Выборгского района.
           </p>
         </div>
-
-
       </div>
 
     </section>

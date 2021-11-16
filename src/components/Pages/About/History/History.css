@@ -1,8 +1,13 @@
 .history {
  position: relative;
- width: 100%;
- 
- /* overflow: hidden; */
+ max-width: 1600px;
+ /* overflow-x: hidden; */
+}
+
+.history__container {
+  position: relative;
+  width: 1600px;
+  /* overflow-x: hidden; */
 }
 
 .history__intro {

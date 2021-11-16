@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NewsMain.css'
 
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
@@ -8,6 +8,12 @@ import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage
 
 
 const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
+
+
+  // useEffect(() => {
+  //   console.log(window.innerWidth)
+  // }, [])
+
 
   return (
     <section className="news-main">
@@ -24,6 +30,7 @@ const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
         newsList={newsList}
         onClickRemove={onClickRemoveNewsCard}
         loggedIn={loggedIn}
+      // count={window.innerWidth}
       />
       <SingleLinkOnPage
         to="/news"
