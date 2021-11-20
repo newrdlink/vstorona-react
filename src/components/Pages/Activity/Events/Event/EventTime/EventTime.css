@@ -39,6 +39,12 @@
   color: #442836;
 }
 
+@media screen and (max-width: 1450px) {
+  .event-time {
+    margin-right: 200px;
+  }
+}
+
 @media screen and (max-width: 780px) {
 
   .event-time {
@@ -63,8 +69,4 @@
   .event-time__current-time {
     max-width: 100px;
   }
-
-
-
-
 }

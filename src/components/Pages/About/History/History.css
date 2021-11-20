@@ -91,7 +91,7 @@
   top: -50px;
   content: "";
   height: 1px;
-  width: 352px;
+  width: 100%;
   background:#868686;
 }
 
@@ -141,8 +141,7 @@
 .history__text-span_place_about {  
   margin: 0;
   max-width: 350px;
-  margin-top: 50px;
-  
+  margin-top: 50px;  
 }
 
 .history__rename-img {
@@ -173,4 +172,18 @@
 .history__end-container {
   max-width: 334px;
   margin-top: 50px;
+}
+
+@media screen and (max-width: 1450px) {
+  .history__intro-text-container {
+    padding-right: 30px;
+  }
+
+  .history__text-span_place_intro {    
+    padding-right: 50px;
+  }
+
+  .history__end {
+    padding-left: 200px;
+  }
 }

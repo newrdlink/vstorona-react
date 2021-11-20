@@ -16,3 +16,11 @@
 /* .image-container_temp {
   left: -728px;
 } */
+
+@media screen and (max-width: 1450px) {
+  .image-container {
+
+    /* min-width: 600px; */
+
+  }
+}

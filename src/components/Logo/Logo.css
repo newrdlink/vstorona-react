@@ -16,6 +16,12 @@
   }
 }
 
+@media screen and (max-width: 1380px) {
+  .logo_place_footer {
+    margin-right: 50px;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .logo_place_header {
     margin-right: 0;

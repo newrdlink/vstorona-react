@@ -4,6 +4,7 @@
   padding: 0 60px;
   box-sizing: border-box;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .news__button-add {
@@ -26,4 +27,22 @@
 
 .news__button-add:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1450px) {
+
+  .news {
+    max-width: 1440px;
+  }
+
+}
+
+@media screen and (max-width: 1380px) {
+
+
+}
+
+@media screen and (max-width: 780px) {
+
+
 }
