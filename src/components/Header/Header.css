@@ -10,9 +10,9 @@
   align-items: center;
   padding: 0 60px;
   box-sizing: border-box;
-  min-height: 100px;
-  width: 100%;
+  min-height: 100px;  
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto 0;
   background-color: transparent;
 }
@@ -20,6 +20,10 @@
 @media screen and (max-width: 1450px) {
   .header {
     
+  }
+
+  .header-container {
+    justify-content: space-between;
   }
 }
 
