@@ -10,3 +10,9 @@
 .services_place_hall {
 
 }
+
+@media screen and (max-width: 780px) {
+  .services_place_hall {
+    padding: 0 20px;
+  }
+}

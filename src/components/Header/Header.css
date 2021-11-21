@@ -29,8 +29,8 @@
 
 @media screen and (max-width: 780px) {
   .header {
-    position: absolute;
-    background-color: transparent;
+    /* position: absolute;
+    background-color: transparent; */
   }
 
   .header-container {

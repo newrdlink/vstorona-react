@@ -22,3 +22,14 @@
   line-height: 146.4%;
   color: #442836;
 }
+
+
+@media screen and (max-width: 780px) {
+  .supervisor-phone {
+    min-width: 300px;
+    margin: 0 0 50px 0;
+  }
+  .supervisor-phone__title {
+    margin: 0 0 20px 0;
+  }
+}

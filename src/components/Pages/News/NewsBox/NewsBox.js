@@ -8,6 +8,7 @@ const NewsBox = ({ newsList = [], countNews, onClickRemove, loggedIn }) => {
   const [currentNewsList, setCurrentNewsList] = useState([])
 
   // const onClickRemove = (id) => console.log(id)
+  // console.log(countNews)
 
   useEffect(() => {
     const newArr = newsList.slice(0, countNews)

@@ -175,11 +175,16 @@
   z-index: 3;
 }
 
+@media screen and (max-width: 1380px) {
+  .event {
+    padding: 37px 20px;
+  }
+}
+
 @media screen and (max-width: 780px) {
 
   .event {
     flex-direction: column;
-    padding: 37px 20px;
     align-items: flex-start;
     min-height: 150px;
   }

@@ -9,7 +9,7 @@ import SingleLink from '../UI/SingleLink/SingleLink'
 
 const Footer = () => {
 
-  const isMobile = window.innerWidth < 780
+  const isMobile = window.screen.availWidth <= 768
 
   return (
     <footer className="footer">

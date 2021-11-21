@@ -25,3 +25,10 @@
 .about_place_documents {
   /* padding: 80px 60px 80px 60px; */
 }
+
+
+@media screen and (max-width: 780px) {
+  .about_place_about {
+    padding: 0 20px;
+  }
+}

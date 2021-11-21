@@ -8,7 +8,7 @@ import СollectivesButton from './СollectivesButton/СollectivesButton'
 import SignInButton from './SignInButton/SignInButton'
 import SearchButton from './SearchButton/SearchButton'
 import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
-import useWindowSize from '../../helpers/windowsWidth';
+// import useWindowSize from '../../helpers/windowsWidth';
 
 
 const Header = ({
@@ -18,12 +18,14 @@ const Header = ({
   onClickOpenTopMenu,
   onClickOpenCollMenu }) => {
   // console.log(useWindowSize())
+  const isIpadDevice = window.screen.availWidth <= 768
+
   return (
     <header className="header">
       <div className="header-container">
         <Logo place="header" />
-        {useWindowSize() < 800 ? null : <ContactsHeader />}
-        {useWindowSize() < 800 ? null : <ModVersion />}
+        {isIpadDevice ? null : <ContactsHeader />}
+        {isIpadDevice ? null : <ModVersion />}
         <Nav />
         <СollectivesButton
           onClick={onClickOpenCollMenu}
@@ -33,7 +35,7 @@ const Header = ({
           loggedIn={loggedIn}
           onClickSignOutButton={onClickSignOutButton}
         />
-        {useWindowSize() < 800 ? null : <SearchButton />}
+        {isIpadDevice ? null : <SearchButton />}
         <RightMenuButton
           onClickOpenTopMenu={onClickOpenTopMenu}
         />

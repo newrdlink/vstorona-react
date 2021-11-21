@@ -94,11 +94,9 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
   }
 
   useEffect(() => {
-
     if (window.innerWidth < 780) {
       return setInitialCountNews(2)
     }
-
     if (window.innerWidth < 1450) {
       return setInitialCountNews(3)
     }

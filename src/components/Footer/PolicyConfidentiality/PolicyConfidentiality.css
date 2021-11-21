@@ -7,6 +7,7 @@
   line-height: 15px;
   text-transform: uppercase;  
   color: #FFF;
+  white-space: nowrap;
 }
 
 .phone__link_place_footer {

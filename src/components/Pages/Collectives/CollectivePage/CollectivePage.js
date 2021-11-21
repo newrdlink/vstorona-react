@@ -13,6 +13,7 @@ import SupervisorPhone from './SupervisorPhone/SupervisorPhone'
 import LessonPay from './LessonPay/LessonPay'
 import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 import { removeCollective } from '../../../../utils/currentCollective'
+import IpadVersion from './IpadVersion/IpadVersion'
 
 const CollectivePage = ({
   // collectivesItems,
@@ -26,6 +27,8 @@ const CollectivePage = ({
   const history = useHistory()
 
   const { images = [], name, time, ageEnd, ageStart, phone, description = "", chosen, type, price } = currentCollective
+
+  const isIpadDevice = window.screen.availWidth <= 768
 
   const isChosen = (chosen) => {
     if (chosen) {
@@ -75,38 +78,44 @@ const CollectivePage = ({
 
   return (
     <main className="collective-page">
-      <div className="collective-page__descriptions">
-        <div className="collective-page__descriptions-info">
-          <h1 className="collective-page__title">{isChosen(chosen) + name}</h1>
-          {
-            arrWithDescr.map((descr) =>
-              <p className="news-page__descriptions-item"
-                key={descr}>{descr}</p>)
-          }
-        </div>
-        <Carusel place="collective" images={arrForCarusel} />
-      </div>
-      <div className="collective-page__conditions">
-        <img src={images[0]} alt="Фотография педагога" className="collective-page__image" />
-        {
-          loggedIn ? <ButtonsBox
-            place="collective-page"
-            onClickAdd={() => history.push('/collectives/add-collective')}
-            onClickEdit={() => history.push('/collectives/edit-collective')}
-            onClickRemove={() => onClickRemove()}
-          /> : null
-        }
-        <div className="collective-page__info">
-          <CollectiveSupervisor
-            info={currentCollective?.supervisor}
-            position={currentCollective?.position}
-          />
-          <TimeLesson time={time} />
-          <Ages from={ageStart} to={ageEnd} />
-          <SupervisorPhone phone={phone} />
-          <LessonPay price={price} />
-        </div>
-      </div>
+      {
+        isIpadDevice ? <IpadVersion loggedIn={loggedIn} dataUpdate={dataUpdate} /> :
+          <>
+            <div className="collective-page__descriptions">
+              <div className="collective-page__descriptions-info">
+                <h1 className="collective-page__title">{isChosen(chosen) + name}</h1>
+                {
+                  arrWithDescr.map((descr) =>
+                    <p className="news-page__descriptions-item"
+                      key={descr}>{descr}</p>)
+                }
+              </div>
+              <Carusel place="collective" images={arrForCarusel} />
+            </div>
+            <div className="collective-page__conditions">
+              <img src={images[0]} alt="Фотография педагога" className="collective-page__image" />
+              {
+                loggedIn ? <ButtonsBox
+                  place="collective-page"
+                  onClickAdd={() => history.push('/collectives/add-collective')}
+                  onClickEdit={() => history.push('/collectives/edit-collective')}
+                  onClickRemove={() => onClickRemove()}
+                /> : null
+              }
+              <div className="collective-page__info">
+                <CollectiveSupervisor
+                  info={currentCollective?.supervisor}
+                  position={currentCollective?.position}
+                />
+                <TimeLesson time={time} />
+                <Ages from={ageStart} to={ageEnd} />
+                <SupervisorPhone phone={phone} />
+                <LessonPay price={price} />
+              </div>
+            </div>
+          </>
+      }
+
     </main>
   )
 }

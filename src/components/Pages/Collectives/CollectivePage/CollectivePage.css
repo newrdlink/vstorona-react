@@ -38,7 +38,10 @@
 .collective-page__image {
   margin-right: 25px;
   position: relative;
-  max-width: 352px;
+  object-fit: contain;
+  object-position: top;
+  /* width: 100%; */
+  /* max-width: 352px; */
 }
 
 .collective-page__conditions:hover .buttons-box {
@@ -49,5 +52,16 @@
 
   .collective-page__title {
     margin: 0 0 40px 0;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  /* .collective-page__descriptions {
+    flex-direction: column;
+  } */
+
+  .collective-page__descriptions {
+    margin-bottom: 120px;
   }
 }

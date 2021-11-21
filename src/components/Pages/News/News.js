@@ -59,6 +59,10 @@ const News = ({ currentPath, loggedIn }) => {
 
 
   useEffect(() => {
+
+    if (window.innerWidth < 780) {
+      return setCountNews(2)
+    }
     if (window.innerWidth < 1450) {
       setCountNews(3)
     }
