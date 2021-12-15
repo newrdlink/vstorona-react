@@ -24,3 +24,21 @@
 .main-title_place_contacts-main {
   margin: 0 0 100px 0;
 }
+
+.main-title_place_activity-main {
+  margin: 0 0 88px 0;
+}
+
+@media screen and (max-width: 780px) {
+  .main-title_place_news-main {
+    margin: 0 0 88px 0;
+  }
+
+  .main-title_place_events-main {
+    margin: 0 0 88px 20px;
+  }
+
+  .main-title_place_dance-main {
+    margin: 0 0 88px 0;
+  }
+}

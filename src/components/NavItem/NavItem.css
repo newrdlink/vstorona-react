@@ -16,3 +16,7 @@
 .item__link_active {
   text-decoration-line: underline;
 } 
+
+@media screen and (max-width: 780px) {
+
+}

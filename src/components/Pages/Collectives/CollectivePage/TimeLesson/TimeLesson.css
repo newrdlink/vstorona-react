@@ -1,6 +1,7 @@
 .time-lesson {
   min-width: 340px;
   margin-right: 25px;
+  margin-bottom: 30px;
 }
 
 .time-lesson__item {
@@ -22,4 +23,17 @@
   line-height: 22px;
   text-transform: uppercase;
   color: #442836;
+}
+
+
+@media screen and (max-width: 780px) {
+
+
+  .time-lesson__item:last-of-type {
+    margin: 0 0 50px 0;
+  }
+
+  .time-lesson__title {
+    margin: 0 0 20px 0;
+  }
 }

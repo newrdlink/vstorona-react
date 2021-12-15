@@ -82,3 +82,25 @@
 .carusel__btn:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1450px) {
+
+  .carusel_place_collective {
+    /* height: 100%; */
+    /* height: 600px; */
+    max-width: 650px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  .carusel_place_collective {
+    /* height: 100%; */
+    /* height: 600px; */
+    max-width: 728px;
+   
+  }
+  .carusel-container {
+    margin: 0 auto 50px;
+   }
+}

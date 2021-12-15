@@ -5,7 +5,8 @@
   z-index: 3;
 }
 
-.event-time__day {
+.event-time__day {  
+  max-width: 100px;
   font-family: Montserrat;
   padding: 0;
   margin: 0;
@@ -36,4 +37,36 @@
   font-size: 14px;
   line-height: 146.4%;
   color: #442836;
+}
+
+@media screen and (max-width: 1450px) {
+  .event-time {
+    margin-right: 200px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  .event-time {
+    width: 100%;
+    display: flex;
+  }
+
+  /* .event-time__month-year { 
+    width: 120px;
+  } */
+
+  .event-time__day {
+    margin-right: 40px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 59px;
+    color: #974269;
+  }
+
+  .event-time__current-time {
+    max-width: 100px;
+  }
 }

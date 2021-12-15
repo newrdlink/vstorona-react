@@ -21,3 +21,9 @@
   line-height: 17px;  
   color: #974269;
 }
+
+@media screen and (max-width: 780px) {
+  .activity_place_event {
+    padding: 0 20px;
+  }
+}

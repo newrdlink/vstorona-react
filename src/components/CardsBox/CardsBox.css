@@ -30,3 +30,10 @@
   }
 
 }
+
+@media screen and (max-width: 780px) {
+
+  .card-box_place_activity-main {
+    flex-wrap: wrap;
+  }
+}

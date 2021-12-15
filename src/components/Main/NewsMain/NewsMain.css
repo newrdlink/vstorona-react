@@ -4,3 +4,9 @@
   padding: 0 60px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 780px) {
+  .news-main  {
+    padding: 0 20px;
+  }
+}

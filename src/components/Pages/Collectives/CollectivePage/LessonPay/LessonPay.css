@@ -22,3 +22,10 @@
   line-height: 146.4%;
   color: #442836;
 }
+
+
+@media screen and (max-width: 780px) {
+  .lesson-pay__title {
+    margin: 0 0 20px 0;
+  }
+}

@@ -74,3 +74,11 @@
   line-height: 146.4%;
   color: #442836;
 }
+
+
+@media screen and (max-width: 1440px) {
+
+  .news-page__descriptions-item {
+padding-right: 25px;
+  }
+}

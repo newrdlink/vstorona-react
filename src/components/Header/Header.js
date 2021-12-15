@@ -2,13 +2,13 @@ import React from 'react'
 import './Header.css'
 import Logo from '../Logo/Logo'
 import ContactsHeader from '../ContactsHeader/ContactsHeader'
-import ModVersion from '../Buttons/ModVersion/ModVersion'
+import ModVersion from './ModVersion/ModVersion'
 import Nav from '../NavHeader/NavHeader'
-import СollectivesButton from '../Buttons/СollectivesButton/СollectivesButton'
-import SignInButton from '../UI/buttons/SignInButton/SignInButton'
-import SearchButton from '../Buttons/SearchButton/SearchButton'
+import СollectivesButton from './СollectivesButton/СollectivesButton'
+import SignInButton from './SignInButton/SignInButton'
+import SearchButton from './SearchButton/SearchButton'
 import RightMenuButton from '../Buttons/RightMenuButton/RightMenuButton'
-import useWindowSize from '../../helpers/windowsWidth';
+// import useWindowSize from '../../helpers/windowsWidth';
 
 
 const Header = ({
@@ -18,12 +18,14 @@ const Header = ({
   onClickOpenTopMenu,
   onClickOpenCollMenu }) => {
   // console.log(useWindowSize())
+  const isIpadDevice = window.screen.availWidth <= 768
+
   return (
     <header className="header">
       <div className="header-container">
         <Logo place="header" />
-        {useWindowSize() < 780 ? null : <ContactsHeader />}
-        {useWindowSize() < 780 ? null : <ModVersion />}
+        {isIpadDevice ? null : <ContactsHeader />}
+        {isIpadDevice ? null : <ModVersion />}
         <Nav />
         <СollectivesButton
           onClick={onClickOpenCollMenu}
@@ -33,7 +35,7 @@ const Header = ({
           loggedIn={loggedIn}
           onClickSignOutButton={onClickSignOutButton}
         />
-        <SearchButton />
+        {isIpadDevice ? null : <SearchButton />}
         <RightMenuButton
           onClickOpenTopMenu={onClickOpenTopMenu}
         />

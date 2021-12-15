@@ -3,7 +3,7 @@
   max-width: 1400px;
   list-style: none;
   display: flex;
-  margin: 60px 0 110px 0;
+  margin: 100px 0 110px 0;
   padding: 0;
   z-index: 1;
 }
@@ -23,6 +23,7 @@
   line-height: 17px;
   text-decoration-line: underline;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav-page__link_place_hall {
@@ -48,5 +49,11 @@
   line-height: 17px;
   text-decoration-line: underline;
   text-transform: uppercase;  
-  color: #FFFFFF;
+  color: #FFF;
+}
+
+@media screen and (max-width: 780px) {
+  .nav-page {
+   /* display: block; */
+  }
 }

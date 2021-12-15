@@ -10,24 +10,43 @@
   align-items: center;
   padding: 0 60px;
   box-sizing: border-box;
-  min-height: 100px;
-  width: 100%;
+  min-height: 100px;  
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto 0;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1450px) {
   .header {
     
   }
+
+  .header-container {
+    justify-content: space-between;
+  }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1050px) {
   .header {
     
   }
 
   .header-container {
-    padding: 0 20px;
+    padding: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .header {
+    /* position: absolute;
+    background-color: transparent; */
+  }
+
+  .header-container {
+    min-height: auto;
+    padding: 20px 20px;
+    margin: 0;
+    justify-content: space-between;
   }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import './SignInButton.css'
 import SignOut from '../SignOut/SignOut'
 
-import { CurrentUserContext } from '../../../../contexts/CurrentUserContext'
+import { CurrentUserContext } from '../../../contexts/CurrentUserContext'
 
 const SignInButton = ({ onClickSignInButton, loggedIn, onClickSignOutButton }) => {
 

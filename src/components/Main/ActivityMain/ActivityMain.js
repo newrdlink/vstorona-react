@@ -20,7 +20,7 @@ const ActivityMain = ({ currentPath, onClickHandler }) => {
   useEffect(() => {
     const element = scrollContainer.current
 
-    if (element) {
+    if (element && window.innerWidth > 780) {
       const onWheel = (evt) => {
         evt.preventDefault()
         element.scroll({
@@ -100,7 +100,10 @@ const ActivityMain = ({ currentPath, onClickHandler }) => {
         place="main"
         startPosition={-1000}
       />
-      <MainTitle title="наша деятельность" />
+      <MainTitle
+        title="наша деятельность"
+        place="activity-main"
+      />
       <div
         className="activity-main__scroll-container"
         ref={scrollContainer}

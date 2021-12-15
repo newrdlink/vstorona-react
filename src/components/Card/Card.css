@@ -135,3 +135,25 @@
     margin-right: 24px;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .card_place_activity-main {
+    margin-bottom: 24px;
+    margin-right: 0;
+  }
+
+  .card_place_services:nth-of-type(2n) {
+    margin-right: 0;
+  }
+
+  .card_place_rent:nth-of-type(2n){
+    margin-right: 0;
+  }
+
+  .card_place_about:nth-of-type(2n){
+    margin-right: 0;
+  }
+  .card_place_activity:nth-of-type(2n){
+    margin-right: 0;
+  }
+}

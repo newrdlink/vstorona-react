@@ -1,5 +1,5 @@
 .supervisor {
-  max-width: 340px;
+  width: 340px;
   margin-right: 34px;
 }
 
@@ -32,4 +32,15 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+}
+
+
+@media screen and (max-width: 780px) {
+  .supervisor__description:last-of-type {
+    margin: 0 0 50px 0;
+  }
+
+  .supervisor__title {
+    margin: 0 0 20px 0;
+  }
 }

@@ -7,7 +7,9 @@ import apiEvents from '../../../../../utils/ApiEvents'
 import { getEvent, setEvent } from '../../../../../utils/currentEvent'
 import Carusel from '../../../Services/Carusel/Carusel'
 import SocialLinksShare from '../../../../UI/SocialLinksShare/SocialLinksShare'
-import ButtonHistoryBack from '../../../../UI/buttons/ButtonHistoryBack/ButtonHistoryBack';
+import ButtonHistoryBack from '../../../../UI/buttons/ButtonHistoryBack/ButtonHistoryBack'
+
+import ReactMarkdown from 'react-markdown'
 
 const EventPage = () => {
 
@@ -31,7 +33,7 @@ const EventPage = () => {
   const strDateEvent = `${dateEvent.getDate()}/${dateEvent.getMonth() + 1}/${dateEvent.getFullYear()}`
   const strTimeEvent = `${dateEvent.getHours()}:${dateEvent.getMinutes() || "00"}`
 
-  const titleForPageEvent = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
+  const titleForPageEvent = () => title.length > 60 ? title.slice(0, 60) + ". . ." : title
 
   useEffect(() => {
     const currentEvent = getEvent()
@@ -63,8 +65,8 @@ const EventPage = () => {
           <h5 className="event-page__subtitle">{title}</h5>
           {
             arrWithDescr.map((descr) =>
-              <p className="event-page__descriptions-item"
-                key={descr}>{descr}</p>)
+              <ReactMarkdown className="event-page__descriptions-item"
+                key={descr}>{descr}</ReactMarkdown>)
           }
         </div>
         <Carusel images={arrImagesForCarusel} place="event" />

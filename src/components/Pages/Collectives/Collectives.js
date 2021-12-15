@@ -12,9 +12,20 @@ import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddCollective from '../../backend/AddCollective/AddCollective'
 import EditCollective from '../../backend/EditCollective/EditCollective'
 
+import { setCollective } from '../../../utils/currentCollective'
+
 const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData, setUpdateData, dataUpdate }) => {
   // console.log(collectivesItems)
   // console.log(collectivesItems)
+
+
+
+  const onClickLinkHandle = (id) => {
+    const currentCollective = collectivesItems.find((el) => el._id === id)
+    // console.log(currentCollective)
+    setCollective(currentCollective)
+    // console.log(id)
+  }
   return (
     <section className="collectives">
       {loggedIn && currentPath === "/collectives" ?
@@ -28,7 +39,12 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData,
       <Switch>
 
         <Route exact path="/collectives">
-          <p>Ссылка на спсиок коллективов вверху</p>
+          {
+            collectivesItems.map(el =>
+              <Link onClick={() => onClickLinkHandle(el._id)} className="collectives__item" to={`/collectives/${el._id}`} key={el._id}>
+                {el.name}
+              </Link>)
+          }
           {/* <CardsBox
             arrayCards={typesCollectives}
             currentPath={currentPath}
