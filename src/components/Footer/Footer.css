@@ -23,6 +23,13 @@
 }
 
 
+@media screen and (max-width: 1050px) {
+
+  .footer-container {
+    padding: 25px 20px;
+  }
+}
+
 @media screen and (max-width: 780px) {
 
   .footer-container {
