@@ -31,7 +31,7 @@ const EventPage = () => {
   const strDateEvent = `${dateEvent.getDate()}/${dateEvent.getMonth() + 1}/${dateEvent.getFullYear()}`
   const strTimeEvent = `${dateEvent.getHours()}:${dateEvent.getMinutes() || "00"}`
 
-  const titleForPageEvent = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
+  const titleForPageEvent = () => title.length > 60 ? title.slice(0, 60) + ". . ." : title
 
   useEffect(() => {
     const currentEvent = getEvent()
