@@ -9,16 +9,15 @@ const VideoFrame = ({ videoLink, startTime, title, description, _id, loggedIn, o
   const dateAddVideo = new Date(startTime)
   const dateVideo = `${dateAddVideo.getDate()}/${dateAddVideo.getMonth() + 1}/${dateAddVideo.getFullYear()}`
 
-  const arrWithDescr = description.split("    ")
+  const arrWithDescr = description?.split("    ")
 
-  // console.log(_id)
   return (
     <li className="video-frame">
       <div className="video-frame__data">
         <p className="video-frame__date">{dateVideo}</p>
         <h3 className="video-frame__title">{title}</h3>
-        {
-          arrWithDescr.map(el => <p className="video-frame__subtitle" key={el}>{el}</p>)
+        {arrWithDescr ?
+          arrWithDescr.map(el => <p className="video-frame__subtitle" key={el}>{el}</p>) : null
         }
       </div>
       <iframe
