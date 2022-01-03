@@ -7,6 +7,8 @@ import i3 from '../../../../images/History/3.png'
 import i4 from '../../../../images/History/4.jpg'
 import i5 from '../../../../images/History/5.jpg'
 
+import { useTitle } from '../../../../helpers/createTitlePage'
+
 
 const History = ({ pageInfo }) => {
   const [activeHistoryAbout, setActiveHistoryAbout] = useState(false)
@@ -19,14 +21,13 @@ const History = ({ pageInfo }) => {
         setActiveHistoryAbout(true)
       }
     }
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll)
     };
   });
 
+  useTitle("История Клуба Выборгская Сторона")
 
   return (
     <section className="history">
