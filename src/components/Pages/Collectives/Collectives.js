@@ -14,6 +14,8 @@ import EditCollective from '../../backend/EditCollective/EditCollective'
 
 import { setCollective } from '../../../utils/currentCollective'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData, setUpdateData, dataUpdate }) => {
   // console.log(collectivesItems)
   // console.log(collectivesItems)
@@ -26,6 +28,9 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData,
     setCollective(currentCollective)
     // console.log(id)
   }
+
+  useTitle("Творческие коллективы")
+
   return (
     <section className="collectives">
       {loggedIn && currentPath === "/collectives" ?

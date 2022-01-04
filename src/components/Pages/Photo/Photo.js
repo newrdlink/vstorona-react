@@ -13,6 +13,8 @@ import AddPhoto from '../../backend/AddPhoto/AddPhoto'
 import api from '../../../utils/ApiPhoto'
 import { getToken } from '../../../utils/Token'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const Foto = ({ currentPath, loggedIn }) => {
 
   const [albums, setAlbums] = useState([])
@@ -37,6 +39,8 @@ const Foto = ({ currentPath, loggedIn }) => {
 
   const dataUpdate = (album) => setAlbums([...albums, album])
   // console.log(currentPath)
+  useTitle("Фотографии")
+
   return (
     <main className="photo">
       <NavPage currentPath={currentPath} />

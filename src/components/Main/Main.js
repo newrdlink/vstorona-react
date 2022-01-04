@@ -14,6 +14,8 @@ import { getToken } from '../../utils/Token'
 
 import ContactsMain from './ContactsMain/ContactsMain'
 
+import { useTitle } from '../../helpers/createTitlePage'
+
 const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
 
   const [initialCountNews, setInitialCountNews] = useState(4)
@@ -101,6 +103,8 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
       return setInitialCountNews(3)
     }
   }, [])
+
+  useTitle("Клуб Выборгская Сторона")
 
   return (
     <main className="main">

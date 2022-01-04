@@ -9,6 +9,8 @@ import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 import EventsBox from './EventsBox/EventsBox'
 import EventsLinks from './EventsLinks/EventsLinks'
 
+import { useTitle } from '../../../../helpers/createTitlePage'
+
 const Events = ({ pageInfo, loggedIn }) => {
 
   const [eventsList, setEventsList] = useState([])
@@ -88,6 +90,9 @@ const Events = ({ pageInfo, loggedIn }) => {
     // console.log(_id)
   }
   // console.log(pageInfo)
+
+  useTitle("Афиша мероприятий")
+
   return (
     <main className="events">
       <PageTitleShadow

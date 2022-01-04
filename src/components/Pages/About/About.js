@@ -19,6 +19,8 @@ import apiWorker from '../../../utils/ApiWorker'
 import apiDocuments from '../../../utils/ApiDocument'
 import apiAchievements from '../../../utils/ApiAchievement'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const About = ({ loggedIn, currentPath }) => {
 
 
@@ -217,6 +219,8 @@ const About = ({ loggedIn, currentPath }) => {
       })
       .catch((error) => console.log(error))
   }
+
+  useTitle("О нас")
 
   return (
     <section className={`about about_place_${pageInfo.pathName}`}>

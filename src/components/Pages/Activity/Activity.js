@@ -21,9 +21,13 @@ import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 
 import AddEvent from '../../backend/AddEvent/AddEvent'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const Activity = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+
+  useTitle("Мероприятия")
 
   return (
     <section className={`activity ${pageInfo !== undefined && "activity_place_event"}`}>

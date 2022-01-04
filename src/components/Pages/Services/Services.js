@@ -18,6 +18,8 @@ import HallPage from './Rent/Halls/HallPage/HallPage'
 
 import apiHalls from '../../../utils/ApiHalls'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const Services = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
@@ -40,6 +42,7 @@ const Services = ({ loggedIn, currentPath }) => {
   const isNotHall = (obj) => obj.pathName === "services" ||
     obj.pathName === "rent"
 
+  useTitle("Платные услуги")
 
   return (
     <section className={`services ${isNotHall(pageInfo) && "services_place_hall"}`}>
