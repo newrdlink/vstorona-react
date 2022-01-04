@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import './NewsMain.css'
 
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
@@ -9,11 +10,16 @@ import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage
 
 const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
 
+  // const [idEditingNews, setIdEditingNews] = useState(0)
+  // const history = useHistory()
 
   // useEffect(() => {
   //   console.log(window.innerWidth)
   // }, [])
-
+  // const onClickEditNews = (_id) => {
+  //  setIdEditingNews(_id)
+  //  history.push('/news/edit-news')
+  //}
 
   return (
     <section className="news-main">
@@ -28,6 +34,7 @@ const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
       />
       <NewsBox
         newsList={newsList}
+        // onClickEdit={onClickEditNews}
         onClickRemove={onClickRemoveNewsCard}
         loggedIn={loggedIn}
       // count={window.innerWidth}

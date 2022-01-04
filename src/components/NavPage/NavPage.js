@@ -203,6 +203,13 @@ const NavPage = ({ currentPath }) => {
         v.path = '/news/add-news'
         obj.push(v)
         break
+      case 'edit-news':
+        let vq = {}
+        vq.id = 202
+        vq.name = 'редактировать новость  '
+        vq.path = '/news/edit-news'
+        obj.push(vq)
+        break
       case 'collectives':
         let w = {}
         w.id = 23

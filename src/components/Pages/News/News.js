@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link, useHistory } from 'react-router-dom'
 import './News.css'
 
 import PageTitleShadow from '../../PageTitleShadow/PageTitleShadow'
@@ -12,6 +12,7 @@ import NewsBox from './NewsBox/NewsBox'
 
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 import AddNews from '../../backend/AddNews/AddNews'
+import EditNews from '../../backend/EditNews/EditNews'
 import apiNews from '../../../utils/ApiNews'
 import { getToken } from '../../../utils/Token'
 // import useWindowSize from '../../../helpers/windowsWidth'
@@ -19,9 +20,11 @@ import { getToken } from '../../../utils/Token'
 import NewsPage from './NewsPage/NewsPage'
 
 const News = ({ currentPath, loggedIn }) => {
+  const history = useHistory()
 
   const [countNews, setCountNews] = useState(4)
   const [newsAll, setNewsAll] = useState([])
+  const [idEditingNews, setIdEditingNews] = useState(0)
 
   const pageInfo = contentTitle({ currentPath, infoPages })
 
@@ -42,7 +45,14 @@ const News = ({ currentPath, loggedIn }) => {
       .catch((error) => console.log(error))
     // console.log(1, _id)
   }
-  // console.log(loggedIn)
+
+  const onClickEditNews = (_id) => {
+    setIdEditingNews(_id)
+    history.push('/news/edit-news')
+  }
+
+
+
   useEffect(() => {
     let cleanupFunction = false
 
@@ -92,6 +102,7 @@ const News = ({ currentPath, loggedIn }) => {
             newsList={newsAll}
             countNews={countNews}
             onClickRemove={onClickRemoveNewsCard}
+            onClickEdit={onClickEditNews}
             loggedIn={loggedIn}
           />
           {
@@ -107,6 +118,14 @@ const News = ({ currentPath, loggedIn }) => {
           loggedIn={loggedIn}
           component={AddNews}
           path="/news/add-news"
+        />
+
+        <ProtectedRoute
+          loggedIn={loggedIn}
+          newsAll={newsAll}
+          idEditingNews={idEditingNews}
+          component={EditNews}
+          path="/news/edit-news"
         />
 
         <Route exact path="/news/:id">
