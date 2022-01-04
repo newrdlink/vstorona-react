@@ -5,6 +5,8 @@ import apiDance from '../../../../utils/ApiDance'
 
 import Carusel from '../Carusel/Carusel'
 
+import { useTitle } from '../../../../helpers/createTitlePage'
+
 const Dance = () => {
   const [dancePage, setDancePage] = useState({ images: [{ link: "temp" }], days: ['1', '2'], startTime: '1', compositionServices: ["temp"] })
   // console.log(dancePage)
@@ -16,6 +18,8 @@ const Dance = () => {
       })
       .catch((error) => console.log(error))
   }, [])
+
+  useTitle("Танцевальные вечера")
 
   return (
     <section className="dance">

@@ -14,6 +14,8 @@ import AddVideo from '../../backend/AddVideo/AddVideo'
 import api from '../../../utils/ApiVideo'
 import { getToken } from '../../../utils/Token'
 
+import { useTitle } from '../../../helpers/createTitlePage'
+
 const Video = ({ currentPath, loggedIn }) => {
 
   const [allVideo, setAllVideo] = useState([])
@@ -36,6 +38,8 @@ const Video = ({ currentPath, loggedIn }) => {
   }
 
   const dataUpdate = (video) => setAllVideo([...allVideo, video])
+
+  useTitle("Видео")
 
   return (
     <main className="video">

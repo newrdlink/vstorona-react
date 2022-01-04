@@ -5,6 +5,8 @@ import WorkersBox from '../../../WorkersBox/WorkersBox'
 import AddWorker from '../../../UI/popups/AddWorker/AddWorker'
 import EditWorker from '../../../UI/popups/EditWorker/EditWorker'
 
+import { useTitle } from '../../../../helpers/createTitlePage'
+
 const Collective = ({
   pageInfo,
   workers,
@@ -18,6 +20,9 @@ const Collective = ({
   onClickBtnClose,
   loggedIn }) => {
   // console.log(pageInfo)
+
+  useTitle("Администрация Клуба")
+
   return (
     <section className="collective">
       <WorkersBox

@@ -33,6 +33,8 @@ import Policy from '../Pages/Policy/Policy'
 import Video from '../Pages/Video/Video'
 import Photo from '../Pages/Photo/Photo'
 
+import { useTitle } from '../../helpers/createTitlePage';
+
 const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -158,6 +160,8 @@ const App = () => {
   }
 
   const handleUpdateAntiCorrDocs = () => setUpdateData(!updateData)
+
+  useTitle("Клуб Выборгская Сторона")
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
