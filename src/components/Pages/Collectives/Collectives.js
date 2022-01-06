@@ -20,8 +20,6 @@ const Collectives = ({ collectivesItems = [], currentPath, loggedIn, updateData,
   // console.log(collectivesItems)
   // console.log(collectivesItems)
 
-
-
   const onClickLinkHandle = (id) => {
     const currentCollective = collectivesItems.find((el) => el._id === id)
     // console.log(currentCollective)

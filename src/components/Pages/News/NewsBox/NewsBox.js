@@ -3,7 +3,7 @@ import './NewsBox.css'
 
 import NewsSingle from '../NewsSingle/NewsSingle'
 
-const NewsBox = ({ newsList = [], countNews, onClickRemove, loggedIn }) => {
+const NewsBox = ({ newsList = [], countNews, onClickRemove, onClickEdit, loggedIn }) => {
 
   const [currentNewsList, setCurrentNewsList] = useState([])
 
@@ -24,6 +24,7 @@ const NewsBox = ({ newsList = [], countNews, onClickRemove, loggedIn }) => {
             key={item._id}
             {...item}
             onClickRemove={onClickRemove}
+            onClickEdit={onClickEdit}
             loggedIn={loggedIn}
           />)
       }

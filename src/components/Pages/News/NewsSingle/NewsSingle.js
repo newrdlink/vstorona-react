@@ -9,12 +9,15 @@ import ButtonsBox from '../../../UI/ButtonsBox/ButtonsBox'
 
 const NewsSingle = (props) => {
   // console.log(props)
-  const { images, createdAt, title, subtitle, _id, onClickRemove, loggedIn } = props
+  const { images, createdAt, title, subtitle, _id, onClickRemove, onClickEdit, loggedIn } = props
   const history = useHistory()
+  const { location: { pathname: pathEnds } } = history
   const onClickHandler = () => setNews(props)
 
   const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
   const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : title
+
+
 
   return (
     <li className="single-news">
@@ -22,10 +25,11 @@ const NewsSingle = (props) => {
       <div className="single-news__img-container">
         <img src={images[0]} alt="#" className="single-news__image" />
         {
-          loggedIn ? <ButtonsBox
+          loggedIn && pathEnds.endsWith('news') ? <ButtonsBox
             place="news-card"
             onClickAdd={() => history.push('/news/add-news')}
-            onClickEdit={() => console.log(_id)}
+            onClickEdit={() => onClickEdit(_id)}
+            // onClickEdit={() => history.push('/news/edit-news')}
             onClickRemove={() => onClickRemove(_id)}
           /> : null
         }

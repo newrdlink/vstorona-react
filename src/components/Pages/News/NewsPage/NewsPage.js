@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './NewsPage.css'
 
 // import NavPage from '../../../NavPage/NavPage';
 // import { infoPages } from '../../../../config/infoPages';
-import { getNews, setNews } from '../../../../utils/currentNews'
+import { getNews, setNews, removeNews } from '../../../../utils/currentNews'
 import apiNews from '../../../../utils/ApiNews'
-import Carusel from '../../Services/Carusel/Carusel';
+import Carusel from '../../Services/Carusel/Carusel'
+import SocialLinksShare from '../../../UI/SocialLinksShare/SocialLinksShare';
 
 
 
 const NewsPage = ({ newsAll = [], currentPath }) => {
 
+  const history = useHistory()
   const [currentNews, setCurrentNews] = useState({ images: [] })
   const { id } = useParams();
   // const currentNews = newsAll.find((item) => item._id === id)
@@ -41,8 +43,11 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
         .catch((error) => console.log(error))
     } else {
       setCurrentNews(currentNews)
+      // removeNews()
     }
   }, [id])
+
+  // console.log(newsAll)
 
   return (
     <main className="news-page">
@@ -65,6 +70,13 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
           images={arrForCarusel}
         />
       </div>
+
+      {/* <div className='news-page__submenu'>
+        <button type="button" onClick={() => history.push(`/news/${`61c1a3879fa19b3e468f028f`}`)}>prev</button>
+        <button type="button">next</button>
+        <SocialLinksShare />
+      </div> */}
+
     </main>
   )
 }

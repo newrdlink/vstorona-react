@@ -37,33 +37,16 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
-  //   postItemDescrHall(data, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         data
-  //       })
-  //     })
-  //       .then(handlerResponse)
-  //   }
-
-  //   putMainDescrHall(data, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "PUT",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         data
-  //       })
-  //     })
-  //       .then(handlerResponse)
-  //   }
+  updateNews(data, token) {
+    return fetch(`${this.address}/news`, {
+      method: "PATCH",
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "authorization": `Bearer ${token}`
+      },
+      body: data,
+    })
+  }
 
   deleteNews(_id, token) {
     return fetch(`${this.address}/news`, {
@@ -78,20 +61,6 @@ class Api extends React.Component {
     })
       .then(handlerResponse)
   }
-
-  //   patchItemDescrHall(oldData, newData, token, type) {
-  //     return fetch(`${this.address}/halls/${type}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "authorization": `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify({
-  //         oldData, newData
-  //       })
-  //     })
-  //       .then(handlerResponse)
-  //   }
 }
 
 //создаем экземпляр
