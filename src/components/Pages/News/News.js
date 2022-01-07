@@ -26,6 +26,8 @@ const News = ({ currentPath, loggedIn }) => {
   const [newsAll, setNewsAll] = useState([])
   const [idEditingNews, setIdEditingNews] = useState(0)
 
+
+
   const pageInfo = contentTitle({ currentPath, infoPages })
 
   const countNewsHandler = () => setCountNews(countNews + countNews)
@@ -50,8 +52,6 @@ const News = ({ currentPath, loggedIn }) => {
     setIdEditingNews(_id)
     history.push('/news/edit-news')
   }
-
-
 
   useEffect(() => {
     let cleanupFunction = false
@@ -78,6 +78,7 @@ const News = ({ currentPath, loggedIn }) => {
     }
   }, [])
 
+
   return (
     <section className="news">
       {loggedIn && currentPath === "/news" ?
@@ -86,6 +87,7 @@ const News = ({ currentPath, loggedIn }) => {
       }
       <NavPage
         currentPath={currentPath}
+      // changeNews={changeNews}
       />
       <Switch>
         <Route exact path="/news">
@@ -132,6 +134,8 @@ const News = ({ currentPath, loggedIn }) => {
           <NewsPage
             newsAll={newsAll}
             currentPath={currentPath}
+          // updateNews={updateNews}
+          // setChangeNews={(changeNews) => setChangeNews(!changeNews)}
           />
         </Route>
 

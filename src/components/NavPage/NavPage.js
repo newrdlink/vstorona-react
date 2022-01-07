@@ -8,10 +8,9 @@ import { getCollective } from '../../utils/currentCollective'
 import { getAlbum } from '../../utils/currentAlbum'
 // import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
-  // const { path, url } = useRouteMatch()
-  // console.log(path)
-  // console.log(url)
+
   const [upDate, setUpDate] = useState(false)
+
   // const [currentAlbum, setCurrentAlbum] = useState({})
   const arrStr = currentPath.split('/')
 
@@ -20,6 +19,8 @@ const NavPage = ({ currentPath }) => {
 
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
+  // console.log(news._id)
+
   const collective = getCollective() || { name: "" }
   const album = getAlbum() || { title: "" }
   // console.log("id album from localStorage", album._id)
@@ -37,15 +38,6 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
     (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
-
-
-  useEffect(() => {
-    // console.log(`/collectives/${collective._id}`)
-    if (!collective._id) {
-      setTimeout(() => setUpDate(true))
-    }
-    // console.log(1)
-  }, [collective._id])
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -333,6 +325,27 @@ const NavPage = ({ currentPath }) => {
     }
     return obj
   }, [])
+
+
+  useEffect(() => {
+    // console.log(`/collectives/${collective._id}`)
+    if (!collective._id) {
+      setTimeout(() => setUpDate(true))
+      console.log(22)
+    }
+    // console.log(1)    
+  }, [collective._id])
+
+  // console.log(changeNews)
+  useEffect(() => {
+    const cN = getNews()
+    const trubl = news?._id === cN?._id
+    // console.log(trubl)
+    if (!trubl) {
+      setUpDate(!upDate)
+    }
+    // console.log('chAnge current path in NavPage')
+  }, [upDate, news._id, currentPath])
 
   return (
     <ul className={`nav-page ${isHallPage && "nav-page_place_hall"}`}>
