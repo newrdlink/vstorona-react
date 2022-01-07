@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import './NewsPage.css'
 
 // import NavPage from '../../../NavPage/NavPage';
@@ -8,8 +8,6 @@ import { getNews, setNews, removeNews } from '../../../../utils/currentNews'
 import apiNews from '../../../../utils/ApiNews'
 import Carusel from '../../Services/Carusel/Carusel'
 import SocialLinksShare from '../../../UI/SocialLinksShare/SocialLinksShare';
-
-
 
 const NewsPage = ({ newsAll = [], currentPath }) => {
 
@@ -33,21 +31,47 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
   const arrWithDescr = description.split("    ")
 
   useEffect(() => {
-    const currentNews = getNews()
+    // const currentNews = getNews()
+    const currentNews = newsAll.find((el) => el._id === id)
+    // console.log('1')
+    // console.log(id)
     if (!currentNews) {
-      apiNews.getNews(id)
-        .then((news) => {
-          setNews(news)
-          setCurrentNews(news)
-        })
-        .catch((error) => console.log(error))
+      // console.log('upDateNewsPage2')
+      // console.log(2)
+      // apiNews.getNews(id)
+      //   .then((news) => {
+      //     setNews(news)
+      //     setCurrentNews(news)
+      //   })
+      //   .catch((error) => console.log(error))
     } else {
+      // console.log("2")
+      setNews(currentNews)
       setCurrentNews(currentNews)
+
+      // console.log('upDateNewsPage3')
+      // console.log(1)
       // removeNews()
     }
-  }, [id])
+    return () => removeNews()
+  }, [id, newsAll])
 
-  // console.log(newsAll)
+  const handlePrevNews = (idNews) => {
+    const indexCurrentNews = newsAll.findIndex((el) => el._id === idNews)
+    const prevNews = newsAll[indexCurrentNews - 1]
+    const idPrevNews = prevNews?._id
+    history.push(`/news/${idPrevNews}`)
+  }
+
+  const handleNextNews = (idNews) => {
+    const indexCurrentNews = newsAll.findIndex((el) => el._id === idNews)
+    const nextNews = newsAll[indexCurrentNews + 1]
+    const idNextNews = nextNews?._id
+    history.push(`/news/${idNextNews}`)
+  }
+
+  const isFirstNews = newsAll[0]?._id === currentNews._id
+  const isLastNews = newsAll[newsAll.length - 1]?._id === currentNews._id
 
   return (
     <main className="news-page">
@@ -70,13 +94,19 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
           images={arrForCarusel}
         />
       </div>
-
-      {/* <div className='news-page__submenu'>
-        <button type="button" onClick={() => history.push(`/news/${`61c1a3879fa19b3e468f028f`}`)}>prev</button>
-        <button type="button">next</button>
+      <div className='news-page__submenu'>
+        <div className='news-page__buttons'>
+          <button disabled={isFirstNews}
+            type="button"
+            onClick={() => handlePrevNews(id)}
+            className={`news-page__button news-page__button_pos_left ${isFirstNews && "news-page__button_disabled"}`}>Предыдущая новость</button>
+          <button disabled={isLastNews}
+            type="button"
+            onClick={() => handleNextNews(id)}
+            className={`news-page__button news-page__button_pos_right ${isLastNews && "news-page__button_disabled"}`}>Следующая новость</button>
+        </div>
         <SocialLinksShare />
-      </div> */}
-
+      </div>
     </main>
   )
 }
