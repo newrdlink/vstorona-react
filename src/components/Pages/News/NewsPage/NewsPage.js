@@ -7,7 +7,8 @@ import './NewsPage.css'
 import { getNews, setNews, removeNews } from '../../../../utils/currentNews'
 import apiNews from '../../../../utils/ApiNews'
 import Carusel from '../../Services/Carusel/Carusel'
-import SocialLinksShare from '../../../UI/SocialLinksShare/SocialLinksShare';
+import SocialLinksShare from '../../../UI/SocialLinksShare/SocialLinksShare'
+import ReactMarkdown from 'react-markdown'
 
 const NewsPage = ({ newsAll = [], currentPath }) => {
 
@@ -82,11 +83,10 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
           <p className="news-page__time-info">{strDateEvent}</p>
           <h1 className="news-page__title">{title}</h1>
           <h6 className="news-page__subtitle">{subtitle}</h6>
-
           {
             arrWithDescr.map((descr) =>
-              <p className="news-page__descriptions-item"
-                key={descr}>{descr}</p>)
+              <ReactMarkdown className="news-page__descriptions-item"
+                key={descr}>{descr}</ReactMarkdown>)
           }
         </div>
         <Carusel
@@ -105,7 +105,7 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
             onClick={() => handleNextNews(id)}
             className={`news-page__button news-page__button_pos_right ${isLastNews && "news-page__button_disabled"}`}>Следующая новость</button>
         </div>
-        <SocialLinksShare />
+        <SocialLinksShare currentNews={currentNews} />
       </div>
     </main>
   )

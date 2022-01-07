@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 import './SocialLinksShare.css'
 
-const SocialLinksShare = () => {
+const SocialLinksShare = ({ currentNews }) => {
 
-  const loadScript = () => {
-    const script = document.createElement("script")
-    script.src = "https://yastatic.net/share2/share.js"
-    script.async = true
-    document.body.appendChild(script)
-  }
-  loadScript()
+  useEffect(() => {
 
+    const isLoaded = Array.from(document.body.querySelectorAll('script')).some((el) => el.outerHTML.includes('share.js'))
+
+    if (!isLoaded) {
+      const loadScript = () => {
+        const script = document.createElement("script")
+        script.src = "https://yastatic.net/share2/share.js"
+        script.async = true
+        document.body.appendChild(script)
+      }
+      loadScript()
+    }
+
+    const rmScript = () => {
+      const script = document.body.getElementsByTagName('script')
+      script[0].remove()
+      // console.log('didMounted')
+    }
+
+    return () => rmScript()
+  }, [currentNews])
+
+  // console.log(currentNews)
   return (
     <div className="share-social-links">
       <span className="share-social-links__span">поделиться:</span>
