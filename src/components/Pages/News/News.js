@@ -18,6 +18,7 @@ import { getToken } from '../../../utils/Token'
 // import useWindowSize from '../../../helpers/windowsWidth'
 
 import NewsPage from './NewsPage/NewsPage'
+import { useTitle } from '../../../helpers/createTitlePage'
 
 const News = ({ currentPath, loggedIn }) => {
   const history = useHistory()
@@ -78,6 +79,7 @@ const News = ({ currentPath, loggedIn }) => {
     }
   }, [])
 
+  useTitle("Новости")
 
   return (
     <section className="news">
