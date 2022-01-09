@@ -16,9 +16,18 @@
     margin: 0 30px 0 0;
   }
 }
+
 @media screen and (max-width: 780px) {
 
   .copyright {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+
+  .copyright {
+    margin-right: 0;
     margin-top: 10px;
   }
 }

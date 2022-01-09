@@ -34,3 +34,16 @@
     margin-bottom: 25px;
   }
 }
+
+
+@media screen and (max-width: 350px) {
+
+  .phone__link_place_footer {
+
+  }
+
+  .policy-link {
+    
+    margin-right: 0px;
+  }
+}

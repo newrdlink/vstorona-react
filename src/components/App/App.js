@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import './App.css'
 
 import Header from '../Header/Header'
+import HeaderMobile from '../HeaderMobile/HeaderMobile';
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 
@@ -36,6 +37,7 @@ import Photo from '../Pages/Photo/Photo'
 import { useTitle } from '../../helpers/createTitlePage';
 
 const App = () => {
+  const isIpadDevice = window.screen.availWidth <= 350
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
@@ -182,13 +184,19 @@ const App = () => {
           // onClickLink={onClickLink}
           // onClickLinkCollective={onClickLinkCollective}
           />
-          <Header
-            onClickSignInButton={onClickSignInButton}
-            loggedIn={loggedIn}
-            onClickSignOutButton={onClickSignOutButton}
-            onClickOpenTopMenu={onClickOpenTopMenu}
-            onClickOpenCollMenu={onClickOpenCollMenu}
-          />
+          {
+            isIpadDevice ?
+              <HeaderMobile
+
+              /> :
+
+              <Header
+                onClickSignInButton={onClickSignInButton}
+                loggedIn={loggedIn}
+                onClickSignOutButton={onClickSignOutButton}
+                onClickOpenTopMenu={onClickOpenTopMenu}
+                onClickOpenCollMenu={onClickOpenCollMenu}
+              />}
           <Switch>
             <Route exact path="/">
               <Main
