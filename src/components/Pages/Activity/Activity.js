@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Activity.css'
 import { Switch, Route, Link } from 'react-router-dom'
 
@@ -26,6 +26,7 @@ import { useTitle } from '../../../helpers/createTitlePage'
 const Activity = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
+
 
   useTitle("Мероприятия")
 
@@ -77,6 +78,7 @@ const Activity = ({ loggedIn, currentPath }) => {
         />
 
       </Switch>
+
     </section>
   )
 }
