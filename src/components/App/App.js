@@ -37,7 +37,7 @@ import Photo from '../Pages/Photo/Photo'
 import { useTitle } from '../../helpers/createTitlePage';
 
 const App = () => {
-  const isIpadDevice = window.screen.availWidth <= 350
+  const isIpadDevice = window.screen.availWidth <= 410
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
