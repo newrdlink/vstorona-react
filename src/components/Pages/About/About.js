@@ -13,6 +13,7 @@ import Collective from './Сollective/Collective'
 import Documents from './Documents/Documents'
 import Achievements from './Achievements/Achievements'
 import Questionnaire from './Questionnaire/Questionnaire'
+import NotFound from '../NotFound/NotFound'
 
 import { getToken, } from '../../../utils/Token'
 import apiWorker from '../../../utils/ApiWorker'
@@ -225,7 +226,7 @@ const About = ({ loggedIn, currentPath }) => {
   // useTitle("О нас")
 
   return (
-    <section className={`about about_place_${pageInfo.pathName}`}>
+    <section className={`about about_place_${pageInfo?.pathName}`}>
       <NavPage
         currentPath={currentPath} />
       <PageTitle
@@ -291,6 +292,7 @@ const About = ({ loggedIn, currentPath }) => {
         <Route path="/about/questionnaire">
           <Questionnaire />
         </Route>
+        <Route to="*" component={NotFound} />
       </Switch>
     </section>
   )

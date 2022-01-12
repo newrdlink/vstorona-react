@@ -16,6 +16,7 @@ import Events from './Events/Events'
 import EventPage from './Events/EventPage/EventPage'
 
 import Festivals from './Festivals/Festivals'
+import NotFound from '../NotFound/NotFound'
 
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 
@@ -76,6 +77,8 @@ const Activity = ({ loggedIn, currentPath }) => {
           component={AddEvent}
           path="/activity/add-event"
         />
+
+        <Route to="*" component={NotFound} />
 
       </Switch>
 

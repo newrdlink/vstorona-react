@@ -13,6 +13,7 @@ import PageTitle from '../../PageTitle/PageTitle'
 
 import Dance from './Dance/Dance'
 import Rent from './Rent/Rent'
+import NotFound from '../NotFound/NotFound'
 
 import HallPage from './Rent/Halls/HallPage/HallPage'
 
@@ -39,8 +40,8 @@ const Services = ({ loggedIn, currentPath }) => {
 
   // console.log(pageInfo)
 
-  const isNotHall = (obj) => obj.pathName === "services" ||
-    obj.pathName === "rent"
+  const isNotHall = (obj) => obj?.pathName === "services" ||
+    obj?.pathName === "rent"
 
   useTitle("Платные услуги")
 
@@ -75,6 +76,7 @@ const Services = ({ loggedIn, currentPath }) => {
             currentPath={currentPath}
           />
         </Route>
+        <Route to="*" component={NotFound} />
       </Switch>
     </section>
   )

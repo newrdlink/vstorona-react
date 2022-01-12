@@ -20,6 +20,7 @@ import About from '../Pages/About/About'
 import Services from '../Pages/Services/Services'
 import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
+import NotFound from '../Pages/NotFound/NotFound';
 
 import TopMenu from '../TopMenu/TopMenu'
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
@@ -274,7 +275,7 @@ const App = () => {
                 loggedIn={loggedIn}
               />
             </Route>
-
+            <Route to="*" component={NotFound} />
           </Switch>
           <Footer />
           <SignIn
