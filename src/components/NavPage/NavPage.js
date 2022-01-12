@@ -8,9 +8,7 @@ import { getCollective } from '../../utils/currentCollective'
 import { getAlbum } from '../../utils/currentAlbum'
 // import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
-
   const [upDate, setUpDate] = useState(false)
-
   // const [currentAlbum, setCurrentAlbum] = useState({})
   const arrStr = currentPath.split('/')
 

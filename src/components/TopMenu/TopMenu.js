@@ -8,6 +8,7 @@ import { itemsMenu } from '../../config/itemsTopMenu'
 
 import BlockMenu from './BlockMenu/BlockMenu'
 import SingleLink from '../UI/SingleLink/SingleLink'
+import { socialLinks } from '../../constants/socialLinks'
 
 const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) => {
   //console.log(itemsMenu)
@@ -42,20 +43,18 @@ const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) 
       <Link to="/contacts" className="top-menu__link" onClick={onClickLink}>контакты</Link>
 
       <div className="top-menu__social">
-
         <SingleLink
           name="Vkontakte"
-          url="https://www.vk.com"
+          url={socialLinks.vk}
           place="top-menu"
           onClick={onClickBtnClose}
         />
         <SingleLink
           onClick={onClickBtnClose}
           name="Instagram"
-          url="https://www.instagram.com/?hl=ru"
+          url={socialLinks.instagram}
           place="top-menu"
         />
-
       </div>
     </section>
   )

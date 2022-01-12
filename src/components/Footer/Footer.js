@@ -6,11 +6,12 @@ import CopyRight from './CopyRight/CopyRight'
 import PolicyConfidentiality from './PolicyConfidentiality/PolicyConfidentiality'
 import NumPhone from '../UI/NumPhone/NumPhone'
 import SingleLink from '../UI/SingleLink/SingleLink'
+import { socialLinks } from '../../constants/socialLinks'
 
 const Footer = () => {
 
   const isIpad = window.screen.availWidth <= 768
-  const isMobile = window.screen.availWidth <= 350
+  // const isMobile = window.screen.availWidth <= 350
 
   return (
     <footer className="footer">
@@ -35,7 +36,7 @@ const Footer = () => {
         {
           isIpad ? null : <SingleLink
             name="Instagram"
-            url="https://www.instagram.com/?hl=ru"
+            url={socialLinks.instagram}
             place="footer" />
         }
       </div>
