@@ -10,14 +10,17 @@
 }
 
 .activity-main__scroll-container {
-  overflow: scroll;
-  overflow-y: hidden;
+  overflow: auto;
+  /* overflow-y: hidden; */
+  scrollbar-width: none;
   padding: 0;
   min-width: 1000px;
+  
 }
 
 .activity-main__scroll-container::-webkit-scrollbar {
   width: 0;
+  overflow: -moz-scrollbars-none;
 }
 
 @media screen and (max-width: 780px) {
