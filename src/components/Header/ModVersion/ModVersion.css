@@ -10,8 +10,13 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
-  text-decoration-line: underline;
+  text-decoration-line: none;
   color: white;
+}
+
+.modversion:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1450px) {

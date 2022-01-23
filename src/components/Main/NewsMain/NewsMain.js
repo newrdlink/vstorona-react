@@ -20,6 +20,7 @@ const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
   //  setIdEditingNews(_id)
   //  history.push('/news/edit-news')
   //}
+  // console.log(newsList)
 
   return (
     <section className="news-main">
