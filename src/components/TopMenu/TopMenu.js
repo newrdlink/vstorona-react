@@ -38,7 +38,7 @@ const TopMenu = ({ isActive, isTopMenuNoActive, onClickBtnClose, onClickLink }) 
 
       </div>
 
-      <Link to="/anti-corruption" className="top-menu__link" onClick={onClickLink}>противоднйствие коррупции</Link>
+      <Link to="/anti-corruption" className="top-menu__link" onClick={onClickLink}>противодействие коррупции</Link>
       <Link to="/accessible" className="top-menu__link" onClick={onClickLink}>доступная среда</Link>
       <Link to="/contacts" className="top-menu__link" onClick={onClickLink}>контакты</Link>
 
