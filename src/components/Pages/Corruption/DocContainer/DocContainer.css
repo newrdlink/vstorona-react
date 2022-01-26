@@ -1,11 +1,15 @@
 .doc-items-container {
   /* height: 100%; */
+
+}
+
+.doc-items-container_place_anticorr {
   overflow: hidden;
   max-height: 70px;
   transition: max-height .45s ease-in-out;
 }
 
-.doc-items-container:hover {  
+.doc-items-container_place_anticorr:hover {  
   cursor: pointer;
 }
 
@@ -13,9 +17,11 @@
   max-height: 100%;
 }
 
-
-
 .doc-items {
+
+}
+
+.doc-items_place_anticorr {
   position: relative;  
   transform: scaleY(0);
   transform-origin: top;
