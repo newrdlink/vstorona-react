@@ -13,3 +13,7 @@
 .doc-box-title_place_anti-corr-docs {
   max-width: 1200px;
 }
+
+.doc-box-title:hover {
+  text-decoration: underline;
+}

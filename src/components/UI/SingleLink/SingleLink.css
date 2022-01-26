@@ -43,9 +43,10 @@
 
 .single-link_place_mod-version {
   padding: 0;
-  margin-right: 130px;
+  margin-right: 80px;
+  max-width: 90px;
 }
 
-.single-link_place_mod-version:hover {
+.single-link_place_mod-version:hover {  
   color: rgba(255, 255, 255, 1);
 }

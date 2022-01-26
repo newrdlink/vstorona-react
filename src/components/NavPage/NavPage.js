@@ -329,7 +329,7 @@ const NavPage = ({ currentPath }) => {
     // console.log(`/collectives/${collective._id}`)
     if (!collective._id) {
       setTimeout(() => setUpDate(true))
-      console.log(22)
+      // console.log(22)
     }
     // console.log(1)    
   }, [collective._id])

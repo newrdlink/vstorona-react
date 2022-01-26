@@ -1,0 +1,28 @@
+.doc-items-container {
+  /* height: 100%; */
+  overflow: hidden;
+  max-height: 70px;
+  transition: max-height .45s ease-in-out;
+}
+
+.doc-items-container:hover {  
+  cursor: pointer;
+}
+
+.doc-items-container_active {
+  max-height: 100%;
+}
+
+
+
+.doc-items {
+  position: relative;  
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .45s ease-in-out;
+}
+
+.doc-items_active {
+  transform-origin: top;
+  transform: scaleY(1);
+}

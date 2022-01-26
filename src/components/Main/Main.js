@@ -45,7 +45,7 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
       })
       .catch((error) => console.log(error))
   }
-  console.log(newsAllList)
+  // console.log(newsAllList)
   useEffect(() => {
 
     apiNews.getNewsAll()
