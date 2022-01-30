@@ -35,3 +35,21 @@
     margin: 0 70px;
   }
 }
+
+
+@media screen and (max-width: 450px) {
+  .tel-item {
+    /* width: 140px; */
+    margin-right: 50px;
+    margin-bottom: 20px;
+  }
+
+  .tel-item_place_days {
+    margin-left: 0;
+  }
+
+  .tel-item_place_email {
+    margin-right: 38px;
+  }
+
+}

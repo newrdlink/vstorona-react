@@ -56,6 +56,7 @@ const ContactsMain = ({ place }) => {
               <TelephonItem
                 name="email"
                 number="club-vs@yandex.ru"
+                place="email"
               />
               <TelephonItem
                 place="days"

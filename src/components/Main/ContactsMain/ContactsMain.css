@@ -122,4 +122,37 @@
     padding: 0 12px;
 
   }
+
+  .contacts-main__info-address {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contacts-main__taxi-info {
+    margin: 0;
+  }
+
+  .contacts-main__address_place_address {
+    margin-bottom: 30px;
+    max-width: 300px
+  }
+
+  .contacts-main__info-address::before {
+    top: 160px;
+  }
+
+  .contacts-main__telephones {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .contacts-main__email-day-social {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .contacts-main__tel {
+    margin-bottom: 0;
+  }
 }
