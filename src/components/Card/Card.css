@@ -157,3 +157,14 @@
     margin-right: 0;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .card_place_activity-main {
+    width: 100%;
+  }
+
+  .card__image_place_activity-main {
+    min-width: 100%;
+    
+  }
+}

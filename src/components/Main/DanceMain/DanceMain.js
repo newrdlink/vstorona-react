@@ -6,13 +6,14 @@ import MainTitle from '../MainTitle/MainTitle'
 
 const DanceMain = ({ danceInfo }) => {
   const isMobile = window.innerWidth < 780
+  const isMobileDevice = window.screen.availWidth <= 450
   // console.log(isMobile)
   return (
     <section className="dance-main">
       <PageTitleShadow
         place="dance-main"
         title="танцевальные вечера"
-        startPosition={-4200}
+        startPosition={isMobileDevice ? -5100 : -4200}
       />
       <MainTitle
         title="танцевальные вечера"

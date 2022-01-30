@@ -151,3 +151,10 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .dance-main {
+    padding: 0 12px;    
+    margin-bottom: 100px;
+  }
+}

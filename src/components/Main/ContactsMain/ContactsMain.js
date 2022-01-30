@@ -7,6 +7,7 @@ import YandexMap from '../../YandexMap/YandexMap'
 import TelephonItem from './TelephonItem/TelephonItem'
 
 const ContactsMain = ({ place }) => {
+  const isMobileDevice = window.screen.availWidth <= 450
 
   return (
     <section className={`contacts-main contacts-main_place_${place}`}>
@@ -15,9 +16,12 @@ const ContactsMain = ({ place }) => {
         place="contacts-main"
       />
       <div className="contacts-main__container">
-        <YandexMap
-          place="contacts-main"
-        />
+        {
+          isMobileDevice ? null :
+            <YandexMap
+              place="contacts-main"
+            />
+        }
         <div className="contacts-main__content">
           <h6 className="contacts-main__title">СПб ГБУК "Клуб "Выборгская сторона"</h6>
           <div className="contacts-main__info-address">

@@ -37,3 +37,17 @@
   }
 
 }
+@media screen and (max-width: 450px) {
+
+  .activity-main {
+    width: 100%;
+    margin: 0 auto 100px;
+    padding: 0 12px;
+  }
+
+  .activity-main__scroll-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+}

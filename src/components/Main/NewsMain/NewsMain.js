@@ -7,8 +7,9 @@ import MainTitle from '../MainTitle/MainTitle'
 import NewsBox from '../../Pages/News/NewsBox/NewsBox'
 import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage'
 
-
 const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
+
+  const isMobileDevice = window.screen.availWidth <= 450
 
   // const [idEditingNews, setIdEditingNews] = useState(0)
   // const history = useHistory()
@@ -27,25 +28,29 @@ const NewsMain = ({ newsList = [], onClickRemoveNewsCard, loggedIn }) => {
       <PageTitleShadow
         place="news-main"
         title="новости &#8226; новости"
-        startPosition={-1400}
+        startPosition={isMobileDevice ? -3300 : -1400}
       />
       <MainTitle
         title="новости"
         place="news-main"
       />
       <NewsBox
-        newsList={newsList}
+        newsList={isMobileDevice ? newsList.slice(0, 1) : newsList}
         // onClickEdit={onClickEditNews}
         onClickRemove={onClickRemoveNewsCard}
         loggedIn={loggedIn}
       // count={window.innerWidth}
       />
-      <SingleLinkOnPage
-        to="/news"
-        bodyName="все новости"
-        place="news-main"
-        colorArrow="#974269"
-      />
+      {
+        isMobileDevice ? null :
+
+          <SingleLinkOnPage
+            to="/news"
+            bodyName="все новости"
+            place="news-main"
+            colorArrow="#974269"
+          />
+      }
     </section>
   )
 }

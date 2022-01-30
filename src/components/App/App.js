@@ -38,7 +38,7 @@ import Photo from '../Pages/Photo/Photo'
 import { useTitle } from '../../helpers/createTitlePage';
 
 const App = () => {
-  const isIpadDevice = window.screen.availWidth <= 410
+  const isMobileDevice = window.screen.availWidth <= 450
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
@@ -186,7 +186,7 @@ const App = () => {
           // onClickLinkCollective={onClickLinkCollective}
           />
           {
-            isIpadDevice ?
+            isMobileDevice ?
               <HeaderMobile
 
               /> :
