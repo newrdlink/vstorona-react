@@ -23,6 +23,7 @@ import News from '../Pages/News/News'
 import NotFound from '../Pages/NotFound/NotFound';
 
 import TopMenu from '../TopMenu/TopMenu'
+import TopMenuMobile from '../TopMenuMobile/TopMenuMobile';
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
 // import { collectivesItems } from '../../config/temp/collectivesItems'
 import Collectives from '../Pages/Collectives/Collectives'
@@ -53,6 +54,8 @@ const App = () => {
   const [updateData, setUpdateData] = useState(false)
 
   const [antiCorrDocs, setAntiCorrDocs] = useState([])
+
+  const [isActiveMenuMobile, setIsActiveMenuMobile] = useState(false)
 
   const onClickLinkInTopMenu = () => {
     setIsTopMenuActive(false)
@@ -185,12 +188,14 @@ const App = () => {
           // onClickLink={onClickLink}
           // onClickLinkCollective={onClickLinkCollective}
           />
+          <TopMenuMobile
+            clickOnLink={() => setIsActiveMenuMobile(false)}
+            isActive={isActiveMenuMobile} />
           {
             isMobileDevice ?
               <HeaderMobile
-
+                onClickMobileMenu={() => setIsActiveMenuMobile(true)}
               /> :
-
               <Header
                 onClickSignInButton={onClickSignInButton}
                 loggedIn={loggedIn}

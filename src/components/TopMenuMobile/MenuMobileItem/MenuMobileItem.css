@@ -1,0 +1,113 @@
+.menu-mobile-item {
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-mobile-item::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+/* .menu-mobile-item:not(:first-child)::after {
+  background-color: #000;
+} */
+
+.menu-mobile-item__title-first {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase; 
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.menu-mobile-item__titlefalse::before {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  content: "";
+  width: 2px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, .7);
+  transition: all .15s ease-in;
+}
+
+
+
+.menu-mobile-item__input:checked + .menu-mobile-item__titlefalse::before {
+  transform: rotate(-90deg);  
+}
+
+/* .menu-mobile-item__input:checked + .menu-mobile-item__title::after {
+
+} */
+
+
+.menu-mobile-item__titlefalse::after {
+  position: absolute;
+  right: 8px;
+  top: 9px;
+  content: "";
+  width: 18px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, .7);
+  transform: translateY(-50%);
+  transition: all .3s ease-in;
+}
+
+.menu-mobile-item__titlefalse {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase; 
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 5px;
+}
+/* 
+.menu-mobile-item__title:hover {
+  cursor: pointer;  
+} */
+
+.menu-mobile-item__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  appearance: none;
+}
+
+.menu-mobile-item__link-container {
+  display: none;
+  margin-left: 20px;
+}
+
+.menu-mobile-item__input:checked ~ .menu-mobile-item__link-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-mobile-item__link {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;  
+  color: rgba(255, 255, 255, 0.7);
+  margin: 2px 0;
+}
+
+
+
+
