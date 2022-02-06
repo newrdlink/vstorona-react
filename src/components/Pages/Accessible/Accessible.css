@@ -7,6 +7,7 @@
 }
 
 .accessible__title {
+  position: relative;
   margin-bottom: 74px;
   max-width: 730px;
   font-family: Montserrat;
@@ -15,4 +16,21 @@
   font-size: 18px;
   line-height: 146.4%;
   color: #442836;
+}
+
+.accessible__links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 200px;
+}
+
+.accessible__link {
+  position: relative;
+  margin-bottom: 30px;
+  left: 0;
+  transition: all 0.2s ease-out;  
+}
+
+.accessible__link:hover {
+  left: 10px;
 }

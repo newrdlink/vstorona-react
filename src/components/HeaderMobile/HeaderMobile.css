@@ -1,0 +1,10 @@
+.header-mobile {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

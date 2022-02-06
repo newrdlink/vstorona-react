@@ -47,3 +47,24 @@
 .title-shadow_place_dance-main {
   top: -105px;
 }
+
+
+@media screen and (max-width: 450px) {
+  .title-shadow {
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 117px;
+  }
+  .title-shadow_place_events-main {
+    top: -75px;
+  }
+  .title-shadow_place_news-main {
+    top: -75px;
+  }
+  .title-shadow_place_main {
+    top: -75px;
+  }
+  .title-shadow_place_dance-main {
+    top: -75px;
+  }
+}

@@ -45,11 +45,24 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
       })
       .catch((error) => console.log(error))
   }
-
+  // console.log(newsAllList)
   useEffect(() => {
 
     apiNews.getNewsAll()
-      .then((allNews) => setNewsAllList(allNews))
+      .then((allNews) => {
+        const sortArrNews = allNews.sort((a, b) => {
+          const dateA = + (new Date(a.createdAt))
+          const dateB = + (new Date(b.createdAt))
+          if (dateA > dateB) {
+            return -1
+          }
+          if (dateA < dateB) {
+            return 1
+          } return null
+        })
+        setNewsAllList(sortArrNews)
+
+      })
       .catch((error) => console.log(error))
 
     apiEvents.getEvents()
@@ -114,7 +127,7 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
         onClickHandler={onClickLinkInCard}
       />
       <NewsMain
-        newsList={newsAllList.reverse().slice(0, initialCountNews)}
+        newsList={newsAllList.slice(0, initialCountNews)}
         onClickRemoveNewsCard={onClickRemoveNewsCard}
         loggedIn={loggedIn}
       />

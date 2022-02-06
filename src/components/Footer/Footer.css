@@ -44,3 +44,23 @@
     box-sizing: border-box;
   }
 }
+
+@media screen and (max-width: 450px) {
+
+  .footer-container {
+
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 26px 12px;
+    align-items: flex-start;
+  }
+
+  .footer__content {
+    margin-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+  }
+}

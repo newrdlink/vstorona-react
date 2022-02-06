@@ -8,12 +8,14 @@ import SingleLinkOnPage from '../../UI/buttons/SingleLinkOnPage/SingleLinkOnPage
 
 const EventsMain = ({ eventsList, loggedIn, onClickRemove }) => {
 
+  const isMobileDevice = window.screen.availWidth <= 450
+
   return (
     <section className="events-main">
       <PageTitleShadow
         place="events-main"
         title="афиша мероприятий"
-        startPosition={-2500}
+        startPosition={isMobileDevice ? -4500 : -2500}
       />
       <MainTitle
         title="афиша мероприятий"

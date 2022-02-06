@@ -2,3 +2,9 @@
   margin-right: 25px;
   min-width: 730px;
 }
+
+@media screen and (max-width: 450px) {
+  .yandex-map {
+
+  }
+}

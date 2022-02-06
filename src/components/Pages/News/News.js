@@ -60,7 +60,17 @@ const News = ({ currentPath, loggedIn }) => {
     apiNews.getNewsAll()
       .then((newsAll) => {
         if (!cleanupFunction) {
-          setNewsAll(newsAll)
+          const sortArrNews = newsAll.sort((a, b) => {
+            const dateA = + (new Date(a.createdAt))
+            const dateB = + (new Date(b.createdAt))
+            if (dateA > dateB) {
+              return -1
+            }
+            if (dateA < dateB) {
+              return 1
+            } return null
+          })
+          setNewsAll(sortArrNews)
         }
       })
       .catch((error) => console.log(error))

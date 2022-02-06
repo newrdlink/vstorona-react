@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import './App.css'
 
 import Header from '../Header/Header'
+import HeaderMobile from '../HeaderMobile/HeaderMobile';
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 
@@ -19,8 +20,10 @@ import About from '../Pages/About/About'
 import Services from '../Pages/Services/Services'
 import Activity from '../Pages/Activity/Activity'
 import News from '../Pages/News/News'
+import NotFound from '../Pages/NotFound/NotFound';
 
 import TopMenu from '../TopMenu/TopMenu'
+import TopMenuMobile from '../TopMenuMobile/TopMenuMobile';
 import TopMenuCollectives from '../TopMenuCollectives/TopMenuCollectives'
 // import { collectivesItems } from '../../config/temp/collectivesItems'
 import Collectives from '../Pages/Collectives/Collectives'
@@ -36,6 +39,7 @@ import Photo from '../Pages/Photo/Photo'
 import { useTitle } from '../../helpers/createTitlePage';
 
 const App = () => {
+  const isMobileDevice = window.screen.availWidth <= 450
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
@@ -50,6 +54,8 @@ const App = () => {
   const [updateData, setUpdateData] = useState(false)
 
   const [antiCorrDocs, setAntiCorrDocs] = useState([])
+
+  const [isActiveMenuMobile, setIsActiveMenuMobile] = useState(false)
 
   const onClickLinkInTopMenu = () => {
     setIsTopMenuActive(false)
@@ -182,13 +188,21 @@ const App = () => {
           // onClickLink={onClickLink}
           // onClickLinkCollective={onClickLinkCollective}
           />
-          <Header
-            onClickSignInButton={onClickSignInButton}
-            loggedIn={loggedIn}
-            onClickSignOutButton={onClickSignOutButton}
-            onClickOpenTopMenu={onClickOpenTopMenu}
-            onClickOpenCollMenu={onClickOpenCollMenu}
-          />
+          <TopMenuMobile
+            clickOnLink={() => setIsActiveMenuMobile(false)}
+            isActive={isActiveMenuMobile} />
+          {
+            isMobileDevice ?
+              <HeaderMobile
+                onClickMobileMenu={() => setIsActiveMenuMobile(true)}
+              /> :
+              <Header
+                onClickSignInButton={onClickSignInButton}
+                loggedIn={loggedIn}
+                onClickSignOutButton={onClickSignOutButton}
+                onClickOpenTopMenu={onClickOpenTopMenu}
+                onClickOpenCollMenu={onClickOpenCollMenu}
+              />}
           <Switch>
             <Route exact path="/">
               <Main
@@ -266,7 +280,7 @@ const App = () => {
                 loggedIn={loggedIn}
               />
             </Route>
-
+            <Route to="*" component={NotFound} />
           </Switch>
           <Footer />
           <SignIn

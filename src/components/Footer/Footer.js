@@ -6,24 +6,26 @@ import CopyRight from './CopyRight/CopyRight'
 import PolicyConfidentiality from './PolicyConfidentiality/PolicyConfidentiality'
 import NumPhone from '../UI/NumPhone/NumPhone'
 import SingleLink from '../UI/SingleLink/SingleLink'
+import { socialLinks } from '../../constants/socialLinks'
 
 const Footer = () => {
 
-  const isMobile = window.screen.availWidth <= 768
+  const isIpad = window.screen.availWidth <= 768
+  // const isMobile = window.screen.availWidth <= 350
 
   return (
     <footer className="footer">
       <div className="footer-container">
         <Logo place="footer" />
         {
-          isMobile ?
+          isIpad ?
             <>
               <NumPhone place="footer" />
             </>
             : null
         }
         {
-          isMobile ? null :
+          isIpad ? null :
             <>
               <CopyRight />
               <PolicyConfidentiality />
@@ -32,14 +34,14 @@ const Footer = () => {
             </>
         }
         {
-          isMobile ? null : <SingleLink
+          isIpad ? null : <SingleLink
             name="Instagram"
-            url="https://www.instagram.com/?hl=ru"
+            url={socialLinks.instagram}
             place="footer" />
         }
       </div>
       {
-        isMobile ? <div className="footer__content">
+        isIpad ? <div className="footer__content">
           <PolicyConfidentiality />
           <CopyRight />
         </div> : null

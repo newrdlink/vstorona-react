@@ -14,10 +14,11 @@ const NewsSingle = (props) => {
   const { location: { pathname: pathEnds } } = history
   const onClickHandler = () => setNews(props)
 
-  const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
+  const titleForCard = () => title.length > 34 ? title.slice(0, 34) + ". . ." : title
   const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : title
 
-
+  const isMobileDevice = window.screen.availWidth <= 450
+  // console.log(pathEnds)
 
   return (
     <li className="single-news">
@@ -41,9 +42,19 @@ const NewsSingle = (props) => {
         to={`${"/news/" + _id}`}
         bodyName="подробнее"
         place="single-news"
-        colorArrow="#442836"
+        colorArrow="#974269"
         onClickHandler={onClickHandler}
       />
+      {
+        (pathEnds.endsWith('/') && isMobileDevice) &&
+        <SingleLinkOnPage
+          to="/news"
+          bodyName="Все новости"
+          place="all-news-mobile"
+          colorArrow="#974269"
+        // onClickHandler={onClickHandler}
+        />
+      }
     </li>
   )
 }

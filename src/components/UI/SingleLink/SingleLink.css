@@ -16,3 +16,37 @@
   line-height: 146.4%;
   color: #442836;
 }
+
+.single-link_place_accessible {
+  position: relative;
+  width: auto;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;  
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: #442836;
+}
+
+.single-link_place_accessible::after {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 0;
+  right: -30px;
+  content: "";
+  background-image: url(../../../images/UI/ArrowSingleLink.png);
+  background-repeat: no-repeat;  
+}
+
+.single-link_place_mod-version {
+  padding: 0;
+  margin-right: 80px;
+  max-width: 90px;
+}
+
+.single-link_place_mod-version:hover {  
+  color: rgba(255, 255, 255, 1);
+}

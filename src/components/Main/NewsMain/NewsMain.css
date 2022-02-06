@@ -10,3 +10,10 @@
     padding: 0 20px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .news-main  {
+    padding: 0 12px;
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,33 @@
+.top-menu-mobile {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: #974269;
+  z-index: 4;
+  transition: top .5s ease-in-out;
+  padding-top: 30px;
+}
+
+.top-menu-mobile__items {
+  list-style: none;
+  padding-left: 8px;
+}
+
+.top-menu-mobile_active {
+  top: 0%;
+}
+
+.top-menu-mobile__close-button {
+  position: absolute;
+  right: 17px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../images/Group 63.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

@@ -1,18 +1,18 @@
 // import i1 from '../images/About/1.png'
-import i1 from '../images/Services/1.jpg'
-import i2 from '../images/Services/2.jpg'
+import DanceIcon from '../images/Services/ServicesIcons/DanceIcon.png'
+import RentIcon from '../images/Services/ServicesIcons/RentIcon.png'
 
 export const serviceItems = [
   {
     id: 1,
     name: "Аренда залов",
     path: "/rent",
-    image: i1
+    image: RentIcon
   },
   {
     id: 2,
     name: "Танцевальные вечера",
     path: "/dance",
-    image: i2
+    image: DanceIcon
   },
 ]

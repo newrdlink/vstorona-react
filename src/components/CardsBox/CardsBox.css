@@ -37,3 +37,10 @@
     flex-wrap: wrap;
   }
 }
+
+@media screen and (max-width: 450px) {
+
+  .card-box_place_activity-main {    
+    justify-content: center;
+  }
+}

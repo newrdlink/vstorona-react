@@ -8,9 +8,7 @@ import { getCollective } from '../../utils/currentCollective'
 import { getAlbum } from '../../utils/currentAlbum'
 // import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
-
   const [upDate, setUpDate] = useState(false)
-
   // const [currentAlbum, setCurrentAlbum] = useState({})
   const arrStr = currentPath.split('/')
 
@@ -331,7 +329,7 @@ const NavPage = ({ currentPath }) => {
     // console.log(`/collectives/${collective._id}`)
     if (!collective._id) {
       setTimeout(() => setUpDate(true))
-      console.log(22)
+      // console.log(22)
     }
     // console.log(1)    
   }, [collective._id])

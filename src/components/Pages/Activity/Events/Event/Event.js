@@ -8,6 +8,7 @@ import EventTime from './EventTime/EventTime'
 import ButtonsBox from '../../../../UI/ButtonsBox/ButtonsBox'
 
 const Event = ({ event, loggedIn, onClickRemove }) => {
+  // console.log(event)
   const history = useHistory()
   const { path, url } = useRouteMatch()
   const { startTime, title = "", subtitle, _id, images } = event

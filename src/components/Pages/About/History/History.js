@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './History.css'
 import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 import i1 from '../../../../images/History/1.jpg'
@@ -11,21 +11,21 @@ import { useTitle } from '../../../../helpers/createTitlePage'
 
 
 const History = ({ pageInfo }) => {
-  const [activeHistoryAbout, setActiveHistoryAbout] = useState(false)
+  // const [activeHistoryAbout, setActiveHistoryAbout] = useState(false)
   // console.log(pageInfo)
-  useEffect(() => {
-    function handleScroll(event) {
-      let scroll = this.scrollY;
-      // console.log(scroll)
-      if (scroll >= 420) {
-        setActiveHistoryAbout(true)
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    };
-  });
+  // useEffect(() => {
+  //   function handleScroll(event) {
+  //     let scroll = this.scrollY;
+  //     // console.log(scroll)
+  //     if (scroll >= 420) {
+  //       setActiveHistoryAbout(true)
+  //     }
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll)
+  //   };
+  // });
 
   useTitle("История Клуба Выборгская Сторона")
 
@@ -35,7 +35,7 @@ const History = ({ pageInfo }) => {
         <PageTitleShadow pageInfo={pageInfo} place="history" />
       </div>
       <div className="history__intro">
-        <img alt="" src={i1} className="history__intro-img" />
+        <img alt="Фотография из архива" src={i1} className="history__intro-img" />
         <div className="history__intro-text-container">
           <span className="history__text-span history__text-span_place_intro">
             Клуб был основан в 1962 году
@@ -44,9 +44,9 @@ const History = ({ pageInfo }) => {
             Для работников производственного объединения по переработке пластмасс имени «Комсомольской правды».
           </p>
         </div>
-        <img alt="" src={i2} className="history__intro-img-2" />
+        <img alt="Фотография из архива" src={i2} className="history__intro-img-2" />
       </div>
-      <div className={`history__about history__about_${activeHistoryAbout && 'active'}`}>
+      <div className={`history__about history__about_${true && 'active'}`}>
         <div className="history__about-container">
           <p className="history__text">Клуб является подведомственным учреждением отдела культуры Администрации Выборгского района Санкт-Петербурга и ведет свою историю с 1962 года.
           </p>
@@ -60,7 +60,7 @@ const History = ({ pageInfo }) => {
         <p className="history__text-span history__text-span_place_about">
           В июне 1994 г. Клуб был  преобразован в муниципальное учреждение культуры Клуб «Выборгская сторона»
         </p>
-        <img alt="" src={i3} className="history__rename-img" />
+        <img alt="Фотография из архива" src={i3} className="history__rename-img" />
       </div>
       <div className="history__content">
         <p className="history__text history__text_place_content">
@@ -76,8 +76,8 @@ const History = ({ pageInfo }) => {
         </p>
       </div>
       <div className="history__end">
-        <img alt="" src={i4} className="history__end-img" />
-        <img alt="" src={i5} className="history__end-img" />
+        <img alt="Фотография из архива" src={i4} className="history__end-img" />
+        <img alt="Фотография из архива" src={i5} className="history__end-img" />
         <div className="history__end-container">
           <span className="history__text-span history__text-span_place_end">
             Клуб «Выборгская сторона» - центр культурной жизни своего микрорайона

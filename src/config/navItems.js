@@ -13,5 +13,10 @@ export const navItems = [
     id: 3,
     name: "мероприятия",
     path: "/activity"
+  },
+  {
+    id: 4,
+    name: "противодействие коррупции",
+    path: "/anti-corruption"
   }
 ]
