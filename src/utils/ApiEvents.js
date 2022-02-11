@@ -45,6 +45,19 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
+  updateEvent(data, token) {
+    // console.log(data)
+    return fetch(`${this.address}/activity/events`, {
+      method: "PATCH",
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "authorization": `Bearer ${token}`
+      },
+      body: data
+    })
+      .then(handlerResponse)
+  }
+
   //   postItemDescrHall(data, token, type) {
   //     return fetch(`${this.address}/halls/${type}`, {
   //       method: "POST",
@@ -104,8 +117,8 @@ class Api extends React.Component {
 
 //создаем экземпляр
 const api = new Api({
-  // address: "http://localhost:3002",
-  address: "https://api.vs.didrom.ru",
+  address: "http://localhost:3002",
+  // address: "https://api.vs.didrom.ru",
   headers: {
     "Contetnt-Type": "multipart/form-data",
     // "Content-Type": "application/json",

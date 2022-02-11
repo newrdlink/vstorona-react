@@ -81,7 +81,11 @@ const EventPage = () => {
                 key={descr}>{descr}</ReactMarkdown>)
           }
         </div>
-        <Carusel images={arrImagesForCarusel} place="event" onClickImage={(link) => setImage(link)} />
+        <Carusel
+          images={arrImagesForCarusel}
+          place="event"
+          onClickImage={(link) => setImage(link)}
+        />
       </div>
       <div className="event-page__links">
         <ButtonHistoryBack name="Вернуться" onClick={() => history.goBack()} />

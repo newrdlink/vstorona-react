@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Events.css'
+import { useHistory } from 'react-router-dom'
 
 import apiEvents from '../../../../utils/ApiEvents'
 import { getToken } from '../../../../utils/Token'
+import { setEvent } from '../../../../utils/currentEvent'
 
 import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 
@@ -11,7 +13,9 @@ import EventsLinks from './EventsLinks/EventsLinks'
 
 import { useTitle } from '../../../../helpers/createTitlePage'
 
-const Events = ({ pageInfo, loggedIn }) => {
+const Events = ({ pageInfo, loggedIn, setEditingEvent }) => {
+
+  const history = useHistory()
 
   const [eventsList, setEventsList] = useState([])
   const [countWillBe, setCountWillBe] = useState(3)
@@ -91,6 +95,15 @@ const Events = ({ pageInfo, loggedIn }) => {
   }
   // console.log(pageInfo)
 
+  // const onClickEditEvent = (id) => console.log(id)
+
+  const onClickEditEvent = (_id) => {
+    const editingEvent = eventsList.filter(el => el._id === _id)
+    setEditingEvent(editingEvent[0])
+    setEvent(editingEvent[0])
+    history.push('/activity/edit-event')
+  }
+
   useTitle("Афиша мероприятий")
 
   return (
@@ -106,11 +119,13 @@ const Events = ({ pageInfo, loggedIn }) => {
             eventsList={arrEventsWillBeView}
             loggedIn={loggedIn}
             onClickRemove={onClickRemoveEvent}
+            onClickEdit={onClickEditEvent}
           /> :
           <EventsBox
             eventsList={arrEventsDidBeView}
             loggedIn={loggedIn}
             onClickRemove={onClickRemoveEvent}
+            onClickEdit={onClickEditEvent}
           />
       }
       {
