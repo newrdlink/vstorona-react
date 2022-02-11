@@ -17,7 +17,7 @@ const Event = ({ event, loggedIn, onClickRemove, onClickEdit }) => {
   // console.log(path)
   // console.log(url)
   const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
-  const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : title
+  const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : subtitle
 
   return (
     <li className="event">
