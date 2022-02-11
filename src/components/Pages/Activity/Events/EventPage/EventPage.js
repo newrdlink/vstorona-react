@@ -15,7 +15,7 @@ const EventPage = () => {
   const { id } = useParams()
   const history = useHistory()
 
-  const { startTime, title = "", description = "", images = [] } = currentEvent
+  const { startTime, title = "", description = "", images = [], subtitle = "" } = currentEvent
   const arrWithDescr = description.split("    ")
 
   const arrImagesForCarusel = images.reduce((arr, item) => {
@@ -74,7 +74,7 @@ const EventPage = () => {
       </div>
       <div className="event-page__descriptions">
         <div className="event-page__descriptions-items">
-          <h5 className="event-page__subtitle">{title}</h5>
+          <h5 className="event-page__subtitle">{subtitle}</h5>
           {
             arrWithDescr.map((descr) =>
               <ReactMarkdown className="event-page__descriptions-item"
