@@ -117,8 +117,8 @@ class Api extends React.Component {
 
 //создаем экземпляр
 const api = new Api({
-  address: "http://localhost:3002",
-  // address: "https://api.vs.didrom.ru",
+  // address: "http://localhost:3002",
+  address: "https://api.vs.didrom.ru",
   headers: {
     "Contetnt-Type": "multipart/form-data",
     // "Content-Type": "application/json",
