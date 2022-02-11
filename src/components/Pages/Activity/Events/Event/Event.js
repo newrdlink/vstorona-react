@@ -7,7 +7,7 @@ import { setEvent } from '../../../../../utils/currentEvent'
 import EventTime from './EventTime/EventTime'
 import ButtonsBox from '../../../../UI/ButtonsBox/ButtonsBox'
 
-const Event = ({ event, loggedIn, onClickRemove }) => {
+const Event = ({ event, loggedIn, onClickRemove, onClickEdit }) => {
   // console.log(event)
   const history = useHistory()
   const { path, url } = useRouteMatch()
@@ -17,7 +17,7 @@ const Event = ({ event, loggedIn, onClickRemove }) => {
   // console.log(path)
   // console.log(url)
   const titleForCard = () => title.length > 40 ? title.slice(0, 40) + ". . ." : title
-  const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : title
+  const subtitleForCard = () => subtitle.length > 120 ? subtitle.slice(0, 120) + ". . ." : subtitle
 
   return (
     <li className="event">
@@ -47,7 +47,7 @@ const Event = ({ event, loggedIn, onClickRemove }) => {
           <ButtonsBox
             place="event-card"
             onClickAdd={() => history.push('/activity/add-event')}
-            onClickEdit={() => console.log(_id)}
+            onClickEdit={() => onClickEdit(_id)}
             onClickRemove={() => onClickRemove(_id)}
           /> :
           null

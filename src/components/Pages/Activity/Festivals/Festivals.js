@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import './Festivals.css'
+import { useHistory } from 'react-router-dom'
 
 import PageTitleShadow from '../../../PageTitleShadow/PageTitleShadow'
 import EventsBox from '../Events/EventsBox/EventsBox'
 
 import apiEvents from '../../../../utils/ApiEvents'
 import { getToken } from '../../../../utils/Token'
+import { setEvent } from '../../../../utils/currentEvent'
 
 
-const Festivals = ({ pageInfo, loggedIn }) => {
+const Festivals = ({ pageInfo, loggedIn, setEditingEvent }) => {
   const [eventsList, setEventsList] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     apiEvents.getEvents()
@@ -42,6 +45,13 @@ const Festivals = ({ pageInfo, loggedIn }) => {
       .catch((error) => console.log(error))
   }
 
+  const onClickEditEvent = (_id) => {
+    const editingEvent = eventsList.filter(el => el._id === _id)
+    setEditingEvent(editingEvent[0])
+    setEvent(editingEvent[0])
+    history.push('/activity/edit-event')
+  }
+
   return (
     <main className="festivals">
       <PageTitleShadow
@@ -53,6 +63,7 @@ const Festivals = ({ pageInfo, loggedIn }) => {
         eventsList={eventsList}
         loggedIn={loggedIn}
         onClickRemove={onClickRemoveEvent}
+        onClickEdit={onClickEditEvent}
       />
     </main>
   )

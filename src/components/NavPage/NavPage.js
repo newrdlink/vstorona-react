@@ -165,6 +165,13 @@ const NavPage = ({ currentPath }) => {
         r.path = '/activity/add-event'
         obj.push(r)
         break
+      case 'edit-event':
+        let editEvent = {}
+        editEvent.id = 234
+        editEvent.name = 'редактировать событие '
+        editEvent.path = '/activity/edit-event'
+        obj.push(editEvent)
+        break
       case 'festivals':
         let s = {}
         s.id = 19

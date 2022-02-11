@@ -21,13 +21,15 @@ import NotFound from '../NotFound/NotFound'
 import ProtectedRoute from '../../backend/ProtectedRoute/ProtectedRoute'
 
 import AddEvent from '../../backend/AddEvent/AddEvent'
+import EditEvent from '../../backend/EditEvent/EditEvent'
 
 import { useTitle } from '../../../helpers/createTitlePage'
 
 const Activity = ({ loggedIn, currentPath }) => {
 
   const pageInfo = contentTitle({ currentPath, infoPages })
-
+  const [editingEvent, setEditingEvent] = useState({})
+  // console.log(idEditingEvent)
 
   useTitle("Мероприятия")
 
@@ -55,12 +57,14 @@ const Activity = ({ loggedIn, currentPath }) => {
           <Events
             pageInfo={pageInfo}
             loggedIn={loggedIn}
+            setEditingEvent={(event) => setEditingEvent(event)}
           />
         </Route>
         <Route exact path="/activity/festivals">
           <Festivals
             pageInfo={pageInfo}
             loggedIn={loggedIn}
+            setEditingEvent={(event) => setEditingEvent(event)}
           />
         </Route>
 
@@ -76,6 +80,13 @@ const Activity = ({ loggedIn, currentPath }) => {
           loggedIn={loggedIn}
           component={AddEvent}
           path="/activity/add-event"
+        />
+
+        <ProtectedRoute
+          loggedIn={loggedIn}
+          component={EditEvent}
+          path="/activity/edit-event"
+          editingEvent={editingEvent}
         />
 
         <Route to="*" component={NotFound} />

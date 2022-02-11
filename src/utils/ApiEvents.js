@@ -45,6 +45,19 @@ class Api extends React.Component {
       .then(handlerResponse)
   }
 
+  updateEvent(data, token) {
+    // console.log(data)
+    return fetch(`${this.address}/activity/events`, {
+      method: "PATCH",
+      headers: {
+        "Contetnt-Type": "multipart/form-data",
+        "authorization": `Bearer ${token}`
+      },
+      body: data
+    })
+      .then(handlerResponse)
+  }
+
   //   postItemDescrHall(data, token, type) {
   //     return fetch(`${this.address}/halls/${type}`, {
   //       method: "POST",

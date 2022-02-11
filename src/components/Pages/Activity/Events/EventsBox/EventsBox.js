@@ -3,7 +3,7 @@ import './EventsBox.css'
 
 import Event from '../Event/Event'
 
-const EventsBox = ({ eventsList = [], loggedIn, onClickRemove }) => {
+const EventsBox = ({ eventsList = [], loggedIn, onClickRemove, onClickEdit }) => {
 
   return (
     <ul className="events-box">
@@ -14,6 +14,7 @@ const EventsBox = ({ eventsList = [], loggedIn, onClickRemove }) => {
           event={event}
           loggedIn={loggedIn}
           onClickRemove={onClickRemove}
+          onClickEdit={onClickEdit}
         />
       })}
     </ul>
