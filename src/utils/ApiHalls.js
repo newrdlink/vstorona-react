@@ -99,7 +99,7 @@ class Api extends React.Component {
 
 const api = new Api({
   // address: 'http://localhost:3002',
-  address: "https://api.vs.didrom.ru",
+  address: "https://api.vstorona.ru",
   headers: {
     "Content-Type": "application/json",
   },

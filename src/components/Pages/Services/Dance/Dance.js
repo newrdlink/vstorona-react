@@ -45,7 +45,7 @@ const Dance = () => {
           {
             dancePage.compositionServices.map((item => <p className="dance__composition-item" key={item}>{item}</p>))
           }
-          <a href="https://vk.com" target="_blank" rel="noreferrer" className="dance__composition-link">вконтакте</a>
+          <a href="https://vk.com/vstorona" target="_blank" rel="noreferrer" className="dance__composition-link">вконтакте</a>
         </div>
         <Carusel
           images={dancePage?.images}
