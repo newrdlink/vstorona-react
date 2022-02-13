@@ -75,7 +75,7 @@ const Events = ({ pageInfo, loggedIn, setEditingEvent }) => {
 
   const lockButtonAddEventMore = () => {
     if (isActiveWill) {
-      return arrEventsWillBeFull.length === countWillBe ? false : true
+      return arrEventsWillBeFull.length <= countWillBe ? false : true
     } else {
       return arrEventsDidBeFull.length === countDidBe ? false : true
     }
@@ -93,9 +93,6 @@ const Events = ({ pageInfo, loggedIn, setEditingEvent }) => {
       .catch((error) => console.log(error))
     // console.log(_id)
   }
-  // console.log(pageInfo)
-
-  // const onClickEditEvent = (id) => console.log(id)
 
   const onClickEditEvent = (_id) => {
     const editingEvent = eventsList.filter(el => el._id === _id)
