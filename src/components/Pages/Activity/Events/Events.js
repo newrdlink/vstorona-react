@@ -108,6 +108,7 @@ const Events = ({ pageInfo, loggedIn, setEditingEvent }) => {
       <PageTitleShadow
         pageInfo={pageInfo}
         startPosition={-500}
+        place="events"
       />
       <EventsLinks isActive={isActiveWill} handlerViewEvents={handlerViewEvents} />
       {
