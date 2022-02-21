@@ -25,6 +25,7 @@ const NavPage = ({ currentPath }) => {
   const collectiveTitle = () => collective?.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
   const albumTitle = () => album?.title.length > 80 ? album.title.slice(0, 80) + "..." : album.title
   // console.log(getCollective())
+  const isMobileDevice = window.screen.availWidth <= 450
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -32,7 +33,7 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('choreography') ||
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
-    (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
+    ((isEventPage(strReverseForEvent(currentPath)) === 24 && !isMobileDevice) && currentPath.includes("events"))
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -343,6 +344,7 @@ const NavPage = ({ currentPath }) => {
       setUpDate(!upDate)
     }
   }, [upDate, news._id, currentPath])
+
 
   return (
     <ul className={`nav-page ${isHallPage && "nav-page_place_hall"}`}>
