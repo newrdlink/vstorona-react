@@ -27,7 +27,7 @@ const News = ({ currentPath, loggedIn }) => {
   const [newsAll, setNewsAll] = useState([])
   const [idEditingNews, setIdEditingNews] = useState(0)
 
-
+  const isMobileDevice = window.screen.availWidth <= 450
 
   const pageInfo = contentTitle({ currentPath, infoPages })
 
@@ -103,11 +103,15 @@ const News = ({ currentPath, loggedIn }) => {
       />
       <Switch>
         <Route exact path="/news">
-          <PageTitleShadow
-            place="news"
-            title="новости &#8226; новости"
-            startPosition={-300}
-          />
+          {
+            isMobileDevice ? null :
+
+              <PageTitleShadow
+                place="news"
+                title="новости &#8226; новости"
+                startPosition={-300}
+              />
+          }
           <PageTitle
             pageInfo={pageInfo}
           />

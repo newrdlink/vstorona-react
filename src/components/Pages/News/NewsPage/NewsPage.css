@@ -144,3 +144,9 @@
     padding-right: 25px;
   }
 }
+@media screen and (max-width: 450px) {
+
+  .news-page__info {
+    min-width: 100%;
+  }
+}

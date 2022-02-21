@@ -29,6 +29,8 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
     return arr
   }, [])
 
+  const isMobileDevice = window.screen.availWidth <= 450
+
   const arrWithDescr = description.split("    ")
 
   useEffect(() => {
@@ -82,6 +84,12 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
         <div className="news-page__info">
           <p className="news-page__time-info">{strDateEvent}</p>
           <h1 className="news-page__title">{title}</h1>
+          {
+            isMobileDevice ? <Carusel
+              place="news-page"
+              images={arrForCarusel}
+            /> : null
+          }
           <h6 className="news-page__subtitle">{subtitle}</h6>
           {
             arrWithDescr.map((descr) =>
@@ -89,10 +97,14 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
                 key={descr}>{descr}</ReactMarkdown>)
           }
         </div>
-        <Carusel
-          place="news-page"
-          images={arrForCarusel}
-        />
+        {
+          isMobileDevice ? null : <Carusel
+            place="news-page"
+            images={arrForCarusel}
+          />
+        }
+
+
       </div>
       <div className='news-page__submenu'>
         <div className='news-page__buttons'>
