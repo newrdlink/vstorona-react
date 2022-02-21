@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import './NewsPage.css'
 
@@ -14,7 +14,9 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
 
   const history = useHistory()
   const [currentNews, setCurrentNews] = useState({ images: [] })
-  const { id } = useParams();
+  const { id } = useParams()
+
+  const scrollTop = useRef()
   // const currentNews = newsAll.find((item) => item._id === id)
   const { title = "", subtitle, description = "", createdAt, images = [] } = currentNews
   // console.log(images)
@@ -58,7 +60,7 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
     }
     return () => removeNews()
   }, [id, newsAll])
-
+  // console.log(id)
   const handlePrevNews = (idNews) => {
     const indexCurrentNews = newsAll.findIndex((el) => el._id === idNews)
     const prevNews = newsAll[indexCurrentNews - 1]
@@ -76,13 +78,23 @@ const NewsPage = ({ newsAll = [], currentPath }) => {
   const isFirstNews = newsAll[0]?._id === currentNews._id
   const isLastNews = newsAll[newsAll.length - 1]?._id === currentNews._id
 
+  useEffect(() => {
+    const element = scrollTop.current
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }, [id])
+
   return (
     <main className="news-page">
 
       <div className="news-page__content">
 
         <div className="news-page__info">
-          <p className="news-page__time-info">{strDateEvent}</p>
+          <p className="news-page__time-info" ref={scrollTop}>
+            {strDateEvent}
+          </p>
           <h1 className="news-page__title">{title}</h1>
           {
             isMobileDevice ? <Carusel
