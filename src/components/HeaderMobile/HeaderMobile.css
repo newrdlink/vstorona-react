@@ -1,5 +1,6 @@
 .header-mobile {
   position: absolute;
+  
   z-index: 1;
   width: 100%;
   padding: 20px 12px;
@@ -18,4 +19,5 @@
 
 .header-mobile_place_another-page {
   background-color: #974269;
+  /* top: -200px; */
 }

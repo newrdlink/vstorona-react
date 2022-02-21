@@ -1,5 +1,6 @@
 .root {
   /* max-width: 1600px; */
+  position: relative;
   width: 100%;
   /* overflow: hidden; */
 }
