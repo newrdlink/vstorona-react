@@ -67,4 +67,11 @@
   .nav-page__item {
    margin-bottom: 12px;
   }
+
+  .nav-page__link {
+    display: block;    
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;    
+  }
 }

@@ -18,3 +18,10 @@
 .ya-share2__item {
   margin-right: 50px;
 } */
+
+
+@media screen and (max-width: 450px) {
+  .share-social-links__span {
+    margin-right: auto;
+  }
+}

@@ -96,7 +96,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #442836;
+  color: #974269;
   border: none;
   margin-right: 150px;
   transition: all .1s ease-in; 
@@ -148,5 +148,29 @@
 
   .news-page__info {
     min-width: 100%;
+  }
+
+  .news-page__descriptions-item {
+    padding: 0;
+    text-align: justify;
+  }
+
+  .news-page__submenu {
+    flex-direction: column-reverse;
+    margin-bottom: 100px;
+  }
+
+  .news-page__buttons {
+    display: flex;
+    margin: 66px 0 0 0;
+    /* justify-content: space-between; */
+  }
+
+  .news-page__button {
+    margin-right: 0;
+  }
+
+  .news-page__button_pos_left {
+   
   }
 }
