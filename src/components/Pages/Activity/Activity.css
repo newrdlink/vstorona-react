@@ -27,3 +27,9 @@
     padding: 0 20px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .activity_place_event {
+    padding: 0 12px;
+  }
+}
