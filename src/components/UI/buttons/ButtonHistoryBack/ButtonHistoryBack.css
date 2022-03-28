@@ -6,7 +6,7 @@
   font-size: 14px;
   line-height: 17px;
   background-color: transparent;
-  background: url('../../../../images//UI/arrow-back.png') 15px 8px no-repeat;
+  background: url('../../../../images//UI/arrow-back.png') 15px 3px no-repeat;
   width: 180px;
   padding: 0;
   border: 0;
@@ -17,7 +17,7 @@
 
 .button-history-back:hover {
   cursor: pointer;
-  background-position: 5px 8px;
+  background-position: 5px 3px;
 }
 
 .button-history-back_place_album {

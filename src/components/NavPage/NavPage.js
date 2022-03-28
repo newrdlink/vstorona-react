@@ -9,7 +9,6 @@ import { getAlbum } from '../../utils/currentAlbum'
 // import getTypeCollectiveFromTypeRus from '../../helpers/createPathForCollIcons'
 const NavPage = ({ currentPath }) => {
   const [upDate, setUpDate] = useState(false)
-  // const [currentAlbum, setCurrentAlbum] = useState({})
   const arrStr = currentPath.split('/')
 
   const strReverseForEvent = (str) => str.split("").reverse().join("")
@@ -17,17 +16,16 @@ const NavPage = ({ currentPath }) => {
 
   const event = getEvent() || { title: "" }
   const news = getNews() || { title: "" }
-  // console.log(news._id)
 
   const collective = getCollective() || { name: "" }
   const album = getAlbum() || { title: "" }
-  // console.log("id album from localStorage", album._id)
 
   const newsTitle = () => news.title.length > 80 ? news.title.slice(0, 80) + "..." : news.title
   const eventTitle = () => event.title.length > 80 ? event.title.slice(0, 80) + "..." : event.title
   const collectiveTitle = () => collective?.name.length > 80 ? collective.name.slice(0, 80) + "..." : collective.name
   const albumTitle = () => album?.title.length > 80 ? album.title.slice(0, 80) + "..." : album.title
   // console.log(getCollective())
+  const isMobileDevice = window.screen.availWidth <= 450
 
   const isHallPage = currentPath.endsWith('showroom') ||
     currentPath.endsWith('big') ||
@@ -35,7 +33,7 @@ const NavPage = ({ currentPath }) => {
     currentPath.endsWith('choreography') ||
     currentPath.endsWith('costume') ||
     currentPath.endsWith('dance') ||
-    (isEventPage(strReverseForEvent(currentPath)) === 24 && currentPath.includes("events"))
+    ((isEventPage(strReverseForEvent(currentPath)) === 24 && !isMobileDevice) && currentPath.includes("events"))
 
   let obj = arrStr.reduce((obj, item) => {
     switch (item) {
@@ -333,24 +331,20 @@ const NavPage = ({ currentPath }) => {
 
 
   useEffect(() => {
-    // console.log(`/collectives/${collective._id}`)
     if (!collective._id) {
       setTimeout(() => setUpDate(true))
-      // console.log(22)
     }
-    // console.log(1)    
   }, [collective._id])
 
-  // console.log(changeNews)
   useEffect(() => {
     const cN = getNews()
     const trubl = news?._id === cN?._id
-    // console.log(trubl)
+
     if (!trubl) {
       setUpDate(!upDate)
     }
-    // console.log('chAnge current path in NavPage')
   }, [upDate, news._id, currentPath])
+
 
   return (
     <ul className={`nav-page ${isHallPage && "nav-page_place_hall"}`}>

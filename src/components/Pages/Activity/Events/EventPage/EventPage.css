@@ -19,6 +19,7 @@
   position: absolute;
   left: 0;
   top: -229px;
+
   height: 434px;
   
   width: 108.1%;  
@@ -128,4 +129,33 @@
 .event-page__links {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 450px) {
+  .event__time-info-item {
+   margin: 0;
+  }
+
+  .event-page__descriptions {
+   flex-direction: column;
+  }
+
+  .event-page__subtitle {
+    margin: 0 0 50px 0;
+  }
+
+  .event-page__descriptions-items {    
+    min-width: 100%;
+    margin-top: 50px;
+    margin-right: 0;
+    padding-right: 0;   
+  }
+
+  .event-page__links {
+    flex-direction: column-reverse;
+  }
+
+  .event-page::after {
+    bottom: 170px;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import './SocialLinksShare.css'
 
-const SocialLinksShare = ({ currentNews }) => {
+const SocialLinksShare = ({ currentNews, place }) => {
 
   useEffect(() => {
 
@@ -29,7 +29,7 @@ const SocialLinksShare = ({ currentNews }) => {
 
   // console.log(currentNews)
   return (
-    <div className="share-social-links">
+    <div className={`share-social-links share-social-links_place_${place}`}>
       <span className="share-social-links__span">поделиться:</span>
       <div className="ya-share2"
         data-curtain

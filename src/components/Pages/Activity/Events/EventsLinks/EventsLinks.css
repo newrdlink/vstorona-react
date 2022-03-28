@@ -1,66 +1,92 @@
 .events-links {
+  position: relative;
   margin: 0;
   width: 100%;
   border-bottom: 1px solid rgba(30, 30, 30, 0.2);
   padding-bottom: 20px;
 }
 
-.events-links__button-will {
-  position: relative;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  margin-right: 100px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 146.4%;
-  color: #442836;
-}
-
-.events-links__button-did {
-  position: relative;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  margin-right: 100px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 146.4%;
-  color: #442836;
-}
-
-.events-links__button-will:hover {
-  cursor: pointer;
-}
-
-.events-links__button-did:hover {
-  cursor: pointer;
-}
-
-.events-links__button-will::after {
+.events-links::after {
   position: absolute;
-  bottom: -20px;
+  bottom: 0;
   left: 0;
+  
   content: "";
-  width: 100%;
+  width: 262px;
   height: 2px;
   background: rgb(151, 66, 105);
   z-index: 3;
   transition: all ease-in-out .2s;
 }
 
-.events-links__button-will_active::after {
+.events-links_active::after {
   position: absolute;
-  bottom: -20px;
+  bottom: 0;
   left: 364px;
   content: "";
-  width: 95%;
+  width: 250px;
   height: 2px;
   background: rgb(151, 66, 105);
   z-index: 3;
   transition: all ease-in-out .2s;
+}
+
+.events-links__button {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  margin-right: 100px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 146.4%;
+  color: #442836;
+}
+
+.events-links__button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+
+  .events-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  .events-links__button {
+    font-size: 14px;
+    margin-right: 0;
+    width: 110px;
+  }
+  
+  .events-links::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    content: "";
+    width: 105px;
+    height: 2px;
+    background: rgb(151, 66, 105);
+    z-index: 3;
+    transition: all ease-in-out .2s;
+  }
+  
+  .events-links_active::after {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    content: "";
+    width: 105px;
+    height: 2px;
+    background: rgb(151, 66, 105);
+    z-index: 3;
+    transition: all ease-in-out .2s;
+  }
+
 }

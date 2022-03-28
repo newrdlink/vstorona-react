@@ -62,12 +62,19 @@ const EventPage = () => {
     index === 0 ? setImage(images[`${images.length - 1}`]) : setImage(images[0])
   }
 
+  const isMobileDevice = window.screen.availWidth <= 450
+
   return (
     <section className="event-page">
-      <div className="event-page__image-container">
-        <img className="event-page__image" src={images[0]} alt="" />
-      </div>
-      <h1 className="event-page__title">{titleForPageEvent()}</h1>
+      {
+        isMobileDevice ? null : <div className="event-page__image-container">
+          <img className="event-page__image" src={images[0]} alt="" />
+        </div>
+      }
+      {
+        isMobileDevice ? null : <h1 className="event-page__title">{titleForPageEvent()}</h1>
+      }
+
       <div className="event__time-info">
         <p className="event__time-info-item">{strDateEvent}</p>
         <p className="event__time-info-item">{strTimeEvent}</p>
@@ -76,20 +83,32 @@ const EventPage = () => {
         <div className="event-page__descriptions-items">
           <h5 className="event-page__subtitle">{subtitle}</h5>
           {
+            isMobileDevice ? <Carusel
+              place="event-page"
+              images={arrImagesForCarusel}
+              onClickImage={(link) => setImage(link)}
+            /> : null
+          }
+          {
             arrWithDescr.map((descr) =>
               <ReactMarkdown className="event-page__descriptions-item"
                 key={descr}>{descr}</ReactMarkdown>)
           }
         </div>
-        <Carusel
-          images={arrImagesForCarusel}
-          place="event"
-          onClickImage={(link) => setImage(link)}
-        />
+        {
+          isMobileDevice ? null : <Carusel
+            images={arrImagesForCarusel}
+            place="event"
+            onClickImage={(link) => setImage(link)}
+          />
+        }
+
       </div>
       <div className="event-page__links">
         <ButtonHistoryBack name="Вернуться" onClick={() => history.goBack()} />
-        <SocialLinksShare />
+        <SocialLinksShare
+          place="event-page"
+        />
       </div>
       <ImagePopup
         onClose={() => setImage('')}

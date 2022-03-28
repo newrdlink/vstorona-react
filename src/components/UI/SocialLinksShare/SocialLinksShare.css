@@ -18,3 +18,18 @@
 .ya-share2__item {
   margin-right: 50px;
 } */
+
+.share-social-links_place_event-page {
+  
+}
+
+
+@media screen and (max-width: 450px) {
+  .share-social-links__span {
+    margin-right: auto;
+  }
+
+  .share-social-links_place_event-page {
+    margin-bottom: 66px;
+  }
+}
