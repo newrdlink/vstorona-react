@@ -6,6 +6,7 @@ import Intro from './Intro/Intro'
 import EventsMain from './EventsMain/EventsMain'
 import NewsMain from './NewsMain/NewsMain'
 import DanceMain from './DanceMain/DanceMain'
+import WidgetGos from '../WidgetGos/WidgetGos'
 
 import apiEvents from '../../utils/ApiEvents'
 import apiNews from '../../utils/ApiNews'
@@ -140,6 +141,7 @@ const Main = ({ currentPath, loggedIn, openCollectiveMenu }) => {
         danceInfo={dancePage}
       />
       <ContactsMain />
+      <WidgetGos />
     </main>
   )
 }
