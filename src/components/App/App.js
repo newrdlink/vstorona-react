@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from 'react'
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom'
 import './App.css'
 
 import Header from '../Header/Header'
-import HeaderMobile from '../HeaderMobile/HeaderMobile';
+import HeaderMobile from '../HeaderMobile/HeaderMobile'
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 
@@ -36,7 +36,7 @@ import Policy from '../Pages/Policy/Policy'
 import Video from '../Pages/Video/Video'
 import Photo from '../Pages/Photo/Photo'
 
-import { useTitle } from '../../helpers/createTitlePage';
+import { useTitle } from '../../helpers/createTitlePage'
 
 const App = () => {
   const isMobileDevice = window.screen.availWidth <= 450
@@ -282,6 +282,7 @@ const App = () => {
             </Route>
             <Route to="*" component={NotFound} />
           </Switch>
+
           <Footer />
           <SignIn
             title="Авторизация"
