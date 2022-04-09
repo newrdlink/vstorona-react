@@ -7,7 +7,8 @@ import DocBoxTitle from '../../About/Documents/DocBoxTitle/DocBoxTitle'
 const DocContainer = ({ items = [], loggedIn, removeDoc }) => {
   // console.log(items)
   const [isActive, setIsActive] = useState(false)
-
+  items.sort((a, b) => + (new Date(a.createdAt)) < + (new Date(b.createdAt)) ? 1 : -1)
+  // console.log(items)
   return (
     <section
       className={`doc-items-container doc-items-container_place_anticorr

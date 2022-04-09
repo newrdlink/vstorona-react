@@ -5,8 +5,9 @@
 
 .doc-items-container_place_anticorr {
   overflow: hidden;
-  max-height: 70px;
+  max-height: 64px;
   transition: max-height .45s ease-in-out;
+  margin-bottom: 30px;
 }
 
 .doc-items-container_place_anticorr:hover {  
@@ -31,4 +32,13 @@
 .doc-items_active {
   transform-origin: top;
   transform: scaleY(1);
+}
+
+@media screen and (max-width: 450px) {
+  .doc-items-container_place_anticorr:nth-of-type(2) {
+    max-height: 35px;
+  }
+  .doc-items-container_active:nth-of-type(2) {
+    max-height: 100%;
+  }
 }

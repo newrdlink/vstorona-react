@@ -1,3 +1,10 @@
 .doc-items {
   list-style: none;
 }
+
+
+@media screen and (max-width: 450px) {
+  .doc-items {
+    padding: 0 0 0 20px;
+  }
+}

@@ -34,3 +34,11 @@
 .doc-item:hover .buttons-box {
   opacity: 1;
 }
+
+
+@media screen and (max-width: 450px) {
+  .doc-item__link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
