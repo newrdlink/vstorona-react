@@ -6,7 +6,7 @@
   line-height: 29px;
   text-transform: uppercase;
   color: #442836;
-  margin: 0 0 40px 0;
+  margin: 0 0 0 0;
   max-width: 550px;
 }
 
@@ -16,4 +16,12 @@
 
 .doc-box-title:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 450px) {
+  .doc-box-title {    
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }

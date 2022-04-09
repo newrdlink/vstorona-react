@@ -23,3 +23,12 @@ margin-bottom: 250px;
   /* text-transform: capitalize; */
   color: #000000;
 }
+
+
+@media screen and (max-width: 450px) {
+
+  .measures__title {
+    font-size: 16px;
+    line-height: 29px;
+  }
+}

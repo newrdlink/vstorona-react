@@ -1,7 +1,7 @@
 .corruption {
   position: relative;
   max-width: 1600px;
-  padding: 0 60px;
+  padding: 0 60px 150px;
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -22,4 +22,17 @@
 
 .corruption__link-measures:hover {
   color: #974269;
+}
+
+@media screen and (max-width: 450px) {
+
+  .corruption {
+    padding: 0 12px;
+  }
+
+  .corruption__link-measures {
+    font-size: 18px;
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
 }
