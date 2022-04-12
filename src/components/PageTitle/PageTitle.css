@@ -18,7 +18,11 @@
 
 .title_place_collective {
   margin-top: 110px;
-  max-width: 640px; 
+  max-width: 640px;
+}
+
+.title_place_common {
+  margin: 0 0 70px 0;
 }
 
 .title_place_showroom {
@@ -131,6 +135,48 @@
   }
 
   .title_place_measures {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_forms {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_intelligence {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_commission {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_info {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_materials {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_feedback {
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 50px 0;
+  }
+
+  .title_place_common {
     font-size: 24px;
     line-height: 29px;
     margin: 0 0 50px 0;

@@ -247,6 +247,55 @@ const NavPage = ({ currentPath }) => {
         me.path = '/anti-corruption/measures'
         obj.push(me)
         break
+      case 'feedback':
+        let feed = {}
+        feed.id = 299
+        feed.name = 'обратная связь для сообщений о фактах коррупции  '
+        feed.path = '/anti-corruption/feedback'
+        obj.push(feed)
+        break
+      case 'forms':
+        let forms = {}
+        forms.id = 280
+        forms.name = 'формы документов, связанных с противодействием коррупции, для заполнения  '
+        forms.path = '/anti-corruption/forms'
+        obj.push(forms)
+        break
+      case 'materials':
+        let mat = {}
+        mat.id = 181
+        mat.name = 'методические материалы  '
+        mat.path = '/anti-corruption/materials'
+        obj.push(mat)
+        break
+      case 'common':
+        let com = {}
+        com.id = 181
+        com.name = 'нормативные правовые и иные акты в сфере противодействия коррупции  '
+        com.path = '/anti-corruption/common'
+        obj.push(com)
+        break
+      case 'info':
+        let inf = {}
+        inf.id = 211
+        inf.name = 'информационные материалы  '
+        inf.path = '/anti-corruption/info'
+        obj.push(inf)
+        break
+      case 'commission':
+        let comm = {}
+        comm.id = 281
+        comm.name = 'комиссия по противодействию коррупции  '
+        comm.path = '/anti-corruption/commission'
+        obj.push(comm)
+        break
+      case 'intelligence':
+        let intell = {}
+        intell.id = 289
+        intell.name = 'cведения о доходах, расходах, об имуществе и обязательствах имущественного характера  '
+        intell.path = '/anti-corruption/intelligence'
+        obj.push(intell)
+        break
       case 'contacts':
         let cont = {}
         cont.id = 28

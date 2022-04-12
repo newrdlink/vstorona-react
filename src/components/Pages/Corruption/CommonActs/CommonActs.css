@@ -1,0 +1,45 @@
+.common-act {
+  padding: 0 0 120px 0;
+}
+
+.common-act__gos {
+  display: flex;
+  flex-direction: column;
+}
+
+.common__link {
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 37px;
+  color: #442836;
+  margin-bottom: 25px;
+
+}
+
+.common__link:hover {
+  text-decoration: underline;
+}
+
+.common-act__title {
+  margin-top: 100px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #974269;
+}
+
+@media screen and (max-width: 450px) {
+
+
+  .common-act__title {
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 29px;
+  }
+}
