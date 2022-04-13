@@ -35,6 +35,7 @@ const Сommission = () => {
         }
         }
       />
+      <h5 className="span-com">Протоколы заседаний</h5>
       <DocItemCorr
         item={{
           link: "https://disk.yandex.ru/i/3Zx3Neap8CaAPw",
@@ -42,7 +43,6 @@ const Сommission = () => {
         }
         }
       />
-      <h5 className="span-com">Протоколы заседаний</h5>
       <DocItemCorr
         item={{
           link: "https://disk.yandex.ru/i/_AvP2rQFtOBqbA",
@@ -67,14 +67,14 @@ const Сommission = () => {
       <DocItemCorr
         item={{
           link: "https://disk.yandex.ru/i/lVA8ICN5TJRcrA",
-          title: "Протокол заседания комиссии №1 от 15.06.2021",
+          title: "Протокол заседания комиссии № 1 от 15.06.2021",
         }
         }
       />
       <DocItemCorr
         item={{
           link: "https://disk.yandex.ru/i/Cj44OJklcgF3eA",
-          title: "Протокол заседания комиссии №2 от 17.12.2021",
+          title: "Протокол заседания комиссии № 2 от 17.12.2021",
         }
         }
       />
