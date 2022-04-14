@@ -33,6 +33,13 @@ const Info = ({ docs = [] }) => {
       />
       <DocItemCorr
         item={{
+          link: "https://disk.yandex.ru/i/qcOETRXUK54n5A",
+          title: "Отчет о выполнении плана мероприятий по противодействию коррупции за 2020 год ",
+        }
+        }
+      />
+      <DocItemCorr
+        item={{
           link: "https://disk.yandex.ru/i/wd0BTNyfe9JitQ",
           title: "Отчет о выполнении плана мероприятий по противодействию коррупции за 2019 год",
         }

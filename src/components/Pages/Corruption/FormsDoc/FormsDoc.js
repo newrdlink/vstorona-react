@@ -12,7 +12,7 @@ const FormsDoc = ({ docs = [] }) => {
 
       <DocItemCorr
         item={{
-          link: "https://disk.yandex.ru/i/H2jJlFvltoHOzg",
+          link: "https://disk.yandex.ru/i/HKKq5gxSkSqfOQ",
           title: "Обращение гражданина, представителя организации по фактам коррупционных правонарушений",
         }
         }
