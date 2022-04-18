@@ -84,13 +84,6 @@ const CommonActs = ({ items = [] }) => {
           }
           }
         />
-        <DocItemCorr
-          item={{
-            link: "https://disk.yandex.ru/i/5rny8SD6kxHZ-w",
-            title: "План работы Комиссии по противодействию коррупции в 2022 году",
-          }
-          }
-        />
       </ul>
     </section>
   )

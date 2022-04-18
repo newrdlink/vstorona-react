@@ -17,13 +17,6 @@ const FormsDoc = ({ docs = [] }) => {
         }
         }
       />
-      <DocItemCorr
-        item={{
-          link: "https://www.gov.spb.ru/gov/protivodejstvie-korrupcii/formy-dokumentov-svyazannyh-s-protivodejstviem-korrupcii-dlya-zapolnen/",
-          title: "Формы обращений, уведомлений, заявлений, справок, заполняемых государственными гражданскими служащими и гражданами в целях реализации действующего законодательства о противодействии коррупции ",
-        }
-        }
-      />
     </ul>
     // <DocContainer items={docs} key={1} />
   )

@@ -35,6 +35,35 @@ const Сommission = () => {
         }
         }
       />
+      {/*  */}
+      <DocItemCorr
+        item={{
+          link: "https://disk.yandex.ru/i/bNgSYgprjXR0ew",
+          title: "План работы Комиссии по противодействию коррупции на 2019 год",
+        }
+        }
+      />
+      <DocItemCorr
+        item={{
+          link: "https://disk.yandex.ru/i/6f6Tz95T1NKs1g",
+          title: "План работы Комиссии по противодействию коррупции на 2020 год",
+        }
+        }
+      />
+      <DocItemCorr
+        item={{
+          link: "https://disk.yandex.ru/i/K37JCHAdyRc48A",
+          title: "План работы Комиссии по противодействию коррупции на 2021 год",
+        }
+        }
+      />
+      <DocItemCorr
+        item={{
+          link: "https://disk.yandex.ru/i/5N8tw32CoHXCgg",
+          title: "План работы Комиссии по противодействию коррупции на 2022 год",
+        }
+        }
+      />
       <h5 className="span-com">Протоколы заседаний</h5>
       <DocItemCorr
         item={{
